@@ -1,0 +1,91 @@
+{
+  "schema_version": "1.0.0",
+  "description": "World-truth parameters for the telemetry generator ONLY. Detection, prediction and diagnosis code must not read this file; they use their own estimates in config/detector.json, just as a real ground system would only know datasheet values. Equations are in docs/DECISIONS.md section 4. Absolute magnitudes are scaled and do not match a real lunar rover; the relationships between channels are what matter.",
+
+  "timing": {
+    "sample_rate_hz": 1.0,
+    "batch_s": 60,
+    "integration_dt_s": 1.0,
+    "source": "team decision (DECISIONS.md section 3)"
+  },
+
+  "robot": {
+    "mass_kg": 400.0,
+    "n_wheels": 4,
+    "wheel_radius_m": 0.25,
+    "source": "team estimate"
+  },
+
+  "environment": {
+    "gravity_mps2": 1.62,
+    "gravity_source": "physical constant - lunar surface gravity, NASA Moon Fact Sheet",
+    "rolling_resistance_coeff": 0.15,
+    "rolling_resistance_source": "team estimate - needs a terramechanics citation",
+    "sink_temp_c": 20.0,
+    "sink_temp_source": "team estimate - drive housing heat-sink temperature held constant for PDR (see open question Q5)"
+  },
+
+  "drive_motor": {
+    "k_t_nm_per_a": 2.0,
+    "k_e_v_s_per_rad": 2.0,
+    "r_arm_ohm": 0.15,
+    "bearing_friction_nm": 0.5,
+    "driver_efficiency": 0.90,
+    "note": "Lumped at the wheel shaft (gear ratio folded into k_t and k_e). k_t equals k_e in SI units for a DC motor.",
+    "source": "team estimate - chosen so copper loss is small next to shaft power (about 90% efficient), which keeps wheel_drag's temperature rise inside the NORMAL band"
+  },
+
+  "drive_thermal": {
+    "r_th_k_per_w": 5.0,
+    "c_th_j_per_k": 120.0,
+    "note": "Thermal time constant tau = r_th * c_th = 600 s.",
+    "source": "team estimate"
+  },
+
+  "battery": {
+    "n_series_cells": 13,
+    "capacity_ah": 50.0,
+    "r_int_ohm": 0.08,
+    "ocv_table_soc_pct_to_v": [[0, 39.0], [10, 44.9], [20, 46.2], [40, 47.6], [60, 48.8], [80, 50.7], [100, 54.0]],
+    "source": "team estimate - shape of a typical Li-ion NMC open-circuit-voltage curve, 13 cells in series; replace with measured data (see calibration_slots)"
+  },
+
+  "loads": {
+    "hotel_load_w": 60.0,
+    "lift_bus_voltage_v": 12.0,
+    "source": "team estimate (avionics, radio and heaters drawn continuously)"
+  },
+
+  "terrain": {
+    "torque_sigma_nm": 0.3,
+    "correlation_time_s": 20.0,
+    "note": "Process noise on each wheel's load torque, modelled as a first-order autoregressive (AR(1)) random walk. Because it enters at the physical cause, current, speed and temperature fluctuate together the way real data would.",
+    "source": "team estimate"
+  },
+
+  "sensor_noise_sigma": {
+    "wheel_current_a": 0.05,
+    "wheel_speed_rads": 0.01,
+    "wheel_temp_c": 0.2,
+    "battery_voltage_v": 0.03,
+    "battery_current_a": 0.05,
+    "battery_soc_pct": 0.0,
+    "lift_joint_current_a": 0.03,
+    "lift_joint_pos_err_deg": 0.02,
+    "source": "team estimate - independent Gaussian noise added after the physics"
+  },
+
+  "quantization": {
+    "battery_soc_pct": 0.1,
+    "source": "team estimate (BMS reports SOC in 0.1 % steps)"
+  },
+
+  "calibration_slots": {
+    "note": "Leave value null until filled from real data. When filled, record dataset name, file and how the number was extracted in 'filled_from'. Nothing is downloaded by this repo.",
+    "battery_ocv_table_soc_pct_to_v": {"value": null, "candidate_source": "NASA PCoE Li-ion battery ageing data set", "filled_from": null},
+    "battery_r_int_ohm": {"value": null, "candidate_source": "NASA PCoE Li-ion battery ageing data set (impedance measurements)", "filled_from": null},
+    "battery_r_int_growth_curve": {"value": null, "candidate_source": "NASA PCoE Li-ion battery ageing data set", "filled_from": null},
+    "bearing_degradation_shape": {"value": null, "candidate_source": "NASA PCoE repository - IMS bearing run-to-failure set", "filled_from": null},
+    "sensor_noise_sigma": {"value": null, "candidate_source": "Bench measurement on the team's RC robot / stepper rig (HUNCH-approved data source)", "filled_from": null}
+  }
+}

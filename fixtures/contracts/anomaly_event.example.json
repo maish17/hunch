@@ -1,0 +1,20 @@
+{
+  "schema_version": "1.0.0",
+  "anomaly_id": "AN-000001",
+  "robot_id": "P2-02",
+  "t_s": 10620,
+  "timestamp": "2027-03-01T02:57:00Z",
+  "detected_t_s": 10680,
+  "channel": "wheel_fl_temp_c",
+  "component": "wheel_fl_thermal",
+  "subsystem": "THERMAL",
+  "op_mode": "TRAVERSE_EMPTY",
+  "severity": "WARNING",
+  "value": 49.11,
+  "baseline": 33.76,
+  "magnitude": 15.36,
+  "limit": 15.0,
+  "rule": "RELATIVE_WARNING_HIGH",
+  "units": "degC",
+  "message": "P2-02 front-left drive temperature is more than 15 degC above its TRAVERSE_EMPTY baseline"
+}

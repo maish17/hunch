@@ -1,0 +1,36 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://hunch-llaso-p4.invalid/schemas/dashboard_alerts.schema.json",
+  "title": "Dashboard feed: alert feed",
+  "description": "Operator alert feed, newest first. Built from the event log; titles are pre-written by Python. ref_id points back at the full object (anomaly, prediction, work order or event).",
+  "type": "object",
+  "required": ["schema_version", "feed_type", "t_s", "sim_time", "alerts"],
+  "additionalProperties": false,
+  "properties": {
+    "schema_version": {"$ref": "common.schema.json#/$defs/schema_version"},
+    "feed_type": {"const": "alerts"},
+    "t_s": {"$ref": "common.schema.json#/$defs/t_s"},
+    "sim_time": {"$ref": "common.schema.json#/$defs/timestamp"},
+    "alerts": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["alert_id", "t_s", "at", "kind", "severity", "robot_id", "subsystem", "channel", "title", "detail", "ref_id"],
+        "additionalProperties": false,
+        "properties": {
+          "alert_id": {"$ref": "common.schema.json#/$defs/event_id"},
+          "t_s": {"$ref": "common.schema.json#/$defs/t_s"},
+          "at": {"$ref": "common.schema.json#/$defs/timestamp"},
+          "kind": {"enum": ["ANOMALY", "PREDICTION", "WORK_ORDER", "STATUS_CHANGE", "STANDBY_SWAP"]},
+          "severity": {"enum": ["WARNING", "CRITICAL", "INFO"]},
+          "robot_id": {"oneOf": [{"$ref": "common.schema.json#/$defs/robot_id"}, {"type": "null"}]},
+          "subsystem": {"oneOf": [{"$ref": "common.schema.json#/$defs/subsystem"}, {"type": "null"}]},
+          "channel": {"oneOf": [{"$ref": "common.schema.json#/$defs/channel_name"}, {"type": "null"}]},
+          "title": {"type": "string"},
+          "detail": {"type": "string"},
+          "ref_id": {"type": ["string", "null"]}
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,126 @@
+{
+  "schema_version": "1.0.0",
+  "feed_type": "fleet_board",
+  "t_s": 11400,
+  "sim_time": "2027-03-01T03:10:00Z",
+  "summary": {
+    "robots_total": 5,
+    "in_service": 3,
+    "standby_available": 1,
+    "in_maintenance": 2,
+    "open_work_orders": 2,
+    "missions_uncovered": 0
+  },
+  "robots": [
+    {
+      "robot_id": "P2-01",
+      "robot_type": "P2_TRANSPORT",
+      "status": "ACTIVE",
+      "status_label": "Active",
+      "mission_id": "M-HAUL-A",
+      "mission_label": "Lander A to habitat cargo haul",
+      "op_mode": "TRAVERSE_EMPTY",
+      "health_status": "NORMAL",
+      "health_score": 100,
+      "soc_pct": 76.8,
+      "location_zone": "HAUL_ROUTE_1",
+      "standby": false,
+      "subsystems": {
+        "MOBILITY": "NORMAL",
+        "THERMAL": "NORMAL",
+        "POWER": "NORMAL",
+        "MECHANISMS": "NORMAL"
+      },
+      "open_work_order_id": null,
+      "headline": "All channels normal"
+    },
+    {
+      "robot_id": "P2-02",
+      "robot_type": "P2_TRANSPORT",
+      "status": "EN_ROUTE_P5",
+      "status_label": "En route to P5",
+      "mission_id": null,
+      "mission_label": null,
+      "op_mode": "TRAVERSE_EMPTY",
+      "health_status": "WARNING",
+      "health_score": 60,
+      "soc_pct": 73.5,
+      "location_zone": "ROUTE_TO_P5",
+      "standby": false,
+      "subsystems": {
+        "MOBILITY": "NORMAL",
+        "THERMAL": "WARNING",
+        "POWER": "NORMAL",
+        "MECHANISMS": "NORMAL"
+      },
+      "open_work_order_id": "WO-20270301-0001",
+      "headline": "Hub bearing wear suspected (front-left) - about 41 min to predicted failure; arriving at P5"
+    },
+    {
+      "robot_id": "P2-03",
+      "robot_type": "P2_TRANSPORT",
+      "status": "MAINTENANCE_REQUIRED",
+      "status_label": "Maintenance required",
+      "mission_id": "M-SHUTTLE-C",
+      "mission_label": "Habitat to P5 parts shuttle",
+      "op_mode": "TRAVERSE_LOADED",
+      "health_status": "WARNING",
+      "health_score": 60,
+      "soc_pct": 71.1,
+      "location_zone": "HAB_SITE",
+      "standby": false,
+      "subsystems": {
+        "MOBILITY": "NORMAL",
+        "THERMAL": "NORMAL",
+        "POWER": "WARNING",
+        "MECHANISMS": "NORMAL"
+      },
+      "open_work_order_id": "WO-20270301-0002",
+      "headline": "Battery degradation suspected - about 74 min to predicted failure; queued for P5 (position 1)"
+    },
+    {
+      "robot_id": "P2-04",
+      "robot_type": "P2_TRANSPORT",
+      "status": "ACTIVE",
+      "status_label": "Active",
+      "mission_id": "M-HAUL-B",
+      "mission_label": "Lander B to depot haul",
+      "op_mode": "TRAVERSE_LOADED",
+      "health_status": "NORMAL",
+      "health_score": 100,
+      "soc_pct": 91.5,
+      "location_zone": "HAUL_ROUTE_2",
+      "standby": false,
+      "subsystems": {
+        "MOBILITY": "NORMAL",
+        "THERMAL": "NORMAL",
+        "POWER": "NORMAL",
+        "MECHANISMS": "NORMAL"
+      },
+      "open_work_order_id": null,
+      "headline": "Replacing P2-02 on M-HAUL-B"
+    },
+    {
+      "robot_id": "P2-05",
+      "robot_type": "P2_TRANSPORT",
+      "status": "STANDBY",
+      "status_label": "Standby",
+      "mission_id": null,
+      "mission_label": null,
+      "op_mode": "IDLE",
+      "health_status": "NORMAL",
+      "health_score": 100,
+      "soc_pct": 89.1,
+      "location_zone": "STANDBY_PARK",
+      "standby": true,
+      "subsystems": {
+        "MOBILITY": "NORMAL",
+        "THERMAL": "NORMAL",
+        "POWER": "NORMAL",
+        "MECHANISMS": "NORMAL"
+      },
+      "open_work_order_id": null,
+      "headline": "Standby - ready"
+    }
+  ]
+}

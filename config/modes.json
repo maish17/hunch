@@ -1,0 +1,154 @@
+{
+  "schema_version": "1.0.0",
+  "description": "Operating modes that shift baseline readings. Health evaluation compares each reading to the baseline for the robot's CURRENT mode, never to a flat threshold.",
+  "reference_mode": "TRAVERSE_EMPTY",
+  "baseline_rules": {
+    "per_mode": "Baseline is the constant listed under baselines for the current mode.",
+    "thermal_lag": "Listed value is the steady-state temperature for the mode. After a mode change the baseline moves toward the new value through a first-order lag (time constant from config/detector.json thermal_model.tau_s). Without the lag, every cool-down after a drive would raise a false high-temperature alarm.",
+    "battery_model": "Not listed here. Baseline = V_oc(SOC) - I * R_nominal using the detector's battery model in config/detector.json.",
+    "none": "No baseline; channel uses absolute limits only."
+  },
+  "source": "Team estimate. Baselines computed from the DECISIONS.md section 4 equations with config/generator.json parameters at SOC 50%, then rounded. Re-derive from a healthy calibration run once the generator exists (see DECISIONS.md open question Q6).",
+  "modes": [
+    {
+      "id": "IDLE",
+      "label": "Idle - parked, avionics on, wheels and lift stopped",
+      "generator_inputs": {
+        "drive_voltage_v": 0.0,
+        "cargo_mass_kg": 0.0,
+        "lift_current_a": 0.0,
+        "lift_pos_err_deg": 0.05,
+        "charger_current_a": 0.0
+      },
+      "baselines": {
+        "wheel_fl_current_a": 0.0,
+        "wheel_fl_speed_rads": 0.0,
+        "wheel_fl_temp_c": 20.0,
+        "wheel_fr_current_a": 0.0,
+        "wheel_fr_speed_rads": 0.0,
+        "wheel_fr_temp_c": 20.0,
+        "wheel_rl_current_a": 0.0,
+        "wheel_rl_speed_rads": 0.0,
+        "wheel_rl_temp_c": 20.0,
+        "wheel_rr_current_a": 0.0,
+        "wheel_rr_speed_rads": 0.0,
+        "wheel_rr_temp_c": 20.0,
+        "battery_current_a": 1.25,
+        "lift_joint_current_a": 0.0,
+        "lift_joint_pos_err_deg": 0.05
+      }
+    },
+    {
+      "id": "TRAVERSE_EMPTY",
+      "label": "Driving with no cargo",
+      "generator_inputs": {
+        "drive_voltage_v": 5.0,
+        "cargo_mass_kg": 0.0,
+        "lift_current_a": 0.0,
+        "lift_pos_err_deg": 0.05,
+        "charger_current_a": 0.0
+      },
+      "baselines": {
+        "wheel_fl_current_a": 3.29,
+        "wheel_fl_speed_rads": 2.25,
+        "wheel_fl_temp_c": 33.7,
+        "wheel_fr_current_a": 3.29,
+        "wheel_fr_speed_rads": 2.25,
+        "wheel_fr_temp_c": 33.7,
+        "wheel_rl_current_a": 3.29,
+        "wheel_rl_speed_rads": 2.25,
+        "wheel_rl_temp_c": 33.7,
+        "wheel_rr_current_a": 3.29,
+        "wheel_rr_speed_rads": 2.25,
+        "wheel_rr_temp_c": 33.7,
+        "battery_current_a": 2.78,
+        "lift_joint_current_a": 0.0,
+        "lift_joint_pos_err_deg": 0.05
+      }
+    },
+    {
+      "id": "TRAVERSE_LOADED",
+      "label": "Driving with a 200 kg cargo load",
+      "generator_inputs": {
+        "drive_voltage_v": 5.0,
+        "cargo_mass_kg": 200.0,
+        "lift_current_a": 0.0,
+        "lift_pos_err_deg": 0.05,
+        "charger_current_a": 0.0
+      },
+      "baselines": {
+        "wheel_fl_current_a": 4.81,
+        "wheel_fl_speed_rads": 2.14,
+        "wheel_fl_temp_c": 42.7,
+        "wheel_fr_current_a": 4.81,
+        "wheel_fr_speed_rads": 2.14,
+        "wheel_fr_temp_c": 42.7,
+        "wheel_rl_current_a": 4.81,
+        "wheel_rl_speed_rads": 2.14,
+        "wheel_rl_temp_c": 42.7,
+        "wheel_rr_current_a": 4.81,
+        "wheel_rr_speed_rads": 2.14,
+        "wheel_rr_temp_c": 42.7,
+        "battery_current_a": 3.49,
+        "lift_joint_current_a": 0.0,
+        "lift_joint_pos_err_deg": 0.05
+      }
+    },
+    {
+      "id": "CARGO_HANDLING",
+      "label": "Parked, cargo lift moving (load/unload at P3)",
+      "generator_inputs": {
+        "drive_voltage_v": 0.0,
+        "cargo_mass_kg": 0.0,
+        "lift_current_a": 2.0,
+        "lift_pos_err_deg": 0.4,
+        "charger_current_a": 0.0
+      },
+      "baselines": {
+        "wheel_fl_current_a": 0.0,
+        "wheel_fl_speed_rads": 0.0,
+        "wheel_fl_temp_c": 20.0,
+        "wheel_fr_current_a": 0.0,
+        "wheel_fr_speed_rads": 0.0,
+        "wheel_fr_temp_c": 20.0,
+        "wheel_rl_current_a": 0.0,
+        "wheel_rl_speed_rads": 0.0,
+        "wheel_rl_temp_c": 20.0,
+        "wheel_rr_current_a": 0.0,
+        "wheel_rr_speed_rads": 0.0,
+        "wheel_rr_temp_c": 20.0,
+        "battery_current_a": 1.81,
+        "lift_joint_current_a": 2.0,
+        "lift_joint_pos_err_deg": 0.4
+      }
+    },
+    {
+      "id": "CHARGING",
+      "label": "Parked on charger, wheels stopped",
+      "generator_inputs": {
+        "drive_voltage_v": 0.0,
+        "cargo_mass_kg": 0.0,
+        "lift_current_a": 0.0,
+        "lift_pos_err_deg": 0.05,
+        "charger_current_a": 10.0
+      },
+      "baselines": {
+        "wheel_fl_current_a": 0.0,
+        "wheel_fl_speed_rads": 0.0,
+        "wheel_fl_temp_c": 20.0,
+        "wheel_fr_current_a": 0.0,
+        "wheel_fr_speed_rads": 0.0,
+        "wheel_fr_temp_c": 20.0,
+        "wheel_rl_current_a": 0.0,
+        "wheel_rl_speed_rads": 0.0,
+        "wheel_rl_temp_c": 20.0,
+        "wheel_rr_current_a": 0.0,
+        "wheel_rr_speed_rads": 0.0,
+        "wheel_rr_temp_c": 20.0,
+        "battery_current_a": -10.0,
+        "lift_joint_current_a": 0.0,
+        "lift_joint_pos_err_deg": 0.05
+      }
+    }
+  ]
+}

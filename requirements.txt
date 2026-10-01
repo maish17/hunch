@@ -1,0 +1,5 @@
+# Python 3.11+. These four are the only allowed dependencies; ask the team before adding any.
+pandas>=2.1
+numpy>=1.26
+pyarrow>=14
+jsonschema>=4.18   # brings 'referencing', used by schemas/validate.py for cross-file $refs

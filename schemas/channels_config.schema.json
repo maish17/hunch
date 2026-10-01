@@ -1,0 +1,108 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://hunch-llaso-p4.invalid/schemas/channels_config.schema.json",
+  "title": "Channel schema file (config/channels.json)",
+  "description": "Validates the structure of config/channels.json so a typo in the single source of limits is caught before any code runs.",
+  "type": "object",
+  "required": ["schema_version", "robot_type", "description", "record_fields", "hierarchy", "channels"],
+  "additionalProperties": false,
+  "properties": {
+    "schema_version": {"$ref": "common.schema.json#/$defs/schema_version"},
+    "robot_type": {"$ref": "common.schema.json#/$defs/robot_type"},
+    "description": {"type": "string"},
+    "record_fields": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["name", "dtype", "description"],
+        "properties": {
+          "name": {"type": "string"},
+          "dtype": {"enum": ["string", "int64", "timestamp_ms_utc", "category"]},
+          "units": {"type": "string"},
+          "description": {"type": "string"}
+        },
+        "additionalProperties": false
+      }
+    },
+    "hierarchy": {
+      "type": "object",
+      "required": ["levels", "note", "subsystems", "components"],
+      "additionalProperties": false,
+      "properties": {
+        "levels": {"type": "array", "items": {"type": "string"}},
+        "note": {"type": "string"},
+        "subsystems": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "required": ["id", "label", "components"],
+            "additionalProperties": false,
+            "properties": {
+              "id": {"$ref": "common.schema.json#/$defs/subsystem"},
+              "label": {"type": "string"},
+              "components": {"type": "array", "items": {"$ref": "common.schema.json#/$defs/component_id"}}
+            }
+          }
+        },
+        "components": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "required": ["id", "label", "subsystem", "sensing_domain"],
+            "additionalProperties": false,
+            "properties": {
+              "id": {"$ref": "common.schema.json#/$defs/component_id"},
+              "label": {"type": "string"},
+              "subsystem": {"$ref": "common.schema.json#/$defs/subsystem"},
+              "sensing_domain": {"enum": ["internal", "external"]}
+            }
+          }
+        }
+      }
+    },
+    "channels": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "required": ["name", "label", "units", "dtype", "component", "subsystem", "baseline_type", "nominal_mode", "nominal_range", "limits", "hard_limits", "diagnostic_for", "justification", "source"],
+        "additionalProperties": false,
+        "properties": {
+          "name": {"$ref": "common.schema.json#/$defs/channel_name"},
+          "label": {"type": "string"},
+          "units": {"type": "string"},
+          "dtype": {"enum": ["float32", "float64", "int32", "int64"]},
+          "component": {"$ref": "common.schema.json#/$defs/component_id"},
+          "subsystem": {"$ref": "common.schema.json#/$defs/subsystem"},
+          "baseline_type": {"enum": ["per_mode", "thermal_lag", "battery_model", "none"]},
+          "nominal_mode": {"oneOf": [{"$ref": "common.schema.json#/$defs/op_mode"}, {"type": "null"}]},
+          "nominal_range": {"type": "array", "prefixItems": [{"type": "number"}, {"type": "number"}], "minItems": 2, "maxItems": 2},
+          "limits": {
+            "type": "object",
+            "required": ["type", "warning_low", "warning_high", "critical_low", "critical_high"],
+            "additionalProperties": false,
+            "properties": {
+              "type": {"enum": ["relative", "absolute"]},
+              "warning_low": {"$ref": "common.schema.json#/$defs/nullable_number"},
+              "warning_high": {"$ref": "common.schema.json#/$defs/nullable_number"},
+              "critical_low": {"$ref": "common.schema.json#/$defs/nullable_number"},
+              "critical_high": {"$ref": "common.schema.json#/$defs/nullable_number"}
+            }
+          },
+          "hard_limits": {
+            "type": "object",
+            "required": ["critical_low", "critical_high"],
+            "additionalProperties": false,
+            "properties": {
+              "critical_low": {"$ref": "common.schema.json#/$defs/nullable_number"},
+              "critical_high": {"$ref": "common.schema.json#/$defs/nullable_number"}
+            }
+          },
+          "diagnostic_for": {"type": "array", "items": {"enum": ["bearing_wear", "wheel_drag", "cooling_fault", "battery_degradation"]}},
+          "justification": {"type": "string"},
+          "source": {"type": "string"}
+        }
+      }
+    }
+  }
+}

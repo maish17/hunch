@@ -1,0 +1,594 @@
+{
+  "schema_version": "1.0.0",
+  "feed_type": "robot_detail",
+  "robot_id": "P2-02",
+  "t_s": 11400,
+  "sim_time": "2027-03-01T03:10:00Z",
+  "status": "EN_ROUTE_P5",
+  "mission_id": null,
+  "op_mode": "TRAVERSE_EMPTY",
+  "snapshot": {
+    "schema_version": "1.0.0",
+    "robot_id": "P2-02",
+    "robot_type": "P2_TRANSPORT",
+    "t_s": 11400,
+    "timestamp": "2027-03-01T03:10:00Z",
+    "op_mode": "TRAVERSE_EMPTY",
+    "status": "WARNING",
+    "health_score": 60,
+    "subsystems": [
+      {
+        "subsystem": "MOBILITY",
+        "status": "NORMAL",
+        "components": [
+          {
+            "component": "wheel_fl_drive",
+            "status": "NORMAL",
+            "channels": [
+              {
+                "channel": "wheel_fl_current_a",
+                "units": "A",
+                "value": 4.185,
+                "baseline": 3.29,
+                "deviation": 0.895,
+                "status": "NORMAL",
+                "rule": null
+              },
+              {
+                "channel": "wheel_fl_speed_rads",
+                "units": "rad/s",
+                "value": 2.187,
+                "baseline": 2.25,
+                "deviation": -0.063,
+                "status": "NORMAL",
+                "rule": null
+              }
+            ]
+          },
+          {
+            "component": "wheel_fr_drive",
+            "status": "NORMAL",
+            "channels": [
+              {
+                "channel": "wheel_fr_current_a",
+                "units": "A",
+                "value": 3.372,
+                "baseline": 3.29,
+                "deviation": 0.082,
+                "status": "NORMAL",
+                "rule": null
+              },
+              {
+                "channel": "wheel_fr_speed_rads",
+                "units": "rad/s",
+                "value": 2.258,
+                "baseline": 2.25,
+                "deviation": 0.008,
+                "status": "NORMAL",
+                "rule": null
+              }
+            ]
+          },
+          {
+            "component": "wheel_rl_drive",
+            "status": "NORMAL",
+            "channels": [
+              {
+                "channel": "wheel_rl_current_a",
+                "units": "A",
+                "value": 3.324,
+                "baseline": 3.29,
+                "deviation": 0.034,
+                "status": "NORMAL",
+                "rule": null
+              },
+              {
+                "channel": "wheel_rl_speed_rads",
+                "units": "rad/s",
+                "value": 2.249,
+                "baseline": 2.25,
+                "deviation": -0.001,
+                "status": "NORMAL",
+                "rule": null
+              }
+            ]
+          },
+          {
+            "component": "wheel_rr_drive",
+            "status": "NORMAL",
+            "channels": [
+              {
+                "channel": "wheel_rr_current_a",
+                "units": "A",
+                "value": 3.272,
+                "baseline": 3.29,
+                "deviation": -0.018,
+                "status": "NORMAL",
+                "rule": null
+              },
+              {
+                "channel": "wheel_rr_speed_rads",
+                "units": "rad/s",
+                "value": 2.24,
+                "baseline": 2.25,
+                "deviation": -0.01,
+                "status": "NORMAL",
+                "rule": null
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "subsystem": "THERMAL",
+        "status": "WARNING",
+        "components": [
+          {
+            "component": "wheel_fl_thermal",
+            "status": "WARNING",
+            "channels": [
+              {
+                "channel": "wheel_fl_temp_c",
+                "units": "degC",
+                "value": 52.89,
+                "baseline": 33.72,
+                "deviation": 19.18,
+                "status": "WARNING",
+                "rule": "RELATIVE_WARNING_HIGH"
+              }
+            ]
+          },
+          {
+            "component": "wheel_fr_thermal",
+            "status": "NORMAL",
+            "channels": [
+              {
+                "channel": "wheel_fr_temp_c",
+                "units": "degC",
+                "value": 33.72,
+                "baseline": 33.72,
+                "deviation": 0.01,
+                "status": "NORMAL",
+                "rule": null
+              }
+            ]
+          },
+          {
+            "component": "wheel_rl_thermal",
+            "status": "NORMAL",
+            "channels": [
+              {
+                "channel": "wheel_rl_temp_c",
+                "units": "degC",
+                "value": 33.67,
+                "baseline": 33.72,
+                "deviation": -0.05,
+                "status": "NORMAL",
+                "rule": null
+              }
+            ]
+          },
+          {
+            "component": "wheel_rr_thermal",
+            "status": "NORMAL",
+            "channels": [
+              {
+                "channel": "wheel_rr_temp_c",
+                "units": "degC",
+                "value": 33.93,
+                "baseline": 33.72,
+                "deviation": 0.22,
+                "status": "NORMAL",
+                "rule": null
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "subsystem": "POWER",
+        "status": "NORMAL",
+        "components": [
+          {
+            "component": "battery_pack",
+            "status": "NORMAL",
+            "channels": [
+              {
+                "channel": "battery_voltage_v",
+                "units": "V",
+                "value": 49.855,
+                "baseline": 49.849,
+                "deviation": 0.007,
+                "status": "NORMAL",
+                "rule": null
+              },
+              {
+                "channel": "battery_current_a",
+                "units": "A",
+                "value": 2.898,
+                "baseline": 2.78,
+                "deviation": 0.118,
+                "status": "NORMAL",
+                "rule": null
+              },
+              {
+                "channel": "battery_soc_pct",
+                "units": "%",
+                "value": 73.5,
+                "baseline": null,
+                "deviation": null,
+                "status": "NORMAL",
+                "rule": null
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "subsystem": "MECHANISMS",
+        "status": "NORMAL",
+        "components": [
+          {
+            "component": "lift_actuator",
+            "status": "NORMAL",
+            "channels": [
+              {
+                "channel": "lift_joint_current_a",
+                "units": "A",
+                "value": 0.01,
+                "baseline": 0.0,
+                "deviation": 0.01,
+                "status": "NORMAL",
+                "rule": null
+              },
+              {
+                "channel": "lift_joint_pos_err_deg",
+                "units": "deg",
+                "value": 0.055,
+                "baseline": 0.05,
+                "deviation": 0.005,
+                "status": "NORMAL",
+                "rule": null
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  "series": {
+    "t_s": [4200, 4260, 4320, 4380, 4440, 4500, 4560, 4620, 4680, 4740, 4800, 4860, 4920, 4980, 5040, 5100, 5160, 5220, 5280, 5340, 5400, 5460, 5520, 5580, 5640, 5700, 5760, 5820, 5880, 5940, 6000, 6060, 6120, 6180, 6240, 6300, 6360, 6420, 6480, 6540, 6600, 6660, 6720, 6780, 6840, 6900, 6960, 7020, 7080, 7140, 7200, 7260, 7320, 7380, 7440, 7500, 7560, 7620, 7680, 7740, 7800, 7860, 7920, 7980, 8040, 8100, 8160, 8220, 8280, 8340, 8400, 8460, 8520, 8580, 8640, 8700, 8760, 8820, 8880, 8940, 9000, 9060, 9120, 9180, 9240, 9300, 9360, 9420, 9480, 9540, 9600, 9660, 9720, 9780, 9840, 9900, 9960, 10020, 10080, 10140, 10200, 10260, 10320, 10380, 10440, 10500, 10560, 10620, 10680, 10740, 10800, 10860, 10920, 10980, 11040, 11100, 11160, 11220, 11280, 11340, 11400],
+    "op_mode": ["TRAVERSE_LOADED", "TRAVERSE_LOADED", "TRAVERSE_LOADED", "TRAVERSE_LOADED", "TRAVERSE_LOADED", "TRAVERSE_LOADED", "TRAVERSE_LOADED", "TRAVERSE_LOADED", "TRAVERSE_LOADED", "TRAVERSE_LOADED", "TRAVERSE_LOADED", "TRAVERSE_LOADED", "TRAVERSE_LOADED", "TRAVERSE_LOADED", "TRAVERSE_LOADED", "TRAVERSE_LOADED", "TRAVERSE_LOADED", "TRAVERSE_LOADED", "TRAVERSE_LOADED", "CARGO_HANDLING", "CARGO_HANDLING", "CARGO_HANDLING", "CARGO_HANDLING", "TRAVERSE_EMPTY", "TRAVERSE_EMPTY", "TRAVERSE_EMPTY", "TRAVERSE_EMPTY", "TRAVERSE_EMPTY", "TRAVERSE_EMPTY", "TRAVERSE_EMPTY", "TRAVERSE_EMPTY", "TRAVERSE_EMPTY", "TRAVERSE_EMPTY", "TRAVERSE_EMPTY", "TRAVERSE_EMPTY", "TRAVERSE_EMPTY", "TRAVERSE_EMPTY", "TRAVERSE_EMPTY", "TRAVERSE_EMPTY", "TRAVERSE_EMPTY", "TRAVERSE_EMPTY", "TRAVERSE_EMPTY", "TRAVERSE_EMPTY", "TRAVERSE_EMPTY", "TRAVERSE_EMPTY", "TRAVERSE_EMPTY", "TRAVERSE_EMPTY", "TRAVERSE_EMPTY", "IDLE", "IDLE", "CARGO_HANDLING", "CARGO_HANDLING", "CARGO_HANDLING", "CARGO_HANDLING", "TRAVERSE_LOADED", "TRAVERSE_LOADED", "TRAVERSE_LOADED", "TRAVERSE_LOADED", "TRAVERSE_LOADED", "TRAVERSE_LOADED", "TRAVERSE_LOADED", "TRAVERSE_LOADED", "TRAVERSE_LOADED", "TRAVERSE_LOADED", "TRAVERSE_LOADED", "TRAVERSE_LOADED", "TRAVERSE_LOADED", "TRAVERSE_LOADED", "TRAVERSE_LOADED", "TRAVERSE_LOADED", "TRAVERSE_LOADED", "TRAVERSE_LOADED", "TRAVERSE_LOADED", "TRAVERSE_LOADED", "TRAVERSE_LOADED", "TRAVERSE_LOADED", "TRAVERSE_LOADED", "TRAVERSE_LOADED", "TRAVERSE_LOADED", "CARGO_HANDLING", "CARGO_HANDLING", "CARGO_HANDLING", "CARGO_HANDLING", "TRAVERSE_EMPTY", "TRAVERSE_EMPTY", "TRAVERSE_EMPTY", "TRAVERSE_EMPTY", "TRAVERSE_EMPTY", "TRAVERSE_EMPTY", "TRAVERSE_EMPTY", "TRAVERSE_EMPTY", "TRAVERSE_EMPTY", "TRAVERSE_EMPTY", "TRAVERSE_EMPTY", "TRAVERSE_EMPTY", "TRAVERSE_EMPTY", "TRAVERSE_EMPTY", "TRAVERSE_EMPTY", "TRAVERSE_EMPTY", "TRAVERSE_EMPTY", "TRAVERSE_EMPTY", "TRAVERSE_EMPTY", "TRAVERSE_EMPTY", "TRAVERSE_EMPTY", "TRAVERSE_EMPTY", "TRAVERSE_EMPTY", "TRAVERSE_EMPTY", "TRAVERSE_EMPTY", "TRAVERSE_EMPTY", "TRAVERSE_EMPTY", "TRAVERSE_EMPTY", "TRAVERSE_EMPTY", "TRAVERSE_EMPTY", "TRAVERSE_EMPTY", "TRAVERSE_EMPTY", "TRAVERSE_EMPTY", "TRAVERSE_EMPTY", "TRAVERSE_EMPTY", "TRAVERSE_EMPTY", "TRAVERSE_EMPTY", "TRAVERSE_EMPTY"],
+    "channels": [
+      {
+        "channel": "wheel_fl_current_a",
+        "label": "Front-left drive motor current",
+        "units": "A",
+        "component": "wheel_fl_drive",
+        "subsystem": "MOBILITY",
+        "value": [4.847, 4.812, 4.833, 4.865, 4.851, 4.832, 4.882, 4.894, 4.877, 4.929, 4.926, 4.847, 4.88, 4.764, 4.793, 4.864, 4.842, 4.84, 4.854, 0.015, 0.012, 0.014, 0.009, 3.285, 3.396, 3.306, 3.369, 3.343, 3.398, 3.381, 3.301, 3.375, 3.367, 3.358, 3.393, 3.441, 3.323, 3.35, 3.378, 3.411, 3.427, 3.433, 3.397, 3.379, 3.363, 3.451, 3.522, 3.436, 0.006, 0.001, 0.008, 0.009, 0.001, 0.007, 5.005, 4.963, 4.968, 4.919, 5.067, 4.963, 5.096, 5.054, 5.002, 5.065, 5.075, 5.031, 5.051, 5.086, 5.044, 5.132, 5.154, 5.158, 5.147, 5.151, 5.165, 5.103, 5.175, 5.155, 5.151, 0.007, 0.009, 0.01, 0.003, 3.748, 3.689, 3.695, 3.785, 3.765, 3.715, 3.783, 3.797, 3.86, 3.806, 3.702, 3.698, 3.794, 3.855, 3.787, 3.873, 3.943, 3.917, 3.863, 3.903, 3.809, 3.954, 3.914, 3.83, 3.905, 4.02, 4.049, 3.973, 4.044, 3.999, 4.064, 4.084, 4.073, 4.02, 4.173, 4.159, 4.124, 4.185],
+        "baseline": [4.81, 4.81, 4.81, 4.81, 4.81, 4.81, 4.81, 4.81, 4.81, 4.81, 4.81, 4.81, 4.81, 4.81, 4.81, 4.81, 4.81, 4.81, 4.81, 0.0, 0.0, 0.0, 0.0, 3.29, 3.29, 3.29, 3.29, 3.29, 3.29, 3.29, 3.29, 3.29, 3.29, 3.29, 3.29, 3.29, 3.29, 3.29, 3.29, 3.29, 3.29, 3.29, 3.29, 3.29, 3.29, 3.29, 3.29, 3.29, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 4.81, 4.81, 4.81, 4.81, 4.81, 4.81, 4.81, 4.81, 4.81, 4.81, 4.81, 4.81, 4.81, 4.81, 4.81, 4.81, 4.81, 4.81, 4.81, 4.81, 4.81, 4.81, 4.81, 4.81, 4.81, 0.0, 0.0, 0.0, 0.0, 3.29, 3.29, 3.29, 3.29, 3.29, 3.29, 3.29, 3.29, 3.29, 3.29, 3.29, 3.29, 3.29, 3.29, 3.29, 3.29, 3.29, 3.29, 3.29, 3.29, 3.29, 3.29, 3.29, 3.29, 3.29, 3.29, 3.29, 3.29, 3.29, 3.29, 3.29, 3.29, 3.29, 3.29, 3.29, 3.29, 3.29, 3.29],
+        "warning_low": [null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null],
+        "warning_high": [5.81, 5.81, 5.81, 5.81, 5.81, 5.81, 5.81, 5.81, 5.81, 5.81, 5.81, 5.81, 5.81, 5.81, 5.81, 5.81, 5.81, 5.81, 5.81, 1.0, 1.0, 1.0, 1.0, 4.29, 4.29, 4.29, 4.29, 4.29, 4.29, 4.29, 4.29, 4.29, 4.29, 4.29, 4.29, 4.29, 4.29, 4.29, 4.29, 4.29, 4.29, 4.29, 4.29, 4.29, 4.29, 4.29, 4.29, 4.29, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 5.81, 5.81, 5.81, 5.81, 5.81, 5.81, 5.81, 5.81, 5.81, 5.81, 5.81, 5.81, 5.81, 5.81, 5.81, 5.81, 5.81, 5.81, 5.81, 5.81, 5.81, 5.81, 5.81, 5.81, 5.81, 1.0, 1.0, 1.0, 1.0, 4.29, 4.29, 4.29, 4.29, 4.29, 4.29, 4.29, 4.29, 4.29, 4.29, 4.29, 4.29, 4.29, 4.29, 4.29, 4.29, 4.29, 4.29, 4.29, 4.29, 4.29, 4.29, 4.29, 4.29, 4.29, 4.29, 4.29, 4.29, 4.29, 4.29, 4.29, 4.29, 4.29, 4.29, 4.29, 4.29, 4.29, 4.29],
+        "critical_low": [null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null],
+        "critical_high": [6.81, 6.81, 6.81, 6.81, 6.81, 6.81, 6.81, 6.81, 6.81, 6.81, 6.81, 6.81, 6.81, 6.81, 6.81, 6.81, 6.81, 6.81, 6.81, 2.0, 2.0, 2.0, 2.0, 5.29, 5.29, 5.29, 5.29, 5.29, 5.29, 5.29, 5.29, 5.29, 5.29, 5.29, 5.29, 5.29, 5.29, 5.29, 5.29, 5.29, 5.29, 5.29, 5.29, 5.29, 5.29, 5.29, 5.29, 5.29, 2.0, 2.0, 2.0, 2.0, 2.0, 2.0, 6.81, 6.81, 6.81, 6.81, 6.81, 6.81, 6.81, 6.81, 6.81, 6.81, 6.81, 6.81, 6.81, 6.81, 6.81, 6.81, 6.81, 6.81, 6.81, 6.81, 6.81, 6.81, 6.81, 6.81, 6.81, 2.0, 2.0, 2.0, 2.0, 5.29, 5.29, 5.29, 5.29, 5.29, 5.29, 5.29, 5.29, 5.29, 5.29, 5.29, 5.29, 5.29, 5.29, 5.29, 5.29, 5.29, 5.29, 5.29, 5.29, 5.29, 5.29, 5.29, 5.29, 5.29, 5.29, 5.29, 5.29, 5.29, 5.29, 5.29, 5.29, 5.29, 5.29, 5.29, 5.29, 5.29, 5.29]
+      },
+      {
+        "channel": "wheel_fl_speed_rads",
+        "label": "Front-left wheel speed",
+        "units": "rad/s",
+        "component": "wheel_fl_drive",
+        "subsystem": "MOBILITY",
+        "value": [2.146, 2.146, 2.137, 2.132, 2.134, 2.137, 2.136, 2.137, 2.145, 2.135, 2.134, 2.146, 2.142, 2.139, 2.134, 2.138, 2.134, 2.136, 2.127, 0.0, 0.0, 0.0, 0.0, 2.249, 2.247, 2.253, 2.252, 2.238, 2.244, 2.241, 2.249, 2.243, 2.254, 2.257, 2.253, 2.255, 2.243, 2.236, 2.248, 2.231, 2.242, 2.248, 2.241, 2.243, 2.235, 2.236, 2.241, 2.238, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 2.124, 2.117, 2.126, 2.121, 2.12, 2.126, 2.13, 2.124, 2.123, 2.117, 2.116, 2.12, 2.113, 2.108, 2.117, 2.107, 2.109, 2.121, 2.116, 2.12, 2.115, 2.114, 2.11, 2.114, 2.105, 0.0, 0.0, 0.0, 0.0, 2.223, 2.214, 2.209, 2.212, 2.208, 2.206, 2.205, 2.211, 2.206, 2.208, 2.214, 2.209, 2.21, 2.202, 2.209, 2.213, 2.206, 2.208, 2.209, 2.204, 2.205, 2.205, 2.197, 2.193, 2.2, 2.19, 2.202, 2.202, 2.188, 2.196, 2.193, 2.193, 2.194, 2.189, 2.188, 2.195, 2.193, 2.187],
+        "baseline": [2.14, 2.14, 2.14, 2.14, 2.14, 2.14, 2.14, 2.14, 2.14, 2.14, 2.14, 2.14, 2.14, 2.14, 2.14, 2.14, 2.14, 2.14, 2.14, 0.0, 0.0, 0.0, 0.0, 2.25, 2.25, 2.25, 2.25, 2.25, 2.25, 2.25, 2.25, 2.25, 2.25, 2.25, 2.25, 2.25, 2.25, 2.25, 2.25, 2.25, 2.25, 2.25, 2.25, 2.25, 2.25, 2.25, 2.25, 2.25, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 2.14, 2.14, 2.14, 2.14, 2.14, 2.14, 2.14, 2.14, 2.14, 2.14, 2.14, 2.14, 2.14, 2.14, 2.14, 2.14, 2.14, 2.14, 2.14, 2.14, 2.14, 2.14, 2.14, 2.14, 2.14, 0.0, 0.0, 0.0, 0.0, 2.25, 2.25, 2.25, 2.25, 2.25, 2.25, 2.25, 2.25, 2.25, 2.25, 2.25, 2.25, 2.25, 2.25, 2.25, 2.25, 2.25, 2.25, 2.25, 2.25, 2.25, 2.25, 2.25, 2.25, 2.25, 2.25, 2.25, 2.25, 2.25, 2.25, 2.25, 2.25, 2.25, 2.25, 2.25, 2.25, 2.25, 2.25],
+        "warning_low": [2.06, 2.06, 2.06, 2.06, 2.06, 2.06, 2.06, 2.06, 2.06, 2.06, 2.06, 2.06, 2.06, 2.06, 2.06, 2.06, 2.06, 2.06, 2.06, -0.08, -0.08, -0.08, -0.08, 2.17, 2.17, 2.17, 2.17, 2.17, 2.17, 2.17, 2.17, 2.17, 2.17, 2.17, 2.17, 2.17, 2.17, 2.17, 2.17, 2.17, 2.17, 2.17, 2.17, 2.17, 2.17, 2.17, 2.17, 2.17, -0.08, -0.08, -0.08, -0.08, -0.08, -0.08, 2.06, 2.06, 2.06, 2.06, 2.06, 2.06, 2.06, 2.06, 2.06, 2.06, 2.06, 2.06, 2.06, 2.06, 2.06, 2.06, 2.06, 2.06, 2.06, 2.06, 2.06, 2.06, 2.06, 2.06, 2.06, -0.08, -0.08, -0.08, -0.08, 2.17, 2.17, 2.17, 2.17, 2.17, 2.17, 2.17, 2.17, 2.17, 2.17, 2.17, 2.17, 2.17, 2.17, 2.17, 2.17, 2.17, 2.17, 2.17, 2.17, 2.17, 2.17, 2.17, 2.17, 2.17, 2.17, 2.17, 2.17, 2.17, 2.17, 2.17, 2.17, 2.17, 2.17, 2.17, 2.17, 2.17, 2.17],
+        "warning_high": [null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null],
+        "critical_low": [1.99, 1.99, 1.99, 1.99, 1.99, 1.99, 1.99, 1.99, 1.99, 1.99, 1.99, 1.99, 1.99, 1.99, 1.99, 1.99, 1.99, 1.99, 1.99, -0.15, -0.15, -0.15, -0.15, 2.1, 2.1, 2.1, 2.1, 2.1, 2.1, 2.1, 2.1, 2.1, 2.1, 2.1, 2.1, 2.1, 2.1, 2.1, 2.1, 2.1, 2.1, 2.1, 2.1, 2.1, 2.1, 2.1, 2.1, 2.1, -0.15, -0.15, -0.15, -0.15, -0.15, -0.15, 1.99, 1.99, 1.99, 1.99, 1.99, 1.99, 1.99, 1.99, 1.99, 1.99, 1.99, 1.99, 1.99, 1.99, 1.99, 1.99, 1.99, 1.99, 1.99, 1.99, 1.99, 1.99, 1.99, 1.99, 1.99, -0.15, -0.15, -0.15, -0.15, 2.1, 2.1, 2.1, 2.1, 2.1, 2.1, 2.1, 2.1, 2.1, 2.1, 2.1, 2.1, 2.1, 2.1, 2.1, 2.1, 2.1, 2.1, 2.1, 2.1, 2.1, 2.1, 2.1, 2.1, 2.1, 2.1, 2.1, 2.1, 2.1, 2.1, 2.1, 2.1, 2.1, 2.1, 2.1, 2.1, 2.1, 2.1],
+        "critical_high": [null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null]
+      },
+      {
+        "channel": "wheel_fl_temp_c",
+        "label": "Front-left drive temperature",
+        "units": "degC",
+        "component": "wheel_fl_thermal",
+        "subsystem": "THERMAL",
+        "value": [35.04, 35.88, 36.86, 37.29, 37.54, 38.0, 38.78, 39.03, 39.44, 39.7, 40.35, 40.43, 40.78, 40.89, 41.29, 41.38, 41.94, 41.92, 42.08, 39.95, 37.8, 36.13, 34.93, 34.84, 34.63, 34.73, 34.96, 34.74, 35.15, 34.93, 35.16, 35.32, 35.37, 35.63, 35.38, 35.43, 35.69, 35.75, 35.88, 35.87, 36.05, 36.09, 36.27, 36.19, 36.46, 36.43, 36.75, 36.91, 35.24, 33.86, 32.67, 31.33, 30.13, 29.06, 30.92, 32.6, 34.48, 35.64, 36.78, 37.93, 39.02, 40.24, 40.91, 42.14, 42.63, 43.46, 44.08, 44.28, 45.33, 45.65, 46.33, 46.57, 47.21, 47.94, 48.27, 48.63, 48.61, 49.53, 49.58, 46.72, 44.38, 41.69, 40.16, 40.46, 40.65, 41.23, 42.03, 41.88, 42.4, 43.01, 43.42, 44.19, 43.97, 44.3, 45.11, 45.3, 45.63, 45.69, 46.38, 46.32, 46.89, 47.18, 47.13, 47.64, 48.17, 48.47, 48.59, 49.11, 49.15, 49.66, 49.66, 50.06, 50.4, 50.82, 51.36, 51.56, 51.7, 52.2, 52.44, 52.65, 52.89],
+        "baseline": [35.17, 35.88, 36.53, 37.12, 37.65, 38.13, 38.57, 38.96, 39.32, 39.64, 39.93, 40.19, 40.43, 40.65, 40.84, 41.02, 41.18, 41.32, 41.45, 39.41, 37.57, 35.89, 34.38, 34.32, 34.26, 34.2, 34.16, 34.11, 34.07, 34.04, 34.01, 33.98, 33.95, 33.93, 33.91, 33.89, 33.87, 33.85, 33.84, 33.82, 33.81, 33.8, 33.79, 33.78, 33.78, 33.77, 33.76, 33.76, 32.45, 31.26, 30.19, 29.22, 28.34, 27.55, 28.99, 30.3, 31.48, 32.54, 33.51, 34.39, 35.18, 35.89, 36.54, 37.13, 37.66, 38.14, 38.57, 38.96, 39.32, 39.64, 39.93, 40.2, 40.43, 40.65, 40.84, 41.02, 41.18, 41.33, 41.46, 39.41, 37.57, 35.9, 34.38, 34.32, 34.26, 34.21, 34.16, 34.11, 34.07, 34.04, 34.01, 33.98, 33.95, 33.93, 33.91, 33.89, 33.87, 33.85, 33.84, 33.82, 33.81, 33.8, 33.79, 33.78, 33.78, 33.77, 33.76, 33.76, 33.75, 33.75, 33.74, 33.74, 33.73, 33.73, 33.73, 33.73, 33.72, 33.72, 33.72, 33.72, 33.72],
+        "warning_low": [null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null],
+        "warning_high": [50.17, 50.88, 51.53, 52.12, 52.65, 53.13, 53.57, 53.96, 54.32, 54.64, 54.93, 55.19, 55.43, 55.65, 55.84, 56.02, 56.18, 56.32, 56.45, 54.41, 52.57, 50.89, 49.38, 49.32, 49.26, 49.2, 49.16, 49.11, 49.07, 49.04, 49.01, 48.98, 48.95, 48.93, 48.91, 48.89, 48.87, 48.85, 48.84, 48.82, 48.81, 48.8, 48.79, 48.78, 48.78, 48.77, 48.76, 48.76, 47.45, 46.26, 45.19, 44.22, 43.34, 42.55, 43.99, 45.3, 46.48, 47.54, 48.51, 49.39, 50.18, 50.89, 51.54, 52.13, 52.66, 53.14, 53.57, 53.96, 54.32, 54.64, 54.93, 55.2, 55.43, 55.65, 55.84, 56.02, 56.18, 56.33, 56.46, 54.41, 52.57, 50.9, 49.38, 49.32, 49.26, 49.21, 49.16, 49.11, 49.07, 49.04, 49.01, 48.98, 48.95, 48.93, 48.91, 48.89, 48.87, 48.85, 48.84, 48.82, 48.81, 48.8, 48.79, 48.78, 48.78, 48.77, 48.76, 48.76, 48.75, 48.75, 48.74, 48.74, 48.73, 48.73, 48.73, 48.73, 48.72, 48.72, 48.72, 48.72, 48.72],
+        "critical_low": [null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null],
+        "critical_high": [65.17, 65.88, 66.53, 67.12, 67.65, 68.13, 68.57, 68.96, 69.32, 69.64, 69.93, 70.19, 70.43, 70.65, 70.84, 71.02, 71.18, 71.32, 71.45, 69.41, 67.57, 65.89, 64.38, 64.32, 64.26, 64.2, 64.16, 64.11, 64.07, 64.04, 64.01, 63.98, 63.95, 63.93, 63.91, 63.89, 63.87, 63.85, 63.84, 63.82, 63.81, 63.8, 63.79, 63.78, 63.78, 63.77, 63.76, 63.76, 62.45, 61.26, 60.19, 59.22, 58.34, 57.55, 58.99, 60.3, 61.48, 62.54, 63.51, 64.39, 65.18, 65.89, 66.54, 67.13, 67.66, 68.14, 68.57, 68.96, 69.32, 69.64, 69.93, 70.2, 70.43, 70.65, 70.84, 71.02, 71.18, 71.33, 71.46, 69.41, 67.57, 65.9, 64.38, 64.32, 64.26, 64.21, 64.16, 64.11, 64.07, 64.04, 64.01, 63.98, 63.95, 63.93, 63.91, 63.89, 63.87, 63.85, 63.84, 63.82, 63.81, 63.8, 63.79, 63.78, 63.78, 63.77, 63.76, 63.76, 63.75, 63.75, 63.74, 63.74, 63.73, 63.73, 63.73, 63.73, 63.72, 63.72, 63.72, 63.72, 63.72]
+      },
+      {
+        "channel": "wheel_fr_current_a",
+        "label": "Front-right drive motor current",
+        "units": "A",
+        "component": "wheel_fr_drive",
+        "subsystem": "MOBILITY",
+        "value": [4.756, 4.841, 4.811, 4.807, 4.823, 4.802, 4.757, 4.816, 4.88, 4.767, 4.856, 4.782, 4.842, 4.781, 4.836, 4.895, 4.75, 4.811, 4.839, 0.008, 0.014, 0.008, 0.006, 3.271, 3.277, 3.246, 3.307, 3.309, 3.293, 3.294, 3.271, 3.256, 3.29, 3.274, 3.29, 3.366, 3.245, 3.278, 3.355, 3.349, 3.312, 3.322, 3.294, 3.345, 3.236, 3.35, 3.228, 3.257, 0.017, 0.018, 0.005, 0.01, 0.01, 0.011, 4.835, 4.815, 4.82, 4.913, 4.769, 4.895, 4.771, 4.798, 4.758, 4.707, 4.811, 4.735, 4.89, 4.828, 4.854, 4.786, 4.803, 4.882, 4.751, 4.807, 4.804, 4.772, 4.797, 4.805, 4.912, 0.0, 0.012, 0.014, 0.015, 3.274, 3.293, 3.256, 3.31, 3.269, 3.23, 3.338, 3.256, 3.241, 3.263, 3.26, 3.378, 3.326, 3.259, 3.315, 3.295, 3.339, 3.214, 3.309, 3.299, 3.305, 3.239, 3.311, 3.308, 3.311, 3.195, 3.103, 3.34, 3.284, 3.277, 3.231, 3.299, 3.266, 3.329, 3.358, 3.386, 3.296, 3.372],
+        "baseline": [4.81, 4.81, 4.81, 4.81, 4.81, 4.81, 4.81, 4.81, 4.81, 4.81, 4.81, 4.81, 4.81, 4.81, 4.81, 4.81, 4.81, 4.81, 4.81, 0.0, 0.0, 0.0, 0.0, 3.29, 3.29, 3.29, 3.29, 3.29, 3.29, 3.29, 3.29, 3.29, 3.29, 3.29, 3.29, 3.29, 3.29, 3.29, 3.29, 3.29, 3.29, 3.29, 3.29, 3.29, 3.29, 3.29, 3.29, 3.29, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 4.81, 4.81, 4.81, 4.81, 4.81, 4.81, 4.81, 4.81, 4.81, 4.81, 4.81, 4.81, 4.81, 4.81, 4.81, 4.81, 4.81, 4.81, 4.81, 4.81, 4.81, 4.81, 4.81, 4.81, 4.81, 0.0, 0.0, 0.0, 0.0, 3.29, 3.29, 3.29, 3.29, 3.29, 3.29, 3.29, 3.29, 3.29, 3.29, 3.29, 3.29, 3.29, 3.29, 3.29, 3.29, 3.29, 3.29, 3.29, 3.29, 3.29, 3.29, 3.29, 3.29, 3.29, 3.29, 3.29, 3.29, 3.29, 3.29, 3.29, 3.29, 3.29, 3.29, 3.29, 3.29, 3.29, 3.29],
+        "warning_low": [null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null],
+        "warning_high": [5.81, 5.81, 5.81, 5.81, 5.81, 5.81, 5.81, 5.81, 5.81, 5.81, 5.81, 5.81, 5.81, 5.81, 5.81, 5.81, 5.81, 5.81, 5.81, 1.0, 1.0, 1.0, 1.0, 4.29, 4.29, 4.29, 4.29, 4.29, 4.29, 4.29, 4.29, 4.29, 4.29, 4.29, 4.29, 4.29, 4.29, 4.29, 4.29, 4.29, 4.29, 4.29, 4.29, 4.29, 4.29, 4.29, 4.29, 4.29, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 5.81, 5.81, 5.81, 5.81, 5.81, 5.81, 5.81, 5.81, 5.81, 5.81, 5.81, 5.81, 5.81, 5.81, 5.81, 5.81, 5.81, 5.81, 5.81, 5.81, 5.81, 5.81, 5.81, 5.81, 5.81, 1.0, 1.0, 1.0, 1.0, 4.29, 4.29, 4.29, 4.29, 4.29, 4.29, 4.29, 4.29, 4.29, 4.29, 4.29, 4.29, 4.29, 4.29, 4.29, 4.29, 4.29, 4.29, 4.29, 4.29, 4.29, 4.29, 4.29, 4.29, 4.29, 4.29, 4.29, 4.29, 4.29, 4.29, 4.29, 4.29, 4.29, 4.29, 4.29, 4.29, 4.29, 4.29],
+        "critical_low": [null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null],
+        "critical_high": [6.81, 6.81, 6.81, 6.81, 6.81, 6.81, 6.81, 6.81, 6.81, 6.81, 6.81, 6.81, 6.81, 6.81, 6.81, 6.81, 6.81, 6.81, 6.81, 2.0, 2.0, 2.0, 2.0, 5.29, 5.29, 5.29, 5.29, 5.29, 5.29, 5.29, 5.29, 5.29, 5.29, 5.29, 5.29, 5.29, 5.29, 5.29, 5.29, 5.29, 5.29, 5.29, 5.29, 5.29, 5.29, 5.29, 5.29, 5.29, 2.0, 2.0, 2.0, 2.0, 2.0, 2.0, 6.81, 6.81, 6.81, 6.81, 6.81, 6.81, 6.81, 6.81, 6.81, 6.81, 6.81, 6.81, 6.81, 6.81, 6.81, 6.81, 6.81, 6.81, 6.81, 6.81, 6.81, 6.81, 6.81, 6.81, 6.81, 2.0, 2.0, 2.0, 2.0, 5.29, 5.29, 5.29, 5.29, 5.29, 5.29, 5.29, 5.29, 5.29, 5.29, 5.29, 5.29, 5.29, 5.29, 5.29, 5.29, 5.29, 5.29, 5.29, 5.29, 5.29, 5.29, 5.29, 5.29, 5.29, 5.29, 5.29, 5.29, 5.29, 5.29, 5.29, 5.29, 5.29, 5.29, 5.29, 5.29, 5.29, 5.29]
+      },
+      {
+        "channel": "wheel_fr_speed_rads",
+        "label": "Front-right wheel speed",
+        "units": "rad/s",
+        "component": "wheel_fr_drive",
+        "subsystem": "MOBILITY",
+        "value": [2.136, 2.148, 2.137, 2.141, 2.142, 2.138, 2.14, 2.145, 2.144, 2.14, 2.137, 2.14, 2.14, 2.147, 2.135, 2.148, 2.141, 2.132, 2.131, 0.0, 0.0, 0.0, 0.0, 2.25, 2.241, 2.247, 2.251, 2.25, 2.248, 2.251, 2.245, 2.259, 2.254, 2.245, 2.246, 2.251, 2.255, 2.251, 2.256, 2.245, 2.249, 2.254, 2.243, 2.25, 2.251, 2.255, 2.249, 2.247, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 2.142, 2.134, 2.132, 2.132, 2.14, 2.139, 2.135, 2.145, 2.145, 2.144, 2.138, 2.143, 2.135, 2.146, 2.141, 2.136, 2.138, 2.137, 2.146, 2.144, 2.138, 2.142, 2.132, 2.128, 2.129, 0.0, 0.0, 0.0, 0.0, 2.249, 2.251, 2.251, 2.252, 2.249, 2.244, 2.243, 2.248, 2.254, 2.248, 2.248, 2.247, 2.245, 2.243, 2.257, 2.252, 2.253, 2.249, 2.257, 2.252, 2.25, 2.252, 2.261, 2.251, 2.255, 2.262, 2.249, 2.251, 2.252, 2.254, 2.252, 2.253, 2.244, 2.247, 2.257, 2.251, 2.249, 2.258],
+        "baseline": [2.14, 2.14, 2.14, 2.14, 2.14, 2.14, 2.14, 2.14, 2.14, 2.14, 2.14, 2.14, 2.14, 2.14, 2.14, 2.14, 2.14, 2.14, 2.14, 0.0, 0.0, 0.0, 0.0, 2.25, 2.25, 2.25, 2.25, 2.25, 2.25, 2.25, 2.25, 2.25, 2.25, 2.25, 2.25, 2.25, 2.25, 2.25, 2.25, 2.25, 2.25, 2.25, 2.25, 2.25, 2.25, 2.25, 2.25, 2.25, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 2.14, 2.14, 2.14, 2.14, 2.14, 2.14, 2.14, 2.14, 2.14, 2.14, 2.14, 2.14, 2.14, 2.14, 2.14, 2.14, 2.14, 2.14, 2.14, 2.14, 2.14, 2.14, 2.14, 2.14, 2.14, 0.0, 0.0, 0.0, 0.0, 2.25, 2.25, 2.25, 2.25, 2.25, 2.25, 2.25, 2.25, 2.25, 2.25, 2.25, 2.25, 2.25, 2.25, 2.25, 2.25, 2.25, 2.25, 2.25, 2.25, 2.25, 2.25, 2.25, 2.25, 2.25, 2.25, 2.25, 2.25, 2.25, 2.25, 2.25, 2.25, 2.25, 2.25, 2.25, 2.25, 2.25, 2.25],
+        "warning_low": [2.06, 2.06, 2.06, 2.06, 2.06, 2.06, 2.06, 2.06, 2.06, 2.06, 2.06, 2.06, 2.06, 2.06, 2.06, 2.06, 2.06, 2.06, 2.06, -0.08, -0.08, -0.08, -0.08, 2.17, 2.17, 2.17, 2.17, 2.17, 2.17, 2.17, 2.17, 2.17, 2.17, 2.17, 2.17, 2.17, 2.17, 2.17, 2.17, 2.17, 2.17, 2.17, 2.17, 2.17, 2.17, 2.17, 2.17, 2.17, -0.08, -0.08, -0.08, -0.08, -0.08, -0.08, 2.06, 2.06, 2.06, 2.06, 2.06, 2.06, 2.06, 2.06, 2.06, 2.06, 2.06, 2.06, 2.06, 2.06, 2.06, 2.06, 2.06, 2.06, 2.06, 2.06, 2.06, 2.06, 2.06, 2.06, 2.06, -0.08, -0.08, -0.08, -0.08, 2.17, 2.17, 2.17, 2.17, 2.17, 2.17, 2.17, 2.17, 2.17, 2.17, 2.17, 2.17, 2.17, 2.17, 2.17, 2.17, 2.17, 2.17, 2.17, 2.17, 2.17, 2.17, 2.17, 2.17, 2.17, 2.17, 2.17, 2.17, 2.17, 2.17, 2.17, 2.17, 2.17, 2.17, 2.17, 2.17, 2.17, 2.17],
+        "warning_high": [null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null],
+        "critical_low": [1.99, 1.99, 1.99, 1.99, 1.99, 1.99, 1.99, 1.99, 1.99, 1.99, 1.99, 1.99, 1.99, 1.99, 1.99, 1.99, 1.99, 1.99, 1.99, -0.15, -0.15, -0.15, -0.15, 2.1, 2.1, 2.1, 2.1, 2.1, 2.1, 2.1, 2.1, 2.1, 2.1, 2.1, 2.1, 2.1, 2.1, 2.1, 2.1, 2.1, 2.1, 2.1, 2.1, 2.1, 2.1, 2.1, 2.1, 2.1, -0.15, -0.15, -0.15, -0.15, -0.15, -0.15, 1.99, 1.99, 1.99, 1.99, 1.99, 1.99, 1.99, 1.99, 1.99, 1.99, 1.99, 1.99, 1.99, 1.99, 1.99, 1.99, 1.99, 1.99, 1.99, 1.99, 1.99, 1.99, 1.99, 1.99, 1.99, -0.15, -0.15, -0.15, -0.15, 2.1, 2.1, 2.1, 2.1, 2.1, 2.1, 2.1, 2.1, 2.1, 2.1, 2.1, 2.1, 2.1, 2.1, 2.1, 2.1, 2.1, 2.1, 2.1, 2.1, 2.1, 2.1, 2.1, 2.1, 2.1, 2.1, 2.1, 2.1, 2.1, 2.1, 2.1, 2.1, 2.1, 2.1, 2.1, 2.1, 2.1, 2.1],
+        "critical_high": [null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null]
+      },
+      {
+        "channel": "wheel_fr_temp_c",
+        "label": "Front-right drive temperature",
+        "units": "degC",
+        "component": "wheel_fr_thermal",
+        "subsystem": "THERMAL",
+        "value": [35.14, 36.18, 36.62, 37.0, 37.74, 38.04, 38.69, 39.0, 39.55, 39.65, 39.74, 40.19, 40.49, 40.6, 41.0, 40.92, 41.12, 40.97, 41.59, 39.66, 37.64, 36.09, 34.42, 34.33, 34.21, 34.1, 33.99, 34.12, 33.99, 33.92, 34.09, 34.02, 34.19, 34.0, 33.63, 33.98, 33.81, 33.62, 33.85, 33.66, 33.72, 34.03, 33.79, 33.72, 33.62, 33.79, 33.8, 33.89, 32.48, 31.3, 30.28, 29.31, 28.29, 27.74, 28.94, 30.0, 31.41, 32.57, 33.56, 34.46, 35.28, 35.76, 36.51, 37.29, 37.78, 38.41, 38.62, 39.03, 39.09, 39.65, 40.06, 40.21, 40.45, 40.9, 40.78, 41.16, 41.12, 41.66, 41.52, 39.48, 37.28, 35.86, 34.45, 34.22, 34.17, 33.88, 34.31, 34.09, 33.99, 34.14, 33.76, 33.99, 33.78, 34.05, 33.97, 34.13, 33.92, 33.95, 33.65, 33.92, 33.78, 33.98, 33.94, 33.54, 33.46, 34.1, 34.0, 33.85, 33.78, 33.51, 33.78, 33.56, 33.79, 33.87, 33.66, 33.87, 33.83, 33.75, 33.71, 34.07, 33.72],
+        "baseline": [35.17, 35.88, 36.53, 37.12, 37.65, 38.13, 38.57, 38.96, 39.32, 39.64, 39.93, 40.19, 40.43, 40.65, 40.84, 41.02, 41.18, 41.32, 41.45, 39.41, 37.57, 35.89, 34.38, 34.32, 34.26, 34.2, 34.16, 34.11, 34.07, 34.04, 34.01, 33.98, 33.95, 33.93, 33.91, 33.89, 33.87, 33.85, 33.84, 33.82, 33.81, 33.8, 33.79, 33.78, 33.78, 33.77, 33.76, 33.76, 32.45, 31.26, 30.19, 29.22, 28.34, 27.55, 28.99, 30.3, 31.48, 32.54, 33.51, 34.39, 35.18, 35.89, 36.54, 37.13, 37.66, 38.14, 38.57, 38.96, 39.32, 39.64, 39.93, 40.2, 40.43, 40.65, 40.84, 41.02, 41.18, 41.33, 41.46, 39.41, 37.57, 35.9, 34.38, 34.32, 34.26, 34.21, 34.16, 34.11, 34.07, 34.04, 34.01, 33.98, 33.95, 33.93, 33.91, 33.89, 33.87, 33.85, 33.84, 33.82, 33.81, 33.8, 33.79, 33.78, 33.78, 33.77, 33.76, 33.76, 33.75, 33.75, 33.74, 33.74, 33.73, 33.73, 33.73, 33.73, 33.72, 33.72, 33.72, 33.72, 33.72],
+        "warning_low": [null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null],
+        "warning_high": [50.17, 50.88, 51.53, 52.12, 52.65, 53.13, 53.57, 53.96, 54.32, 54.64, 54.93, 55.19, 55.43, 55.65, 55.84, 56.02, 56.18, 56.32, 56.45, 54.41, 52.57, 50.89, 49.38, 49.32, 49.26, 49.2, 49.16, 49.11, 49.07, 49.04, 49.01, 48.98, 48.95, 48.93, 48.91, 48.89, 48.87, 48.85, 48.84, 48.82, 48.81, 48.8, 48.79, 48.78, 48.78, 48.77, 48.76, 48.76, 47.45, 46.26, 45.19, 44.22, 43.34, 42.55, 43.99, 45.3, 46.48, 47.54, 48.51, 49.39, 50.18, 50.89, 51.54, 52.13, 52.66, 53.14, 53.57, 53.96, 54.32, 54.64, 54.93, 55.2, 55.43, 55.65, 55.84, 56.02, 56.18, 56.33, 56.46, 54.41, 52.57, 50.9, 49.38, 49.32, 49.26, 49.21, 49.16, 49.11, 49.07, 49.04, 49.01, 48.98, 48.95, 48.93, 48.91, 48.89, 48.87, 48.85, 48.84, 48.82, 48.81, 48.8, 48.79, 48.78, 48.78, 48.77, 48.76, 48.76, 48.75, 48.75, 48.74, 48.74, 48.73, 48.73, 48.73, 48.73, 48.72, 48.72, 48.72, 48.72, 48.72],
+        "critical_low": [null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null],
+        "critical_high": [65.17, 65.88, 66.53, 67.12, 67.65, 68.13, 68.57, 68.96, 69.32, 69.64, 69.93, 70.19, 70.43, 70.65, 70.84, 71.02, 71.18, 71.32, 71.45, 69.41, 67.57, 65.89, 64.38, 64.32, 64.26, 64.2, 64.16, 64.11, 64.07, 64.04, 64.01, 63.98, 63.95, 63.93, 63.91, 63.89, 63.87, 63.85, 63.84, 63.82, 63.81, 63.8, 63.79, 63.78, 63.78, 63.77, 63.76, 63.76, 62.45, 61.26, 60.19, 59.22, 58.34, 57.55, 58.99, 60.3, 61.48, 62.54, 63.51, 64.39, 65.18, 65.89, 66.54, 67.13, 67.66, 68.14, 68.57, 68.96, 69.32, 69.64, 69.93, 70.2, 70.43, 70.65, 70.84, 71.02, 71.18, 71.33, 71.46, 69.41, 67.57, 65.9, 64.38, 64.32, 64.26, 64.21, 64.16, 64.11, 64.07, 64.04, 64.01, 63.98, 63.95, 63.93, 63.91, 63.89, 63.87, 63.85, 63.84, 63.82, 63.81, 63.8, 63.79, 63.78, 63.78, 63.77, 63.76, 63.76, 63.75, 63.75, 63.74, 63.74, 63.73, 63.73, 63.73, 63.73, 63.72, 63.72, 63.72, 63.72, 63.72]
+      },
+      {
+        "channel": "wheel_rl_current_a",
+        "label": "Rear-left drive motor current",
+        "units": "A",
+        "component": "wheel_rl_drive",
+        "subsystem": "MOBILITY",
+        "value": [4.773, 4.896, 4.832, 4.756, 4.842, 4.813, 4.809, 4.863, 4.727, 4.832, 4.779, 4.874, 4.837, 4.863, 4.779, 4.836, 4.796, 4.74, 4.904, 0.01, 0.01, 0.011, 0.01, 3.3, 3.335, 3.356, 3.228, 3.338, 3.311, 3.235, 3.312, 3.362, 3.214, 3.34, 3.338, 3.309, 3.342, 3.265, 3.274, 3.242, 3.252, 3.227, 3.417, 3.215, 3.284, 3.341, 3.282, 3.22, 0.004, 0.004, 0.003, 0.006, 0.02, 0.006, 4.719, 4.773, 4.893, 4.819, 4.753, 4.749, 4.873, 4.865, 4.871, 4.865, 4.874, 4.793, 4.837, 4.753, 4.875, 4.807, 4.684, 4.759, 4.859, 4.763, 4.798, 4.817, 4.853, 4.843, 4.752, 0.004, 0.013, 0.001, 0.002, 3.27, 3.385, 3.193, 3.36, 3.293, 3.306, 3.313, 3.253, 3.37, 3.294, 3.204, 3.268, 3.306, 3.367, 3.256, 3.246, 3.35, 3.278, 3.323, 3.193, 3.359, 3.328, 3.281, 3.304, 3.342, 3.231, 3.212, 3.227, 3.301, 3.252, 3.343, 3.342, 3.35, 3.334, 3.356, 3.224, 3.314, 3.324],
+        "baseline": [4.81, 4.81, 4.81, 4.81, 4.81, 4.81, 4.81, 4.81, 4.81, 4.81, 4.81, 4.81, 4.81, 4.81, 4.81, 4.81, 4.81, 4.81, 4.81, 0.0, 0.0, 0.0, 0.0, 3.29, 3.29, 3.29, 3.29, 3.29, 3.29, 3.29, 3.29, 3.29, 3.29, 3.29, 3.29, 3.29, 3.29, 3.29, 3.29, 3.29, 3.29, 3.29, 3.29, 3.29, 3.29, 3.29, 3.29, 3.29, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 4.81, 4.81, 4.81, 4.81, 4.81, 4.81, 4.81, 4.81, 4.81, 4.81, 4.81, 4.81, 4.81, 4.81, 4.81, 4.81, 4.81, 4.81, 4.81, 4.81, 4.81, 4.81, 4.81, 4.81, 4.81, 0.0, 0.0, 0.0, 0.0, 3.29, 3.29, 3.29, 3.29, 3.29, 3.29, 3.29, 3.29, 3.29, 3.29, 3.29, 3.29, 3.29, 3.29, 3.29, 3.29, 3.29, 3.29, 3.29, 3.29, 3.29, 3.29, 3.29, 3.29, 3.29, 3.29, 3.29, 3.29, 3.29, 3.29, 3.29, 3.29, 3.29, 3.29, 3.29, 3.29, 3.29, 3.29],
+        "warning_low": [null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null],
+        "warning_high": [5.81, 5.81, 5.81, 5.81, 5.81, 5.81, 5.81, 5.81, 5.81, 5.81, 5.81, 5.81, 5.81, 5.81, 5.81, 5.81, 5.81, 5.81, 5.81, 1.0, 1.0, 1.0, 1.0, 4.29, 4.29, 4.29, 4.29, 4.29, 4.29, 4.29, 4.29, 4.29, 4.29, 4.29, 4.29, 4.29, 4.29, 4.29, 4.29, 4.29, 4.29, 4.29, 4.29, 4.29, 4.29, 4.29, 4.29, 4.29, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 5.81, 5.81, 5.81, 5.81, 5.81, 5.81, 5.81, 5.81, 5.81, 5.81, 5.81, 5.81, 5.81, 5.81, 5.81, 5.81, 5.81, 5.81, 5.81, 5.81, 5.81, 5.81, 5.81, 5.81, 5.81, 1.0, 1.0, 1.0, 1.0, 4.29, 4.29, 4.29, 4.29, 4.29, 4.29, 4.29, 4.29, 4.29, 4.29, 4.29, 4.29, 4.29, 4.29, 4.29, 4.29, 4.29, 4.29, 4.29, 4.29, 4.29, 4.29, 4.29, 4.29, 4.29, 4.29, 4.29, 4.29, 4.29, 4.29, 4.29, 4.29, 4.29, 4.29, 4.29, 4.29, 4.29, 4.29],
+        "critical_low": [null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null],
+        "critical_high": [6.81, 6.81, 6.81, 6.81, 6.81, 6.81, 6.81, 6.81, 6.81, 6.81, 6.81, 6.81, 6.81, 6.81, 6.81, 6.81, 6.81, 6.81, 6.81, 2.0, 2.0, 2.0, 2.0, 5.29, 5.29, 5.29, 5.29, 5.29, 5.29, 5.29, 5.29, 5.29, 5.29, 5.29, 5.29, 5.29, 5.29, 5.29, 5.29, 5.29, 5.29, 5.29, 5.29, 5.29, 5.29, 5.29, 5.29, 5.29, 2.0, 2.0, 2.0, 2.0, 2.0, 2.0, 6.81, 6.81, 6.81, 6.81, 6.81, 6.81, 6.81, 6.81, 6.81, 6.81, 6.81, 6.81, 6.81, 6.81, 6.81, 6.81, 6.81, 6.81, 6.81, 6.81, 6.81, 6.81, 6.81, 6.81, 6.81, 2.0, 2.0, 2.0, 2.0, 5.29, 5.29, 5.29, 5.29, 5.29, 5.29, 5.29, 5.29, 5.29, 5.29, 5.29, 5.29, 5.29, 5.29, 5.29, 5.29, 5.29, 5.29, 5.29, 5.29, 5.29, 5.29, 5.29, 5.29, 5.29, 5.29, 5.29, 5.29, 5.29, 5.29, 5.29, 5.29, 5.29, 5.29, 5.29, 5.29, 5.29, 5.29]
+      },
+      {
+        "channel": "wheel_rl_speed_rads",
+        "label": "Rear-left wheel speed",
+        "units": "rad/s",
+        "component": "wheel_rl_drive",
+        "subsystem": "MOBILITY",
+        "value": [2.14, 2.136, 2.143, 2.137, 2.133, 2.139, 2.141, 2.139, 2.145, 2.148, 2.142, 2.138, 2.134, 2.14, 2.141, 2.149, 2.134, 2.141, 2.127, 0.0, 0.0, 0.0, 0.0, 2.254, 2.253, 2.249, 2.245, 2.243, 2.249, 2.248, 2.247, 2.249, 2.246, 2.252, 2.249, 2.249, 2.251, 2.244, 2.239, 2.247, 2.254, 2.25, 2.25, 2.252, 2.239, 2.257, 2.246, 2.245, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 2.139, 2.139, 2.138, 2.141, 2.144, 2.138, 2.143, 2.136, 2.14, 2.149, 2.136, 2.14, 2.146, 2.144, 2.138, 2.143, 2.147, 2.145, 2.143, 2.144, 2.141, 2.141, 2.149, 2.137, 2.135, 0.0, 0.0, 0.0, 0.0, 2.256, 2.248, 2.248, 2.245, 2.25, 2.247, 2.251, 2.25, 2.255, 2.253, 2.253, 2.249, 2.251, 2.256, 2.25, 2.256, 2.248, 2.248, 2.245, 2.246, 2.249, 2.25, 2.253, 2.246, 2.254, 2.25, 2.243, 2.25, 2.245, 2.251, 2.251, 2.25, 2.249, 2.25, 2.245, 2.247, 2.252, 2.249],
+        "baseline": [2.14, 2.14, 2.14, 2.14, 2.14, 2.14, 2.14, 2.14, 2.14, 2.14, 2.14, 2.14, 2.14, 2.14, 2.14, 2.14, 2.14, 2.14, 2.14, 0.0, 0.0, 0.0, 0.0, 2.25, 2.25, 2.25, 2.25, 2.25, 2.25, 2.25, 2.25, 2.25, 2.25, 2.25, 2.25, 2.25, 2.25, 2.25, 2.25, 2.25, 2.25, 2.25, 2.25, 2.25, 2.25, 2.25, 2.25, 2.25, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 2.14, 2.14, 2.14, 2.14, 2.14, 2.14, 2.14, 2.14, 2.14, 2.14, 2.14, 2.14, 2.14, 2.14, 2.14, 2.14, 2.14, 2.14, 2.14, 2.14, 2.14, 2.14, 2.14, 2.14, 2.14, 0.0, 0.0, 0.0, 0.0, 2.25, 2.25, 2.25, 2.25, 2.25, 2.25, 2.25, 2.25, 2.25, 2.25, 2.25, 2.25, 2.25, 2.25, 2.25, 2.25, 2.25, 2.25, 2.25, 2.25, 2.25, 2.25, 2.25, 2.25, 2.25, 2.25, 2.25, 2.25, 2.25, 2.25, 2.25, 2.25, 2.25, 2.25, 2.25, 2.25, 2.25, 2.25],
+        "warning_low": [2.06, 2.06, 2.06, 2.06, 2.06, 2.06, 2.06, 2.06, 2.06, 2.06, 2.06, 2.06, 2.06, 2.06, 2.06, 2.06, 2.06, 2.06, 2.06, -0.08, -0.08, -0.08, -0.08, 2.17, 2.17, 2.17, 2.17, 2.17, 2.17, 2.17, 2.17, 2.17, 2.17, 2.17, 2.17, 2.17, 2.17, 2.17, 2.17, 2.17, 2.17, 2.17, 2.17, 2.17, 2.17, 2.17, 2.17, 2.17, -0.08, -0.08, -0.08, -0.08, -0.08, -0.08, 2.06, 2.06, 2.06, 2.06, 2.06, 2.06, 2.06, 2.06, 2.06, 2.06, 2.06, 2.06, 2.06, 2.06, 2.06, 2.06, 2.06, 2.06, 2.06, 2.06, 2.06, 2.06, 2.06, 2.06, 2.06, -0.08, -0.08, -0.08, -0.08, 2.17, 2.17, 2.17, 2.17, 2.17, 2.17, 2.17, 2.17, 2.17, 2.17, 2.17, 2.17, 2.17, 2.17, 2.17, 2.17, 2.17, 2.17, 2.17, 2.17, 2.17, 2.17, 2.17, 2.17, 2.17, 2.17, 2.17, 2.17, 2.17, 2.17, 2.17, 2.17, 2.17, 2.17, 2.17, 2.17, 2.17, 2.17],
+        "warning_high": [null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null],
+        "critical_low": [1.99, 1.99, 1.99, 1.99, 1.99, 1.99, 1.99, 1.99, 1.99, 1.99, 1.99, 1.99, 1.99, 1.99, 1.99, 1.99, 1.99, 1.99, 1.99, -0.15, -0.15, -0.15, -0.15, 2.1, 2.1, 2.1, 2.1, 2.1, 2.1, 2.1, 2.1, 2.1, 2.1, 2.1, 2.1, 2.1, 2.1, 2.1, 2.1, 2.1, 2.1, 2.1, 2.1, 2.1, 2.1, 2.1, 2.1, 2.1, -0.15, -0.15, -0.15, -0.15, -0.15, -0.15, 1.99, 1.99, 1.99, 1.99, 1.99, 1.99, 1.99, 1.99, 1.99, 1.99, 1.99, 1.99, 1.99, 1.99, 1.99, 1.99, 1.99, 1.99, 1.99, 1.99, 1.99, 1.99, 1.99, 1.99, 1.99, -0.15, -0.15, -0.15, -0.15, 2.1, 2.1, 2.1, 2.1, 2.1, 2.1, 2.1, 2.1, 2.1, 2.1, 2.1, 2.1, 2.1, 2.1, 2.1, 2.1, 2.1, 2.1, 2.1, 2.1, 2.1, 2.1, 2.1, 2.1, 2.1, 2.1, 2.1, 2.1, 2.1, 2.1, 2.1, 2.1, 2.1, 2.1, 2.1, 2.1, 2.1, 2.1],
+        "critical_high": [null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null]
+      },
+      {
+        "channel": "wheel_rl_temp_c",
+        "label": "Rear-left drive temperature",
+        "units": "degC",
+        "component": "wheel_rl_thermal",
+        "subsystem": "THERMAL",
+        "value": [35.02, 35.92, 36.52, 37.0, 37.81, 37.83, 38.46, 38.82, 39.51, 39.78, 40.17, 40.12, 40.36, 40.6, 40.77, 41.09, 41.06, 41.08, 41.42, 39.45, 37.54, 35.71, 34.09, 34.47, 34.3, 34.17, 34.03, 34.09, 34.18, 33.88, 34.24, 34.0, 33.85, 34.04, 33.89, 33.7, 33.77, 34.09, 33.53, 33.84, 33.74, 33.82, 33.6, 33.84, 33.69, 33.74, 33.34, 33.86, 32.59, 31.3, 30.23, 29.24, 28.51, 27.54, 28.68, 30.0, 31.47, 32.54, 33.35, 34.34, 35.4, 35.86, 36.48, 37.34, 37.84, 38.21, 38.46, 38.81, 39.11, 39.97, 40.21, 40.16, 40.41, 40.63, 40.86, 40.81, 41.26, 41.54, 41.75, 39.07, 37.9, 35.78, 34.49, 34.41, 34.38, 34.1, 34.16, 34.31, 33.86, 34.27, 33.89, 34.14, 34.01, 34.15, 33.78, 33.79, 33.68, 33.85, 33.53, 33.6, 33.84, 33.67, 34.03, 33.82, 33.87, 33.85, 33.92, 33.43, 33.76, 33.84, 33.9, 33.98, 33.85, 33.79, 33.72, 33.72, 33.71, 33.87, 33.69, 33.71, 33.67],
+        "baseline": [35.17, 35.88, 36.53, 37.12, 37.65, 38.13, 38.57, 38.96, 39.32, 39.64, 39.93, 40.19, 40.43, 40.65, 40.84, 41.02, 41.18, 41.32, 41.45, 39.41, 37.57, 35.89, 34.38, 34.32, 34.26, 34.2, 34.16, 34.11, 34.07, 34.04, 34.01, 33.98, 33.95, 33.93, 33.91, 33.89, 33.87, 33.85, 33.84, 33.82, 33.81, 33.8, 33.79, 33.78, 33.78, 33.77, 33.76, 33.76, 32.45, 31.26, 30.19, 29.22, 28.34, 27.55, 28.99, 30.3, 31.48, 32.54, 33.51, 34.39, 35.18, 35.89, 36.54, 37.13, 37.66, 38.14, 38.57, 38.96, 39.32, 39.64, 39.93, 40.2, 40.43, 40.65, 40.84, 41.02, 41.18, 41.33, 41.46, 39.41, 37.57, 35.9, 34.38, 34.32, 34.26, 34.21, 34.16, 34.11, 34.07, 34.04, 34.01, 33.98, 33.95, 33.93, 33.91, 33.89, 33.87, 33.85, 33.84, 33.82, 33.81, 33.8, 33.79, 33.78, 33.78, 33.77, 33.76, 33.76, 33.75, 33.75, 33.74, 33.74, 33.73, 33.73, 33.73, 33.73, 33.72, 33.72, 33.72, 33.72, 33.72],
+        "warning_low": [null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null],
+        "warning_high": [50.17, 50.88, 51.53, 52.12, 52.65, 53.13, 53.57, 53.96, 54.32, 54.64, 54.93, 55.19, 55.43, 55.65, 55.84, 56.02, 56.18, 56.32, 56.45, 54.41, 52.57, 50.89, 49.38, 49.32, 49.26, 49.2, 49.16, 49.11, 49.07, 49.04, 49.01, 48.98, 48.95, 48.93, 48.91, 48.89, 48.87, 48.85, 48.84, 48.82, 48.81, 48.8, 48.79, 48.78, 48.78, 48.77, 48.76, 48.76, 47.45, 46.26, 45.19, 44.22, 43.34, 42.55, 43.99, 45.3, 46.48, 47.54, 48.51, 49.39, 50.18, 50.89, 51.54, 52.13, 52.66, 53.14, 53.57, 53.96, 54.32, 54.64, 54.93, 55.2, 55.43, 55.65, 55.84, 56.02, 56.18, 56.33, 56.46, 54.41, 52.57, 50.9, 49.38, 49.32, 49.26, 49.21, 49.16, 49.11, 49.07, 49.04, 49.01, 48.98, 48.95, 48.93, 48.91, 48.89, 48.87, 48.85, 48.84, 48.82, 48.81, 48.8, 48.79, 48.78, 48.78, 48.77, 48.76, 48.76, 48.75, 48.75, 48.74, 48.74, 48.73, 48.73, 48.73, 48.73, 48.72, 48.72, 48.72, 48.72, 48.72],
+        "critical_low": [null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null],
+        "critical_high": [65.17, 65.88, 66.53, 67.12, 67.65, 68.13, 68.57, 68.96, 69.32, 69.64, 69.93, 70.19, 70.43, 70.65, 70.84, 71.02, 71.18, 71.32, 71.45, 69.41, 67.57, 65.89, 64.38, 64.32, 64.26, 64.2, 64.16, 64.11, 64.07, 64.04, 64.01, 63.98, 63.95, 63.93, 63.91, 63.89, 63.87, 63.85, 63.84, 63.82, 63.81, 63.8, 63.79, 63.78, 63.78, 63.77, 63.76, 63.76, 62.45, 61.26, 60.19, 59.22, 58.34, 57.55, 58.99, 60.3, 61.48, 62.54, 63.51, 64.39, 65.18, 65.89, 66.54, 67.13, 67.66, 68.14, 68.57, 68.96, 69.32, 69.64, 69.93, 70.2, 70.43, 70.65, 70.84, 71.02, 71.18, 71.33, 71.46, 69.41, 67.57, 65.9, 64.38, 64.32, 64.26, 64.21, 64.16, 64.11, 64.07, 64.04, 64.01, 63.98, 63.95, 63.93, 63.91, 63.89, 63.87, 63.85, 63.84, 63.82, 63.81, 63.8, 63.79, 63.78, 63.78, 63.77, 63.76, 63.76, 63.75, 63.75, 63.74, 63.74, 63.73, 63.73, 63.73, 63.73, 63.72, 63.72, 63.72, 63.72, 63.72]
+      },
+      {
+        "channel": "wheel_rr_current_a",
+        "label": "Rear-right drive motor current",
+        "units": "A",
+        "component": "wheel_rr_drive",
+        "subsystem": "MOBILITY",
+        "value": [4.824, 4.835, 4.848, 4.79, 4.805, 4.769, 4.775, 4.718, 4.797, 4.74, 4.739, 4.778, 4.776, 4.792, 4.847, 4.815, 4.801, 4.761, 4.879, 0.002, 0.006, 0.003, 0.0, 3.183, 3.263, 3.277, 3.261, 3.178, 3.261, 3.257, 3.244, 3.24, 3.191, 3.338, 3.328, 3.29, 3.284, 3.188, 3.299, 3.281, 3.202, 3.28, 3.402, 3.218, 3.285, 3.316, 3.245, 3.323, 0.008, 0.017, 0.029, 0.01, 0.007, 0.008, 4.878, 4.796, 4.739, 4.877, 4.807, 4.848, 4.808, 4.74, 4.779, 4.727, 4.753, 4.71, 4.731, 4.871, 4.883, 4.774, 4.791, 4.807, 4.775, 4.84, 4.805, 4.871, 4.847, 4.846, 4.708, 0.005, 0.008, 0.018, 0.008, 3.236, 3.392, 3.332, 3.281, 3.287, 3.346, 3.25, 3.291, 3.36, 3.26, 3.237, 3.363, 3.344, 3.247, 3.28, 3.371, 3.286, 3.327, 3.268, 3.297, 3.188, 3.306, 3.296, 3.187, 3.263, 3.334, 3.24, 3.301, 3.369, 3.277, 3.305, 3.31, 3.221, 3.291, 3.247, 3.293, 3.246, 3.272],
+        "baseline": [4.81, 4.81, 4.81, 4.81, 4.81, 4.81, 4.81, 4.81, 4.81, 4.81, 4.81, 4.81, 4.81, 4.81, 4.81, 4.81, 4.81, 4.81, 4.81, 0.0, 0.0, 0.0, 0.0, 3.29, 3.29, 3.29, 3.29, 3.29, 3.29, 3.29, 3.29, 3.29, 3.29, 3.29, 3.29, 3.29, 3.29, 3.29, 3.29, 3.29, 3.29, 3.29, 3.29, 3.29, 3.29, 3.29, 3.29, 3.29, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 4.81, 4.81, 4.81, 4.81, 4.81, 4.81, 4.81, 4.81, 4.81, 4.81, 4.81, 4.81, 4.81, 4.81, 4.81, 4.81, 4.81, 4.81, 4.81, 4.81, 4.81, 4.81, 4.81, 4.81, 4.81, 0.0, 0.0, 0.0, 0.0, 3.29, 3.29, 3.29, 3.29, 3.29, 3.29, 3.29, 3.29, 3.29, 3.29, 3.29, 3.29, 3.29, 3.29, 3.29, 3.29, 3.29, 3.29, 3.29, 3.29, 3.29, 3.29, 3.29, 3.29, 3.29, 3.29, 3.29, 3.29, 3.29, 3.29, 3.29, 3.29, 3.29, 3.29, 3.29, 3.29, 3.29, 3.29],
+        "warning_low": [null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null],
+        "warning_high": [5.81, 5.81, 5.81, 5.81, 5.81, 5.81, 5.81, 5.81, 5.81, 5.81, 5.81, 5.81, 5.81, 5.81, 5.81, 5.81, 5.81, 5.81, 5.81, 1.0, 1.0, 1.0, 1.0, 4.29, 4.29, 4.29, 4.29, 4.29, 4.29, 4.29, 4.29, 4.29, 4.29, 4.29, 4.29, 4.29, 4.29, 4.29, 4.29, 4.29, 4.29, 4.29, 4.29, 4.29, 4.29, 4.29, 4.29, 4.29, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 5.81, 5.81, 5.81, 5.81, 5.81, 5.81, 5.81, 5.81, 5.81, 5.81, 5.81, 5.81, 5.81, 5.81, 5.81, 5.81, 5.81, 5.81, 5.81, 5.81, 5.81, 5.81, 5.81, 5.81, 5.81, 1.0, 1.0, 1.0, 1.0, 4.29, 4.29, 4.29, 4.29, 4.29, 4.29, 4.29, 4.29, 4.29, 4.29, 4.29, 4.29, 4.29, 4.29, 4.29, 4.29, 4.29, 4.29, 4.29, 4.29, 4.29, 4.29, 4.29, 4.29, 4.29, 4.29, 4.29, 4.29, 4.29, 4.29, 4.29, 4.29, 4.29, 4.29, 4.29, 4.29, 4.29, 4.29],
+        "critical_low": [null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null],
+        "critical_high": [6.81, 6.81, 6.81, 6.81, 6.81, 6.81, 6.81, 6.81, 6.81, 6.81, 6.81, 6.81, 6.81, 6.81, 6.81, 6.81, 6.81, 6.81, 6.81, 2.0, 2.0, 2.0, 2.0, 5.29, 5.29, 5.29, 5.29, 5.29, 5.29, 5.29, 5.29, 5.29, 5.29, 5.29, 5.29, 5.29, 5.29, 5.29, 5.29, 5.29, 5.29, 5.29, 5.29, 5.29, 5.29, 5.29, 5.29, 5.29, 2.0, 2.0, 2.0, 2.0, 2.0, 2.0, 6.81, 6.81, 6.81, 6.81, 6.81, 6.81, 6.81, 6.81, 6.81, 6.81, 6.81, 6.81, 6.81, 6.81, 6.81, 6.81, 6.81, 6.81, 6.81, 6.81, 6.81, 6.81, 6.81, 6.81, 6.81, 2.0, 2.0, 2.0, 2.0, 5.29, 5.29, 5.29, 5.29, 5.29, 5.29, 5.29, 5.29, 5.29, 5.29, 5.29, 5.29, 5.29, 5.29, 5.29, 5.29, 5.29, 5.29, 5.29, 5.29, 5.29, 5.29, 5.29, 5.29, 5.29, 5.29, 5.29, 5.29, 5.29, 5.29, 5.29, 5.29, 5.29, 5.29, 5.29, 5.29, 5.29, 5.29]
+      },
+      {
+        "channel": "wheel_rr_speed_rads",
+        "label": "Rear-right wheel speed",
+        "units": "rad/s",
+        "component": "wheel_rr_drive",
+        "subsystem": "MOBILITY",
+        "value": [2.143, 2.143, 2.141, 2.141, 2.15, 2.136, 2.141, 2.144, 2.145, 2.141, 2.139, 2.136, 2.142, 2.133, 2.144, 2.145, 2.141, 2.149, 2.143, 0.0, 0.0, 0.0, 0.0, 2.251, 2.253, 2.25, 2.247, 2.246, 2.254, 2.245, 2.256, 2.25, 2.249, 2.252, 2.249, 2.246, 2.255, 2.245, 2.25, 2.251, 2.248, 2.246, 2.252, 2.258, 2.253, 2.253, 2.25, 2.246, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 2.14, 2.143, 2.132, 2.145, 2.141, 2.146, 2.138, 2.148, 2.14, 2.141, 2.137, 2.135, 2.142, 2.141, 2.153, 2.144, 2.135, 2.142, 2.133, 2.145, 2.152, 2.152, 2.131, 2.137, 2.137, 0.0, 0.0, 0.0, 0.0, 2.252, 2.249, 2.248, 2.25, 2.247, 2.249, 2.247, 2.255, 2.251, 2.25, 2.252, 2.248, 2.249, 2.254, 2.255, 2.254, 2.252, 2.255, 2.249, 2.257, 2.25, 2.242, 2.245, 2.248, 2.253, 2.246, 2.256, 2.252, 2.251, 2.251, 2.245, 2.249, 2.252, 2.248, 2.251, 2.242, 2.256, 2.24],
+        "baseline": [2.14, 2.14, 2.14, 2.14, 2.14, 2.14, 2.14, 2.14, 2.14, 2.14, 2.14, 2.14, 2.14, 2.14, 2.14, 2.14, 2.14, 2.14, 2.14, 0.0, 0.0, 0.0, 0.0, 2.25, 2.25, 2.25, 2.25, 2.25, 2.25, 2.25, 2.25, 2.25, 2.25, 2.25, 2.25, 2.25, 2.25, 2.25, 2.25, 2.25, 2.25, 2.25, 2.25, 2.25, 2.25, 2.25, 2.25, 2.25, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 2.14, 2.14, 2.14, 2.14, 2.14, 2.14, 2.14, 2.14, 2.14, 2.14, 2.14, 2.14, 2.14, 2.14, 2.14, 2.14, 2.14, 2.14, 2.14, 2.14, 2.14, 2.14, 2.14, 2.14, 2.14, 0.0, 0.0, 0.0, 0.0, 2.25, 2.25, 2.25, 2.25, 2.25, 2.25, 2.25, 2.25, 2.25, 2.25, 2.25, 2.25, 2.25, 2.25, 2.25, 2.25, 2.25, 2.25, 2.25, 2.25, 2.25, 2.25, 2.25, 2.25, 2.25, 2.25, 2.25, 2.25, 2.25, 2.25, 2.25, 2.25, 2.25, 2.25, 2.25, 2.25, 2.25, 2.25],
+        "warning_low": [2.06, 2.06, 2.06, 2.06, 2.06, 2.06, 2.06, 2.06, 2.06, 2.06, 2.06, 2.06, 2.06, 2.06, 2.06, 2.06, 2.06, 2.06, 2.06, -0.08, -0.08, -0.08, -0.08, 2.17, 2.17, 2.17, 2.17, 2.17, 2.17, 2.17, 2.17, 2.17, 2.17, 2.17, 2.17, 2.17, 2.17, 2.17, 2.17, 2.17, 2.17, 2.17, 2.17, 2.17, 2.17, 2.17, 2.17, 2.17, -0.08, -0.08, -0.08, -0.08, -0.08, -0.08, 2.06, 2.06, 2.06, 2.06, 2.06, 2.06, 2.06, 2.06, 2.06, 2.06, 2.06, 2.06, 2.06, 2.06, 2.06, 2.06, 2.06, 2.06, 2.06, 2.06, 2.06, 2.06, 2.06, 2.06, 2.06, -0.08, -0.08, -0.08, -0.08, 2.17, 2.17, 2.17, 2.17, 2.17, 2.17, 2.17, 2.17, 2.17, 2.17, 2.17, 2.17, 2.17, 2.17, 2.17, 2.17, 2.17, 2.17, 2.17, 2.17, 2.17, 2.17, 2.17, 2.17, 2.17, 2.17, 2.17, 2.17, 2.17, 2.17, 2.17, 2.17, 2.17, 2.17, 2.17, 2.17, 2.17, 2.17],
+        "warning_high": [null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null],
+        "critical_low": [1.99, 1.99, 1.99, 1.99, 1.99, 1.99, 1.99, 1.99, 1.99, 1.99, 1.99, 1.99, 1.99, 1.99, 1.99, 1.99, 1.99, 1.99, 1.99, -0.15, -0.15, -0.15, -0.15, 2.1, 2.1, 2.1, 2.1, 2.1, 2.1, 2.1, 2.1, 2.1, 2.1, 2.1, 2.1, 2.1, 2.1, 2.1, 2.1, 2.1, 2.1, 2.1, 2.1, 2.1, 2.1, 2.1, 2.1, 2.1, -0.15, -0.15, -0.15, -0.15, -0.15, -0.15, 1.99, 1.99, 1.99, 1.99, 1.99, 1.99, 1.99, 1.99, 1.99, 1.99, 1.99, 1.99, 1.99, 1.99, 1.99, 1.99, 1.99, 1.99, 1.99, 1.99, 1.99, 1.99, 1.99, 1.99, 1.99, -0.15, -0.15, -0.15, -0.15, 2.1, 2.1, 2.1, 2.1, 2.1, 2.1, 2.1, 2.1, 2.1, 2.1, 2.1, 2.1, 2.1, 2.1, 2.1, 2.1, 2.1, 2.1, 2.1, 2.1, 2.1, 2.1, 2.1, 2.1, 2.1, 2.1, 2.1, 2.1, 2.1, 2.1, 2.1, 2.1, 2.1, 2.1, 2.1, 2.1, 2.1, 2.1],
+        "critical_high": [null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null]
+      },
+      {
+        "channel": "wheel_rr_temp_c",
+        "label": "Rear-right drive temperature",
+        "units": "degC",
+        "component": "wheel_rr_thermal",
+        "subsystem": "THERMAL",
+        "value": [35.23, 35.96, 36.71, 37.13, 37.59, 38.09, 38.54, 39.0, 39.33, 39.61, 39.75, 39.91, 40.05, 40.6, 40.99, 41.14, 40.91, 41.27, 41.35, 39.19, 37.65, 36.12, 34.64, 34.48, 34.44, 34.4, 34.32, 34.2, 34.01, 34.1, 34.03, 34.2, 33.93, 33.79, 34.01, 34.1, 33.73, 33.77, 33.86, 33.74, 33.74, 33.76, 33.84, 33.75, 33.72, 33.83, 33.99, 33.64, 32.49, 31.34, 30.01, 29.09, 28.64, 27.48, 29.17, 30.1, 31.44, 32.42, 33.35, 34.38, 35.19, 35.82, 36.44, 36.98, 37.41, 38.2, 38.45, 39.08, 39.27, 39.91, 39.72, 40.08, 40.57, 40.64, 40.7, 41.22, 41.0, 41.24, 41.1, 39.45, 37.46, 35.84, 34.42, 34.5, 34.55, 34.09, 34.23, 34.03, 33.75, 34.09, 33.98, 34.07, 34.15, 34.27, 34.14, 33.67, 33.92, 33.73, 33.75, 33.88, 33.8, 33.7, 33.91, 33.82, 33.99, 33.67, 33.81, 33.57, 33.7, 33.7, 33.81, 33.93, 33.75, 33.77, 33.91, 33.56, 33.99, 33.61, 33.72, 33.49, 33.93],
+        "baseline": [35.17, 35.88, 36.53, 37.12, 37.65, 38.13, 38.57, 38.96, 39.32, 39.64, 39.93, 40.19, 40.43, 40.65, 40.84, 41.02, 41.18, 41.32, 41.45, 39.41, 37.57, 35.89, 34.38, 34.32, 34.26, 34.2, 34.16, 34.11, 34.07, 34.04, 34.01, 33.98, 33.95, 33.93, 33.91, 33.89, 33.87, 33.85, 33.84, 33.82, 33.81, 33.8, 33.79, 33.78, 33.78, 33.77, 33.76, 33.76, 32.45, 31.26, 30.19, 29.22, 28.34, 27.55, 28.99, 30.3, 31.48, 32.54, 33.51, 34.39, 35.18, 35.89, 36.54, 37.13, 37.66, 38.14, 38.57, 38.96, 39.32, 39.64, 39.93, 40.2, 40.43, 40.65, 40.84, 41.02, 41.18, 41.33, 41.46, 39.41, 37.57, 35.9, 34.38, 34.32, 34.26, 34.21, 34.16, 34.11, 34.07, 34.04, 34.01, 33.98, 33.95, 33.93, 33.91, 33.89, 33.87, 33.85, 33.84, 33.82, 33.81, 33.8, 33.79, 33.78, 33.78, 33.77, 33.76, 33.76, 33.75, 33.75, 33.74, 33.74, 33.73, 33.73, 33.73, 33.73, 33.72, 33.72, 33.72, 33.72, 33.72],
+        "warning_low": [null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null],
+        "warning_high": [50.17, 50.88, 51.53, 52.12, 52.65, 53.13, 53.57, 53.96, 54.32, 54.64, 54.93, 55.19, 55.43, 55.65, 55.84, 56.02, 56.18, 56.32, 56.45, 54.41, 52.57, 50.89, 49.38, 49.32, 49.26, 49.2, 49.16, 49.11, 49.07, 49.04, 49.01, 48.98, 48.95, 48.93, 48.91, 48.89, 48.87, 48.85, 48.84, 48.82, 48.81, 48.8, 48.79, 48.78, 48.78, 48.77, 48.76, 48.76, 47.45, 46.26, 45.19, 44.22, 43.34, 42.55, 43.99, 45.3, 46.48, 47.54, 48.51, 49.39, 50.18, 50.89, 51.54, 52.13, 52.66, 53.14, 53.57, 53.96, 54.32, 54.64, 54.93, 55.2, 55.43, 55.65, 55.84, 56.02, 56.18, 56.33, 56.46, 54.41, 52.57, 50.9, 49.38, 49.32, 49.26, 49.21, 49.16, 49.11, 49.07, 49.04, 49.01, 48.98, 48.95, 48.93, 48.91, 48.89, 48.87, 48.85, 48.84, 48.82, 48.81, 48.8, 48.79, 48.78, 48.78, 48.77, 48.76, 48.76, 48.75, 48.75, 48.74, 48.74, 48.73, 48.73, 48.73, 48.73, 48.72, 48.72, 48.72, 48.72, 48.72],
+        "critical_low": [null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null],
+        "critical_high": [65.17, 65.88, 66.53, 67.12, 67.65, 68.13, 68.57, 68.96, 69.32, 69.64, 69.93, 70.19, 70.43, 70.65, 70.84, 71.02, 71.18, 71.32, 71.45, 69.41, 67.57, 65.89, 64.38, 64.32, 64.26, 64.2, 64.16, 64.11, 64.07, 64.04, 64.01, 63.98, 63.95, 63.93, 63.91, 63.89, 63.87, 63.85, 63.84, 63.82, 63.81, 63.8, 63.79, 63.78, 63.78, 63.77, 63.76, 63.76, 62.45, 61.26, 60.19, 59.22, 58.34, 57.55, 58.99, 60.3, 61.48, 62.54, 63.51, 64.39, 65.18, 65.89, 66.54, 67.13, 67.66, 68.14, 68.57, 68.96, 69.32, 69.64, 69.93, 70.2, 70.43, 70.65, 70.84, 71.02, 71.18, 71.33, 71.46, 69.41, 67.57, 65.9, 64.38, 64.32, 64.26, 64.21, 64.16, 64.11, 64.07, 64.04, 64.01, 63.98, 63.95, 63.93, 63.91, 63.89, 63.87, 63.85, 63.84, 63.82, 63.81, 63.8, 63.79, 63.78, 63.78, 63.77, 63.76, 63.76, 63.75, 63.75, 63.74, 63.74, 63.73, 63.73, 63.73, 63.73, 63.72, 63.72, 63.72, 63.72, 63.72]
+      },
+      {
+        "channel": "battery_voltage_v",
+        "label": "Battery pack terminal voltage",
+        "units": "V",
+        "component": "battery_pack",
+        "subsystem": "POWER",
+        "value": [51.309, 51.273, 51.236, 51.209, 51.218, 51.189, 51.162, 51.165, 51.128, 51.118, 51.099, 51.088, 51.058, 51.067, 51.027, 50.99, 50.966, 50.971, 50.939, 51.022, 51.009, 51.056, 51.05, 50.942, 50.944, 50.898, 50.911, 50.859, 50.881, 50.897, 50.834, 50.804, 50.814, 50.755, 50.756, 50.745, 50.743, 50.724, 50.709, 50.722, 50.698, 50.703, 50.65, 50.664, 50.626, 50.596, 50.603, 50.61, 50.674, 50.717, 50.619, 50.599, 50.611, 50.592, 50.464, 50.423, 50.396, 50.402, 50.369, 50.36, 50.366, 50.351, 50.331, 50.331, 50.356, 50.326, 50.298, 50.304, 50.295, 50.236, 50.244, 50.247, 50.262, 50.256, 50.226, 50.141, 50.198, 50.175, 50.177, 50.253, 50.273, 50.287, 50.3, 50.194, 50.216, 50.134, 50.157, 50.135, 50.114, 50.132, 50.119, 50.156, 50.098, 50.115, 50.122, 50.087, 50.083, 50.039, 50.037, 50.056, 50.043, 50.054, 50.001, 49.979, 50.019, 49.976, 49.97, 49.949, 49.958, 49.962, 49.938, 49.914, 49.929, 49.924, 49.925, 49.92, 49.891, 49.887, 49.869, 49.863, 49.855],
+        "baseline": [51.293, 51.272, 51.251, 51.227, 51.22, 51.19, 51.175, 51.158, 51.132, 51.115, 51.095, 51.078, 51.058, 51.04, 51.024, 51.005, 50.982, 50.964, 50.946, 51.062, 51.05, 51.043, 51.029, 50.946, 50.925, 50.907, 50.896, 50.885, 50.862, 50.858, 50.839, 50.819, 50.802, 50.791, 50.77, 50.757, 50.745, 50.733, 50.715, 50.695, 50.679, 50.666, 50.655, 50.64, 50.62, 50.605, 50.593, 50.574, 50.685, 50.674, 50.618, 50.614, 50.603, 50.596, 50.449, 50.428, 50.413, 50.405, 50.392, 50.381, 50.373, 50.354, 50.343, 50.336, 50.323, 50.313, 50.305, 50.293, 50.275, 50.268, 50.255, 50.241, 50.234, 50.221, 50.21, 50.194, 50.187, 50.175, 50.168, 50.292, 50.286, 50.285, 50.279, 50.183, 50.178, 50.169, 50.159, 50.15, 50.143, 50.132, 50.127, 50.119, 50.104, 50.098, 50.089, 50.079, 50.068, 50.059, 50.051, 50.045, 50.034, 50.028, 50.011, 50.004, 49.996, 49.992, 49.977, 49.969, 49.958, 49.953, 49.942, 49.935, 49.921, 49.914, 49.906, 49.895, 49.892, 49.878, 49.871, 49.864, 49.849],
+        "warning_low": [50.793, 50.772, 50.751, 50.727, 50.72, 50.69, 50.675, 50.658, 50.632, 50.615, 50.595, 50.578, 50.558, 50.54, 50.524, 50.505, 50.482, 50.464, 50.446, 50.562, 50.55, 50.543, 50.529, 50.446, 50.425, 50.407, 50.396, 50.385, 50.362, 50.358, 50.339, 50.319, 50.302, 50.291, 50.27, 50.257, 50.245, 50.233, 50.215, 50.195, 50.179, 50.166, 50.155, 50.14, 50.12, 50.105, 50.093, 50.074, 50.185, 50.174, 50.118, 50.114, 50.103, 50.096, 49.949, 49.928, 49.913, 49.905, 49.892, 49.881, 49.873, 49.854, 49.843, 49.836, 49.823, 49.813, 49.805, 49.793, 49.775, 49.768, 49.755, 49.741, 49.734, 49.721, 49.71, 49.694, 49.687, 49.675, 49.668, 49.792, 49.786, 49.785, 49.779, 49.683, 49.678, 49.669, 49.659, 49.65, 49.643, 49.632, 49.627, 49.619, 49.604, 49.598, 49.589, 49.579, 49.568, 49.559, 49.551, 49.545, 49.534, 49.528, 49.511, 49.504, 49.496, 49.492, 49.477, 49.469, 49.458, 49.453, 49.442, 49.435, 49.421, 49.414, 49.406, 49.395, 49.392, 49.378, 49.371, 49.364, 49.349],
+        "warning_high": [null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null],
+        "critical_low": [50.293, 50.272, 50.251, 50.227, 50.22, 50.19, 50.175, 50.158, 50.132, 50.115, 50.095, 50.078, 50.058, 50.04, 50.024, 50.005, 49.982, 49.964, 49.946, 50.062, 50.05, 50.043, 50.029, 49.946, 49.925, 49.907, 49.896, 49.885, 49.862, 49.858, 49.839, 49.819, 49.802, 49.791, 49.77, 49.757, 49.745, 49.733, 49.715, 49.695, 49.679, 49.666, 49.655, 49.64, 49.62, 49.605, 49.593, 49.574, 49.685, 49.674, 49.618, 49.614, 49.603, 49.596, 49.449, 49.428, 49.413, 49.405, 49.392, 49.381, 49.373, 49.354, 49.343, 49.336, 49.323, 49.313, 49.305, 49.293, 49.275, 49.268, 49.255, 49.241, 49.234, 49.221, 49.21, 49.194, 49.187, 49.175, 49.168, 49.292, 49.286, 49.285, 49.279, 49.183, 49.178, 49.169, 49.159, 49.15, 49.143, 49.132, 49.127, 49.119, 49.104, 49.098, 49.089, 49.079, 49.068, 49.059, 49.051, 49.045, 49.034, 49.028, 49.011, 49.004, 48.996, 48.992, 48.977, 48.969, 48.958, 48.953, 48.942, 48.935, 48.921, 48.914, 48.906, 48.895, 48.892, 48.878, 48.871, 48.864, 48.849],
+        "critical_high": [54.6, 54.6, 54.6, 54.6, 54.6, 54.6, 54.6, 54.6, 54.6, 54.6, 54.6, 54.6, 54.6, 54.6, 54.6, 54.6, 54.6, 54.6, 54.6, 54.6, 54.6, 54.6, 54.6, 54.6, 54.6, 54.6, 54.6, 54.6, 54.6, 54.6, 54.6, 54.6, 54.6, 54.6, 54.6, 54.6, 54.6, 54.6, 54.6, 54.6, 54.6, 54.6, 54.6, 54.6, 54.6, 54.6, 54.6, 54.6, 54.6, 54.6, 54.6, 54.6, 54.6, 54.6, 54.6, 54.6, 54.6, 54.6, 54.6, 54.6, 54.6, 54.6, 54.6, 54.6, 54.6, 54.6, 54.6, 54.6, 54.6, 54.6, 54.6, 54.6, 54.6, 54.6, 54.6, 54.6, 54.6, 54.6, 54.6, 54.6, 54.6, 54.6, 54.6, 54.6, 54.6, 54.6, 54.6, 54.6, 54.6, 54.6, 54.6, 54.6, 54.6, 54.6, 54.6, 54.6, 54.6, 54.6, 54.6, 54.6, 54.6, 54.6, 54.6, 54.6, 54.6, 54.6, 54.6, 54.6, 54.6, 54.6, 54.6, 54.6, 54.6, 54.6, 54.6, 54.6, 54.6, 54.6, 54.6, 54.6, 54.6]
+      },
+      {
+        "channel": "battery_current_a",
+        "label": "Battery pack current (+ = discharge)",
+        "units": "A",
+        "component": "battery_pack",
+        "subsystem": "POWER",
+        "value": [3.468, 3.486, 3.504, 3.566, 3.407, 3.556, 3.497, 3.467, 3.549, 3.522, 3.524, 3.498, 3.505, 3.499, 3.458, 3.447, 3.498, 3.487, 3.47, 1.79, 1.81, 1.777, 1.829, 2.74, 2.817, 2.847, 2.788, 2.726, 2.834, 2.687, 2.734, 2.801, 2.823, 2.771, 2.841, 2.809, 2.76, 2.723, 2.758, 2.818, 2.827, 2.798, 2.736, 2.736, 2.799, 2.791, 2.752, 2.801, 1.225, 1.275, 1.892, 1.812, 1.814, 1.787, 3.502, 3.513, 3.522, 3.477, 3.498, 3.507, 3.466, 3.559, 3.555, 3.511, 3.533, 3.518, 3.47, 3.488, 3.57, 3.525, 3.542, 3.582, 3.519, 3.549, 3.54, 3.6, 3.555, 3.566, 3.504, 1.816, 1.826, 1.756, 1.771, 2.89, 2.848, 2.848, 2.86, 2.858, 2.827, 2.858, 2.805, 2.8, 2.875, 2.828, 2.828, 2.842, 2.864, 2.869, 2.856, 2.816, 2.842, 2.812, 2.904, 2.876, 2.863, 2.799, 2.883, 2.869, 2.895, 2.832, 2.863, 2.842, 2.903, 2.875, 2.857, 2.879, 2.809, 2.868, 2.849, 2.817, 2.898],
+        "baseline": [3.49, 3.49, 3.49, 3.49, 3.49, 3.49, 3.49, 3.49, 3.49, 3.49, 3.49, 3.49, 3.49, 3.49, 3.49, 3.49, 3.49, 3.49, 3.49, 1.81, 1.81, 1.81, 1.81, 2.78, 2.78, 2.78, 2.78, 2.78, 2.78, 2.78, 2.78, 2.78, 2.78, 2.78, 2.78, 2.78, 2.78, 2.78, 2.78, 2.78, 2.78, 2.78, 2.78, 2.78, 2.78, 2.78, 2.78, 2.78, 1.25, 1.25, 1.81, 1.81, 1.81, 1.81, 3.49, 3.49, 3.49, 3.49, 3.49, 3.49, 3.49, 3.49, 3.49, 3.49, 3.49, 3.49, 3.49, 3.49, 3.49, 3.49, 3.49, 3.49, 3.49, 3.49, 3.49, 3.49, 3.49, 3.49, 3.49, 1.81, 1.81, 1.81, 1.81, 2.78, 2.78, 2.78, 2.78, 2.78, 2.78, 2.78, 2.78, 2.78, 2.78, 2.78, 2.78, 2.78, 2.78, 2.78, 2.78, 2.78, 2.78, 2.78, 2.78, 2.78, 2.78, 2.78, 2.78, 2.78, 2.78, 2.78, 2.78, 2.78, 2.78, 2.78, 2.78, 2.78, 2.78, 2.78, 2.78, 2.78, 2.78],
+        "warning_low": [null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null],
+        "warning_high": [4.99, 4.99, 4.99, 4.99, 4.99, 4.99, 4.99, 4.99, 4.99, 4.99, 4.99, 4.99, 4.99, 4.99, 4.99, 4.99, 4.99, 4.99, 4.99, 3.31, 3.31, 3.31, 3.31, 4.28, 4.28, 4.28, 4.28, 4.28, 4.28, 4.28, 4.28, 4.28, 4.28, 4.28, 4.28, 4.28, 4.28, 4.28, 4.28, 4.28, 4.28, 4.28, 4.28, 4.28, 4.28, 4.28, 4.28, 4.28, 2.75, 2.75, 3.31, 3.31, 3.31, 3.31, 4.99, 4.99, 4.99, 4.99, 4.99, 4.99, 4.99, 4.99, 4.99, 4.99, 4.99, 4.99, 4.99, 4.99, 4.99, 4.99, 4.99, 4.99, 4.99, 4.99, 4.99, 4.99, 4.99, 4.99, 4.99, 3.31, 3.31, 3.31, 3.31, 4.28, 4.28, 4.28, 4.28, 4.28, 4.28, 4.28, 4.28, 4.28, 4.28, 4.28, 4.28, 4.28, 4.28, 4.28, 4.28, 4.28, 4.28, 4.28, 4.28, 4.28, 4.28, 4.28, 4.28, 4.28, 4.28, 4.28, 4.28, 4.28, 4.28, 4.28, 4.28, 4.28, 4.28, 4.28, 4.28, 4.28, 4.28],
+        "critical_low": [-15.0, -15.0, -15.0, -15.0, -15.0, -15.0, -15.0, -15.0, -15.0, -15.0, -15.0, -15.0, -15.0, -15.0, -15.0, -15.0, -15.0, -15.0, -15.0, -15.0, -15.0, -15.0, -15.0, -15.0, -15.0, -15.0, -15.0, -15.0, -15.0, -15.0, -15.0, -15.0, -15.0, -15.0, -15.0, -15.0, -15.0, -15.0, -15.0, -15.0, -15.0, -15.0, -15.0, -15.0, -15.0, -15.0, -15.0, -15.0, -15.0, -15.0, -15.0, -15.0, -15.0, -15.0, -15.0, -15.0, -15.0, -15.0, -15.0, -15.0, -15.0, -15.0, -15.0, -15.0, -15.0, -15.0, -15.0, -15.0, -15.0, -15.0, -15.0, -15.0, -15.0, -15.0, -15.0, -15.0, -15.0, -15.0, -15.0, -15.0, -15.0, -15.0, -15.0, -15.0, -15.0, -15.0, -15.0, -15.0, -15.0, -15.0, -15.0, -15.0, -15.0, -15.0, -15.0, -15.0, -15.0, -15.0, -15.0, -15.0, -15.0, -15.0, -15.0, -15.0, -15.0, -15.0, -15.0, -15.0, -15.0, -15.0, -15.0, -15.0, -15.0, -15.0, -15.0, -15.0, -15.0, -15.0, -15.0, -15.0, -15.0],
+        "critical_high": [6.49, 6.49, 6.49, 6.49, 6.49, 6.49, 6.49, 6.49, 6.49, 6.49, 6.49, 6.49, 6.49, 6.49, 6.49, 6.49, 6.49, 6.49, 6.49, 4.81, 4.81, 4.81, 4.81, 5.78, 5.78, 5.78, 5.78, 5.78, 5.78, 5.78, 5.78, 5.78, 5.78, 5.78, 5.78, 5.78, 5.78, 5.78, 5.78, 5.78, 5.78, 5.78, 5.78, 5.78, 5.78, 5.78, 5.78, 5.78, 4.25, 4.25, 4.81, 4.81, 4.81, 4.81, 6.49, 6.49, 6.49, 6.49, 6.49, 6.49, 6.49, 6.49, 6.49, 6.49, 6.49, 6.49, 6.49, 6.49, 6.49, 6.49, 6.49, 6.49, 6.49, 6.49, 6.49, 6.49, 6.49, 6.49, 6.49, 4.81, 4.81, 4.81, 4.81, 5.78, 5.78, 5.78, 5.78, 5.78, 5.78, 5.78, 5.78, 5.78, 5.78, 5.78, 5.78, 5.78, 5.78, 5.78, 5.78, 5.78, 5.78, 5.78, 5.78, 5.78, 5.78, 5.78, 5.78, 5.78, 5.78, 5.78, 5.78, 5.78, 5.78, 5.78, 5.78, 5.78, 5.78, 5.78, 5.78, 5.78, 5.78]
+      },
+      {
+        "channel": "battery_soc_pct",
+        "label": "Battery state of charge",
+        "units": "%",
+        "component": "battery_pack",
+        "subsystem": "POWER",
+        "value": [85.3, 85.2, 85.0, 84.9, 84.8, 84.7, 84.6, 84.5, 84.3, 84.2, 84.1, 84.0, 83.9, 83.8, 83.6, 83.5, 83.4, 83.3, 83.2, 83.1, 83.0, 82.9, 82.9, 82.8, 82.7, 82.6, 82.5, 82.4, 82.4, 82.3, 82.2, 82.1, 82.0, 81.9, 81.8, 81.7, 81.6, 81.5, 81.4, 81.3, 81.2, 81.1, 81.1, 81.0, 80.9, 80.8, 80.7, 80.6, 80.5, 80.5, 80.4, 80.4, 80.3, 80.2, 80.2, 80.1, 79.9, 79.8, 79.7, 79.6, 79.5, 79.4, 79.2, 79.1, 79.0, 78.9, 78.8, 78.7, 78.5, 78.4, 78.3, 78.2, 78.1, 77.9, 77.8, 77.7, 77.6, 77.5, 77.4, 77.2, 77.2, 77.1, 77.1, 77.0, 76.9, 76.8, 76.7, 76.6, 76.5, 76.4, 76.3, 76.2, 76.1, 76.0, 76.0, 75.9, 75.8, 75.7, 75.6, 75.5, 75.4, 75.3, 75.2, 75.1, 75.0, 74.9, 74.8, 74.7, 74.6, 74.5, 74.4, 74.3, 74.2, 74.1, 74.0, 74.0, 73.9, 73.8, 73.7, 73.6, 73.5],
+        "baseline": [null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null],
+        "warning_low": [30.0, 30.0, 30.0, 30.0, 30.0, 30.0, 30.0, 30.0, 30.0, 30.0, 30.0, 30.0, 30.0, 30.0, 30.0, 30.0, 30.0, 30.0, 30.0, 30.0, 30.0, 30.0, 30.0, 30.0, 30.0, 30.0, 30.0, 30.0, 30.0, 30.0, 30.0, 30.0, 30.0, 30.0, 30.0, 30.0, 30.0, 30.0, 30.0, 30.0, 30.0, 30.0, 30.0, 30.0, 30.0, 30.0, 30.0, 30.0, 30.0, 30.0, 30.0, 30.0, 30.0, 30.0, 30.0, 30.0, 30.0, 30.0, 30.0, 30.0, 30.0, 30.0, 30.0, 30.0, 30.0, 30.0, 30.0, 30.0, 30.0, 30.0, 30.0, 30.0, 30.0, 30.0, 30.0, 30.0, 30.0, 30.0, 30.0, 30.0, 30.0, 30.0, 30.0, 30.0, 30.0, 30.0, 30.0, 30.0, 30.0, 30.0, 30.0, 30.0, 30.0, 30.0, 30.0, 30.0, 30.0, 30.0, 30.0, 30.0, 30.0, 30.0, 30.0, 30.0, 30.0, 30.0, 30.0, 30.0, 30.0, 30.0, 30.0, 30.0, 30.0, 30.0, 30.0, 30.0, 30.0, 30.0, 30.0, 30.0, 30.0],
+        "warning_high": [null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null],
+        "critical_low": [15.0, 15.0, 15.0, 15.0, 15.0, 15.0, 15.0, 15.0, 15.0, 15.0, 15.0, 15.0, 15.0, 15.0, 15.0, 15.0, 15.0, 15.0, 15.0, 15.0, 15.0, 15.0, 15.0, 15.0, 15.0, 15.0, 15.0, 15.0, 15.0, 15.0, 15.0, 15.0, 15.0, 15.0, 15.0, 15.0, 15.0, 15.0, 15.0, 15.0, 15.0, 15.0, 15.0, 15.0, 15.0, 15.0, 15.0, 15.0, 15.0, 15.0, 15.0, 15.0, 15.0, 15.0, 15.0, 15.0, 15.0, 15.0, 15.0, 15.0, 15.0, 15.0, 15.0, 15.0, 15.0, 15.0, 15.0, 15.0, 15.0, 15.0, 15.0, 15.0, 15.0, 15.0, 15.0, 15.0, 15.0, 15.0, 15.0, 15.0, 15.0, 15.0, 15.0, 15.0, 15.0, 15.0, 15.0, 15.0, 15.0, 15.0, 15.0, 15.0, 15.0, 15.0, 15.0, 15.0, 15.0, 15.0, 15.0, 15.0, 15.0, 15.0, 15.0, 15.0, 15.0, 15.0, 15.0, 15.0, 15.0, 15.0, 15.0, 15.0, 15.0, 15.0, 15.0, 15.0, 15.0, 15.0, 15.0, 15.0, 15.0],
+        "critical_high": [null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null]
+      },
+      {
+        "channel": "lift_joint_current_a",
+        "label": "Cargo-lift actuator current",
+        "units": "A",
+        "component": "lift_actuator",
+        "subsystem": "MECHANISMS",
+        "value": [0.046, 0.04, 0.03, 0.013, 0.006, 0.016, 0.011, 0.034, 0.002, 0.04, 0.001, 0.005, 0.005, 0.023, 0.066, 0.047, 0.001, 0.019, 0.02, 2.011, 2.05, 2.005, 2.007, 0.071, 0.014, 0.051, 0.01, 0.01, 0.022, 0.014, 0.015, 0.017, 0.019, 0.027, 0.013, 0.011, 0.016, 0.023, 0.032, 0.026, 0.032, 0.001, 0.007, 0.031, 0.027, 0.022, 0.039, 0.042, 0.05, 0.026, 2.004, 2.008, 2.038, 2.0, 0.047, 0.003, 0.006, 0.047, 0.026, 0.023, 0.02, 0.005, 0.04, 0.03, 0.038, 0.031, 0.003, 0.062, 0.013, 0.001, 0.06, 0.02, 0.044, 0.024, 0.003, 0.021, 0.003, 0.041, 0.002, 2.028, 2.063, 2.005, 2.016, 0.025, 0.025, 0.008, 0.025, 0.009, 0.014, 0.01, 0.059, 0.0, 0.012, 0.014, 0.008, 0.008, 0.051, 0.023, 0.04, 0.037, 0.046, 0.055, 0.024, 0.039, 0.066, 0.015, 0.03, 0.016, 0.05, 0.027, 0.009, 0.007, 0.032, 0.016, 0.006, 0.012, 0.039, 0.035, 0.007, 0.036, 0.01],
+        "baseline": [0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 2.0, 2.0, 2.0, 2.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 2.0, 2.0, 2.0, 2.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 2.0, 2.0, 2.0, 2.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0],
+        "warning_low": [null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null],
+        "warning_high": [1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 3.0, 3.0, 3.0, 3.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 3.0, 3.0, 3.0, 3.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 3.0, 3.0, 3.0, 3.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0],
+        "critical_low": [null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null],
+        "critical_high": [2.0, 2.0, 2.0, 2.0, 2.0, 2.0, 2.0, 2.0, 2.0, 2.0, 2.0, 2.0, 2.0, 2.0, 2.0, 2.0, 2.0, 2.0, 2.0, 4.0, 4.0, 4.0, 4.0, 2.0, 2.0, 2.0, 2.0, 2.0, 2.0, 2.0, 2.0, 2.0, 2.0, 2.0, 2.0, 2.0, 2.0, 2.0, 2.0, 2.0, 2.0, 2.0, 2.0, 2.0, 2.0, 2.0, 2.0, 2.0, 2.0, 2.0, 4.0, 4.0, 4.0, 4.0, 2.0, 2.0, 2.0, 2.0, 2.0, 2.0, 2.0, 2.0, 2.0, 2.0, 2.0, 2.0, 2.0, 2.0, 2.0, 2.0, 2.0, 2.0, 2.0, 2.0, 2.0, 2.0, 2.0, 2.0, 2.0, 4.0, 4.0, 4.0, 4.0, 2.0, 2.0, 2.0, 2.0, 2.0, 2.0, 2.0, 2.0, 2.0, 2.0, 2.0, 2.0, 2.0, 2.0, 2.0, 2.0, 2.0, 2.0, 2.0, 2.0, 2.0, 2.0, 2.0, 2.0, 2.0, 2.0, 2.0, 2.0, 2.0, 2.0, 2.0, 2.0, 2.0, 2.0, 2.0, 2.0, 2.0, 2.0]
+      },
+      {
+        "channel": "lift_joint_pos_err_deg",
+        "label": "Cargo-lift position error",
+        "units": "deg",
+        "component": "lift_actuator",
+        "subsystem": "MECHANISMS",
+        "value": [0.056, 0.057, 0.056, 0.051, 0.053, 0.071, 0.057, 0.06, 0.061, 0.052, 0.057, 0.057, 0.054, 0.058, 0.05, 0.055, 0.054, 0.055, 0.058, 0.41, 0.401, 0.415, 0.403, 0.056, 0.055, 0.056, 0.058, 0.067, 0.073, 0.051, 0.054, 0.056, 0.056, 0.055, 0.051, 0.061, 0.056, 0.066, 0.058, 0.053, 0.062, 0.06, 0.052, 0.059, 0.055, 0.052, 0.059, 0.053, 0.059, 0.061, 0.406, 0.415, 0.401, 0.408, 0.057, 0.051, 0.055, 0.05, 0.053, 0.053, 0.07, 0.056, 0.054, 0.058, 0.057, 0.052, 0.051, 0.062, 0.057, 0.062, 0.07, 0.062, 0.055, 0.056, 0.052, 0.055, 0.057, 0.056, 0.06, 0.406, 0.406, 0.401, 0.412, 0.053, 0.06, 0.06, 0.063, 0.052, 0.055, 0.053, 0.059, 0.056, 0.058, 0.051, 0.063, 0.054, 0.065, 0.058, 0.056, 0.052, 0.059, 0.077, 0.051, 0.064, 0.061, 0.063, 0.051, 0.063, 0.076, 0.059, 0.061, 0.053, 0.052, 0.075, 0.062, 0.054, 0.058, 0.063, 0.051, 0.061, 0.055],
+        "baseline": [0.05, 0.05, 0.05, 0.05, 0.05, 0.05, 0.05, 0.05, 0.05, 0.05, 0.05, 0.05, 0.05, 0.05, 0.05, 0.05, 0.05, 0.05, 0.05, 0.4, 0.4, 0.4, 0.4, 0.05, 0.05, 0.05, 0.05, 0.05, 0.05, 0.05, 0.05, 0.05, 0.05, 0.05, 0.05, 0.05, 0.05, 0.05, 0.05, 0.05, 0.05, 0.05, 0.05, 0.05, 0.05, 0.05, 0.05, 0.05, 0.05, 0.05, 0.4, 0.4, 0.4, 0.4, 0.05, 0.05, 0.05, 0.05, 0.05, 0.05, 0.05, 0.05, 0.05, 0.05, 0.05, 0.05, 0.05, 0.05, 0.05, 0.05, 0.05, 0.05, 0.05, 0.05, 0.05, 0.05, 0.05, 0.05, 0.05, 0.4, 0.4, 0.4, 0.4, 0.05, 0.05, 0.05, 0.05, 0.05, 0.05, 0.05, 0.05, 0.05, 0.05, 0.05, 0.05, 0.05, 0.05, 0.05, 0.05, 0.05, 0.05, 0.05, 0.05, 0.05, 0.05, 0.05, 0.05, 0.05, 0.05, 0.05, 0.05, 0.05, 0.05, 0.05, 0.05, 0.05, 0.05, 0.05, 0.05, 0.05, 0.05],
+        "warning_low": [null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null],
+        "warning_high": [0.55, 0.55, 0.55, 0.55, 0.55, 0.55, 0.55, 0.55, 0.55, 0.55, 0.55, 0.55, 0.55, 0.55, 0.55, 0.55, 0.55, 0.55, 0.55, 0.9, 0.9, 0.9, 0.9, 0.55, 0.55, 0.55, 0.55, 0.55, 0.55, 0.55, 0.55, 0.55, 0.55, 0.55, 0.55, 0.55, 0.55, 0.55, 0.55, 0.55, 0.55, 0.55, 0.55, 0.55, 0.55, 0.55, 0.55, 0.55, 0.55, 0.55, 0.9, 0.9, 0.9, 0.9, 0.55, 0.55, 0.55, 0.55, 0.55, 0.55, 0.55, 0.55, 0.55, 0.55, 0.55, 0.55, 0.55, 0.55, 0.55, 0.55, 0.55, 0.55, 0.55, 0.55, 0.55, 0.55, 0.55, 0.55, 0.55, 0.9, 0.9, 0.9, 0.9, 0.55, 0.55, 0.55, 0.55, 0.55, 0.55, 0.55, 0.55, 0.55, 0.55, 0.55, 0.55, 0.55, 0.55, 0.55, 0.55, 0.55, 0.55, 0.55, 0.55, 0.55, 0.55, 0.55, 0.55, 0.55, 0.55, 0.55, 0.55, 0.55, 0.55, 0.55, 0.55, 0.55, 0.55, 0.55, 0.55, 0.55, 0.55],
+        "critical_low": [null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null],
+        "critical_high": [1.55, 1.55, 1.55, 1.55, 1.55, 1.55, 1.55, 1.55, 1.55, 1.55, 1.55, 1.55, 1.55, 1.55, 1.55, 1.55, 1.55, 1.55, 1.55, 1.9, 1.9, 1.9, 1.9, 1.55, 1.55, 1.55, 1.55, 1.55, 1.55, 1.55, 1.55, 1.55, 1.55, 1.55, 1.55, 1.55, 1.55, 1.55, 1.55, 1.55, 1.55, 1.55, 1.55, 1.55, 1.55, 1.55, 1.55, 1.55, 1.55, 1.55, 1.9, 1.9, 1.9, 1.9, 1.55, 1.55, 1.55, 1.55, 1.55, 1.55, 1.55, 1.55, 1.55, 1.55, 1.55, 1.55, 1.55, 1.55, 1.55, 1.55, 1.55, 1.55, 1.55, 1.55, 1.55, 1.55, 1.55, 1.55, 1.55, 1.9, 1.9, 1.9, 1.9, 1.55, 1.55, 1.55, 1.55, 1.55, 1.55, 1.55, 1.55, 1.55, 1.55, 1.55, 1.55, 1.55, 1.55, 1.55, 1.55, 1.55, 1.55, 1.55, 1.55, 1.55, 1.55, 1.55, 1.55, 1.55, 1.55, 1.55, 1.55, 1.55, 1.55, 1.55, 1.55, 1.55, 1.55, 1.55, 1.55, 1.55, 1.55]
+      }
+    ]
+  },
+  "markers": [
+    {
+      "t_s": 10500,
+      "kind": "PREDICTION",
+      "channel": "wheel_fl_temp_c",
+      "severity": "CRITICAL",
+      "label": "Bearing wear predicted (56 min to failure)"
+    },
+    {
+      "t_s": 10560,
+      "kind": "WORK_ORDER",
+      "channel": null,
+      "severity": "CRITICAL",
+      "label": "WO-20270301-0001"
+    },
+    {
+      "t_s": 10560,
+      "kind": "STATUS_CHANGE",
+      "channel": null,
+      "severity": null,
+      "label": "EN_ROUTE_P5"
+    },
+    {
+      "t_s": 10620,
+      "kind": "ANOMALY",
+      "channel": "wheel_fl_temp_c",
+      "severity": "WARNING",
+      "label": "Temp > baseline + 15 degC"
+    },
+    {
+      "t_s": 13860,
+      "kind": "PREDICTED_FAILURE",
+      "channel": "wheel_fl_temp_c",
+      "severity": "CRITICAL",
+      "label": "Predicted failure"
+    }
+  ],
+  "latest_prediction": {
+    "schema_version": "1.0.0",
+    "prediction_id": "PR-000001",
+    "robot_id": "P2-02",
+    "made_at_t_s": 10500,
+    "made_at": "2027-03-01T02:55:00Z",
+    "fault_mode": "bearing_wear",
+    "confidence": 0.78,
+    "component": "wheel_fl_drive",
+    "subsystem": "MOBILITY",
+    "severity": "CRITICAL",
+    "candidates": [
+      {
+        "fault_mode": "bearing_wear",
+        "score": 0.78
+      },
+      {
+        "fault_mode": "cooling_fault",
+        "score": 0.41
+      },
+      {
+        "fault_mode": "wheel_drag",
+        "score": 0.22
+      },
+      {
+        "fault_mode": "battery_degradation",
+        "score": 0.02
+      }
+    ],
+    "target_channel": "wheel_fl_temp_c",
+    "failure_threshold": {
+      "rule": "RELATIVE_CRITICAL_HIGH",
+      "limit": 30.0,
+      "value_at_threshold": 63.7
+    },
+    "predicted_ttf_s": 3360,
+    "predicted_ttf_interval_s": {
+      "low": 2520,
+      "high": 4536,
+      "confidence_level": 0.8
+    },
+    "predicted_failure_t_s": 13860,
+    "trend": {
+      "model": "linear",
+      "slope_per_s": 0.004727,
+      "intercept": 14.05,
+      "r_squared": 0.86,
+      "n_points": 1801,
+      "units": "degC"
+    },
+    "signature_observed": {
+      "wheel_current": "UP",
+      "wheel_speed": "DOWN",
+      "wheel_temp": "UP",
+      "thermal_residual": "UP",
+      "voltage_residual": "NORMAL"
+    },
+    "residuals": {
+      "thermal_residual_c": 10.5,
+      "voltage_residual_v": -0.02
+    },
+    "anomaly_ids": [],
+    "evidence_window": {
+      "robot_id": "P2-02",
+      "start_t_s": 8700,
+      "end_t_s": 10500,
+      "channels": ["wheel_fl_temp_c", "wheel_fl_current_a", "wheel_fl_speed_rads", "wheel_fr_temp_c"],
+      "source": "telemetry.parquet"
+    }
+  },
+  "open_work_order_id": "WO-20270301-0001"
+}

@@ -1,0 +1,71 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://hunch-llaso-p4.invalid/schemas/common.schema.json",
+  "title": "Shared definitions",
+  "description": "Building blocks referenced by every other contract. The .invalid domain is deliberate: these ids are names, never fetched. Enums that mirror config files (op_mode, robot_status, fault_mode, subsystem) are cross-checked by tests/test_config.py.",
+  "$defs": {
+    "schema_version": {
+      "type": "string",
+      "pattern": "^1\\.[0-9]+\\.[0-9]+$",
+      "description": "Semantic version of the contract. Readers accept any 1.x.y; a breaking change bumps the major version."
+    },
+    "robot_id": {"type": "string", "pattern": "^[A-Z][A-Z0-9]-[0-9]{2}$", "examples": ["P2-01"]},
+    "robot_type": {"enum": ["P2_TRANSPORT"], "description": "Only P2 at PDR. Adding a type is a minor version bump."},
+    "mission_id": {"type": "string", "pattern": "^M-[A-Z0-9-]+$", "examples": ["M-HAUL-A"]},
+    "anomaly_id": {"type": "string", "pattern": "^AN-[0-9]{6}$"},
+    "prediction_id": {"type": "string", "pattern": "^PR-[0-9]{6}$"},
+    "work_order_id": {"type": "string", "pattern": "^WO-[0-9]{8}-[0-9]{4}$", "description": "WO-<YYYYMMDD of creation>-<sequence>"},
+    "event_id": {"type": "string", "pattern": "^EV-[0-9]{6}$"},
+    "timestamp": {
+      "type": "string",
+      "format": "date-time",
+      "pattern": "Z$",
+      "description": "ISO 8601, always UTC with a trailing Z."
+    },
+    "t_s": {"type": "number", "minimum": 0, "description": "Seconds since scenario start."},
+    "duration_s": {"type": "number", "minimum": 0},
+    "health_status": {"enum": ["NORMAL", "WARNING", "CRITICAL", "UNKNOWN"], "description": "UNKNOWN = no fresh data."},
+    "severity": {"enum": ["WARNING", "CRITICAL"]},
+    "op_mode": {"enum": ["IDLE", "TRAVERSE_EMPTY", "TRAVERSE_LOADED", "CARGO_HANDLING", "CHARGING"]},
+    "robot_status": {"enum": ["STANDBY", "ACTIVE", "MAINTENANCE_REQUIRED", "EN_ROUTE_P5", "IN_GARAGE", "RETURNED_TO_SERVICE", "DISABLED"]},
+    "work_order_status": {"enum": ["OPEN", "QUEUED", "DISPATCHED", "IN_REPAIR", "COMPLETED", "CANCELLED"]},
+    "fault_mode": {"enum": ["bearing_wear", "wheel_drag", "cooling_fault", "battery_degradation", "unknown"]},
+    "subsystem": {"enum": ["MOBILITY", "THERMAL", "POWER", "MECHANISMS"]},
+    "channel_name": {"type": "string", "pattern": "^[a-z][a-z0-9_]*$", "description": "Must be a name from config/channels.json (checked by tests)."},
+    "component_id": {"type": "string", "pattern": "^[a-z][a-z0-9_]*$"},
+    "nullable_number": {"type": ["number", "null"]},
+    "interval": {
+      "type": "object",
+      "required": ["low", "high", "confidence_level"],
+      "additionalProperties": false,
+      "properties": {
+        "low": {"type": "number"},
+        "high": {"type": "number"},
+        "confidence_level": {"type": "number", "exclusiveMinimum": 0, "exclusiveMaximum": 1}
+      }
+    },
+    "location": {
+      "type": "object",
+      "required": ["zone"],
+      "additionalProperties": false,
+      "properties": {
+        "zone": {"type": "string", "description": "Named site, e.g. LANDER_A, HAB_SITE, HAUL_ROUTE_1, STANDBY_PARK, P5_GARAGE"},
+        "x_m": {"$ref": "#/$defs/nullable_number"},
+        "y_m": {"$ref": "#/$defs/nullable_number"}
+      }
+    },
+    "evidence_window": {
+      "type": "object",
+      "description": "Points at the stretch of stored telemetry a conclusion was drawn from.",
+      "required": ["robot_id", "start_t_s", "end_t_s", "channels", "source"],
+      "additionalProperties": false,
+      "properties": {
+        "robot_id": {"$ref": "#/$defs/robot_id"},
+        "start_t_s": {"$ref": "#/$defs/t_s"},
+        "end_t_s": {"$ref": "#/$defs/t_s"},
+        "channels": {"type": "array", "minItems": 1, "items": {"$ref": "#/$defs/channel_name"}},
+        "source": {"type": "string", "description": "Path of the Parquet file, relative to the run directory."}
+      }
+    }
+  }
+}

@@ -1,0 +1,39 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://hunch-llaso-p4.invalid/schemas/telemetry_batch.schema.json",
+  "title": "Telemetry batch",
+  "description": "One robot's samples for one batch (60 s at 1 Hz). JSON form used for fixtures, debugging and ground reporting. The canonical store is Parquet with the same columns (see docs/DECISIONS.md section 6). Channel keys are data-driven: every sample must carry exactly the channel names in config/channels.json, which tests check; null means the sensor dropped out.",
+  "type": "object",
+  "required": ["schema_version", "robot_id", "robot_type", "batch_seq", "sample_rate_hz", "start_t_s", "end_t_s", "channels", "samples"],
+  "additionalProperties": false,
+  "properties": {
+    "schema_version": {"$ref": "common.schema.json#/$defs/schema_version"},
+    "robot_id": {"$ref": "common.schema.json#/$defs/robot_id"},
+    "robot_type": {"$ref": "common.schema.json#/$defs/robot_type"},
+    "batch_seq": {"type": "integer", "minimum": 0, "description": "0 for the first batch of a run, then +1."},
+    "sample_rate_hz": {"type": "number", "exclusiveMinimum": 0},
+    "start_t_s": {"$ref": "common.schema.json#/$defs/t_s"},
+    "end_t_s": {"$ref": "common.schema.json#/$defs/t_s"},
+    "channels": {
+      "type": "array",
+      "description": "Channel names present in every sample, in config/channels.json order.",
+      "items": {"$ref": "common.schema.json#/$defs/channel_name"},
+      "minItems": 1,
+      "uniqueItems": true
+    },
+    "samples": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "required": ["t_s", "timestamp", "op_mode"],
+        "properties": {
+          "t_s": {"type": "integer", "minimum": 0},
+          "timestamp": {"$ref": "common.schema.json#/$defs/timestamp"},
+          "op_mode": {"$ref": "common.schema.json#/$defs/op_mode"}
+        },
+        "additionalProperties": {"type": ["number", "null"]}
+      }
+    }
+  }
+}

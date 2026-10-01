@@ -1,0 +1,29 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://hunch-llaso-p4.invalid/schemas/anomaly_event.schema.json",
+  "title": "Anomaly event",
+  "description": "One channel of one robot went past a limit and stayed there (Mission 2). t_s is when the condition began (first sample past the limit), detected_t_s is when the detector raised it. magnitude = value - baseline (signed), in the channel's units.",
+  "type": "object",
+  "required": ["schema_version", "anomaly_id", "robot_id", "t_s", "timestamp", "detected_t_s", "channel", "component", "subsystem", "op_mode", "severity", "value", "baseline", "magnitude", "limit", "rule", "units", "message"],
+  "additionalProperties": false,
+  "properties": {
+    "schema_version": {"$ref": "common.schema.json#/$defs/schema_version"},
+    "anomaly_id": {"$ref": "common.schema.json#/$defs/anomaly_id"},
+    "robot_id": {"$ref": "common.schema.json#/$defs/robot_id"},
+    "t_s": {"$ref": "common.schema.json#/$defs/t_s"},
+    "timestamp": {"$ref": "common.schema.json#/$defs/timestamp"},
+    "detected_t_s": {"$ref": "common.schema.json#/$defs/t_s"},
+    "channel": {"$ref": "common.schema.json#/$defs/channel_name"},
+    "component": {"$ref": "common.schema.json#/$defs/component_id"},
+    "subsystem": {"$ref": "common.schema.json#/$defs/subsystem"},
+    "op_mode": {"$ref": "common.schema.json#/$defs/op_mode"},
+    "severity": {"$ref": "common.schema.json#/$defs/severity"},
+    "value": {"type": "number", "description": "Smoothed value that tripped the limit."},
+    "baseline": {"$ref": "common.schema.json#/$defs/nullable_number"},
+    "magnitude": {"$ref": "common.schema.json#/$defs/nullable_number"},
+    "limit": {"type": "number", "description": "The limit crossed, in the same terms as the rule (an offset for RELATIVE_*, a value for ABSOLUTE_* and HARD_*)."},
+    "rule": {"enum": ["RELATIVE_WARNING_LOW", "RELATIVE_WARNING_HIGH", "RELATIVE_CRITICAL_LOW", "RELATIVE_CRITICAL_HIGH", "ABSOLUTE_WARNING_LOW", "ABSOLUTE_WARNING_HIGH", "ABSOLUTE_CRITICAL_LOW", "ABSOLUTE_CRITICAL_HIGH", "HARD_CRITICAL_LOW", "HARD_CRITICAL_HIGH"]},
+    "units": {"type": "string"},
+    "message": {"type": "string", "description": "One line for the operator alert feed."}
+  }
+}

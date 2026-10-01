@@ -1,0 +1,667 @@
+{
+  "schema_version": "1.0.0",
+  "robot_type": "P2_TRANSPORT",
+  "description": "Single source of truth for every telemetry channel and every limit. Code must read limits from here; nothing may hardcode a threshold. Relative limits are offsets from the baseline for the current operating mode (see config/modes.json); absolute limits are plain values. hard_limits are absolute and apply in every mode.",
+  "record_fields": [
+    {
+      "name": "robot_id",
+      "dtype": "string",
+      "description": "Robot identifier, e.g. P2-01"
+    },
+    {
+      "name": "t_s",
+      "dtype": "int64",
+      "units": "s",
+      "description": "Seconds since scenario start (mission elapsed time)"
+    },
+    {
+      "name": "timestamp",
+      "dtype": "timestamp_ms_utc",
+      "description": "Wall-clock sample time, UTC"
+    },
+    {
+      "name": "op_mode",
+      "dtype": "category",
+      "description": "Operating mode reported by the robot; one of the ids in config/modes.json"
+    }
+  ],
+  "hierarchy": {
+    "levels": [
+      "COMPONENT",
+      "SUBSYSTEM",
+      "SYSTEM",
+      "FLEET"
+    ],
+    "note": "SYSTEM = one robot. Every channel belongs to exactly one component; every component to exactly one subsystem.",
+    "subsystems": [
+      {
+        "id": "MOBILITY",
+        "label": "Mobility",
+        "components": [
+          "wheel_fl_drive",
+          "wheel_fr_drive",
+          "wheel_rl_drive",
+          "wheel_rr_drive"
+        ]
+      },
+      {
+        "id": "THERMAL",
+        "label": "Thermal",
+        "components": [
+          "wheel_fl_thermal",
+          "wheel_fr_thermal",
+          "wheel_rl_thermal",
+          "wheel_rr_thermal"
+        ]
+      },
+      {
+        "id": "POWER",
+        "label": "Power",
+        "components": [
+          "battery_pack"
+        ]
+      },
+      {
+        "id": "MECHANISMS",
+        "label": "Mechanisms",
+        "components": [
+          "lift_actuator"
+        ]
+      }
+    ],
+    "components": [
+      {
+        "id": "wheel_fl_drive",
+        "label": "Front-left wheel drive (hub motor, gearbox, bearing, wheel)",
+        "subsystem": "MOBILITY",
+        "sensing_domain": "external"
+      },
+      {
+        "id": "wheel_fr_drive",
+        "label": "Front-right wheel drive (hub motor, gearbox, bearing, wheel)",
+        "subsystem": "MOBILITY",
+        "sensing_domain": "external"
+      },
+      {
+        "id": "wheel_rl_drive",
+        "label": "Rear-left wheel drive (hub motor, gearbox, bearing, wheel)",
+        "subsystem": "MOBILITY",
+        "sensing_domain": "external"
+      },
+      {
+        "id": "wheel_rr_drive",
+        "label": "Rear-right wheel drive (hub motor, gearbox, bearing, wheel)",
+        "subsystem": "MOBILITY",
+        "sensing_domain": "external"
+      },
+      {
+        "id": "wheel_fl_thermal",
+        "label": "Front-left drive heat-rejection path (thermal strap + radiator)",
+        "subsystem": "THERMAL",
+        "sensing_domain": "external"
+      },
+      {
+        "id": "wheel_fr_thermal",
+        "label": "Front-right drive heat-rejection path (thermal strap + radiator)",
+        "subsystem": "THERMAL",
+        "sensing_domain": "external"
+      },
+      {
+        "id": "wheel_rl_thermal",
+        "label": "Rear-left drive heat-rejection path (thermal strap + radiator)",
+        "subsystem": "THERMAL",
+        "sensing_domain": "external"
+      },
+      {
+        "id": "wheel_rr_thermal",
+        "label": "Rear-right drive heat-rejection path (thermal strap + radiator)",
+        "subsystem": "THERMAL",
+        "sensing_domain": "external"
+      },
+      {
+        "id": "battery_pack",
+        "label": "Main battery pack (13S Li-ion) and BMS",
+        "subsystem": "POWER",
+        "sensing_domain": "internal"
+      },
+      {
+        "id": "lift_actuator",
+        "label": "Cargo-bed lift actuator",
+        "subsystem": "MECHANISMS",
+        "sensing_domain": "external"
+      }
+    ]
+  },
+  "channels": [
+    {
+      "name": "wheel_fl_current_a",
+      "label": "Front-left drive motor current",
+      "units": "A",
+      "dtype": "float32",
+      "component": "wheel_fl_drive",
+      "subsystem": "MOBILITY",
+      "baseline_type": "per_mode",
+      "nominal_mode": "TRAVERSE_EMPTY",
+      "nominal_range": [
+        3.0,
+        3.6
+      ],
+      "limits": {
+        "type": "relative",
+        "warning_low": null,
+        "warning_high": 1.0,
+        "critical_low": null,
+        "critical_high": 2.0
+      },
+      "hard_limits": {
+        "critical_low": null,
+        "critical_high": 8.0
+      },
+      "diagnostic_for": [
+        "bearing_wear",
+        "wheel_drag",
+        "cooling_fault"
+      ],
+      "justification": "Rises for bearing_wear and wheel_drag (extra load torque, I = tau/K_t). Staying normal is what separates cooling_fault from bearing_wear.",
+      "source": "team estimate (derived from DECISIONS.md section 4 equations with team-estimate parameters); hard limit 8.0 A = assumed motor-driver current limit (team estimate)"
+    },
+    {
+      "name": "wheel_fl_speed_rads",
+      "label": "Front-left wheel speed",
+      "units": "rad/s",
+      "dtype": "float32",
+      "component": "wheel_fl_drive",
+      "subsystem": "MOBILITY",
+      "baseline_type": "per_mode",
+      "nominal_mode": "TRAVERSE_EMPTY",
+      "nominal_range": [
+        2.15,
+        2.35
+      ],
+      "limits": {
+        "type": "relative",
+        "warning_low": -0.08,
+        "warning_high": null,
+        "critical_low": -0.15,
+        "critical_high": null
+      },
+      "hard_limits": {
+        "critical_low": null,
+        "critical_high": null
+      },
+      "diagnostic_for": [
+        "bearing_wear",
+        "wheel_drag",
+        "cooling_fault"
+      ],
+      "justification": "Required by HUNCH (Mission 1 displays wheel speed; Mission 2 names unusual wheel speed). For our four faults it is confirming evidence, not strictly needed: a real load increase (bearing_wear, wheel_drag) must also slow the wheel, which rules out a faulty current sensor; normal for cooling_fault. The detector's thermal model also needs it for bearing friction heat.",
+      "source": "team estimate (derived from DECISIONS.md section 4 equations with team-estimate parameters)"
+    },
+    {
+      "name": "wheel_fl_temp_c",
+      "label": "Front-left drive temperature",
+      "units": "degC",
+      "dtype": "float32",
+      "component": "wheel_fl_thermal",
+      "subsystem": "THERMAL",
+      "baseline_type": "thermal_lag",
+      "nominal_mode": "TRAVERSE_EMPTY",
+      "nominal_range": [
+        31.0,
+        37.0
+      ],
+      "limits": {
+        "type": "relative",
+        "warning_low": null,
+        "warning_high": 15.0,
+        "critical_low": null,
+        "critical_high": 30.0
+      },
+      "hard_limits": {
+        "critical_low": null,
+        "critical_high": 90.0
+      },
+      "diagnostic_for": [
+        "bearing_wear",
+        "wheel_drag",
+        "cooling_fault"
+      ],
+      "justification": "The only channel that separates bearing_wear (excess heat beyond what current explains) from wheel_drag (heat fully explained by current). Primary channel for cooling_fault.",
+      "source": "team estimate (derived from DECISIONS.md section 4 equations with team-estimate parameters); hard limit 90 degC = assumed motor insulation / grease limit (team estimate)"
+    },
+    {
+      "name": "wheel_fr_current_a",
+      "label": "Front-right drive motor current",
+      "units": "A",
+      "dtype": "float32",
+      "component": "wheel_fr_drive",
+      "subsystem": "MOBILITY",
+      "baseline_type": "per_mode",
+      "nominal_mode": "TRAVERSE_EMPTY",
+      "nominal_range": [
+        3.0,
+        3.6
+      ],
+      "limits": {
+        "type": "relative",
+        "warning_low": null,
+        "warning_high": 1.0,
+        "critical_low": null,
+        "critical_high": 2.0
+      },
+      "hard_limits": {
+        "critical_low": null,
+        "critical_high": 8.0
+      },
+      "diagnostic_for": [
+        "bearing_wear",
+        "wheel_drag",
+        "cooling_fault"
+      ],
+      "justification": "Rises for bearing_wear and wheel_drag (extra load torque, I = tau/K_t). Staying normal is what separates cooling_fault from bearing_wear.",
+      "source": "team estimate (derived from DECISIONS.md section 4 equations with team-estimate parameters); hard limit 8.0 A = assumed motor-driver current limit (team estimate)"
+    },
+    {
+      "name": "wheel_fr_speed_rads",
+      "label": "Front-right wheel speed",
+      "units": "rad/s",
+      "dtype": "float32",
+      "component": "wheel_fr_drive",
+      "subsystem": "MOBILITY",
+      "baseline_type": "per_mode",
+      "nominal_mode": "TRAVERSE_EMPTY",
+      "nominal_range": [
+        2.15,
+        2.35
+      ],
+      "limits": {
+        "type": "relative",
+        "warning_low": -0.08,
+        "warning_high": null,
+        "critical_low": -0.15,
+        "critical_high": null
+      },
+      "hard_limits": {
+        "critical_low": null,
+        "critical_high": null
+      },
+      "diagnostic_for": [
+        "bearing_wear",
+        "wheel_drag",
+        "cooling_fault"
+      ],
+      "justification": "Required by HUNCH (Mission 1 displays wheel speed; Mission 2 names unusual wheel speed). For our four faults it is confirming evidence, not strictly needed: a real load increase (bearing_wear, wheel_drag) must also slow the wheel, which rules out a faulty current sensor; normal for cooling_fault. The detector's thermal model also needs it for bearing friction heat.",
+      "source": "team estimate (derived from DECISIONS.md section 4 equations with team-estimate parameters)"
+    },
+    {
+      "name": "wheel_fr_temp_c",
+      "label": "Front-right drive temperature",
+      "units": "degC",
+      "dtype": "float32",
+      "component": "wheel_fr_thermal",
+      "subsystem": "THERMAL",
+      "baseline_type": "thermal_lag",
+      "nominal_mode": "TRAVERSE_EMPTY",
+      "nominal_range": [
+        31.0,
+        37.0
+      ],
+      "limits": {
+        "type": "relative",
+        "warning_low": null,
+        "warning_high": 15.0,
+        "critical_low": null,
+        "critical_high": 30.0
+      },
+      "hard_limits": {
+        "critical_low": null,
+        "critical_high": 90.0
+      },
+      "diagnostic_for": [
+        "bearing_wear",
+        "wheel_drag",
+        "cooling_fault"
+      ],
+      "justification": "The only channel that separates bearing_wear (excess heat beyond what current explains) from wheel_drag (heat fully explained by current). Primary channel for cooling_fault.",
+      "source": "team estimate (derived from DECISIONS.md section 4 equations with team-estimate parameters); hard limit 90 degC = assumed motor insulation / grease limit (team estimate)"
+    },
+    {
+      "name": "wheel_rl_current_a",
+      "label": "Rear-left drive motor current",
+      "units": "A",
+      "dtype": "float32",
+      "component": "wheel_rl_drive",
+      "subsystem": "MOBILITY",
+      "baseline_type": "per_mode",
+      "nominal_mode": "TRAVERSE_EMPTY",
+      "nominal_range": [
+        3.0,
+        3.6
+      ],
+      "limits": {
+        "type": "relative",
+        "warning_low": null,
+        "warning_high": 1.0,
+        "critical_low": null,
+        "critical_high": 2.0
+      },
+      "hard_limits": {
+        "critical_low": null,
+        "critical_high": 8.0
+      },
+      "diagnostic_for": [
+        "bearing_wear",
+        "wheel_drag",
+        "cooling_fault"
+      ],
+      "justification": "Rises for bearing_wear and wheel_drag (extra load torque, I = tau/K_t). Staying normal is what separates cooling_fault from bearing_wear.",
+      "source": "team estimate (derived from DECISIONS.md section 4 equations with team-estimate parameters); hard limit 8.0 A = assumed motor-driver current limit (team estimate)"
+    },
+    {
+      "name": "wheel_rl_speed_rads",
+      "label": "Rear-left wheel speed",
+      "units": "rad/s",
+      "dtype": "float32",
+      "component": "wheel_rl_drive",
+      "subsystem": "MOBILITY",
+      "baseline_type": "per_mode",
+      "nominal_mode": "TRAVERSE_EMPTY",
+      "nominal_range": [
+        2.15,
+        2.35
+      ],
+      "limits": {
+        "type": "relative",
+        "warning_low": -0.08,
+        "warning_high": null,
+        "critical_low": -0.15,
+        "critical_high": null
+      },
+      "hard_limits": {
+        "critical_low": null,
+        "critical_high": null
+      },
+      "diagnostic_for": [
+        "bearing_wear",
+        "wheel_drag",
+        "cooling_fault"
+      ],
+      "justification": "Required by HUNCH (Mission 1 displays wheel speed; Mission 2 names unusual wheel speed). For our four faults it is confirming evidence, not strictly needed: a real load increase (bearing_wear, wheel_drag) must also slow the wheel, which rules out a faulty current sensor; normal for cooling_fault. The detector's thermal model also needs it for bearing friction heat.",
+      "source": "team estimate (derived from DECISIONS.md section 4 equations with team-estimate parameters)"
+    },
+    {
+      "name": "wheel_rl_temp_c",
+      "label": "Rear-left drive temperature",
+      "units": "degC",
+      "dtype": "float32",
+      "component": "wheel_rl_thermal",
+      "subsystem": "THERMAL",
+      "baseline_type": "thermal_lag",
+      "nominal_mode": "TRAVERSE_EMPTY",
+      "nominal_range": [
+        31.0,
+        37.0
+      ],
+      "limits": {
+        "type": "relative",
+        "warning_low": null,
+        "warning_high": 15.0,
+        "critical_low": null,
+        "critical_high": 30.0
+      },
+      "hard_limits": {
+        "critical_low": null,
+        "critical_high": 90.0
+      },
+      "diagnostic_for": [
+        "bearing_wear",
+        "wheel_drag",
+        "cooling_fault"
+      ],
+      "justification": "The only channel that separates bearing_wear (excess heat beyond what current explains) from wheel_drag (heat fully explained by current). Primary channel for cooling_fault.",
+      "source": "team estimate (derived from DECISIONS.md section 4 equations with team-estimate parameters); hard limit 90 degC = assumed motor insulation / grease limit (team estimate)"
+    },
+    {
+      "name": "wheel_rr_current_a",
+      "label": "Rear-right drive motor current",
+      "units": "A",
+      "dtype": "float32",
+      "component": "wheel_rr_drive",
+      "subsystem": "MOBILITY",
+      "baseline_type": "per_mode",
+      "nominal_mode": "TRAVERSE_EMPTY",
+      "nominal_range": [
+        3.0,
+        3.6
+      ],
+      "limits": {
+        "type": "relative",
+        "warning_low": null,
+        "warning_high": 1.0,
+        "critical_low": null,
+        "critical_high": 2.0
+      },
+      "hard_limits": {
+        "critical_low": null,
+        "critical_high": 8.0
+      },
+      "diagnostic_for": [
+        "bearing_wear",
+        "wheel_drag",
+        "cooling_fault"
+      ],
+      "justification": "Rises for bearing_wear and wheel_drag (extra load torque, I = tau/K_t). Staying normal is what separates cooling_fault from bearing_wear.",
+      "source": "team estimate (derived from DECISIONS.md section 4 equations with team-estimate parameters); hard limit 8.0 A = assumed motor-driver current limit (team estimate)"
+    },
+    {
+      "name": "wheel_rr_speed_rads",
+      "label": "Rear-right wheel speed",
+      "units": "rad/s",
+      "dtype": "float32",
+      "component": "wheel_rr_drive",
+      "subsystem": "MOBILITY",
+      "baseline_type": "per_mode",
+      "nominal_mode": "TRAVERSE_EMPTY",
+      "nominal_range": [
+        2.15,
+        2.35
+      ],
+      "limits": {
+        "type": "relative",
+        "warning_low": -0.08,
+        "warning_high": null,
+        "critical_low": -0.15,
+        "critical_high": null
+      },
+      "hard_limits": {
+        "critical_low": null,
+        "critical_high": null
+      },
+      "diagnostic_for": [
+        "bearing_wear",
+        "wheel_drag",
+        "cooling_fault"
+      ],
+      "justification": "Required by HUNCH (Mission 1 displays wheel speed; Mission 2 names unusual wheel speed). For our four faults it is confirming evidence, not strictly needed: a real load increase (bearing_wear, wheel_drag) must also slow the wheel, which rules out a faulty current sensor; normal for cooling_fault. The detector's thermal model also needs it for bearing friction heat.",
+      "source": "team estimate (derived from DECISIONS.md section 4 equations with team-estimate parameters)"
+    },
+    {
+      "name": "wheel_rr_temp_c",
+      "label": "Rear-right drive temperature",
+      "units": "degC",
+      "dtype": "float32",
+      "component": "wheel_rr_thermal",
+      "subsystem": "THERMAL",
+      "baseline_type": "thermal_lag",
+      "nominal_mode": "TRAVERSE_EMPTY",
+      "nominal_range": [
+        31.0,
+        37.0
+      ],
+      "limits": {
+        "type": "relative",
+        "warning_low": null,
+        "warning_high": 15.0,
+        "critical_low": null,
+        "critical_high": 30.0
+      },
+      "hard_limits": {
+        "critical_low": null,
+        "critical_high": 90.0
+      },
+      "diagnostic_for": [
+        "bearing_wear",
+        "wheel_drag",
+        "cooling_fault"
+      ],
+      "justification": "The only channel that separates bearing_wear (excess heat beyond what current explains) from wheel_drag (heat fully explained by current). Primary channel for cooling_fault.",
+      "source": "team estimate (derived from DECISIONS.md section 4 equations with team-estimate parameters); hard limit 90 degC = assumed motor insulation / grease limit (team estimate)"
+    },
+    {
+      "name": "battery_voltage_v",
+      "label": "Battery pack terminal voltage",
+      "units": "V",
+      "dtype": "float32",
+      "component": "battery_pack",
+      "subsystem": "POWER",
+      "baseline_type": "battery_model",
+      "nominal_mode": null,
+      "nominal_range": [
+        44.0,
+        54.0
+      ],
+      "limits": {
+        "type": "relative",
+        "warning_low": -0.5,
+        "warning_high": null,
+        "critical_low": -1.0,
+        "critical_high": null
+      },
+      "hard_limits": {
+        "critical_low": 42.0,
+        "critical_high": 54.6
+      },
+      "diagnostic_for": [
+        "battery_degradation"
+      ],
+      "justification": "Primary channel for battery_degradation: terminal voltage sags further below the model value V_oc(SOC) - I*R_nominal as internal resistance rises.",
+      "source": "team estimate (derived from DECISIONS.md section 4 equations with team-estimate parameters); 42.0 V cut-off and 54.6 V (13 x 4.2 V) max are typical Li-ion values, team estimate until a cell is chosen"
+    },
+    {
+      "name": "battery_current_a",
+      "label": "Battery pack current (+ = discharge)",
+      "units": "A",
+      "dtype": "float32",
+      "component": "battery_pack",
+      "subsystem": "POWER",
+      "baseline_type": "per_mode",
+      "nominal_mode": "TRAVERSE_EMPTY",
+      "nominal_range": [
+        2.5,
+        3.1
+      ],
+      "limits": {
+        "type": "relative",
+        "warning_low": null,
+        "warning_high": 1.5,
+        "critical_low": null,
+        "critical_high": 3.0
+      },
+      "hard_limits": {
+        "critical_low": -15.0,
+        "critical_high": 20.0
+      },
+      "diagnostic_for": [
+        "battery_degradation"
+      ],
+      "justification": "Needed to judge sag 'under load': the voltage residual only means something when the load current is known (sag = I * delta_R).",
+      "source": "team estimate (derived from DECISIONS.md section 4 equations with team-estimate parameters); hard limits are assumed pack charge/discharge ratings (team estimate)"
+    },
+    {
+      "name": "battery_soc_pct",
+      "label": "Battery state of charge",
+      "units": "%",
+      "dtype": "float32",
+      "component": "battery_pack",
+      "subsystem": "POWER",
+      "baseline_type": "none",
+      "nominal_mode": null,
+      "nominal_range": [
+        30.0,
+        100.0
+      ],
+      "limits": {
+        "type": "absolute",
+        "warning_low": 30.0,
+        "warning_high": null,
+        "critical_low": 15.0,
+        "critical_high": null
+      },
+      "hard_limits": {
+        "critical_low": null,
+        "critical_high": null
+      },
+      "diagnostic_for": [
+        "battery_degradation"
+      ],
+      "justification": "Needed to compute the expected open-circuit voltage V_oc(SOC); without it a low voltage from a flat battery looks like degradation. Also the 'battery level' Mission 1 must display.",
+      "source": "team estimate (operational reserve policy)"
+    },
+    {
+      "name": "lift_joint_current_a",
+      "label": "Cargo-lift actuator current",
+      "units": "A",
+      "dtype": "float32",
+      "component": "lift_actuator",
+      "subsystem": "MECHANISMS",
+      "baseline_type": "per_mode",
+      "nominal_mode": "CARGO_HANDLING",
+      "nominal_range": [
+        1.7,
+        2.3
+      ],
+      "limits": {
+        "type": "relative",
+        "warning_low": null,
+        "warning_high": 1.0,
+        "critical_low": null,
+        "critical_high": 2.0
+      },
+      "hard_limits": {
+        "critical_low": null,
+        "critical_high": 6.0
+      },
+      "diagnostic_for": [],
+      "justification": "Not needed by any of the four PDR faults. Included because HUNCH requires joint telemetry and Mission 1 must display joint status. See open question Q3.",
+      "source": "team estimate"
+    },
+    {
+      "name": "lift_joint_pos_err_deg",
+      "label": "Cargo-lift position error",
+      "units": "deg",
+      "dtype": "float32",
+      "component": "lift_actuator",
+      "subsystem": "MECHANISMS",
+      "baseline_type": "per_mode",
+      "nominal_mode": "CARGO_HANDLING",
+      "nominal_range": [
+        0.2,
+        0.6
+      ],
+      "limits": {
+        "type": "relative",
+        "warning_low": null,
+        "warning_high": 0.5,
+        "critical_low": null,
+        "critical_high": 1.5
+      },
+      "hard_limits": {
+        "critical_low": null,
+        "critical_high": null
+      },
+      "diagnostic_for": [],
+      "justification": "Not needed by any of the four PDR faults. Included for HUNCH joint-status coverage (the deck names actuator position error). See open question Q3.",
+      "source": "team estimate"
+    }
+  ]
+}

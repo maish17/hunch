@@ -1,0 +1,17 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://hunch-llaso-p4.invalid/schemas/dashboard_work_orders.schema.json",
+  "title": "Dashboard feed: work order queue",
+  "description": "The P5 garage state plus the full work orders it refers to (open ones first, in queue order, then recently closed).",
+  "type": "object",
+  "required": ["schema_version", "feed_type", "t_s", "sim_time", "garage", "work_orders"],
+  "additionalProperties": false,
+  "properties": {
+    "schema_version": {"$ref": "common.schema.json#/$defs/schema_version"},
+    "feed_type": {"const": "work_orders"},
+    "t_s": {"$ref": "common.schema.json#/$defs/t_s"},
+    "sim_time": {"$ref": "common.schema.json#/$defs/timestamp"},
+    "garage": {"$ref": "garage_queue.schema.json"},
+    "work_orders": {"type": "array", "items": {"$ref": "work_order.schema.json"}}
+  }
+}

@@ -1,0 +1,35 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://hunch-llaso-p4.invalid/schemas/dashboard_index.schema.json",
+  "title": "Dashboard feed index",
+  "description": "First file the dashboard loads (feed_index.json). Lists the other feed files, relative to this file's folder. Written by p4maint/dashboard_export/feeds.py at the end of every batch; fixtures/ hold hand-made copies.",
+  "type": "object",
+  "required": ["schema_version", "feed_type", "run_id", "scenario_id", "label", "is_fixture", "t_s", "sim_time", "generated_at", "files"],
+  "additionalProperties": false,
+  "properties": {
+    "schema_version": {"$ref": "common.schema.json#/$defs/schema_version"},
+    "feed_type": {"const": "index"},
+    "run_id": {"type": "string"},
+    "scenario_id": {"type": "string"},
+    "label": {"type": "string"},
+    "is_fixture": {"type": "boolean"},
+    "t_s": {"$ref": "common.schema.json#/$defs/t_s"},
+    "sim_time": {"$ref": "common.schema.json#/$defs/timestamp"},
+    "generated_at": {"$ref": "common.schema.json#/$defs/timestamp"},
+    "files": {
+      "type": "object",
+      "required": ["fleet_board", "alerts", "work_orders", "robots"],
+      "additionalProperties": false,
+      "properties": {
+        "fleet_board": {"type": "string"},
+        "alerts": {"type": "string"},
+        "work_orders": {"type": "string"},
+        "robots": {
+          "type": "object",
+          "propertyNames": {"$ref": "common.schema.json#/$defs/robot_id"},
+          "additionalProperties": {"type": "string"}
+        }
+      }
+    }
+  }
+}

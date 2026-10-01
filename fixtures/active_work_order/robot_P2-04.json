@@ -1,0 +1,497 @@
+{
+  "schema_version": "1.0.0",
+  "feed_type": "robot_detail",
+  "robot_id": "P2-04",
+  "t_s": 11400,
+  "sim_time": "2027-03-01T03:10:00Z",
+  "status": "ACTIVE",
+  "mission_id": "M-HAUL-B",
+  "op_mode": "TRAVERSE_LOADED",
+  "snapshot": {
+    "schema_version": "1.0.0",
+    "robot_id": "P2-04",
+    "robot_type": "P2_TRANSPORT",
+    "t_s": 11400,
+    "timestamp": "2027-03-01T03:10:00Z",
+    "op_mode": "TRAVERSE_LOADED",
+    "status": "NORMAL",
+    "health_score": 100,
+    "subsystems": [
+      {
+        "subsystem": "MOBILITY",
+        "status": "NORMAL",
+        "components": [
+          {
+            "component": "wheel_fl_drive",
+            "status": "NORMAL",
+            "channels": [
+              {
+                "channel": "wheel_fl_current_a",
+                "units": "A",
+                "value": 4.773,
+                "baseline": 4.81,
+                "deviation": -0.037,
+                "status": "NORMAL",
+                "rule": null
+              },
+              {
+                "channel": "wheel_fl_speed_rads",
+                "units": "rad/s",
+                "value": 2.134,
+                "baseline": 2.14,
+                "deviation": -0.006,
+                "status": "NORMAL",
+                "rule": null
+              }
+            ]
+          },
+          {
+            "component": "wheel_fr_drive",
+            "status": "NORMAL",
+            "channels": [
+              {
+                "channel": "wheel_fr_current_a",
+                "units": "A",
+                "value": 4.844,
+                "baseline": 4.81,
+                "deviation": 0.034,
+                "status": "NORMAL",
+                "rule": null
+              },
+              {
+                "channel": "wheel_fr_speed_rads",
+                "units": "rad/s",
+                "value": 2.14,
+                "baseline": 2.14,
+                "deviation": -0.0,
+                "status": "NORMAL",
+                "rule": null
+              }
+            ]
+          },
+          {
+            "component": "wheel_rl_drive",
+            "status": "NORMAL",
+            "channels": [
+              {
+                "channel": "wheel_rl_current_a",
+                "units": "A",
+                "value": 4.724,
+                "baseline": 4.81,
+                "deviation": -0.086,
+                "status": "NORMAL",
+                "rule": null
+              },
+              {
+                "channel": "wheel_rl_speed_rads",
+                "units": "rad/s",
+                "value": 2.139,
+                "baseline": 2.14,
+                "deviation": -0.001,
+                "status": "NORMAL",
+                "rule": null
+              }
+            ]
+          },
+          {
+            "component": "wheel_rr_drive",
+            "status": "NORMAL",
+            "channels": [
+              {
+                "channel": "wheel_rr_current_a",
+                "units": "A",
+                "value": 4.821,
+                "baseline": 4.81,
+                "deviation": 0.011,
+                "status": "NORMAL",
+                "rule": null
+              },
+              {
+                "channel": "wheel_rr_speed_rads",
+                "units": "rad/s",
+                "value": 2.149,
+                "baseline": 2.14,
+                "deviation": 0.009,
+                "status": "NORMAL",
+                "rule": null
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "subsystem": "THERMAL",
+        "status": "NORMAL",
+        "components": [
+          {
+            "component": "wheel_fl_thermal",
+            "status": "NORMAL",
+            "channels": [
+              {
+                "channel": "wheel_fl_temp_c",
+                "units": "degC",
+                "value": 32.12,
+                "baseline": 32.1,
+                "deviation": 0.02,
+                "status": "NORMAL",
+                "rule": null
+              }
+            ]
+          },
+          {
+            "component": "wheel_fr_thermal",
+            "status": "NORMAL",
+            "channels": [
+              {
+                "channel": "wheel_fr_temp_c",
+                "units": "degC",
+                "value": 32.04,
+                "baseline": 32.1,
+                "deviation": -0.07,
+                "status": "NORMAL",
+                "rule": null
+              }
+            ]
+          },
+          {
+            "component": "wheel_rl_thermal",
+            "status": "NORMAL",
+            "channels": [
+              {
+                "channel": "wheel_rl_temp_c",
+                "units": "degC",
+                "value": 32.11,
+                "baseline": 32.1,
+                "deviation": 0.01,
+                "status": "NORMAL",
+                "rule": null
+              }
+            ]
+          },
+          {
+            "component": "wheel_rr_thermal",
+            "status": "NORMAL",
+            "channels": [
+              {
+                "channel": "wheel_rr_temp_c",
+                "units": "degC",
+                "value": 32.05,
+                "baseline": 32.1,
+                "deviation": -0.06,
+                "status": "NORMAL",
+                "rule": null
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "subsystem": "POWER",
+        "status": "NORMAL",
+        "components": [
+          {
+            "component": "battery_pack",
+            "status": "NORMAL",
+            "channels": [
+              {
+                "channel": "battery_voltage_v",
+                "units": "V",
+                "value": 52.281,
+                "baseline": 52.314,
+                "deviation": -0.032,
+                "status": "NORMAL",
+                "rule": null
+              },
+              {
+                "channel": "battery_current_a",
+                "units": "A",
+                "value": 3.475,
+                "baseline": 3.49,
+                "deviation": -0.015,
+                "status": "NORMAL",
+                "rule": null
+              },
+              {
+                "channel": "battery_soc_pct",
+                "units": "%",
+                "value": 91.5,
+                "baseline": null,
+                "deviation": null,
+                "status": "NORMAL",
+                "rule": null
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "subsystem": "MECHANISMS",
+        "status": "NORMAL",
+        "components": [
+          {
+            "component": "lift_actuator",
+            "status": "NORMAL",
+            "channels": [
+              {
+                "channel": "lift_joint_current_a",
+                "units": "A",
+                "value": 0.012,
+                "baseline": 0.0,
+                "deviation": 0.012,
+                "status": "NORMAL",
+                "rule": null
+              },
+              {
+                "channel": "lift_joint_pos_err_deg",
+                "units": "deg",
+                "value": 0.061,
+                "baseline": 0.05,
+                "deviation": 0.011,
+                "status": "NORMAL",
+                "rule": null
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  "series": {
+    "t_s": [4200, 4260, 4320, 4380, 4440, 4500, 4560, 4620, 4680, 4740, 4800, 4860, 4920, 4980, 5040, 5100, 5160, 5220, 5280, 5340, 5400, 5460, 5520, 5580, 5640, 5700, 5760, 5820, 5880, 5940, 6000, 6060, 6120, 6180, 6240, 6300, 6360, 6420, 6480, 6540, 6600, 6660, 6720, 6780, 6840, 6900, 6960, 7020, 7080, 7140, 7200, 7260, 7320, 7380, 7440, 7500, 7560, 7620, 7680, 7740, 7800, 7860, 7920, 7980, 8040, 8100, 8160, 8220, 8280, 8340, 8400, 8460, 8520, 8580, 8640, 8700, 8760, 8820, 8880, 8940, 9000, 9060, 9120, 9180, 9240, 9300, 9360, 9420, 9480, 9540, 9600, 9660, 9720, 9780, 9840, 9900, 9960, 10020, 10080, 10140, 10200, 10260, 10320, 10380, 10440, 10500, 10560, 10620, 10680, 10740, 10800, 10860, 10920, 10980, 11040, 11100, 11160, 11220, 11280, 11340, 11400],
+    "op_mode": ["IDLE", "IDLE", "IDLE", "IDLE", "IDLE", "IDLE", "IDLE", "IDLE", "IDLE", "IDLE", "IDLE", "IDLE", "IDLE", "IDLE", "IDLE", "IDLE", "IDLE", "IDLE", "IDLE", "IDLE", "IDLE", "IDLE", "IDLE", "IDLE", "IDLE", "IDLE", "IDLE", "IDLE", "IDLE", "IDLE", "IDLE", "IDLE", "IDLE", "IDLE", "IDLE", "IDLE", "IDLE", "IDLE", "IDLE", "IDLE", "IDLE", "IDLE", "IDLE", "IDLE", "IDLE", "IDLE", "IDLE", "IDLE", "IDLE", "IDLE", "IDLE", "IDLE", "IDLE", "IDLE", "IDLE", "IDLE", "IDLE", "IDLE", "IDLE", "IDLE", "IDLE", "IDLE", "IDLE", "IDLE", "IDLE", "IDLE", "IDLE", "IDLE", "IDLE", "IDLE", "IDLE", "IDLE", "IDLE", "IDLE", "IDLE", "IDLE", "IDLE", "IDLE", "IDLE", "IDLE", "IDLE", "IDLE", "IDLE", "IDLE", "IDLE", "IDLE", "IDLE", "IDLE", "IDLE", "IDLE", "IDLE", "IDLE", "IDLE", "IDLE", "IDLE", "IDLE", "IDLE", "IDLE", "IDLE", "IDLE", "IDLE", "IDLE", "IDLE", "IDLE", "IDLE", "IDLE", "TRAVERSE_EMPTY", "TRAVERSE_EMPTY", "IDLE", "IDLE", "CARGO_HANDLING", "CARGO_HANDLING", "CARGO_HANDLING", "CARGO_HANDLING", "TRAVERSE_LOADED", "TRAVERSE_LOADED", "TRAVERSE_LOADED", "TRAVERSE_LOADED", "TRAVERSE_LOADED", "TRAVERSE_LOADED", "TRAVERSE_LOADED"],
+    "channels": [
+      {
+        "channel": "wheel_fl_current_a",
+        "label": "Front-left drive motor current",
+        "units": "A",
+        "component": "wheel_fl_drive",
+        "subsystem": "MOBILITY",
+        "value": [0.004, 0.007, 0.007, 0.003, 0.003, 0.004, 0.01, 0.01, 0.008, 0.006, 0.004, 0.006, 0.004, 0.007, 0.005, 0.006, 0.012, 0.003, 0.006, 0.009, 0.004, 0.005, 0.009, 0.024, 0.006, 0.004, 0.009, 0.021, 0.008, 0.001, 0.004, 0.002, 0.012, 0.009, 0.001, 0.008, 0.003, 0.01, 0.004, 0.014, 0.005, 0.007, 0.001, 0.008, 0.015, 0.006, 0.013, 0.015, 0.015, 0.014, 0.005, 0.0, 0.024, 0.012, 0.015, 0.018, 0.005, 0.012, 0.011, 0.011, 0.003, 0.002, 0.001, 0.017, 0.015, 0.017, 0.007, 0.004, 0.001, 0.013, 0.01, 0.007, 0.013, 0.005, 0.012, 0.007, 0.002, 0.001, 0.004, 0.002, 0.01, 0.004, 0.007, 0.002, 0.012, 0.004, 0.01, 0.011, 0.003, 0.016, 0.01, 0.002, 0.012, 0.006, 0.002, 0.003, 0.009, 0.004, 0.011, 0.016, 0.002, 0.006, 0.0, 0.004, 0.002, 0.002, 3.265, 3.27, 0.003, 0.003, 0.001, 0.008, 0.001, 0.002, 4.82, 4.738, 4.796, 4.819, 4.796, 4.891, 4.773],
+        "baseline": [0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 3.29, 3.29, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 4.81, 4.81, 4.81, 4.81, 4.81, 4.81, 4.81],
+        "warning_low": [null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null],
+        "warning_high": [1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 4.29, 4.29, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 5.81, 5.81, 5.81, 5.81, 5.81, 5.81, 5.81],
+        "critical_low": [null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null],
+        "critical_high": [2.0, 2.0, 2.0, 2.0, 2.0, 2.0, 2.0, 2.0, 2.0, 2.0, 2.0, 2.0, 2.0, 2.0, 2.0, 2.0, 2.0, 2.0, 2.0, 2.0, 2.0, 2.0, 2.0, 2.0, 2.0, 2.0, 2.0, 2.0, 2.0, 2.0, 2.0, 2.0, 2.0, 2.0, 2.0, 2.0, 2.0, 2.0, 2.0, 2.0, 2.0, 2.0, 2.0, 2.0, 2.0, 2.0, 2.0, 2.0, 2.0, 2.0, 2.0, 2.0, 2.0, 2.0, 2.0, 2.0, 2.0, 2.0, 2.0, 2.0, 2.0, 2.0, 2.0, 2.0, 2.0, 2.0, 2.0, 2.0, 2.0, 2.0, 2.0, 2.0, 2.0, 2.0, 2.0, 2.0, 2.0, 2.0, 2.0, 2.0, 2.0, 2.0, 2.0, 2.0, 2.0, 2.0, 2.0, 2.0, 2.0, 2.0, 2.0, 2.0, 2.0, 2.0, 2.0, 2.0, 2.0, 2.0, 2.0, 2.0, 2.0, 2.0, 2.0, 2.0, 2.0, 2.0, 5.29, 5.29, 2.0, 2.0, 2.0, 2.0, 2.0, 2.0, 6.81, 6.81, 6.81, 6.81, 6.81, 6.81, 6.81]
+      },
+      {
+        "channel": "wheel_fl_speed_rads",
+        "label": "Front-left wheel speed",
+        "units": "rad/s",
+        "component": "wheel_fl_drive",
+        "subsystem": "MOBILITY",
+        "value": [0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 2.257, 2.244, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 2.134, 2.142, 2.141, 2.13, 2.139, 2.144, 2.134],
+        "baseline": [0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 2.25, 2.25, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 2.14, 2.14, 2.14, 2.14, 2.14, 2.14, 2.14],
+        "warning_low": [-0.08, -0.08, -0.08, -0.08, -0.08, -0.08, -0.08, -0.08, -0.08, -0.08, -0.08, -0.08, -0.08, -0.08, -0.08, -0.08, -0.08, -0.08, -0.08, -0.08, -0.08, -0.08, -0.08, -0.08, -0.08, -0.08, -0.08, -0.08, -0.08, -0.08, -0.08, -0.08, -0.08, -0.08, -0.08, -0.08, -0.08, -0.08, -0.08, -0.08, -0.08, -0.08, -0.08, -0.08, -0.08, -0.08, -0.08, -0.08, -0.08, -0.08, -0.08, -0.08, -0.08, -0.08, -0.08, -0.08, -0.08, -0.08, -0.08, -0.08, -0.08, -0.08, -0.08, -0.08, -0.08, -0.08, -0.08, -0.08, -0.08, -0.08, -0.08, -0.08, -0.08, -0.08, -0.08, -0.08, -0.08, -0.08, -0.08, -0.08, -0.08, -0.08, -0.08, -0.08, -0.08, -0.08, -0.08, -0.08, -0.08, -0.08, -0.08, -0.08, -0.08, -0.08, -0.08, -0.08, -0.08, -0.08, -0.08, -0.08, -0.08, -0.08, -0.08, -0.08, -0.08, -0.08, 2.17, 2.17, -0.08, -0.08, -0.08, -0.08, -0.08, -0.08, 2.06, 2.06, 2.06, 2.06, 2.06, 2.06, 2.06],
+        "warning_high": [null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null],
+        "critical_low": [-0.15, -0.15, -0.15, -0.15, -0.15, -0.15, -0.15, -0.15, -0.15, -0.15, -0.15, -0.15, -0.15, -0.15, -0.15, -0.15, -0.15, -0.15, -0.15, -0.15, -0.15, -0.15, -0.15, -0.15, -0.15, -0.15, -0.15, -0.15, -0.15, -0.15, -0.15, -0.15, -0.15, -0.15, -0.15, -0.15, -0.15, -0.15, -0.15, -0.15, -0.15, -0.15, -0.15, -0.15, -0.15, -0.15, -0.15, -0.15, -0.15, -0.15, -0.15, -0.15, -0.15, -0.15, -0.15, -0.15, -0.15, -0.15, -0.15, -0.15, -0.15, -0.15, -0.15, -0.15, -0.15, -0.15, -0.15, -0.15, -0.15, -0.15, -0.15, -0.15, -0.15, -0.15, -0.15, -0.15, -0.15, -0.15, -0.15, -0.15, -0.15, -0.15, -0.15, -0.15, -0.15, -0.15, -0.15, -0.15, -0.15, -0.15, -0.15, -0.15, -0.15, -0.15, -0.15, -0.15, -0.15, -0.15, -0.15, -0.15, -0.15, -0.15, -0.15, -0.15, -0.15, -0.15, 2.1, 2.1, -0.15, -0.15, -0.15, -0.15, -0.15, -0.15, 1.99, 1.99, 1.99, 1.99, 1.99, 1.99, 1.99],
+        "critical_high": [null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null]
+      },
+      {
+        "channel": "wheel_fl_temp_c",
+        "label": "Front-left drive temperature",
+        "units": "degC",
+        "component": "wheel_fl_thermal",
+        "subsystem": "THERMAL",
+        "value": [19.93, 19.95, 20.0, 19.94, 20.04, 20.05, 20.01, 20.12, 19.98, 20.15, 20.24, 19.77, 19.99, 19.89, 19.94, 20.1, 20.2, 19.89, 19.75, 20.02, 20.32, 20.1, 20.12, 19.98, 19.93, 19.98, 19.89, 19.85, 20.18, 19.9, 19.94, 19.96, 19.92, 19.93, 19.88, 20.15, 19.81, 20.07, 20.16, 19.96, 20.04, 19.95, 20.12, 20.02, 20.1, 19.93, 19.85, 20.16, 20.0, 20.1, 19.7, 19.61, 20.18, 19.87, 19.95, 19.59, 20.26, 20.4, 19.93, 19.95, 19.9, 19.83, 19.76, 20.03, 19.75, 20.06, 19.95, 20.07, 19.98, 19.92, 20.03, 20.14, 20.04, 19.59, 19.94, 20.23, 19.78, 19.94, 20.12, 19.84, 20.15, 19.87, 20.26, 20.15, 20.0, 20.0, 20.09, 19.9, 19.91, 19.97, 20.15, 20.04, 20.03, 20.0, 19.93, 19.86, 19.94, 20.03, 20.19, 19.84, 19.89, 20.19, 19.98, 19.98, 19.95, 19.82, 21.21, 22.89, 22.54, 21.99, 21.76, 21.57, 21.54, 21.35, 23.56, 25.14, 26.87, 28.63, 29.65, 30.98, 32.12],
+        "baseline": [20.0, 20.0, 20.0, 20.0, 20.0, 20.0, 20.0, 20.0, 20.0, 20.0, 20.0, 20.0, 20.0, 20.0, 20.0, 20.0, 20.0, 20.0, 20.0, 20.0, 20.0, 20.0, 20.0, 20.0, 20.0, 20.0, 20.0, 20.0, 20.0, 20.0, 20.0, 20.0, 20.0, 20.0, 20.0, 20.0, 20.0, 20.0, 20.0, 20.0, 20.0, 20.0, 20.0, 20.0, 20.0, 20.0, 20.0, 20.0, 20.0, 20.0, 20.0, 20.0, 20.0, 20.0, 20.0, 20.0, 20.0, 20.0, 20.0, 20.0, 20.0, 20.0, 20.0, 20.0, 20.0, 20.0, 20.0, 20.0, 20.0, 20.0, 20.0, 20.0, 20.0, 20.0, 20.0, 20.0, 20.0, 20.0, 20.0, 20.0, 20.0, 20.0, 20.0, 20.0, 20.0, 20.0, 20.0, 20.0, 20.0, 20.0, 20.0, 20.0, 20.0, 20.0, 20.0, 20.0, 20.0, 20.0, 20.0, 20.0, 20.0, 20.0, 20.0, 20.0, 20.0, 20.0, 21.3, 22.48, 22.25, 22.03, 21.84, 21.66, 21.51, 21.36, 23.39, 25.23, 26.89, 28.4, 29.76, 30.99, 32.1],
+        "warning_low": [null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null],
+        "warning_high": [35.0, 35.0, 35.0, 35.0, 35.0, 35.0, 35.0, 35.0, 35.0, 35.0, 35.0, 35.0, 35.0, 35.0, 35.0, 35.0, 35.0, 35.0, 35.0, 35.0, 35.0, 35.0, 35.0, 35.0, 35.0, 35.0, 35.0, 35.0, 35.0, 35.0, 35.0, 35.0, 35.0, 35.0, 35.0, 35.0, 35.0, 35.0, 35.0, 35.0, 35.0, 35.0, 35.0, 35.0, 35.0, 35.0, 35.0, 35.0, 35.0, 35.0, 35.0, 35.0, 35.0, 35.0, 35.0, 35.0, 35.0, 35.0, 35.0, 35.0, 35.0, 35.0, 35.0, 35.0, 35.0, 35.0, 35.0, 35.0, 35.0, 35.0, 35.0, 35.0, 35.0, 35.0, 35.0, 35.0, 35.0, 35.0, 35.0, 35.0, 35.0, 35.0, 35.0, 35.0, 35.0, 35.0, 35.0, 35.0, 35.0, 35.0, 35.0, 35.0, 35.0, 35.0, 35.0, 35.0, 35.0, 35.0, 35.0, 35.0, 35.0, 35.0, 35.0, 35.0, 35.0, 35.0, 36.3, 37.48, 37.25, 37.03, 36.84, 36.66, 36.51, 36.36, 38.39, 40.23, 41.89, 43.4, 44.76, 45.99, 47.1],
+        "critical_low": [null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null],
+        "critical_high": [50.0, 50.0, 50.0, 50.0, 50.0, 50.0, 50.0, 50.0, 50.0, 50.0, 50.0, 50.0, 50.0, 50.0, 50.0, 50.0, 50.0, 50.0, 50.0, 50.0, 50.0, 50.0, 50.0, 50.0, 50.0, 50.0, 50.0, 50.0, 50.0, 50.0, 50.0, 50.0, 50.0, 50.0, 50.0, 50.0, 50.0, 50.0, 50.0, 50.0, 50.0, 50.0, 50.0, 50.0, 50.0, 50.0, 50.0, 50.0, 50.0, 50.0, 50.0, 50.0, 50.0, 50.0, 50.0, 50.0, 50.0, 50.0, 50.0, 50.0, 50.0, 50.0, 50.0, 50.0, 50.0, 50.0, 50.0, 50.0, 50.0, 50.0, 50.0, 50.0, 50.0, 50.0, 50.0, 50.0, 50.0, 50.0, 50.0, 50.0, 50.0, 50.0, 50.0, 50.0, 50.0, 50.0, 50.0, 50.0, 50.0, 50.0, 50.0, 50.0, 50.0, 50.0, 50.0, 50.0, 50.0, 50.0, 50.0, 50.0, 50.0, 50.0, 50.0, 50.0, 50.0, 50.0, 51.3, 52.48, 52.25, 52.03, 51.84, 51.66, 51.51, 51.36, 53.39, 55.23, 56.89, 58.4, 59.76, 60.99, 62.1]
+      },
+      {
+        "channel": "wheel_fr_current_a",
+        "label": "Front-right drive motor current",
+        "units": "A",
+        "component": "wheel_fr_drive",
+        "subsystem": "MOBILITY",
+        "value": [0.025, 0.003, 0.002, 0.0, 0.008, 0.005, 0.019, 0.008, 0.008, 0.007, 0.012, 0.004, 0.009, 0.006, 0.001, 0.009, 0.014, 0.001, 0.021, 0.0, 0.007, 0.007, 0.0, 0.01, 0.006, 0.011, 0.01, 0.005, 0.012, 0.002, 0.004, 0.031, 0.001, 0.004, 0.001, 0.001, 0.007, 0.012, 0.026, 0.008, 0.006, 0.002, 0.012, 0.006, 0.006, 0.008, 0.007, 0.016, 0.008, 0.001, 0.005, 0.001, 0.002, 0.01, 0.008, 0.014, 0.008, 0.008, 0.003, 0.015, 0.001, 0.022, 0.004, 0.023, 0.012, 0.004, 0.004, 0.001, 0.004, 0.013, 0.005, 0.002, 0.013, 0.005, 0.011, 0.006, 0.001, 0.0, 0.001, 0.002, 0.007, 0.004, 0.007, 0.014, 0.003, 0.016, 0.004, 0.002, 0.004, 0.004, 0.016, 0.003, 0.017, 0.021, 0.004, 0.015, 0.01, 0.004, 0.008, 0.008, 0.015, 0.003, 0.012, 0.004, 0.007, 0.019, 3.324, 3.36, 0.018, 0.001, 0.013, 0.009, 0.007, 0.012, 4.808, 4.801, 4.765, 4.844, 4.837, 4.853, 4.844],
+        "baseline": [0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 3.29, 3.29, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 4.81, 4.81, 4.81, 4.81, 4.81, 4.81, 4.81],
+        "warning_low": [null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null],
+        "warning_high": [1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 4.29, 4.29, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 5.81, 5.81, 5.81, 5.81, 5.81, 5.81, 5.81],
+        "critical_low": [null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null],
+        "critical_high": [2.0, 2.0, 2.0, 2.0, 2.0, 2.0, 2.0, 2.0, 2.0, 2.0, 2.0, 2.0, 2.0, 2.0, 2.0, 2.0, 2.0, 2.0, 2.0, 2.0, 2.0, 2.0, 2.0, 2.0, 2.0, 2.0, 2.0, 2.0, 2.0, 2.0, 2.0, 2.0, 2.0, 2.0, 2.0, 2.0, 2.0, 2.0, 2.0, 2.0, 2.0, 2.0, 2.0, 2.0, 2.0, 2.0, 2.0, 2.0, 2.0, 2.0, 2.0, 2.0, 2.0, 2.0, 2.0, 2.0, 2.0, 2.0, 2.0, 2.0, 2.0, 2.0, 2.0, 2.0, 2.0, 2.0, 2.0, 2.0, 2.0, 2.0, 2.0, 2.0, 2.0, 2.0, 2.0, 2.0, 2.0, 2.0, 2.0, 2.0, 2.0, 2.0, 2.0, 2.0, 2.0, 2.0, 2.0, 2.0, 2.0, 2.0, 2.0, 2.0, 2.0, 2.0, 2.0, 2.0, 2.0, 2.0, 2.0, 2.0, 2.0, 2.0, 2.0, 2.0, 2.0, 2.0, 5.29, 5.29, 2.0, 2.0, 2.0, 2.0, 2.0, 2.0, 6.81, 6.81, 6.81, 6.81, 6.81, 6.81, 6.81]
+      },
+      {
+        "channel": "wheel_fr_speed_rads",
+        "label": "Front-right wheel speed",
+        "units": "rad/s",
+        "component": "wheel_fr_drive",
+        "subsystem": "MOBILITY",
+        "value": [0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 2.257, 2.253, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 2.139, 2.139, 2.134, 2.144, 2.142, 2.136, 2.14],
+        "baseline": [0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 2.25, 2.25, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 2.14, 2.14, 2.14, 2.14, 2.14, 2.14, 2.14],
+        "warning_low": [-0.08, -0.08, -0.08, -0.08, -0.08, -0.08, -0.08, -0.08, -0.08, -0.08, -0.08, -0.08, -0.08, -0.08, -0.08, -0.08, -0.08, -0.08, -0.08, -0.08, -0.08, -0.08, -0.08, -0.08, -0.08, -0.08, -0.08, -0.08, -0.08, -0.08, -0.08, -0.08, -0.08, -0.08, -0.08, -0.08, -0.08, -0.08, -0.08, -0.08, -0.08, -0.08, -0.08, -0.08, -0.08, -0.08, -0.08, -0.08, -0.08, -0.08, -0.08, -0.08, -0.08, -0.08, -0.08, -0.08, -0.08, -0.08, -0.08, -0.08, -0.08, -0.08, -0.08, -0.08, -0.08, -0.08, -0.08, -0.08, -0.08, -0.08, -0.08, -0.08, -0.08, -0.08, -0.08, -0.08, -0.08, -0.08, -0.08, -0.08, -0.08, -0.08, -0.08, -0.08, -0.08, -0.08, -0.08, -0.08, -0.08, -0.08, -0.08, -0.08, -0.08, -0.08, -0.08, -0.08, -0.08, -0.08, -0.08, -0.08, -0.08, -0.08, -0.08, -0.08, -0.08, -0.08, 2.17, 2.17, -0.08, -0.08, -0.08, -0.08, -0.08, -0.08, 2.06, 2.06, 2.06, 2.06, 2.06, 2.06, 2.06],
+        "warning_high": [null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null],
+        "critical_low": [-0.15, -0.15, -0.15, -0.15, -0.15, -0.15, -0.15, -0.15, -0.15, -0.15, -0.15, -0.15, -0.15, -0.15, -0.15, -0.15, -0.15, -0.15, -0.15, -0.15, -0.15, -0.15, -0.15, -0.15, -0.15, -0.15, -0.15, -0.15, -0.15, -0.15, -0.15, -0.15, -0.15, -0.15, -0.15, -0.15, -0.15, -0.15, -0.15, -0.15, -0.15, -0.15, -0.15, -0.15, -0.15, -0.15, -0.15, -0.15, -0.15, -0.15, -0.15, -0.15, -0.15, -0.15, -0.15, -0.15, -0.15, -0.15, -0.15, -0.15, -0.15, -0.15, -0.15, -0.15, -0.15, -0.15, -0.15, -0.15, -0.15, -0.15, -0.15, -0.15, -0.15, -0.15, -0.15, -0.15, -0.15, -0.15, -0.15, -0.15, -0.15, -0.15, -0.15, -0.15, -0.15, -0.15, -0.15, -0.15, -0.15, -0.15, -0.15, -0.15, -0.15, -0.15, -0.15, -0.15, -0.15, -0.15, -0.15, -0.15, -0.15, -0.15, -0.15, -0.15, -0.15, -0.15, 2.1, 2.1, -0.15, -0.15, -0.15, -0.15, -0.15, -0.15, 1.99, 1.99, 1.99, 1.99, 1.99, 1.99, 1.99],
+        "critical_high": [null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null]
+      },
+      {
+        "channel": "wheel_fr_temp_c",
+        "label": "Front-right drive temperature",
+        "units": "degC",
+        "component": "wheel_fr_thermal",
+        "subsystem": "THERMAL",
+        "value": [20.04, 20.02, 19.9, 20.07, 19.83, 20.14, 19.88, 19.83, 19.77, 19.91, 20.04, 19.84, 20.13, 20.15, 19.96, 20.15, 20.15, 19.58, 19.88, 20.15, 20.1, 19.88, 19.86, 20.08, 19.96, 19.99, 20.16, 20.49, 19.86, 20.05, 19.88, 20.01, 19.95, 20.29, 20.25, 20.11, 19.72, 19.81, 20.17, 20.18, 20.15, 19.87, 20.15, 19.89, 19.81, 20.14, 20.26, 20.25, 19.88, 20.18, 19.99, 20.07, 19.68, 20.01, 20.13, 19.96, 19.86, 20.13, 19.89, 20.06, 19.96, 20.15, 20.04, 20.03, 20.0, 19.94, 20.19, 20.09, 20.1, 20.06, 20.07, 20.29, 19.92, 19.98, 19.89, 20.18, 20.05, 19.95, 20.25, 20.17, 20.07, 20.01, 19.96, 19.84, 19.93, 20.09, 20.0, 20.35, 19.98, 19.98, 20.33, 20.27, 19.87, 20.08, 19.98, 20.12, 19.62, 20.18, 20.0, 19.96, 20.0, 19.79, 20.29, 20.05, 20.21, 20.16, 21.19, 22.66, 22.11, 21.86, 21.97, 21.81, 21.6, 21.36, 23.45, 25.16, 26.83, 28.28, 29.96, 31.13, 32.04],
+        "baseline": [20.0, 20.0, 20.0, 20.0, 20.0, 20.0, 20.0, 20.0, 20.0, 20.0, 20.0, 20.0, 20.0, 20.0, 20.0, 20.0, 20.0, 20.0, 20.0, 20.0, 20.0, 20.0, 20.0, 20.0, 20.0, 20.0, 20.0, 20.0, 20.0, 20.0, 20.0, 20.0, 20.0, 20.0, 20.0, 20.0, 20.0, 20.0, 20.0, 20.0, 20.0, 20.0, 20.0, 20.0, 20.0, 20.0, 20.0, 20.0, 20.0, 20.0, 20.0, 20.0, 20.0, 20.0, 20.0, 20.0, 20.0, 20.0, 20.0, 20.0, 20.0, 20.0, 20.0, 20.0, 20.0, 20.0, 20.0, 20.0, 20.0, 20.0, 20.0, 20.0, 20.0, 20.0, 20.0, 20.0, 20.0, 20.0, 20.0, 20.0, 20.0, 20.0, 20.0, 20.0, 20.0, 20.0, 20.0, 20.0, 20.0, 20.0, 20.0, 20.0, 20.0, 20.0, 20.0, 20.0, 20.0, 20.0, 20.0, 20.0, 20.0, 20.0, 20.0, 20.0, 20.0, 20.0, 21.3, 22.48, 22.25, 22.03, 21.84, 21.66, 21.51, 21.36, 23.39, 25.23, 26.89, 28.4, 29.76, 30.99, 32.1],
+        "warning_low": [null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null],
+        "warning_high": [35.0, 35.0, 35.0, 35.0, 35.0, 35.0, 35.0, 35.0, 35.0, 35.0, 35.0, 35.0, 35.0, 35.0, 35.0, 35.0, 35.0, 35.0, 35.0, 35.0, 35.0, 35.0, 35.0, 35.0, 35.0, 35.0, 35.0, 35.0, 35.0, 35.0, 35.0, 35.0, 35.0, 35.0, 35.0, 35.0, 35.0, 35.0, 35.0, 35.0, 35.0, 35.0, 35.0, 35.0, 35.0, 35.0, 35.0, 35.0, 35.0, 35.0, 35.0, 35.0, 35.0, 35.0, 35.0, 35.0, 35.0, 35.0, 35.0, 35.0, 35.0, 35.0, 35.0, 35.0, 35.0, 35.0, 35.0, 35.0, 35.0, 35.0, 35.0, 35.0, 35.0, 35.0, 35.0, 35.0, 35.0, 35.0, 35.0, 35.0, 35.0, 35.0, 35.0, 35.0, 35.0, 35.0, 35.0, 35.0, 35.0, 35.0, 35.0, 35.0, 35.0, 35.0, 35.0, 35.0, 35.0, 35.0, 35.0, 35.0, 35.0, 35.0, 35.0, 35.0, 35.0, 35.0, 36.3, 37.48, 37.25, 37.03, 36.84, 36.66, 36.51, 36.36, 38.39, 40.23, 41.89, 43.4, 44.76, 45.99, 47.1],
+        "critical_low": [null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null],
+        "critical_high": [50.0, 50.0, 50.0, 50.0, 50.0, 50.0, 50.0, 50.0, 50.0, 50.0, 50.0, 50.0, 50.0, 50.0, 50.0, 50.0, 50.0, 50.0, 50.0, 50.0, 50.0, 50.0, 50.0, 50.0, 50.0, 50.0, 50.0, 50.0, 50.0, 50.0, 50.0, 50.0, 50.0, 50.0, 50.0, 50.0, 50.0, 50.0, 50.0, 50.0, 50.0, 50.0, 50.0, 50.0, 50.0, 50.0, 50.0, 50.0, 50.0, 50.0, 50.0, 50.0, 50.0, 50.0, 50.0, 50.0, 50.0, 50.0, 50.0, 50.0, 50.0, 50.0, 50.0, 50.0, 50.0, 50.0, 50.0, 50.0, 50.0, 50.0, 50.0, 50.0, 50.0, 50.0, 50.0, 50.0, 50.0, 50.0, 50.0, 50.0, 50.0, 50.0, 50.0, 50.0, 50.0, 50.0, 50.0, 50.0, 50.0, 50.0, 50.0, 50.0, 50.0, 50.0, 50.0, 50.0, 50.0, 50.0, 50.0, 50.0, 50.0, 50.0, 50.0, 50.0, 50.0, 50.0, 51.3, 52.48, 52.25, 52.03, 51.84, 51.66, 51.51, 51.36, 53.39, 55.23, 56.89, 58.4, 59.76, 60.99, 62.1]
+      },
+      {
+        "channel": "wheel_rl_current_a",
+        "label": "Rear-left drive motor current",
+        "units": "A",
+        "component": "wheel_rl_drive",
+        "subsystem": "MOBILITY",
+        "value": [0.006, 0.015, 0.011, 0.006, 0.013, 0.008, 0.005, 0.008, 0.007, 0.002, 0.004, 0.0, 0.011, 0.004, 0.008, 0.004, 0.008, 0.01, 0.009, 0.013, 0.002, 0.014, 0.006, 0.007, 0.009, 0.005, 0.016, 0.013, 0.016, 0.001, 0.007, 0.009, 0.01, 0.01, 0.006, 0.006, 0.004, 0.021, 0.018, 0.011, 0.001, 0.011, 0.003, 0.007, 0.004, 0.002, 0.005, 0.004, 0.007, 0.015, 0.01, 0.014, 0.01, 0.019, 0.01, 0.018, 0.008, 0.005, 0.003, 0.01, 0.011, 0.015, 0.003, 0.002, 0.008, 0.013, 0.01, 0.016, 0.013, 0.004, 0.008, 0.001, 0.002, 0.01, 0.018, 0.01, 0.008, 0.007, 0.008, 0.003, 0.007, 0.009, 0.013, 0.004, 0.002, 0.003, 0.004, 0.001, 0.003, 0.008, 0.002, 0.012, 0.008, 0.009, 0.005, 0.003, 0.005, 0.008, 0.004, 0.016, 0.006, 0.012, 0.004, 0.004, 0.008, 0.004, 3.242, 3.282, 0.009, 0.004, 0.002, 0.001, 0.003, 0.023, 4.76, 4.951, 4.864, 4.815, 4.701, 4.852, 4.724],
+        "baseline": [0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 3.29, 3.29, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 4.81, 4.81, 4.81, 4.81, 4.81, 4.81, 4.81],
+        "warning_low": [null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null],
+        "warning_high": [1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 4.29, 4.29, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 5.81, 5.81, 5.81, 5.81, 5.81, 5.81, 5.81],
+        "critical_low": [null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null],
+        "critical_high": [2.0, 2.0, 2.0, 2.0, 2.0, 2.0, 2.0, 2.0, 2.0, 2.0, 2.0, 2.0, 2.0, 2.0, 2.0, 2.0, 2.0, 2.0, 2.0, 2.0, 2.0, 2.0, 2.0, 2.0, 2.0, 2.0, 2.0, 2.0, 2.0, 2.0, 2.0, 2.0, 2.0, 2.0, 2.0, 2.0, 2.0, 2.0, 2.0, 2.0, 2.0, 2.0, 2.0, 2.0, 2.0, 2.0, 2.0, 2.0, 2.0, 2.0, 2.0, 2.0, 2.0, 2.0, 2.0, 2.0, 2.0, 2.0, 2.0, 2.0, 2.0, 2.0, 2.0, 2.0, 2.0, 2.0, 2.0, 2.0, 2.0, 2.0, 2.0, 2.0, 2.0, 2.0, 2.0, 2.0, 2.0, 2.0, 2.0, 2.0, 2.0, 2.0, 2.0, 2.0, 2.0, 2.0, 2.0, 2.0, 2.0, 2.0, 2.0, 2.0, 2.0, 2.0, 2.0, 2.0, 2.0, 2.0, 2.0, 2.0, 2.0, 2.0, 2.0, 2.0, 2.0, 2.0, 5.29, 5.29, 2.0, 2.0, 2.0, 2.0, 2.0, 2.0, 6.81, 6.81, 6.81, 6.81, 6.81, 6.81, 6.81]
+      },
+      {
+        "channel": "wheel_rl_speed_rads",
+        "label": "Rear-left wheel speed",
+        "units": "rad/s",
+        "component": "wheel_rl_drive",
+        "subsystem": "MOBILITY",
+        "value": [0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 2.258, 2.251, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 2.142, 2.131, 2.134, 2.144, 2.145, 2.134, 2.139],
+        "baseline": [0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 2.25, 2.25, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 2.14, 2.14, 2.14, 2.14, 2.14, 2.14, 2.14],
+        "warning_low": [-0.08, -0.08, -0.08, -0.08, -0.08, -0.08, -0.08, -0.08, -0.08, -0.08, -0.08, -0.08, -0.08, -0.08, -0.08, -0.08, -0.08, -0.08, -0.08, -0.08, -0.08, -0.08, -0.08, -0.08, -0.08, -0.08, -0.08, -0.08, -0.08, -0.08, -0.08, -0.08, -0.08, -0.08, -0.08, -0.08, -0.08, -0.08, -0.08, -0.08, -0.08, -0.08, -0.08, -0.08, -0.08, -0.08, -0.08, -0.08, -0.08, -0.08, -0.08, -0.08, -0.08, -0.08, -0.08, -0.08, -0.08, -0.08, -0.08, -0.08, -0.08, -0.08, -0.08, -0.08, -0.08, -0.08, -0.08, -0.08, -0.08, -0.08, -0.08, -0.08, -0.08, -0.08, -0.08, -0.08, -0.08, -0.08, -0.08, -0.08, -0.08, -0.08, -0.08, -0.08, -0.08, -0.08, -0.08, -0.08, -0.08, -0.08, -0.08, -0.08, -0.08, -0.08, -0.08, -0.08, -0.08, -0.08, -0.08, -0.08, -0.08, -0.08, -0.08, -0.08, -0.08, -0.08, 2.17, 2.17, -0.08, -0.08, -0.08, -0.08, -0.08, -0.08, 2.06, 2.06, 2.06, 2.06, 2.06, 2.06, 2.06],
+        "warning_high": [null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null],
+        "critical_low": [-0.15, -0.15, -0.15, -0.15, -0.15, -0.15, -0.15, -0.15, -0.15, -0.15, -0.15, -0.15, -0.15, -0.15, -0.15, -0.15, -0.15, -0.15, -0.15, -0.15, -0.15, -0.15, -0.15, -0.15, -0.15, -0.15, -0.15, -0.15, -0.15, -0.15, -0.15, -0.15, -0.15, -0.15, -0.15, -0.15, -0.15, -0.15, -0.15, -0.15, -0.15, -0.15, -0.15, -0.15, -0.15, -0.15, -0.15, -0.15, -0.15, -0.15, -0.15, -0.15, -0.15, -0.15, -0.15, -0.15, -0.15, -0.15, -0.15, -0.15, -0.15, -0.15, -0.15, -0.15, -0.15, -0.15, -0.15, -0.15, -0.15, -0.15, -0.15, -0.15, -0.15, -0.15, -0.15, -0.15, -0.15, -0.15, -0.15, -0.15, -0.15, -0.15, -0.15, -0.15, -0.15, -0.15, -0.15, -0.15, -0.15, -0.15, -0.15, -0.15, -0.15, -0.15, -0.15, -0.15, -0.15, -0.15, -0.15, -0.15, -0.15, -0.15, -0.15, -0.15, -0.15, -0.15, 2.1, 2.1, -0.15, -0.15, -0.15, -0.15, -0.15, -0.15, 1.99, 1.99, 1.99, 1.99, 1.99, 1.99, 1.99],
+        "critical_high": [null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null]
+      },
+      {
+        "channel": "wheel_rl_temp_c",
+        "label": "Rear-left drive temperature",
+        "units": "degC",
+        "component": "wheel_rl_thermal",
+        "subsystem": "THERMAL",
+        "value": [19.91, 20.09, 20.02, 19.9, 19.79, 19.86, 20.33, 20.29, 20.25, 19.91, 20.07, 20.07, 19.88, 19.89, 20.0, 20.05, 20.17, 20.0, 19.72, 20.08, 19.82, 19.98, 20.19, 19.85, 20.1, 20.12, 20.16, 20.08, 19.87, 19.72, 19.87, 19.77, 20.09, 20.19, 20.03, 19.97, 19.99, 20.03, 20.01, 20.12, 19.92, 19.74, 20.12, 19.98, 19.79, 20.11, 20.0, 19.82, 20.01, 19.88, 20.16, 20.22, 19.6, 20.23, 19.89, 19.99, 20.02, 19.9, 20.3, 20.0, 19.79, 19.9, 19.7, 20.17, 19.89, 20.23, 20.09, 19.82, 19.96, 19.9, 19.9, 19.94, 19.98, 19.89, 19.93, 19.98, 20.06, 19.87, 19.77, 20.13, 20.14, 20.05, 20.24, 19.91, 20.39, 19.96, 19.85, 19.99, 19.85, 19.85, 20.0, 20.03, 20.33, 20.25, 19.8, 20.26, 20.18, 20.05, 19.97, 20.1, 20.11, 19.99, 19.96, 19.87, 19.66, 20.06, 21.34, 22.5, 22.14, 21.86, 21.96, 21.67, 21.59, 21.34, 23.35, 25.4, 26.87, 28.42, 29.57, 30.95, 32.11],
+        "baseline": [20.0, 20.0, 20.0, 20.0, 20.0, 20.0, 20.0, 20.0, 20.0, 20.0, 20.0, 20.0, 20.0, 20.0, 20.0, 20.0, 20.0, 20.0, 20.0, 20.0, 20.0, 20.0, 20.0, 20.0, 20.0, 20.0, 20.0, 20.0, 20.0, 20.0, 20.0, 20.0, 20.0, 20.0, 20.0, 20.0, 20.0, 20.0, 20.0, 20.0, 20.0, 20.0, 20.0, 20.0, 20.0, 20.0, 20.0, 20.0, 20.0, 20.0, 20.0, 20.0, 20.0, 20.0, 20.0, 20.0, 20.0, 20.0, 20.0, 20.0, 20.0, 20.0, 20.0, 20.0, 20.0, 20.0, 20.0, 20.0, 20.0, 20.0, 20.0, 20.0, 20.0, 20.0, 20.0, 20.0, 20.0, 20.0, 20.0, 20.0, 20.0, 20.0, 20.0, 20.0, 20.0, 20.0, 20.0, 20.0, 20.0, 20.0, 20.0, 20.0, 20.0, 20.0, 20.0, 20.0, 20.0, 20.0, 20.0, 20.0, 20.0, 20.0, 20.0, 20.0, 20.0, 20.0, 21.3, 22.48, 22.25, 22.03, 21.84, 21.66, 21.51, 21.36, 23.39, 25.23, 26.89, 28.4, 29.76, 30.99, 32.1],
+        "warning_low": [null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null],
+        "warning_high": [35.0, 35.0, 35.0, 35.0, 35.0, 35.0, 35.0, 35.0, 35.0, 35.0, 35.0, 35.0, 35.0, 35.0, 35.0, 35.0, 35.0, 35.0, 35.0, 35.0, 35.0, 35.0, 35.0, 35.0, 35.0, 35.0, 35.0, 35.0, 35.0, 35.0, 35.0, 35.0, 35.0, 35.0, 35.0, 35.0, 35.0, 35.0, 35.0, 35.0, 35.0, 35.0, 35.0, 35.0, 35.0, 35.0, 35.0, 35.0, 35.0, 35.0, 35.0, 35.0, 35.0, 35.0, 35.0, 35.0, 35.0, 35.0, 35.0, 35.0, 35.0, 35.0, 35.0, 35.0, 35.0, 35.0, 35.0, 35.0, 35.0, 35.0, 35.0, 35.0, 35.0, 35.0, 35.0, 35.0, 35.0, 35.0, 35.0, 35.0, 35.0, 35.0, 35.0, 35.0, 35.0, 35.0, 35.0, 35.0, 35.0, 35.0, 35.0, 35.0, 35.0, 35.0, 35.0, 35.0, 35.0, 35.0, 35.0, 35.0, 35.0, 35.0, 35.0, 35.0, 35.0, 35.0, 36.3, 37.48, 37.25, 37.03, 36.84, 36.66, 36.51, 36.36, 38.39, 40.23, 41.89, 43.4, 44.76, 45.99, 47.1],
+        "critical_low": [null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null],
+        "critical_high": [50.0, 50.0, 50.0, 50.0, 50.0, 50.0, 50.0, 50.0, 50.0, 50.0, 50.0, 50.0, 50.0, 50.0, 50.0, 50.0, 50.0, 50.0, 50.0, 50.0, 50.0, 50.0, 50.0, 50.0, 50.0, 50.0, 50.0, 50.0, 50.0, 50.0, 50.0, 50.0, 50.0, 50.0, 50.0, 50.0, 50.0, 50.0, 50.0, 50.0, 50.0, 50.0, 50.0, 50.0, 50.0, 50.0, 50.0, 50.0, 50.0, 50.0, 50.0, 50.0, 50.0, 50.0, 50.0, 50.0, 50.0, 50.0, 50.0, 50.0, 50.0, 50.0, 50.0, 50.0, 50.0, 50.0, 50.0, 50.0, 50.0, 50.0, 50.0, 50.0, 50.0, 50.0, 50.0, 50.0, 50.0, 50.0, 50.0, 50.0, 50.0, 50.0, 50.0, 50.0, 50.0, 50.0, 50.0, 50.0, 50.0, 50.0, 50.0, 50.0, 50.0, 50.0, 50.0, 50.0, 50.0, 50.0, 50.0, 50.0, 50.0, 50.0, 50.0, 50.0, 50.0, 50.0, 51.3, 52.48, 52.25, 52.03, 51.84, 51.66, 51.51, 51.36, 53.39, 55.23, 56.89, 58.4, 59.76, 60.99, 62.1]
+      },
+      {
+        "channel": "wheel_rr_current_a",
+        "label": "Rear-right drive motor current",
+        "units": "A",
+        "component": "wheel_rr_drive",
+        "subsystem": "MOBILITY",
+        "value": [0.018, 0.005, 0.008, 0.005, 0.003, 0.006, 0.002, 0.004, 0.007, 0.025, 0.008, 0.009, 0.006, 0.001, 0.003, 0.029, 0.017, 0.028, 0.005, 0.007, 0.02, 0.01, 0.014, 0.009, 0.004, 0.006, 0.008, 0.002, 0.002, 0.005, 0.013, 0.005, 0.018, 0.004, 0.012, 0.002, 0.009, 0.003, 0.002, 0.002, 0.005, 0.004, 0.007, 0.016, 0.001, 0.008, 0.015, 0.012, 0.003, 0.006, 0.005, 0.003, 0.007, 0.009, 0.003, 0.008, 0.013, 0.002, 0.007, 0.018, 0.001, 0.012, 0.009, 0.01, 0.01, 0.008, 0.009, 0.008, 0.007, 0.011, 0.008, 0.01, 0.013, 0.002, 0.009, 0.008, 0.0, 0.004, 0.003, 0.007, 0.007, 0.002, 0.018, 0.015, 0.015, 0.017, 0.005, 0.001, 0.002, 0.017, 0.014, 0.006, 0.007, 0.001, 0.015, 0.008, 0.01, 0.0, 0.013, 0.001, 0.007, 0.005, 0.019, 0.011, 0.015, 0.001, 3.19, 3.341, 0.002, 0.001, 0.019, 0.002, 0.007, 0.004, 4.745, 4.805, 4.694, 4.907, 4.83, 4.776, 4.821],
+        "baseline": [0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 3.29, 3.29, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 4.81, 4.81, 4.81, 4.81, 4.81, 4.81, 4.81],
+        "warning_low": [null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null],
+        "warning_high": [1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 4.29, 4.29, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 5.81, 5.81, 5.81, 5.81, 5.81, 5.81, 5.81],
+        "critical_low": [null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null],
+        "critical_high": [2.0, 2.0, 2.0, 2.0, 2.0, 2.0, 2.0, 2.0, 2.0, 2.0, 2.0, 2.0, 2.0, 2.0, 2.0, 2.0, 2.0, 2.0, 2.0, 2.0, 2.0, 2.0, 2.0, 2.0, 2.0, 2.0, 2.0, 2.0, 2.0, 2.0, 2.0, 2.0, 2.0, 2.0, 2.0, 2.0, 2.0, 2.0, 2.0, 2.0, 2.0, 2.0, 2.0, 2.0, 2.0, 2.0, 2.0, 2.0, 2.0, 2.0, 2.0, 2.0, 2.0, 2.0, 2.0, 2.0, 2.0, 2.0, 2.0, 2.0, 2.0, 2.0, 2.0, 2.0, 2.0, 2.0, 2.0, 2.0, 2.0, 2.0, 2.0, 2.0, 2.0, 2.0, 2.0, 2.0, 2.0, 2.0, 2.0, 2.0, 2.0, 2.0, 2.0, 2.0, 2.0, 2.0, 2.0, 2.0, 2.0, 2.0, 2.0, 2.0, 2.0, 2.0, 2.0, 2.0, 2.0, 2.0, 2.0, 2.0, 2.0, 2.0, 2.0, 2.0, 2.0, 2.0, 5.29, 5.29, 2.0, 2.0, 2.0, 2.0, 2.0, 2.0, 6.81, 6.81, 6.81, 6.81, 6.81, 6.81, 6.81]
+      },
+      {
+        "channel": "wheel_rr_speed_rads",
+        "label": "Rear-right wheel speed",
+        "units": "rad/s",
+        "component": "wheel_rr_drive",
+        "subsystem": "MOBILITY",
+        "value": [0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 2.245, 2.252, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 2.144, 2.136, 2.142, 2.14, 2.14, 2.139, 2.149],
+        "baseline": [0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 2.25, 2.25, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 2.14, 2.14, 2.14, 2.14, 2.14, 2.14, 2.14],
+        "warning_low": [-0.08, -0.08, -0.08, -0.08, -0.08, -0.08, -0.08, -0.08, -0.08, -0.08, -0.08, -0.08, -0.08, -0.08, -0.08, -0.08, -0.08, -0.08, -0.08, -0.08, -0.08, -0.08, -0.08, -0.08, -0.08, -0.08, -0.08, -0.08, -0.08, -0.08, -0.08, -0.08, -0.08, -0.08, -0.08, -0.08, -0.08, -0.08, -0.08, -0.08, -0.08, -0.08, -0.08, -0.08, -0.08, -0.08, -0.08, -0.08, -0.08, -0.08, -0.08, -0.08, -0.08, -0.08, -0.08, -0.08, -0.08, -0.08, -0.08, -0.08, -0.08, -0.08, -0.08, -0.08, -0.08, -0.08, -0.08, -0.08, -0.08, -0.08, -0.08, -0.08, -0.08, -0.08, -0.08, -0.08, -0.08, -0.08, -0.08, -0.08, -0.08, -0.08, -0.08, -0.08, -0.08, -0.08, -0.08, -0.08, -0.08, -0.08, -0.08, -0.08, -0.08, -0.08, -0.08, -0.08, -0.08, -0.08, -0.08, -0.08, -0.08, -0.08, -0.08, -0.08, -0.08, -0.08, 2.17, 2.17, -0.08, -0.08, -0.08, -0.08, -0.08, -0.08, 2.06, 2.06, 2.06, 2.06, 2.06, 2.06, 2.06],
+        "warning_high": [null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null],
+        "critical_low": [-0.15, -0.15, -0.15, -0.15, -0.15, -0.15, -0.15, -0.15, -0.15, -0.15, -0.15, -0.15, -0.15, -0.15, -0.15, -0.15, -0.15, -0.15, -0.15, -0.15, -0.15, -0.15, -0.15, -0.15, -0.15, -0.15, -0.15, -0.15, -0.15, -0.15, -0.15, -0.15, -0.15, -0.15, -0.15, -0.15, -0.15, -0.15, -0.15, -0.15, -0.15, -0.15, -0.15, -0.15, -0.15, -0.15, -0.15, -0.15, -0.15, -0.15, -0.15, -0.15, -0.15, -0.15, -0.15, -0.15, -0.15, -0.15, -0.15, -0.15, -0.15, -0.15, -0.15, -0.15, -0.15, -0.15, -0.15, -0.15, -0.15, -0.15, -0.15, -0.15, -0.15, -0.15, -0.15, -0.15, -0.15, -0.15, -0.15, -0.15, -0.15, -0.15, -0.15, -0.15, -0.15, -0.15, -0.15, -0.15, -0.15, -0.15, -0.15, -0.15, -0.15, -0.15, -0.15, -0.15, -0.15, -0.15, -0.15, -0.15, -0.15, -0.15, -0.15, -0.15, -0.15, -0.15, 2.1, 2.1, -0.15, -0.15, -0.15, -0.15, -0.15, -0.15, 1.99, 1.99, 1.99, 1.99, 1.99, 1.99, 1.99],
+        "critical_high": [null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null]
+      },
+      {
+        "channel": "wheel_rr_temp_c",
+        "label": "Rear-right drive temperature",
+        "units": "degC",
+        "component": "wheel_rr_thermal",
+        "subsystem": "THERMAL",
+        "value": [20.08, 19.92, 20.16, 19.7, 19.72, 19.89, 19.92, 19.99, 19.94, 19.94, 20.13, 19.79, 20.15, 20.16, 19.75, 20.08, 19.98, 20.0, 19.91, 20.05, 20.1, 19.82, 20.21, 19.92, 20.1, 20.11, 20.14, 20.03, 19.97, 20.04, 20.26, 19.88, 19.9, 20.44, 20.16, 19.91, 20.1, 20.13, 20.32, 19.87, 19.72, 20.05, 20.05, 19.94, 19.92, 20.06, 20.15, 20.05, 19.89, 20.13, 19.85, 20.0, 19.76, 19.77, 19.86, 19.87, 20.0, 20.1, 19.77, 20.04, 19.88, 19.74, 19.97, 20.02, 20.05, 19.96, 19.93, 19.91, 19.94, 20.11, 20.25, 20.17, 19.99, 19.98, 19.99, 20.0, 20.0, 20.09, 20.13, 20.12, 19.88, 20.19, 20.11, 19.88, 19.77, 20.21, 20.19, 19.95, 19.95, 20.08, 19.73, 19.89, 20.21, 19.73, 20.22, 19.93, 19.88, 20.2, 20.05, 20.05, 19.81, 19.94, 19.82, 19.77, 19.91, 20.03, 21.38, 22.5, 22.46, 21.96, 21.81, 21.74, 21.77, 21.32, 23.27, 25.38, 26.82, 28.28, 29.75, 30.85, 32.05],
+        "baseline": [20.0, 20.0, 20.0, 20.0, 20.0, 20.0, 20.0, 20.0, 20.0, 20.0, 20.0, 20.0, 20.0, 20.0, 20.0, 20.0, 20.0, 20.0, 20.0, 20.0, 20.0, 20.0, 20.0, 20.0, 20.0, 20.0, 20.0, 20.0, 20.0, 20.0, 20.0, 20.0, 20.0, 20.0, 20.0, 20.0, 20.0, 20.0, 20.0, 20.0, 20.0, 20.0, 20.0, 20.0, 20.0, 20.0, 20.0, 20.0, 20.0, 20.0, 20.0, 20.0, 20.0, 20.0, 20.0, 20.0, 20.0, 20.0, 20.0, 20.0, 20.0, 20.0, 20.0, 20.0, 20.0, 20.0, 20.0, 20.0, 20.0, 20.0, 20.0, 20.0, 20.0, 20.0, 20.0, 20.0, 20.0, 20.0, 20.0, 20.0, 20.0, 20.0, 20.0, 20.0, 20.0, 20.0, 20.0, 20.0, 20.0, 20.0, 20.0, 20.0, 20.0, 20.0, 20.0, 20.0, 20.0, 20.0, 20.0, 20.0, 20.0, 20.0, 20.0, 20.0, 20.0, 20.0, 21.3, 22.48, 22.25, 22.03, 21.84, 21.66, 21.51, 21.36, 23.39, 25.23, 26.89, 28.4, 29.76, 30.99, 32.1],
+        "warning_low": [null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null],
+        "warning_high": [35.0, 35.0, 35.0, 35.0, 35.0, 35.0, 35.0, 35.0, 35.0, 35.0, 35.0, 35.0, 35.0, 35.0, 35.0, 35.0, 35.0, 35.0, 35.0, 35.0, 35.0, 35.0, 35.0, 35.0, 35.0, 35.0, 35.0, 35.0, 35.0, 35.0, 35.0, 35.0, 35.0, 35.0, 35.0, 35.0, 35.0, 35.0, 35.0, 35.0, 35.0, 35.0, 35.0, 35.0, 35.0, 35.0, 35.0, 35.0, 35.0, 35.0, 35.0, 35.0, 35.0, 35.0, 35.0, 35.0, 35.0, 35.0, 35.0, 35.0, 35.0, 35.0, 35.0, 35.0, 35.0, 35.0, 35.0, 35.0, 35.0, 35.0, 35.0, 35.0, 35.0, 35.0, 35.0, 35.0, 35.0, 35.0, 35.0, 35.0, 35.0, 35.0, 35.0, 35.0, 35.0, 35.0, 35.0, 35.0, 35.0, 35.0, 35.0, 35.0, 35.0, 35.0, 35.0, 35.0, 35.0, 35.0, 35.0, 35.0, 35.0, 35.0, 35.0, 35.0, 35.0, 35.0, 36.3, 37.48, 37.25, 37.03, 36.84, 36.66, 36.51, 36.36, 38.39, 40.23, 41.89, 43.4, 44.76, 45.99, 47.1],
+        "critical_low": [null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null],
+        "critical_high": [50.0, 50.0, 50.0, 50.0, 50.0, 50.0, 50.0, 50.0, 50.0, 50.0, 50.0, 50.0, 50.0, 50.0, 50.0, 50.0, 50.0, 50.0, 50.0, 50.0, 50.0, 50.0, 50.0, 50.0, 50.0, 50.0, 50.0, 50.0, 50.0, 50.0, 50.0, 50.0, 50.0, 50.0, 50.0, 50.0, 50.0, 50.0, 50.0, 50.0, 50.0, 50.0, 50.0, 50.0, 50.0, 50.0, 50.0, 50.0, 50.0, 50.0, 50.0, 50.0, 50.0, 50.0, 50.0, 50.0, 50.0, 50.0, 50.0, 50.0, 50.0, 50.0, 50.0, 50.0, 50.0, 50.0, 50.0, 50.0, 50.0, 50.0, 50.0, 50.0, 50.0, 50.0, 50.0, 50.0, 50.0, 50.0, 50.0, 50.0, 50.0, 50.0, 50.0, 50.0, 50.0, 50.0, 50.0, 50.0, 50.0, 50.0, 50.0, 50.0, 50.0, 50.0, 50.0, 50.0, 50.0, 50.0, 50.0, 50.0, 50.0, 50.0, 50.0, 50.0, 50.0, 50.0, 51.3, 52.48, 52.25, 52.03, 51.84, 51.66, 51.51, 51.36, 53.39, 55.23, 56.89, 58.4, 59.76, 60.99, 62.1]
+      },
+      {
+        "channel": "battery_voltage_v",
+        "label": "Battery pack terminal voltage",
+        "units": "V",
+        "component": "battery_pack",
+        "subsystem": "POWER",
+        "value": [53.407, 53.405, 53.395, 53.409, 53.372, 53.381, 53.331, 53.379, 53.363, 53.384, 53.329, 53.312, 53.352, 53.324, 53.326, 53.283, 53.315, 53.298, 53.263, 53.3, 53.311, 53.303, 53.279, 53.223, 53.247, 53.241, 53.267, 53.251, 53.227, 53.259, 53.22, 53.179, 53.204, 53.211, 53.157, 53.212, 53.212, 53.176, 53.157, 53.113, 53.132, 53.125, 53.101, 53.083, 53.092, 53.095, 53.114, 53.077, 53.077, 53.052, 53.062, 53.089, 53.065, 53.048, 53.068, 53.065, 53.03, 53.032, 53.044, 53.017, 53.018, 53.017, 52.982, 52.992, 52.996, 53.005, 52.937, 52.917, 52.949, 52.958, 52.936, 52.934, 52.911, 52.927, 52.924, 52.914, 52.912, 52.87, 52.872, 52.888, 52.888, 52.841, 52.878, 52.88, 52.859, 52.808, 52.838, 52.847, 52.819, 52.813, 52.801, 52.762, 52.781, 52.805, 52.753, 52.774, 52.773, 52.734, 52.74, 52.71, 52.727, 52.744, 52.711, 52.737, 52.684, 52.691, 52.553, 52.554, 52.704, 52.682, 52.603, 52.605, 52.565, 52.586, 52.434, 52.394, 52.355, 52.333, 52.394, 52.306, 52.281],
+        "baseline": [53.418, 53.411, 53.409, 53.4, 53.393, 53.387, 53.377, 53.372, 53.364, 53.355, 53.349, 53.337, 53.335, 53.329, 53.321, 53.315, 53.304, 53.301, 53.295, 53.284, 53.277, 53.275, 53.268, 53.255, 53.254, 53.25, 53.24, 53.23, 53.228, 53.212, 53.22, 53.206, 53.202, 53.191, 53.188, 53.179, 53.173, 53.164, 53.156, 53.15, 53.138, 53.136, 53.13, 53.126, 53.114, 53.108, 53.098, 53.102, 53.091, 53.082, 53.076, 53.07, 53.066, 53.056, 53.053, 53.037, 53.033, 53.023, 53.022, 53.02, 53.008, 53.001, 52.992, 52.994, 52.98, 52.971, 52.966, 52.955, 52.95, 52.945, 52.941, 52.934, 52.926, 52.913, 52.914, 52.905, 52.894, 52.889, 52.88, 52.877, 52.873, 52.863, 52.851, 52.847, 52.841, 52.835, 52.829, 52.822, 52.818, 52.809, 52.802, 52.794, 52.787, 52.783, 52.776, 52.769, 52.76, 52.753, 52.751, 52.741, 52.732, 52.728, 52.721, 52.71, 52.698, 52.697, 52.566, 52.556, 52.659, 52.653, 52.608, 52.595, 52.579, 52.569, 52.429, 52.408, 52.385, 52.37, 52.353, 52.33, 52.314],
+        "warning_low": [52.918, 52.911, 52.909, 52.9, 52.893, 52.887, 52.877, 52.872, 52.864, 52.855, 52.849, 52.837, 52.835, 52.829, 52.821, 52.815, 52.804, 52.801, 52.795, 52.784, 52.777, 52.775, 52.768, 52.755, 52.754, 52.75, 52.74, 52.73, 52.728, 52.712, 52.72, 52.706, 52.702, 52.691, 52.688, 52.679, 52.673, 52.664, 52.656, 52.65, 52.638, 52.636, 52.63, 52.626, 52.614, 52.608, 52.598, 52.602, 52.591, 52.582, 52.576, 52.57, 52.566, 52.556, 52.553, 52.537, 52.533, 52.523, 52.522, 52.52, 52.508, 52.501, 52.492, 52.494, 52.48, 52.471, 52.466, 52.455, 52.45, 52.445, 52.441, 52.434, 52.426, 52.413, 52.414, 52.405, 52.394, 52.389, 52.38, 52.377, 52.373, 52.363, 52.351, 52.347, 52.341, 52.335, 52.329, 52.322, 52.318, 52.309, 52.302, 52.294, 52.287, 52.283, 52.276, 52.269, 52.26, 52.253, 52.251, 52.241, 52.232, 52.228, 52.221, 52.21, 52.198, 52.197, 52.066, 52.056, 52.159, 52.153, 52.108, 52.095, 52.079, 52.069, 51.929, 51.908, 51.885, 51.87, 51.853, 51.83, 51.814],
+        "warning_high": [null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null],
+        "critical_low": [52.418, 52.411, 52.409, 52.4, 52.393, 52.387, 52.377, 52.372, 52.364, 52.355, 52.349, 52.337, 52.335, 52.329, 52.321, 52.315, 52.304, 52.301, 52.295, 52.284, 52.277, 52.275, 52.268, 52.255, 52.254, 52.25, 52.24, 52.23, 52.228, 52.212, 52.22, 52.206, 52.202, 52.191, 52.188, 52.179, 52.173, 52.164, 52.156, 52.15, 52.138, 52.136, 52.13, 52.126, 52.114, 52.108, 52.098, 52.102, 52.091, 52.082, 52.076, 52.07, 52.066, 52.056, 52.053, 52.037, 52.033, 52.023, 52.022, 52.02, 52.008, 52.001, 51.992, 51.994, 51.98, 51.971, 51.966, 51.955, 51.95, 51.945, 51.941, 51.934, 51.926, 51.913, 51.914, 51.905, 51.894, 51.889, 51.88, 51.877, 51.873, 51.863, 51.851, 51.847, 51.841, 51.835, 51.829, 51.822, 51.818, 51.809, 51.802, 51.794, 51.787, 51.783, 51.776, 51.769, 51.76, 51.753, 51.751, 51.741, 51.732, 51.728, 51.721, 51.71, 51.698, 51.697, 51.566, 51.556, 51.659, 51.653, 51.608, 51.595, 51.579, 51.569, 51.429, 51.408, 51.385, 51.37, 51.353, 51.33, 51.314],
+        "critical_high": [54.6, 54.6, 54.6, 54.6, 54.6, 54.6, 54.6, 54.6, 54.6, 54.6, 54.6, 54.6, 54.6, 54.6, 54.6, 54.6, 54.6, 54.6, 54.6, 54.6, 54.6, 54.6, 54.6, 54.6, 54.6, 54.6, 54.6, 54.6, 54.6, 54.6, 54.6, 54.6, 54.6, 54.6, 54.6, 54.6, 54.6, 54.6, 54.6, 54.6, 54.6, 54.6, 54.6, 54.6, 54.6, 54.6, 54.6, 54.6, 54.6, 54.6, 54.6, 54.6, 54.6, 54.6, 54.6, 54.6, 54.6, 54.6, 54.6, 54.6, 54.6, 54.6, 54.6, 54.6, 54.6, 54.6, 54.6, 54.6, 54.6, 54.6, 54.6, 54.6, 54.6, 54.6, 54.6, 54.6, 54.6, 54.6, 54.6, 54.6, 54.6, 54.6, 54.6, 54.6, 54.6, 54.6, 54.6, 54.6, 54.6, 54.6, 54.6, 54.6, 54.6, 54.6, 54.6, 54.6, 54.6, 54.6, 54.6, 54.6, 54.6, 54.6, 54.6, 54.6, 54.6, 54.6, 54.6, 54.6, 54.6, 54.6, 54.6, 54.6, 54.6, 54.6, 54.6, 54.6, 54.6, 54.6, 54.6, 54.6, 54.6]
+      },
+      {
+        "channel": "battery_current_a",
+        "label": "Battery pack current (+ = discharge)",
+        "units": "A",
+        "component": "battery_pack",
+        "subsystem": "POWER",
+        "value": [1.253, 1.254, 1.195, 1.23, 1.238, 1.222, 1.267, 1.244, 1.254, 1.285, 1.269, 1.323, 1.268, 1.246, 1.259, 1.257, 1.305, 1.259, 1.244, 1.292, 1.29, 1.233, 1.234, 1.304, 1.232, 1.202, 1.233, 1.277, 1.216, 1.329, 1.137, 1.234, 1.198, 1.259, 1.212, 1.243, 1.232, 1.259, 1.273, 1.255, 1.316, 1.259, 1.249, 1.208, 1.274, 1.264, 1.306, 1.157, 1.213, 1.252, 1.241, 1.227, 1.19, 1.241, 1.189, 1.3, 1.27, 1.3, 1.221, 1.173, 1.235, 1.234, 1.265, 1.153, 1.251, 1.283, 1.247, 1.305, 1.273, 1.248, 1.215, 1.215, 1.232, 1.315, 1.216, 1.236, 1.297, 1.268, 1.292, 1.237, 1.204, 1.246, 1.312, 1.276, 1.255, 1.244, 1.241, 1.241, 1.207, 1.235, 1.234, 1.254, 1.251, 1.22, 1.217, 1.219, 1.252, 1.259, 1.196, 1.24, 1.256, 1.221, 1.231, 1.286, 1.339, 1.269, 2.816, 2.74, 1.265, 1.261, 1.733, 1.782, 1.85, 1.852, 3.473, 3.493, 3.545, 3.487, 3.457, 3.517, 3.475],
+        "baseline": [1.25, 1.25, 1.25, 1.25, 1.25, 1.25, 1.25, 1.25, 1.25, 1.25, 1.25, 1.25, 1.25, 1.25, 1.25, 1.25, 1.25, 1.25, 1.25, 1.25, 1.25, 1.25, 1.25, 1.25, 1.25, 1.25, 1.25, 1.25, 1.25, 1.25, 1.25, 1.25, 1.25, 1.25, 1.25, 1.25, 1.25, 1.25, 1.25, 1.25, 1.25, 1.25, 1.25, 1.25, 1.25, 1.25, 1.25, 1.25, 1.25, 1.25, 1.25, 1.25, 1.25, 1.25, 1.25, 1.25, 1.25, 1.25, 1.25, 1.25, 1.25, 1.25, 1.25, 1.25, 1.25, 1.25, 1.25, 1.25, 1.25, 1.25, 1.25, 1.25, 1.25, 1.25, 1.25, 1.25, 1.25, 1.25, 1.25, 1.25, 1.25, 1.25, 1.25, 1.25, 1.25, 1.25, 1.25, 1.25, 1.25, 1.25, 1.25, 1.25, 1.25, 1.25, 1.25, 1.25, 1.25, 1.25, 1.25, 1.25, 1.25, 1.25, 1.25, 1.25, 1.25, 1.25, 2.78, 2.78, 1.25, 1.25, 1.81, 1.81, 1.81, 1.81, 3.49, 3.49, 3.49, 3.49, 3.49, 3.49, 3.49],
+        "warning_low": [null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null],
+        "warning_high": [2.75, 2.75, 2.75, 2.75, 2.75, 2.75, 2.75, 2.75, 2.75, 2.75, 2.75, 2.75, 2.75, 2.75, 2.75, 2.75, 2.75, 2.75, 2.75, 2.75, 2.75, 2.75, 2.75, 2.75, 2.75, 2.75, 2.75, 2.75, 2.75, 2.75, 2.75, 2.75, 2.75, 2.75, 2.75, 2.75, 2.75, 2.75, 2.75, 2.75, 2.75, 2.75, 2.75, 2.75, 2.75, 2.75, 2.75, 2.75, 2.75, 2.75, 2.75, 2.75, 2.75, 2.75, 2.75, 2.75, 2.75, 2.75, 2.75, 2.75, 2.75, 2.75, 2.75, 2.75, 2.75, 2.75, 2.75, 2.75, 2.75, 2.75, 2.75, 2.75, 2.75, 2.75, 2.75, 2.75, 2.75, 2.75, 2.75, 2.75, 2.75, 2.75, 2.75, 2.75, 2.75, 2.75, 2.75, 2.75, 2.75, 2.75, 2.75, 2.75, 2.75, 2.75, 2.75, 2.75, 2.75, 2.75, 2.75, 2.75, 2.75, 2.75, 2.75, 2.75, 2.75, 2.75, 4.28, 4.28, 2.75, 2.75, 3.31, 3.31, 3.31, 3.31, 4.99, 4.99, 4.99, 4.99, 4.99, 4.99, 4.99],
+        "critical_low": [-15.0, -15.0, -15.0, -15.0, -15.0, -15.0, -15.0, -15.0, -15.0, -15.0, -15.0, -15.0, -15.0, -15.0, -15.0, -15.0, -15.0, -15.0, -15.0, -15.0, -15.0, -15.0, -15.0, -15.0, -15.0, -15.0, -15.0, -15.0, -15.0, -15.0, -15.0, -15.0, -15.0, -15.0, -15.0, -15.0, -15.0, -15.0, -15.0, -15.0, -15.0, -15.0, -15.0, -15.0, -15.0, -15.0, -15.0, -15.0, -15.0, -15.0, -15.0, -15.0, -15.0, -15.0, -15.0, -15.0, -15.0, -15.0, -15.0, -15.0, -15.0, -15.0, -15.0, -15.0, -15.0, -15.0, -15.0, -15.0, -15.0, -15.0, -15.0, -15.0, -15.0, -15.0, -15.0, -15.0, -15.0, -15.0, -15.0, -15.0, -15.0, -15.0, -15.0, -15.0, -15.0, -15.0, -15.0, -15.0, -15.0, -15.0, -15.0, -15.0, -15.0, -15.0, -15.0, -15.0, -15.0, -15.0, -15.0, -15.0, -15.0, -15.0, -15.0, -15.0, -15.0, -15.0, -15.0, -15.0, -15.0, -15.0, -15.0, -15.0, -15.0, -15.0, -15.0, -15.0, -15.0, -15.0, -15.0, -15.0, -15.0],
+        "critical_high": [4.25, 4.25, 4.25, 4.25, 4.25, 4.25, 4.25, 4.25, 4.25, 4.25, 4.25, 4.25, 4.25, 4.25, 4.25, 4.25, 4.25, 4.25, 4.25, 4.25, 4.25, 4.25, 4.25, 4.25, 4.25, 4.25, 4.25, 4.25, 4.25, 4.25, 4.25, 4.25, 4.25, 4.25, 4.25, 4.25, 4.25, 4.25, 4.25, 4.25, 4.25, 4.25, 4.25, 4.25, 4.25, 4.25, 4.25, 4.25, 4.25, 4.25, 4.25, 4.25, 4.25, 4.25, 4.25, 4.25, 4.25, 4.25, 4.25, 4.25, 4.25, 4.25, 4.25, 4.25, 4.25, 4.25, 4.25, 4.25, 4.25, 4.25, 4.25, 4.25, 4.25, 4.25, 4.25, 4.25, 4.25, 4.25, 4.25, 4.25, 4.25, 4.25, 4.25, 4.25, 4.25, 4.25, 4.25, 4.25, 4.25, 4.25, 4.25, 4.25, 4.25, 4.25, 4.25, 4.25, 4.25, 4.25, 4.25, 4.25, 4.25, 4.25, 4.25, 4.25, 4.25, 4.25, 5.78, 5.78, 4.25, 4.25, 4.81, 4.81, 4.81, 4.81, 6.49, 6.49, 6.49, 6.49, 6.49, 6.49, 6.49]
+      },
+      {
+        "channel": "battery_soc_pct",
+        "label": "Battery state of charge",
+        "units": "%",
+        "component": "battery_pack",
+        "subsystem": "POWER",
+        "value": [97.1, 97.0, 97.0, 97.0, 96.9, 96.9, 96.8, 96.8, 96.8, 96.7, 96.7, 96.6, 96.6, 96.5, 96.5, 96.5, 96.4, 96.4, 96.3, 96.3, 96.2, 96.2, 96.2, 96.1, 96.1, 96.0, 96.0, 96.0, 95.9, 95.9, 95.8, 95.8, 95.7, 95.7, 95.7, 95.6, 95.6, 95.5, 95.5, 95.5, 95.4, 95.4, 95.3, 95.3, 95.2, 95.2, 95.2, 95.1, 95.1, 95.0, 95.0, 95.0, 94.9, 94.9, 94.8, 94.8, 94.8, 94.7, 94.7, 94.6, 94.6, 94.5, 94.5, 94.5, 94.4, 94.4, 94.3, 94.3, 94.3, 94.2, 94.2, 94.1, 94.1, 94.0, 94.0, 94.0, 93.9, 93.9, 93.8, 93.8, 93.8, 93.7, 93.7, 93.6, 93.6, 93.5, 93.5, 93.5, 93.4, 93.4, 93.3, 93.3, 93.3, 93.2, 93.2, 93.1, 93.1, 93.1, 93.0, 93.0, 92.9, 92.9, 92.8, 92.8, 92.8, 92.7, 92.7, 92.6, 92.5, 92.4, 92.4, 92.3, 92.3, 92.2, 92.2, 92.0, 91.9, 91.8, 91.7, 91.6, 91.5],
+        "baseline": [null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null],
+        "warning_low": [30.0, 30.0, 30.0, 30.0, 30.0, 30.0, 30.0, 30.0, 30.0, 30.0, 30.0, 30.0, 30.0, 30.0, 30.0, 30.0, 30.0, 30.0, 30.0, 30.0, 30.0, 30.0, 30.0, 30.0, 30.0, 30.0, 30.0, 30.0, 30.0, 30.0, 30.0, 30.0, 30.0, 30.0, 30.0, 30.0, 30.0, 30.0, 30.0, 30.0, 30.0, 30.0, 30.0, 30.0, 30.0, 30.0, 30.0, 30.0, 30.0, 30.0, 30.0, 30.0, 30.0, 30.0, 30.0, 30.0, 30.0, 30.0, 30.0, 30.0, 30.0, 30.0, 30.0, 30.0, 30.0, 30.0, 30.0, 30.0, 30.0, 30.0, 30.0, 30.0, 30.0, 30.0, 30.0, 30.0, 30.0, 30.0, 30.0, 30.0, 30.0, 30.0, 30.0, 30.0, 30.0, 30.0, 30.0, 30.0, 30.0, 30.0, 30.0, 30.0, 30.0, 30.0, 30.0, 30.0, 30.0, 30.0, 30.0, 30.0, 30.0, 30.0, 30.0, 30.0, 30.0, 30.0, 30.0, 30.0, 30.0, 30.0, 30.0, 30.0, 30.0, 30.0, 30.0, 30.0, 30.0, 30.0, 30.0, 30.0, 30.0],
+        "warning_high": [null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null],
+        "critical_low": [15.0, 15.0, 15.0, 15.0, 15.0, 15.0, 15.0, 15.0, 15.0, 15.0, 15.0, 15.0, 15.0, 15.0, 15.0, 15.0, 15.0, 15.0, 15.0, 15.0, 15.0, 15.0, 15.0, 15.0, 15.0, 15.0, 15.0, 15.0, 15.0, 15.0, 15.0, 15.0, 15.0, 15.0, 15.0, 15.0, 15.0, 15.0, 15.0, 15.0, 15.0, 15.0, 15.0, 15.0, 15.0, 15.0, 15.0, 15.0, 15.0, 15.0, 15.0, 15.0, 15.0, 15.0, 15.0, 15.0, 15.0, 15.0, 15.0, 15.0, 15.0, 15.0, 15.0, 15.0, 15.0, 15.0, 15.0, 15.0, 15.0, 15.0, 15.0, 15.0, 15.0, 15.0, 15.0, 15.0, 15.0, 15.0, 15.0, 15.0, 15.0, 15.0, 15.0, 15.0, 15.0, 15.0, 15.0, 15.0, 15.0, 15.0, 15.0, 15.0, 15.0, 15.0, 15.0, 15.0, 15.0, 15.0, 15.0, 15.0, 15.0, 15.0, 15.0, 15.0, 15.0, 15.0, 15.0, 15.0, 15.0, 15.0, 15.0, 15.0, 15.0, 15.0, 15.0, 15.0, 15.0, 15.0, 15.0, 15.0, 15.0],
+        "critical_high": [null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null]
+      },
+      {
+        "channel": "lift_joint_current_a",
+        "label": "Cargo-lift actuator current",
+        "units": "A",
+        "component": "lift_actuator",
+        "subsystem": "MECHANISMS",
+        "value": [0.023, 0.014, 0.024, 0.0, 0.028, 0.015, 0.045, 0.013, 0.033, 0.004, 0.031, 0.035, 0.011, 0.005, 0.004, 0.029, 0.004, 0.02, 0.017, 0.048, 0.024, 0.023, 0.031, 0.013, 0.023, 0.032, 0.018, 0.003, 0.045, 0.035, 0.063, 0.035, 0.045, 0.042, 0.03, 0.002, 0.054, 0.048, 0.024, 0.011, 0.012, 0.045, 0.052, 0.025, 0.007, 0.002, 0.006, 0.004, 0.005, 0.042, 0.023, 0.031, 0.067, 0.026, 0.014, 0.039, 0.018, 0.019, 0.033, 0.035, 0.032, 0.01, 0.014, 0.006, 0.007, 0.012, 0.048, 0.007, 0.006, 0.002, 0.037, 0.016, 0.044, 0.058, 0.016, 0.017, 0.001, 0.025, 0.009, 0.018, 0.004, 0.003, 0.015, 0.002, 0.045, 0.018, 0.005, 0.04, 0.042, 0.039, 0.005, 0.043, 0.002, 0.015, 0.05, 0.062, 0.011, 0.045, 0.015, 0.007, 0.003, 0.025, 0.017, 0.002, 0.015, 0.075, 0.027, 0.025, 0.008, 0.025, 2.014, 2.009, 2.02, 2.029, 0.001, 0.018, 0.009, 0.005, 0.032, 0.014, 0.012],
+        "baseline": [0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 2.0, 2.0, 2.0, 2.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0],
+        "warning_low": [null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null],
+        "warning_high": [1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 3.0, 3.0, 3.0, 3.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0],
+        "critical_low": [null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null],
+        "critical_high": [2.0, 2.0, 2.0, 2.0, 2.0, 2.0, 2.0, 2.0, 2.0, 2.0, 2.0, 2.0, 2.0, 2.0, 2.0, 2.0, 2.0, 2.0, 2.0, 2.0, 2.0, 2.0, 2.0, 2.0, 2.0, 2.0, 2.0, 2.0, 2.0, 2.0, 2.0, 2.0, 2.0, 2.0, 2.0, 2.0, 2.0, 2.0, 2.0, 2.0, 2.0, 2.0, 2.0, 2.0, 2.0, 2.0, 2.0, 2.0, 2.0, 2.0, 2.0, 2.0, 2.0, 2.0, 2.0, 2.0, 2.0, 2.0, 2.0, 2.0, 2.0, 2.0, 2.0, 2.0, 2.0, 2.0, 2.0, 2.0, 2.0, 2.0, 2.0, 2.0, 2.0, 2.0, 2.0, 2.0, 2.0, 2.0, 2.0, 2.0, 2.0, 2.0, 2.0, 2.0, 2.0, 2.0, 2.0, 2.0, 2.0, 2.0, 2.0, 2.0, 2.0, 2.0, 2.0, 2.0, 2.0, 2.0, 2.0, 2.0, 2.0, 2.0, 2.0, 2.0, 2.0, 2.0, 2.0, 2.0, 2.0, 2.0, 4.0, 4.0, 4.0, 4.0, 2.0, 2.0, 2.0, 2.0, 2.0, 2.0, 2.0]
+      },
+      {
+        "channel": "lift_joint_pos_err_deg",
+        "label": "Cargo-lift position error",
+        "units": "deg",
+        "component": "lift_actuator",
+        "subsystem": "MECHANISMS",
+        "value": [0.067, 0.054, 0.055, 0.062, 0.07, 0.056, 0.054, 0.051, 0.058, 0.052, 0.07, 0.05, 0.058, 0.053, 0.06, 0.055, 0.052, 0.058, 0.053, 0.062, 0.051, 0.07, 0.059, 0.066, 0.056, 0.052, 0.063, 0.068, 0.056, 0.056, 0.064, 0.055, 0.052, 0.065, 0.055, 0.058, 0.064, 0.051, 0.059, 0.05, 0.065, 0.064, 0.063, 0.054, 0.055, 0.055, 0.058, 0.056, 0.053, 0.052, 0.056, 0.058, 0.059, 0.053, 0.064, 0.059, 0.051, 0.053, 0.06, 0.067, 0.058, 0.065, 0.062, 0.055, 0.053, 0.064, 0.059, 0.069, 0.059, 0.063, 0.052, 0.05, 0.056, 0.071, 0.053, 0.058, 0.053, 0.053, 0.052, 0.061, 0.059, 0.058, 0.051, 0.063, 0.059, 0.06, 0.051, 0.071, 0.054, 0.065, 0.062, 0.052, 0.062, 0.056, 0.059, 0.051, 0.063, 0.054, 0.057, 0.054, 0.056, 0.057, 0.051, 0.058, 0.06, 0.05, 0.061, 0.053, 0.063, 0.056, 0.401, 0.401, 0.403, 0.401, 0.059, 0.057, 0.058, 0.071, 0.066, 0.059, 0.061],
+        "baseline": [0.05, 0.05, 0.05, 0.05, 0.05, 0.05, 0.05, 0.05, 0.05, 0.05, 0.05, 0.05, 0.05, 0.05, 0.05, 0.05, 0.05, 0.05, 0.05, 0.05, 0.05, 0.05, 0.05, 0.05, 0.05, 0.05, 0.05, 0.05, 0.05, 0.05, 0.05, 0.05, 0.05, 0.05, 0.05, 0.05, 0.05, 0.05, 0.05, 0.05, 0.05, 0.05, 0.05, 0.05, 0.05, 0.05, 0.05, 0.05, 0.05, 0.05, 0.05, 0.05, 0.05, 0.05, 0.05, 0.05, 0.05, 0.05, 0.05, 0.05, 0.05, 0.05, 0.05, 0.05, 0.05, 0.05, 0.05, 0.05, 0.05, 0.05, 0.05, 0.05, 0.05, 0.05, 0.05, 0.05, 0.05, 0.05, 0.05, 0.05, 0.05, 0.05, 0.05, 0.05, 0.05, 0.05, 0.05, 0.05, 0.05, 0.05, 0.05, 0.05, 0.05, 0.05, 0.05, 0.05, 0.05, 0.05, 0.05, 0.05, 0.05, 0.05, 0.05, 0.05, 0.05, 0.05, 0.05, 0.05, 0.05, 0.05, 0.4, 0.4, 0.4, 0.4, 0.05, 0.05, 0.05, 0.05, 0.05, 0.05, 0.05],
+        "warning_low": [null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null],
+        "warning_high": [0.55, 0.55, 0.55, 0.55, 0.55, 0.55, 0.55, 0.55, 0.55, 0.55, 0.55, 0.55, 0.55, 0.55, 0.55, 0.55, 0.55, 0.55, 0.55, 0.55, 0.55, 0.55, 0.55, 0.55, 0.55, 0.55, 0.55, 0.55, 0.55, 0.55, 0.55, 0.55, 0.55, 0.55, 0.55, 0.55, 0.55, 0.55, 0.55, 0.55, 0.55, 0.55, 0.55, 0.55, 0.55, 0.55, 0.55, 0.55, 0.55, 0.55, 0.55, 0.55, 0.55, 0.55, 0.55, 0.55, 0.55, 0.55, 0.55, 0.55, 0.55, 0.55, 0.55, 0.55, 0.55, 0.55, 0.55, 0.55, 0.55, 0.55, 0.55, 0.55, 0.55, 0.55, 0.55, 0.55, 0.55, 0.55, 0.55, 0.55, 0.55, 0.55, 0.55, 0.55, 0.55, 0.55, 0.55, 0.55, 0.55, 0.55, 0.55, 0.55, 0.55, 0.55, 0.55, 0.55, 0.55, 0.55, 0.55, 0.55, 0.55, 0.55, 0.55, 0.55, 0.55, 0.55, 0.55, 0.55, 0.55, 0.55, 0.9, 0.9, 0.9, 0.9, 0.55, 0.55, 0.55, 0.55, 0.55, 0.55, 0.55],
+        "critical_low": [null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null],
+        "critical_high": [1.55, 1.55, 1.55, 1.55, 1.55, 1.55, 1.55, 1.55, 1.55, 1.55, 1.55, 1.55, 1.55, 1.55, 1.55, 1.55, 1.55, 1.55, 1.55, 1.55, 1.55, 1.55, 1.55, 1.55, 1.55, 1.55, 1.55, 1.55, 1.55, 1.55, 1.55, 1.55, 1.55, 1.55, 1.55, 1.55, 1.55, 1.55, 1.55, 1.55, 1.55, 1.55, 1.55, 1.55, 1.55, 1.55, 1.55, 1.55, 1.55, 1.55, 1.55, 1.55, 1.55, 1.55, 1.55, 1.55, 1.55, 1.55, 1.55, 1.55, 1.55, 1.55, 1.55, 1.55, 1.55, 1.55, 1.55, 1.55, 1.55, 1.55, 1.55, 1.55, 1.55, 1.55, 1.55, 1.55, 1.55, 1.55, 1.55, 1.55, 1.55, 1.55, 1.55, 1.55, 1.55, 1.55, 1.55, 1.55, 1.55, 1.55, 1.55, 1.55, 1.55, 1.55, 1.55, 1.55, 1.55, 1.55, 1.55, 1.55, 1.55, 1.55, 1.55, 1.55, 1.55, 1.55, 1.55, 1.55, 1.55, 1.55, 1.9, 1.9, 1.9, 1.9, 1.55, 1.55, 1.55, 1.55, 1.55, 1.55, 1.55]
+      }
+    ]
+  },
+  "markers": [
+    {
+      "t_s": 10560,
+      "kind": "STATUS_CHANGE",
+      "channel": null,
+      "severity": null,
+      "label": "ACTIVE - replacing P2-02"
+    }
+  ],
+  "latest_prediction": null,
+  "open_work_order_id": null
+}

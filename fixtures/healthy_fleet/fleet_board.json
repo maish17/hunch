@@ -1,0 +1,126 @@
+{
+  "schema_version": "1.0.0",
+  "feed_type": "fleet_board",
+  "t_s": 5400,
+  "sim_time": "2027-03-01T01:30:00Z",
+  "summary": {
+    "robots_total": 5,
+    "in_service": 3,
+    "standby_available": 2,
+    "in_maintenance": 0,
+    "open_work_orders": 0,
+    "missions_uncovered": 0
+  },
+  "robots": [
+    {
+      "robot_id": "P2-01",
+      "robot_type": "P2_TRANSPORT",
+      "status": "ACTIVE",
+      "status_label": "Active",
+      "mission_id": "M-HAUL-A",
+      "mission_label": "Lander A to habitat cargo haul",
+      "op_mode": "TRAVERSE_EMPTY",
+      "health_status": "NORMAL",
+      "health_score": 100,
+      "soc_pct": 86.4,
+      "location_zone": "HAUL_ROUTE_1",
+      "standby": false,
+      "subsystems": {
+        "MOBILITY": "NORMAL",
+        "THERMAL": "NORMAL",
+        "POWER": "NORMAL",
+        "MECHANISMS": "NORMAL"
+      },
+      "open_work_order_id": null,
+      "headline": "All channels normal"
+    },
+    {
+      "robot_id": "P2-02",
+      "robot_type": "P2_TRANSPORT",
+      "status": "ACTIVE",
+      "status_label": "Active",
+      "mission_id": "M-HAUL-B",
+      "mission_label": "Lander B to depot haul",
+      "op_mode": "CARGO_HANDLING",
+      "health_status": "NORMAL",
+      "health_score": 100,
+      "soc_pct": 83.0,
+      "location_zone": "HAUL_ROUTE_2",
+      "standby": false,
+      "subsystems": {
+        "MOBILITY": "NORMAL",
+        "THERMAL": "NORMAL",
+        "POWER": "NORMAL",
+        "MECHANISMS": "NORMAL"
+      },
+      "open_work_order_id": null,
+      "headline": "All channels normal"
+    },
+    {
+      "robot_id": "P2-03",
+      "robot_type": "P2_TRANSPORT",
+      "status": "ACTIVE",
+      "status_label": "Active",
+      "mission_id": "M-SHUTTLE-C",
+      "mission_label": "Habitat to P5 parts shuttle",
+      "op_mode": "TRAVERSE_EMPTY",
+      "health_status": "NORMAL",
+      "health_score": 100,
+      "soc_pct": 80.0,
+      "location_zone": "HAB_SITE",
+      "standby": false,
+      "subsystems": {
+        "MOBILITY": "NORMAL",
+        "THERMAL": "NORMAL",
+        "POWER": "NORMAL",
+        "MECHANISMS": "NORMAL"
+      },
+      "open_work_order_id": null,
+      "headline": "All channels normal"
+    },
+    {
+      "robot_id": "P2-04",
+      "robot_type": "P2_TRANSPORT",
+      "status": "STANDBY",
+      "status_label": "Standby",
+      "mission_id": null,
+      "mission_label": null,
+      "op_mode": "IDLE",
+      "health_status": "NORMAL",
+      "health_score": 100,
+      "soc_pct": 96.2,
+      "location_zone": "STANDBY_PARK",
+      "standby": true,
+      "subsystems": {
+        "MOBILITY": "NORMAL",
+        "THERMAL": "NORMAL",
+        "POWER": "NORMAL",
+        "MECHANISMS": "NORMAL"
+      },
+      "open_work_order_id": null,
+      "headline": "Standby - ready"
+    },
+    {
+      "robot_id": "P2-05",
+      "robot_type": "P2_TRANSPORT",
+      "status": "STANDBY",
+      "status_label": "Standby",
+      "mission_id": null,
+      "mission_label": null,
+      "op_mode": "IDLE",
+      "health_status": "NORMAL",
+      "health_score": 100,
+      "soc_pct": 93.3,
+      "location_zone": "STANDBY_PARK",
+      "standby": true,
+      "subsystems": {
+        "MOBILITY": "NORMAL",
+        "THERMAL": "NORMAL",
+        "POWER": "NORMAL",
+        "MECHANISMS": "NORMAL"
+      },
+      "open_work_order_id": null,
+      "headline": "Standby - ready"
+    }
+  ]
+}

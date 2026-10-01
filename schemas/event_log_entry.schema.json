@@ -1,0 +1,42 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://hunch-llaso-p4.invalid/schemas/event_log_entry.schema.json",
+  "title": "Event log entry",
+  "description": "One line of runs/<run_id>/events.jsonl (JSON Lines). The log is APPEND-ONLY: never edit or delete a line. It is the digital record of every decision (Mission 6) and the raw material for later accuracy reports. payload holds the full contract object where one exists (anomaly, prediction, work order) so the log stands on its own.",
+  "type": "object",
+  "required": ["schema_version", "event_id", "t_s", "at", "type", "robot_id", "refs", "summary", "payload"],
+  "additionalProperties": false,
+  "properties": {
+    "schema_version": {"$ref": "common.schema.json#/$defs/schema_version"},
+    "event_id": {"$ref": "common.schema.json#/$defs/event_id"},
+    "t_s": {"$ref": "common.schema.json#/$defs/t_s"},
+    "at": {"$ref": "common.schema.json#/$defs/timestamp"},
+    "type": {
+      "enum": [
+        "RUN_STARTED", "RUN_FINISHED",
+        "ANOMALY_RAISED", "ANOMALY_CLEARED",
+        "PREDICTION_ISSUED",
+        "WORK_ORDER_CREATED", "WORK_ORDER_STATUS_CHANGED",
+        "ROBOT_STATUS_CHANGED",
+        "STANDBY_SELECTED", "STANDBY_UNAVAILABLE", "MISSION_REASSIGNED",
+        "GARAGE_BAY_RESERVED", "GARAGE_ADMITTED", "GARAGE_RELEASED"
+      ]
+    },
+    "robot_id": {"oneOf": [{"$ref": "common.schema.json#/$defs/robot_id"}, {"type": "null"}]},
+    "refs": {
+      "type": "object",
+      "description": "Ids of related objects, so a decision chain can be followed (anomaly -> prediction -> work order -> standby swap).",
+      "additionalProperties": false,
+      "properties": {
+        "anomaly_id": {"$ref": "common.schema.json#/$defs/anomaly_id"},
+        "prediction_id": {"$ref": "common.schema.json#/$defs/prediction_id"},
+        "work_order_id": {"$ref": "common.schema.json#/$defs/work_order_id"},
+        "mission_id": {"$ref": "common.schema.json#/$defs/mission_id"},
+        "replacement_robot_id": {"$ref": "common.schema.json#/$defs/robot_id"},
+        "caused_by_event_id": {"$ref": "common.schema.json#/$defs/event_id"}
+      }
+    },
+    "summary": {"type": "string", "description": "One human-readable line."},
+    "payload": {"type": "object", "description": "Event-specific details; for *_RAISED/*_ISSUED/*_CREATED this is the full contract object."}
+  }
+}

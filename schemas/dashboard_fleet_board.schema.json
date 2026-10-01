@@ -1,0 +1,57 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://hunch-llaso-p4.invalid/schemas/dashboard_fleet_board.schema.json",
+  "title": "Dashboard feed: fleet board",
+  "description": "One row per robot, already joined and formatted by Python so the page only has to draw it.",
+  "type": "object",
+  "required": ["schema_version", "feed_type", "t_s", "sim_time", "summary", "robots"],
+  "additionalProperties": false,
+  "properties": {
+    "schema_version": {"$ref": "common.schema.json#/$defs/schema_version"},
+    "feed_type": {"const": "fleet_board"},
+    "t_s": {"$ref": "common.schema.json#/$defs/t_s"},
+    "sim_time": {"$ref": "common.schema.json#/$defs/timestamp"},
+    "summary": {
+      "type": "object",
+      "required": ["robots_total", "in_service", "standby_available", "in_maintenance", "open_work_orders", "missions_uncovered"],
+      "additionalProperties": false,
+      "properties": {
+        "robots_total": {"type": "integer", "minimum": 0},
+        "in_service": {"type": "integer", "minimum": 0},
+        "standby_available": {"type": "integer", "minimum": 0},
+        "in_maintenance": {"type": "integer", "minimum": 0},
+        "open_work_orders": {"type": "integer", "minimum": 0},
+        "missions_uncovered": {"type": "integer", "minimum": 0}
+      }
+    },
+    "robots": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["robot_id", "robot_type", "status", "status_label", "mission_id", "mission_label", "op_mode", "health_status", "health_score", "soc_pct", "location_zone", "standby", "subsystems", "open_work_order_id", "headline"],
+        "additionalProperties": false,
+        "properties": {
+          "robot_id": {"$ref": "common.schema.json#/$defs/robot_id"},
+          "robot_type": {"$ref": "common.schema.json#/$defs/robot_type"},
+          "status": {"$ref": "common.schema.json#/$defs/robot_status"},
+          "status_label": {"type": "string"},
+          "mission_id": {"oneOf": [{"$ref": "common.schema.json#/$defs/mission_id"}, {"type": "null"}]},
+          "mission_label": {"type": ["string", "null"]},
+          "op_mode": {"oneOf": [{"$ref": "common.schema.json#/$defs/op_mode"}, {"type": "null"}]},
+          "health_status": {"$ref": "common.schema.json#/$defs/health_status"},
+          "health_score": {"type": ["integer", "null"], "minimum": 0, "maximum": 100},
+          "soc_pct": {"type": ["number", "null"]},
+          "location_zone": {"type": "string"},
+          "standby": {"type": "boolean"},
+          "subsystems": {
+            "type": "object",
+            "propertyNames": {"$ref": "common.schema.json#/$defs/subsystem"},
+            "additionalProperties": {"$ref": "common.schema.json#/$defs/health_status"}
+          },
+          "open_work_order_id": {"oneOf": [{"$ref": "common.schema.json#/$defs/work_order_id"}, {"type": "null"}]},
+          "headline": {"type": "string", "description": "One line for the card, e.g. 'Hub bearing wear suspected (FL) - about 41 min to failure'."}
+        }
+      }
+    }
+  }
+}

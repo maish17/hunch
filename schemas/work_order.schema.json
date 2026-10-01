@@ -1,0 +1,129 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://hunch-llaso-p4.invalid/schemas/work_order.schema.json",
+  "title": "Work order (P4 -> P5 hand-off)",
+  "description": "Digital work order sent to the P5 Repair Garage (Mission 5). Written as if for an external team: self-contained (telemetry evidence embedded, no access to our store needed), versioned via schema_version, validated before it is written. Status changes are appended to history and never edited in place.",
+  "type": "object",
+  "required": ["schema_version", "work_order_id", "status", "priority", "created_t_s", "created_at", "updated_t_s", "updated_at", "robot", "suspected_failure", "severity", "predicted_ttf_s", "predicted_ttf_interval_s", "predicted_failure_t_s", "predicted_failure_at", "recommended_action", "garage", "evidence", "history", "source"],
+  "additionalProperties": false,
+  "properties": {
+    "schema_version": {"$ref": "common.schema.json#/$defs/schema_version"},
+    "work_order_id": {"$ref": "common.schema.json#/$defs/work_order_id"},
+    "status": {"$ref": "common.schema.json#/$defs/work_order_status"},
+    "priority": {"type": ["integer", "null"], "minimum": 1, "description": "Position in the P5 queue, 1 = next. null once a bay is reserved or the order is closed."},
+    "created_t_s": {"$ref": "common.schema.json#/$defs/t_s"},
+    "created_at": {"$ref": "common.schema.json#/$defs/timestamp"},
+    "updated_t_s": {"$ref": "common.schema.json#/$defs/t_s"},
+    "updated_at": {"$ref": "common.schema.json#/$defs/timestamp"},
+    "robot": {
+      "type": "object",
+      "required": ["robot_id", "robot_type", "mission_id", "location", "status_at_creation"],
+      "additionalProperties": false,
+      "properties": {
+        "robot_id": {"$ref": "common.schema.json#/$defs/robot_id"},
+        "robot_type": {"$ref": "common.schema.json#/$defs/robot_type"},
+        "mission_id": {"oneOf": [{"$ref": "common.schema.json#/$defs/mission_id"}, {"type": "null"}]},
+        "location": {"$ref": "common.schema.json#/$defs/location"},
+        "status_at_creation": {"$ref": "common.schema.json#/$defs/robot_status"}
+      }
+    },
+    "suspected_failure": {
+      "type": "object",
+      "required": ["fault_mode", "label", "component", "subsystem", "confidence", "description"],
+      "additionalProperties": false,
+      "properties": {
+        "fault_mode": {"$ref": "common.schema.json#/$defs/fault_mode"},
+        "label": {"type": "string"},
+        "component": {"$ref": "common.schema.json#/$defs/component_id"},
+        "subsystem": {"$ref": "common.schema.json#/$defs/subsystem"},
+        "confidence": {"type": "number", "minimum": 0, "maximum": 1},
+        "description": {"type": "string"}
+      }
+    },
+    "severity": {"$ref": "common.schema.json#/$defs/severity"},
+    "predicted_ttf_s": {"type": ["number", "null"], "minimum": 0, "description": "Time-to-failure at creation time."},
+    "predicted_ttf_interval_s": {"oneOf": [{"$ref": "common.schema.json#/$defs/interval"}, {"type": "null"}]},
+    "predicted_failure_t_s": {"type": ["number", "null"], "minimum": 0},
+    "predicted_failure_at": {"oneOf": [{"$ref": "common.schema.json#/$defs/timestamp"}, {"type": "null"}]},
+    "recommended_action": {
+      "type": "object",
+      "required": ["code", "text", "est_repair_s", "parts"],
+      "additionalProperties": false,
+      "properties": {
+        "code": {"type": "string", "pattern": "^[A-Z][A-Z0-9_]*$"},
+        "text": {"type": "string"},
+        "est_repair_s": {"$ref": "common.schema.json#/$defs/duration_s"},
+        "parts": {"type": "array", "items": {"type": "string"}}
+      }
+    },
+    "garage": {
+      "type": "object",
+      "required": ["garage_id", "bay_id"],
+      "additionalProperties": false,
+      "properties": {
+        "garage_id": {"type": "string"},
+        "bay_id": {"type": ["string", "null"]}
+      }
+    },
+    "evidence": {
+      "type": "object",
+      "required": ["prediction_id", "anomaly_ids", "summary", "window", "channels"],
+      "additionalProperties": false,
+      "properties": {
+        "prediction_id": {"oneOf": [{"$ref": "common.schema.json#/$defs/prediction_id"}, {"type": "null"}]},
+        "anomaly_ids": {"type": "array", "items": {"$ref": "common.schema.json#/$defs/anomaly_id"}},
+        "summary": {"type": "string", "description": "Plain-language one-paragraph statement of what the data shows."},
+        "window": {"$ref": "common.schema.json#/$defs/evidence_window"},
+        "channels": {
+          "type": "array",
+          "minItems": 1,
+          "items": {
+            "type": "object",
+            "required": ["channel", "label", "units", "baseline", "warning_limit", "critical_limit", "points"],
+            "additionalProperties": false,
+            "properties": {
+              "channel": {"$ref": "common.schema.json#/$defs/channel_name"},
+              "label": {"type": "string"},
+              "units": {"type": "string"},
+              "baseline": {"$ref": "common.schema.json#/$defs/nullable_number"},
+              "warning_limit": {"$ref": "common.schema.json#/$defs/nullable_number"},
+              "critical_limit": {"$ref": "common.schema.json#/$defs/nullable_number"},
+              "points": {
+                "type": "array",
+                "description": "[t_s, value] pairs, downsampled (config/dispatch.json work_order_evidence). Limits are absolute values in the robot's mode at creation time.",
+                "items": {"type": "array", "prefixItems": [{"type": "number"}, {"type": ["number", "null"]}], "minItems": 2, "maxItems": 2}
+              }
+            }
+          }
+        }
+      }
+    },
+    "history": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "required": ["t_s", "at", "from_status", "to_status", "by", "note"],
+        "additionalProperties": false,
+        "properties": {
+          "t_s": {"$ref": "common.schema.json#/$defs/t_s"},
+          "at": {"$ref": "common.schema.json#/$defs/timestamp"},
+          "from_status": {"oneOf": [{"$ref": "common.schema.json#/$defs/work_order_status"}, {"type": "null"}]},
+          "to_status": {"$ref": "common.schema.json#/$defs/work_order_status"},
+          "by": {"type": "string", "description": "p4maint, P5, or an operator name."},
+          "note": {"type": "string"}
+        }
+      }
+    },
+    "source": {
+      "type": "object",
+      "required": ["system", "system_version", "run_id"],
+      "additionalProperties": false,
+      "properties": {
+        "system": {"const": "p4maint"},
+        "system_version": {"type": "string"},
+        "run_id": {"type": "string"}
+      }
+    }
+  }
+}

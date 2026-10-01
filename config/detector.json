@@ -1,0 +1,74 @@
+{
+  "schema_version": "1.0.0",
+  "description": "Tuning parameters for health evaluation, anomaly detection, trend prediction and diagnosis. Every value here is a TEAM ESTIMATE to be tuned against generated scenarios. The detector's physical models below are its own 'datasheet' beliefs; they start equal to config/generator.json but are deliberately kept separate so the detector never reads the generator's truth.",
+
+  "evaluation": {
+    "cadence_s": 60,
+    "smoothing_window_s": 15,
+    "mode_change_grace_s": 30,
+    "notes": "Evaluate once per 60 s batch. Judge a rolling-median-smoothed value, not single raw samples. Skip per_mode relative checks for 30 s after a mode change (current spikes while the robot starts or stops). Hard limits are never skipped."
+  },
+
+  "anomaly": {
+    "persistence_samples": 5,
+    "clear_after_samples": 30,
+    "realert_suppress_s": 600,
+    "notes": "Raise an anomaly only after 5 consecutive smoothed samples are past a limit (debounce against noise). Consider it cleared after 30 consecutive normal samples. Do not raise the same robot+channel+severity again within 600 s. Main defence against false positives that waste P5 capacity."
+  },
+
+  "trend": {
+    "fit_window_s": 1800,
+    "min_points": 600,
+    "model": "linear",
+    "min_r_squared": 0.6,
+    "min_slope_sigma": 3.0,
+    "interval_confidence": 0.8,
+    "max_horizon_s": 14400,
+    "notes": "Fit the last 30 min of the deviation-from-baseline signal. Only extrapolate when the fit is good (R^2 >= 0.6) and the slope is at least 3 standard errors from zero. Report time-to-failure as the time the trend crosses the CRITICAL limit, with an 80% interval. Ignore predicted crossings more than 4 h away."
+  },
+
+  "predictive_warning": {
+    "warn_if_ttf_below_s": 3600,
+    "min_confidence": 0.6,
+    "target_lead_time_s": 900,
+    "notes": "Issue a predictive warning when predicted time-to-failure is under 60 min with confidence >= 0.6. HUNCH's excellence example is 15 min (900 s) of lead time; we tune toward more."
+  },
+
+  "thermal_model": {
+    "tau_s": 600.0,
+    "r_th_k_per_w": 5.0,
+    "r_arm_ohm": 0.15,
+    "bearing_friction_nm": 0.5,
+    "sink_temp_c": 20.0,
+    "notes": "Used for (1) the lagged thermal baseline and (2) the thermal residual: predicted T from measured current and speed, P = I^2 R + tau_b * omega, first-order lag to sink + P * R_th."
+  },
+
+  "battery_model": {
+    "r_int_nominal_ohm": 0.08,
+    "ocv_table_soc_pct_to_v": [[0, 39.0], [10, 44.9], [20, 46.2], [40, 47.6], [60, 48.8], [80, 50.7], [100, 54.0]],
+    "notes": "Baseline for battery_voltage_v = V_oc(SOC) - I * r_int_nominal. Linear interpolation in the table."
+  },
+
+  "diagnosis": {
+    "window_s": 1800,
+    "current_rise_a": 0.5,
+    "speed_drop_rads": -0.04,
+    "thermal_residual_excess_c": 5.0,
+    "voltage_residual_excess_v": -0.3,
+    "min_confidence": 0.5,
+    "notes": "Thresholds for turning each signature element (UP / DOWN / NORMAL / EXPLAINED_BY_CURRENT in config/faults.json) into a yes/no observation over the last 30 min. The diagnosis scores each of the four faults by how many signature elements match. Below min_confidence the fault mode is reported as 'unknown'."
+  },
+
+  "severity_rules": {
+    "critical_if_ttf_below_s": 1800,
+    "critical_if_any_channel_critical": true,
+    "otherwise": "consequence_severity from config/faults.json",
+    "notes": "Severity is WARNING or CRITICAL. CRITICAL if predicted time-to-failure < 30 min or any evidence channel is already CRITICAL."
+  },
+
+  "health_score": {
+    "status_points": {"NORMAL": 100, "WARNING": 60, "CRITICAL": 20},
+    "rollup": "minimum",
+    "notes": "Robot health_score (0-100) = minimum of subsystem scores; subsystem score = points for its worst channel status. Placeholder rule - refine after PDR."
+  }
+}

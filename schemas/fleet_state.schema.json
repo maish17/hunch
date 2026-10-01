@@ -1,0 +1,49 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://hunch-llaso-p4.invalid/schemas/fleet_state.schema.json",
+  "title": "Fleet state",
+  "description": "Every robot's lifecycle status and assignment, plus the mission roster. Owned by p4maint/fleet/fleet.py. Kept separate from detection: this object knows health only as a score and a status, never raw telemetry.",
+  "type": "object",
+  "required": ["schema_version", "t_s", "generated_at", "robots", "missions"],
+  "additionalProperties": false,
+  "properties": {
+    "schema_version": {"$ref": "common.schema.json#/$defs/schema_version"},
+    "t_s": {"$ref": "common.schema.json#/$defs/t_s"},
+    "generated_at": {"$ref": "common.schema.json#/$defs/timestamp"},
+    "robots": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["robot_id", "robot_type", "status", "status_since_t_s", "mission_id", "health_status", "health_score", "soc_pct", "location", "standby", "open_work_order_id"],
+        "additionalProperties": false,
+        "properties": {
+          "robot_id": {"$ref": "common.schema.json#/$defs/robot_id"},
+          "robot_type": {"$ref": "common.schema.json#/$defs/robot_type"},
+          "status": {"$ref": "common.schema.json#/$defs/robot_status"},
+          "status_since_t_s": {"$ref": "common.schema.json#/$defs/t_s"},
+          "mission_id": {"oneOf": [{"$ref": "common.schema.json#/$defs/mission_id"}, {"type": "null"}]},
+          "health_status": {"$ref": "common.schema.json#/$defs/health_status"},
+          "health_score": {"type": ["integer", "null"], "minimum": 0, "maximum": 100},
+          "soc_pct": {"type": ["number", "null"], "minimum": 0, "maximum": 100},
+          "location": {"$ref": "common.schema.json#/$defs/location"},
+          "standby": {"type": "boolean", "description": "true = can be sent right now as a replacement (status STANDBY, health NORMAL, SOC above config/dispatch.json minimum)."},
+          "open_work_order_id": {"oneOf": [{"$ref": "common.schema.json#/$defs/work_order_id"}, {"type": "null"}]}
+        }
+      }
+    },
+    "missions": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["mission_id", "label", "assigned_robot_id", "covered"],
+        "additionalProperties": false,
+        "properties": {
+          "mission_id": {"$ref": "common.schema.json#/$defs/mission_id"},
+          "label": {"type": "string"},
+          "assigned_robot_id": {"oneOf": [{"$ref": "common.schema.json#/$defs/robot_id"}, {"type": "null"}]},
+          "covered": {"type": "boolean", "description": "false when no in-service robot is working this mission."}
+        }
+      }
+    }
+  }
+}

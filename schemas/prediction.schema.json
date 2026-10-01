@@ -1,0 +1,78 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://hunch-llaso-p4.invalid/schemas/prediction.schema.json",
+  "title": "Prediction",
+  "description": "Diagnosis plus prognosis for one robot (Missions 3 and 4): which fault, how sure, when it fails, and the evidence it was based on. Evidence is stored inside the prediction on purpose so later explanation work never has to reconstruct it.",
+  "type": "object",
+  "required": ["schema_version", "prediction_id", "robot_id", "made_at_t_s", "made_at", "fault_mode", "confidence", "component", "subsystem", "severity", "candidates", "target_channel", "failure_threshold", "predicted_ttf_s", "predicted_ttf_interval_s", "predicted_failure_t_s", "trend", "signature_observed", "residuals", "anomaly_ids", "evidence_window"],
+  "additionalProperties": false,
+  "properties": {
+    "schema_version": {"$ref": "common.schema.json#/$defs/schema_version"},
+    "prediction_id": {"$ref": "common.schema.json#/$defs/prediction_id"},
+    "robot_id": {"$ref": "common.schema.json#/$defs/robot_id"},
+    "made_at_t_s": {"$ref": "common.schema.json#/$defs/t_s"},
+    "made_at": {"$ref": "common.schema.json#/$defs/timestamp"},
+    "fault_mode": {"$ref": "common.schema.json#/$defs/fault_mode"},
+    "confidence": {"type": "number", "minimum": 0, "maximum": 1},
+    "component": {"$ref": "common.schema.json#/$defs/component_id"},
+    "subsystem": {"$ref": "common.schema.json#/$defs/subsystem"},
+    "severity": {"$ref": "common.schema.json#/$defs/severity"},
+    "candidates": {
+      "type": "array",
+      "description": "Every fault type scored, best first.",
+      "items": {
+        "type": "object",
+        "required": ["fault_mode", "score"],
+        "additionalProperties": false,
+        "properties": {
+          "fault_mode": {"$ref": "common.schema.json#/$defs/fault_mode"},
+          "score": {"type": "number", "minimum": 0, "maximum": 1}
+        }
+      }
+    },
+    "target_channel": {"$ref": "common.schema.json#/$defs/channel_name"},
+    "failure_threshold": {
+      "type": "object",
+      "description": "The line the trend is extrapolated to: the target channel's CRITICAL limit.",
+      "required": ["rule", "limit", "value_at_threshold"],
+      "additionalProperties": false,
+      "properties": {
+        "rule": {"type": "string"},
+        "limit": {"type": "number"},
+        "value_at_threshold": {"type": "number", "description": "Absolute channel value at the threshold in the current mode."}
+      }
+    },
+    "predicted_ttf_s": {"type": ["number", "null"], "minimum": 0, "description": "null when no significant trend was found."},
+    "predicted_ttf_interval_s": {"oneOf": [{"$ref": "common.schema.json#/$defs/interval"}, {"type": "null"}]},
+    "predicted_failure_t_s": {"type": ["number", "null"], "minimum": 0},
+    "trend": {
+      "type": ["object", "null"],
+      "required": ["model", "slope_per_s", "intercept", "r_squared", "n_points", "units"],
+      "additionalProperties": false,
+      "properties": {
+        "model": {"enum": ["linear"]},
+        "slope_per_s": {"type": "number"},
+        "intercept": {"type": "number", "description": "Deviation from baseline at made_at_t_s."},
+        "r_squared": {"type": "number", "minimum": 0, "maximum": 1},
+        "n_points": {"type": "integer", "minimum": 0},
+        "units": {"type": "string"}
+      }
+    },
+    "signature_observed": {
+      "type": "object",
+      "description": "What the diagnosis saw for each signature element (vocabulary from config/faults.json).",
+      "additionalProperties": {"enum": ["UP", "DOWN", "NORMAL", "EXPLAINED_BY_CURRENT"]}
+    },
+    "residuals": {
+      "type": "object",
+      "required": ["thermal_residual_c", "voltage_residual_v"],
+      "additionalProperties": false,
+      "properties": {
+        "thermal_residual_c": {"$ref": "common.schema.json#/$defs/nullable_number"},
+        "voltage_residual_v": {"$ref": "common.schema.json#/$defs/nullable_number"}
+      }
+    },
+    "anomaly_ids": {"type": "array", "items": {"$ref": "common.schema.json#/$defs/anomaly_id"}},
+    "evidence_window": {"$ref": "common.schema.json#/$defs/evidence_window"}
+  }
+}

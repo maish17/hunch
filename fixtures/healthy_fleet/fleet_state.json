@@ -1,0 +1,112 @@
+{
+  "schema_version": "1.0.0",
+  "t_s": 5400,
+  "generated_at": "2027-03-01T01:30:00Z",
+  "robots": [
+    {
+      "robot_id": "P2-01",
+      "robot_type": "P2_TRANSPORT",
+      "status": "ACTIVE",
+      "status_since_t_s": 0,
+      "mission_id": "M-HAUL-A",
+      "health_status": "NORMAL",
+      "health_score": 100,
+      "soc_pct": 86.4,
+      "location": {
+        "zone": "HAUL_ROUTE_1",
+        "x_m": null,
+        "y_m": null
+      },
+      "standby": false,
+      "open_work_order_id": null
+    },
+    {
+      "robot_id": "P2-02",
+      "robot_type": "P2_TRANSPORT",
+      "status": "ACTIVE",
+      "status_since_t_s": 0,
+      "mission_id": "M-HAUL-B",
+      "health_status": "NORMAL",
+      "health_score": 100,
+      "soc_pct": 83.0,
+      "location": {
+        "zone": "HAUL_ROUTE_2",
+        "x_m": null,
+        "y_m": null
+      },
+      "standby": false,
+      "open_work_order_id": null
+    },
+    {
+      "robot_id": "P2-03",
+      "robot_type": "P2_TRANSPORT",
+      "status": "ACTIVE",
+      "status_since_t_s": 0,
+      "mission_id": "M-SHUTTLE-C",
+      "health_status": "NORMAL",
+      "health_score": 100,
+      "soc_pct": 80.0,
+      "location": {
+        "zone": "HAB_SITE",
+        "x_m": null,
+        "y_m": null
+      },
+      "standby": false,
+      "open_work_order_id": null
+    },
+    {
+      "robot_id": "P2-04",
+      "robot_type": "P2_TRANSPORT",
+      "status": "STANDBY",
+      "status_since_t_s": 0,
+      "mission_id": null,
+      "health_status": "NORMAL",
+      "health_score": 100,
+      "soc_pct": 96.2,
+      "location": {
+        "zone": "STANDBY_PARK",
+        "x_m": null,
+        "y_m": null
+      },
+      "standby": true,
+      "open_work_order_id": null
+    },
+    {
+      "robot_id": "P2-05",
+      "robot_type": "P2_TRANSPORT",
+      "status": "STANDBY",
+      "status_since_t_s": 0,
+      "mission_id": null,
+      "health_status": "NORMAL",
+      "health_score": 100,
+      "soc_pct": 93.3,
+      "location": {
+        "zone": "STANDBY_PARK",
+        "x_m": null,
+        "y_m": null
+      },
+      "standby": true,
+      "open_work_order_id": null
+    }
+  ],
+  "missions": [
+    {
+      "mission_id": "M-HAUL-A",
+      "label": "Lander A to habitat cargo haul",
+      "assigned_robot_id": "P2-01",
+      "covered": true
+    },
+    {
+      "mission_id": "M-HAUL-B",
+      "label": "Lander B to depot haul",
+      "assigned_robot_id": "P2-02",
+      "covered": true
+    },
+    {
+      "mission_id": "M-SHUTTLE-C",
+      "label": "Habitat to P5 parts shuttle",
+      "assigned_robot_id": "P2-03",
+      "covered": true
+    }
+  ]
+}

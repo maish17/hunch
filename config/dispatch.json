@@ -1,0 +1,43 @@
+{
+  "schema_version": "1.0.0",
+  "description": "Fleet and P5 garage policy. Kept apart from detector settings so fleet/garage logic never depends on how a fault was detected. All values are team estimates; a scenario file may override garage.capacity.",
+
+  "garage": {
+    "garage_id": "P5-GARAGE-1",
+    "capacity": 1,
+    "travel_time_to_p5_s": 900,
+    "notes": "HUNCH says P5 capacity is limited; 1 bay forces prioritisation. 15 min drive from any work site (no map at PDR)."
+  },
+
+  "work_order_triggers": {
+    "on_prediction": {"min_confidence": 0.6, "severities": ["WARNING", "CRITICAL"]},
+    "on_critical_anomaly": {"enabled": true, "persist_s": 120},
+    "one_open_work_order_per_robot": true,
+    "notes": "Create a work order when a prediction with confidence >= 0.6 arrives, or when a CRITICAL anomaly has persisted for 2 min with no prediction (fault_mode 'unknown'). A robot with an open work order gets its evidence appended instead of a second work order."
+  },
+
+  "queue_priority": {
+    "order_by": ["severity_desc", "predicted_ttf_asc", "created_t_s_asc"],
+    "severity_rank": {"CRITICAL": 2, "WARNING": 1},
+    "notes": "CRITICAL before WARNING; within a severity, the robot predicted to fail soonest goes first; ties broken by age. Priority 1 = front of the queue."
+  },
+
+  "standby_selection": {
+    "eligible_statuses": ["STANDBY"],
+    "require_health_status": "NORMAL",
+    "min_soc_pct": 60.0,
+    "tie_break": ["soc_desc", "robot_id_asc"],
+    "swap_in_when": {
+      "CRITICAL": "immediately when the work order is created",
+      "WARNING": "when the failing robot is dispatched to P5"
+    },
+    "notes": "Pick the eligible standby with the highest SOC; tie -> lowest robot_id. If none is eligible the mission is left uncovered and a STANDBY_UNAVAILABLE event is logged."
+  },
+
+  "work_order_evidence": {
+    "window_s": 3600,
+    "downsample_s": 60,
+    "max_channels": 6,
+    "notes": "Embed the last 60 min of the evidence channels at 1 point per minute (max 61 points per channel) so P5 can read the work order without access to our Parquet store."
+  }
+}

@@ -1,0 +1,141 @@
+{
+  "schema_version": "1.0.0",
+  "description": "The four PDR fault types, exactly. Each fault perturbs ONE physical parameter in the generator; the multi-channel signature follows from the physics in DECISIONS.md section 4. Fault progress p goes from 0 at injection to 1 at true failure.",
+  "progress_rule": "p(t) = 0 before inject_at_s; p(t) = ((t - inject_at_s) / time_to_failure_s) ** exponent while running; the component is FAILED when p reaches 1. parameter_value(p) = healthy_value + p * (at_failure - healthy_value).",
+  "calibration_rule": "at_failure is chosen so that, at p = 1, the fault's primary channel sits at its CRITICAL limit in TRAVERSE_EMPTY at thermal steady state. Values below were hand-computed from the section 4 equations; the generator tests must confirm them.",
+  "signature_vocabulary": {
+    "UP": "rises versus mode baseline",
+    "DOWN": "falls versus mode baseline",
+    "NORMAL": "stays within the NORMAL band",
+    "EXPLAINED_BY_CURRENT": "raw value rises, but only by the amount the measured current predicts (residual stays near zero)"
+  },
+  "derived_signals": {
+    "thermal_residual": "measured drive temperature minus temperature predicted from measured current and speed by the detector's thermal model (positive = unexplained heat)",
+    "voltage_residual": "measured battery voltage minus V_oc(SOC) - I * R_nominal (negative = extra sag)"
+  },
+  "faults": [
+    {
+      "id": "bearing_wear",
+      "label": "Wheel hub bearing wear",
+      "subsystem": "MOBILITY",
+      "component_pattern": "wheel_{wheel}_drive",
+      "mechanism": "Worn or regolith-contaminated hub bearing adds friction torque. The motor draws more current to overcome it, the wheel slows, and the friction itself heats the hub directly.",
+      "generator_effect": {"parameter": "bearing_friction_extra_nm", "healthy_value": 0.0, "at_failure": 2.2, "units": "N*m", "heat_goes_to": "hub"},
+      "default_progression": {"shape": "power", "exponent": 2.0},
+      "primary_channel_pattern": "wheel_{wheel}_temp_c",
+      "signature": {
+        "wheel_current": "UP",
+        "wheel_speed": "DOWN",
+        "wheel_temp": "UP",
+        "thermal_residual": "UP",
+        "voltage_residual": "NORMAL"
+      },
+      "distinguish_from": "wheel_drag: same current and speed pattern, but bearing_wear has a large positive thermal_residual because friction heat lands in the hub.",
+      "consequence_severity": "CRITICAL",
+      "recommended_action": {
+        "code": "REPLACE_HUB_BEARING",
+        "text": "Stop driving as soon as safe. Go to P5. Replace hub bearing on the affected wheel; inspect seals and gearbox for regolith ingress.",
+        "est_repair_s": 10800,
+        "parts": ["hub bearing", "hub seal kit"]
+      },
+      "calibration": {
+        "status": "team estimate",
+        "candidate_sources": [
+          "NASA Prognostics Center of Excellence data repository: IMS (Univ. of Cincinnati) bearing run-to-failure set - shape of the degradation curve",
+          "Case Western Reserve University Bearing Data Center - kHz vibration with seeded faults; useful only if a vibration channel is added, not for 1 Hz current/temperature trends"
+        ],
+        "slots": {"at_failure": null, "exponent": null}
+      }
+    },
+    {
+      "id": "wheel_drag",
+      "label": "Wheel drag in regolith",
+      "subsystem": "MOBILITY",
+      "component_pattern": "wheel_{wheel}_drive",
+      "mechanism": "Regolith packing into the wheel well and tread adds rolling resistance. The extra work goes into shearing soil outside the hub, so the hub only warms from the extra I^2 R copper loss.",
+      "generator_effect": {"parameter": "drag_torque_extra_nm", "healthy_value": 0.0, "at_failure": 4.0, "units": "N*m", "heat_goes_to": "soil (not the hub)"},
+      "default_progression": {"shape": "power", "exponent": 1.0},
+      "primary_channel_pattern": "wheel_{wheel}_current_a",
+      "signature": {
+        "wheel_current": "UP",
+        "wheel_speed": "DOWN",
+        "wheel_temp": "EXPLAINED_BY_CURRENT",
+        "thermal_residual": "NORMAL",
+        "voltage_residual": "NORMAL"
+      },
+      "distinguish_from": "bearing_wear: same current and speed pattern, but thermal_residual stays near zero. Raw temperature may still rise a little (about +12 degC at failure in TRAVERSE_EMPTY) because copper loss grows with I^2.",
+      "consequence_severity": "WARNING",
+      "recommended_action": {
+        "code": "CLEAN_WHEEL_AND_SEALS",
+        "text": "Reduce speed and payload. At P5, clear regolith from the wheel well, tread and seals; inspect the tread for damage.",
+        "est_repair_s": 3600,
+        "parts": []
+      },
+      "calibration": {
+        "status": "team estimate",
+        "candidate_sources": ["No public run-to-failure dataset identified. Terramechanics literature could bound rolling-resistance values - still to be found and cited."],
+        "slots": {"at_failure": null, "exponent": null}
+      }
+    },
+    {
+      "id": "cooling_fault",
+      "label": "Thermal / cooling fault",
+      "subsystem": "THERMAL",
+      "component_pattern": "wheel_{wheel}_thermal",
+      "mechanism": "Dust coating the radiator or a degraded thermal strap raises the drive's thermal resistance to its heat sink. Same heat in, worse heat out, so temperature climbs while current stays normal.",
+      "generator_effect": {"parameter": "r_th_multiplier", "healthy_value": 1.0, "at_failure": 3.2, "units": "x nominal R_th", "heat_goes_to": "n/a"},
+      "default_progression": {"shape": "power", "exponent": 1.0},
+      "primary_channel_pattern": "wheel_{wheel}_temp_c",
+      "signature": {
+        "wheel_current": "NORMAL",
+        "wheel_speed": "NORMAL",
+        "wheel_temp": "UP",
+        "thermal_residual": "UP",
+        "voltage_residual": "NORMAL"
+      },
+      "distinguish_from": "bearing_wear: both have positive thermal_residual, but cooling_fault has normal current and speed.",
+      "consequence_severity": "WARNING",
+      "recommended_action": {
+        "code": "CLEAN_RADIATOR_CHECK_STRAP",
+        "text": "Limit drive duty cycle. At P5, clean the radiator surface and inspect the thermal strap / heat pipe on the affected drive.",
+        "est_repair_s": 5400,
+        "parts": ["thermal strap (if damaged)"]
+      },
+      "calibration": {
+        "status": "team estimate",
+        "candidate_sources": ["No public dataset identified. Lunar dust-on-radiator studies could bound the degradation rate - still to be found and cited."],
+        "slots": {"at_failure": null, "exponent": null}
+      }
+    },
+    {
+      "id": "battery_degradation",
+      "label": "Battery degradation",
+      "subsystem": "POWER",
+      "component_pattern": "battery_pack",
+      "mechanism": "Internal resistance of the pack rises with ageing. Terminal voltage sags further under load (sag = I * R_int), and the sag worsens over time.",
+      "generator_effect": {"parameter": "r_int_multiplier", "healthy_value": 1.0, "at_failure": 5.5, "units": "x nominal R_int", "heat_goes_to": "n/a"},
+      "default_progression": {"shape": "power", "exponent": 1.5},
+      "primary_channel_pattern": "battery_voltage_v",
+      "signature": {
+        "wheel_current": "NORMAL",
+        "wheel_speed": "NORMAL",
+        "wheel_temp": "NORMAL",
+        "thermal_residual": "NORMAL",
+        "voltage_residual": "DOWN"
+      },
+      "distinguish_from": "Low SOC: a flat battery has low voltage but a normal residual. Degradation shows as a residual that grows with load current.",
+      "consequence_severity": "WARNING",
+      "recommended_action": {
+        "code": "REPLACE_BATTERY_MODULE",
+        "text": "Limit peak load and keep SOC high. At P5, run an impedance test and replace the weak module or the pack.",
+        "est_repair_s": 7200,
+        "parts": ["battery module"]
+      },
+      "calibration": {
+        "status": "team estimate",
+        "candidate_sources": ["NASA Prognostics Center of Excellence data repository: Li-ion battery ageing set (18650 cells cycled with impedance measurements) - growth of internal resistance over life"],
+        "slots": {"at_failure": null, "exponent": null}
+      }
+    }
+  ]
+}

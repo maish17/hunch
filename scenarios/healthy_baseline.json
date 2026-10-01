@@ -1,0 +1,49 @@
+{
+  "schema_version": "1.0.0",
+  "scenario_id": "healthy_baseline",
+  "description": "Five P2 transport robots, three on missions and two on standby, 2 hours, no faults. Used to measure the false-positive rate: a correct system raises zero anomalies, predictions and work orders here.",
+  "seed": 20270301,
+  "start_time_utc": "2027-03-01T00:00:00Z",
+  "duration_s": 7200,
+  "missions": [
+    {
+      "mission_id": "M-HAUL-A",
+      "label": "Lander A to habitat cargo haul",
+      "mode_cycle": [
+        {"mode": "CARGO_HANDLING", "duration_s": 300},
+        {"mode": "TRAVERSE_LOADED", "duration_s": 1200},
+        {"mode": "CARGO_HANDLING", "duration_s": 300},
+        {"mode": "TRAVERSE_EMPTY", "duration_s": 1200}
+      ]
+    },
+    {
+      "mission_id": "M-HAUL-B",
+      "label": "Lander B to depot haul",
+      "mode_cycle": [
+        {"mode": "CARGO_HANDLING", "duration_s": 240},
+        {"mode": "TRAVERSE_LOADED", "duration_s": 1500},
+        {"mode": "CARGO_HANDLING", "duration_s": 240},
+        {"mode": "TRAVERSE_EMPTY", "duration_s": 1500},
+        {"mode": "IDLE", "duration_s": 120}
+      ]
+    },
+    {
+      "mission_id": "M-SHUTTLE-C",
+      "label": "Habitat to P5 parts shuttle",
+      "mode_cycle": [
+        {"mode": "TRAVERSE_EMPTY", "duration_s": 900},
+        {"mode": "IDLE", "duration_s": 300},
+        {"mode": "TRAVERSE_LOADED", "duration_s": 900},
+        {"mode": "IDLE", "duration_s": 300}
+      ]
+    }
+  ],
+  "robots": [
+    {"robot_id": "P2-01", "robot_type": "P2_TRANSPORT", "initial_status": "ACTIVE",  "mission_id": "M-HAUL-A",    "initial_soc_pct": 95.0,  "location": {"zone": "HAUL_ROUTE_1", "x_m": null, "y_m": null}},
+    {"robot_id": "P2-02", "robot_type": "P2_TRANSPORT", "initial_status": "ACTIVE",  "mission_id": "M-HAUL-B",    "initial_soc_pct": 92.0,  "location": {"zone": "HAUL_ROUTE_2", "x_m": null, "y_m": null}},
+    {"robot_id": "P2-03", "robot_type": "P2_TRANSPORT", "initial_status": "ACTIVE",  "mission_id": "M-SHUTTLE-C", "initial_soc_pct": 88.0,  "location": {"zone": "HAB_SITE",     "x_m": null, "y_m": null}},
+    {"robot_id": "P2-04", "robot_type": "P2_TRANSPORT", "initial_status": "STANDBY", "mission_id": null,          "initial_soc_pct": 100.0, "location": {"zone": "STANDBY_PARK", "x_m": null, "y_m": null}},
+    {"robot_id": "P2-05", "robot_type": "P2_TRANSPORT", "initial_status": "STANDBY", "mission_id": null,          "initial_soc_pct": 97.0,  "location": {"zone": "STANDBY_PARK", "x_m": null, "y_m": null}}
+  ],
+  "faults": []
+}

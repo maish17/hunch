@@ -1,0 +1,18 @@
+{
+  "schema_version": "1.0.0",
+  "garage_id": "P5-GARAGE-1",
+  "t_s": 5400,
+  "generated_at": "2027-03-01T01:30:00Z",
+  "capacity": 1,
+  "bays": [
+    {
+      "bay_id": "BAY-1",
+      "state": "EMPTY",
+      "robot_id": null,
+      "work_order_id": null,
+      "since_t_s": null,
+      "est_release_t_s": null
+    }
+  ],
+  "queue": []
+}

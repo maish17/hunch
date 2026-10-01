@@ -1,0 +1,45 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>P4 Fleet Health</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <!--
+    P4 fleet-health dashboard. Static page: no framework, no build step.
+    Serve the REPO ROOT (make dashboard), then open http://localhost:8000/dashboard/
+    Data: a feed folder (feed_index.json + the files it lists). Default is a fixture;
+    pass ?feed=../runs/<run_id>/dashboard/feed_index.json to view a real run.
+    All maths is done in Python before the files are written; this page only draws.
+  -->
+  <header class="topbar">
+    <div class="brand">P4 Fleet Health <span class="sub">LLASO predictive maintenance</span></div>
+    <label class="feed-picker">Data
+      <select id="feed-select">
+        <option value="../fixtures/active_work_order/feed_index.json">Fixture: active work order</option>
+        <option value="../fixtures/healthy_fleet/feed_index.json">Fixture: healthy fleet</option>
+      </select>
+    </label>
+    <div id="sim-clock" class="clock">-</div>
+  </header>
+
+  <nav class="tabs">
+    <a href="#fleet" data-view="fleet">Fleet board</a>
+    <a href="#robot" data-view="robot">Robot detail</a>
+    <a href="#alerts" data-view="alerts">Alert feed</a>
+    <a href="#workorders" data-view="workorders">Work orders</a>
+  </nav>
+
+  <main id="view">Loading...</main>
+
+  <script src="app.js"></script>
+  <script src="plot.js"></script>
+  <script src="views/fleet.js"></script>
+  <script src="views/robot.js"></script>
+  <script src="views/alerts.js"></script>
+  <script src="views/workorders.js"></script>
+  <script>P4.start();</script>
+</body>
+</html>

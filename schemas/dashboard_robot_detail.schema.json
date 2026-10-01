@@ -1,0 +1,70 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://hunch-llaso-p4.invalid/schemas/dashboard_robot_detail.schema.json",
+  "title": "Dashboard feed: single-robot detail",
+  "description": "robot_<ROBOT_ID>.json. Latest health snapshot plus downsampled time series (1 point per minute) with limit bands already converted to absolute values per point, so the page plots arrays and does no limit maths. null = not applicable at that point.",
+  "type": "object",
+  "required": ["schema_version", "feed_type", "robot_id", "t_s", "sim_time", "status", "mission_id", "op_mode", "snapshot", "series", "markers", "latest_prediction", "open_work_order_id"],
+  "additionalProperties": false,
+  "properties": {
+    "schema_version": {"$ref": "common.schema.json#/$defs/schema_version"},
+    "feed_type": {"const": "robot_detail"},
+    "robot_id": {"$ref": "common.schema.json#/$defs/robot_id"},
+    "t_s": {"$ref": "common.schema.json#/$defs/t_s"},
+    "sim_time": {"$ref": "common.schema.json#/$defs/timestamp"},
+    "status": {"$ref": "common.schema.json#/$defs/robot_status"},
+    "mission_id": {"oneOf": [{"$ref": "common.schema.json#/$defs/mission_id"}, {"type": "null"}]},
+    "op_mode": {"oneOf": [{"$ref": "common.schema.json#/$defs/op_mode"}, {"type": "null"}]},
+    "snapshot": {"$ref": "health_snapshot.schema.json"},
+    "series": {
+      "type": "object",
+      "required": ["t_s", "op_mode", "channels"],
+      "additionalProperties": false,
+      "properties": {
+        "t_s": {"type": "array", "items": {"type": "number"}},
+        "op_mode": {"type": "array", "items": {"$ref": "common.schema.json#/$defs/op_mode"}},
+        "channels": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "required": ["channel", "label", "units", "component", "subsystem", "value", "baseline", "warning_low", "warning_high", "critical_low", "critical_high"],
+            "additionalProperties": false,
+            "properties": {
+              "channel": {"$ref": "common.schema.json#/$defs/channel_name"},
+              "label": {"type": "string"},
+              "units": {"type": "string"},
+              "component": {"$ref": "common.schema.json#/$defs/component_id"},
+              "subsystem": {"$ref": "common.schema.json#/$defs/subsystem"},
+              "value": {"$ref": "#/$defs/number_series"},
+              "baseline": {"$ref": "#/$defs/number_series"},
+              "warning_low": {"$ref": "#/$defs/number_series"},
+              "warning_high": {"$ref": "#/$defs/number_series"},
+              "critical_low": {"$ref": "#/$defs/number_series"},
+              "critical_high": {"$ref": "#/$defs/number_series"}
+            }
+          }
+        }
+      }
+    },
+    "markers": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["t_s", "kind", "channel", "severity", "label"],
+        "additionalProperties": false,
+        "properties": {
+          "t_s": {"$ref": "common.schema.json#/$defs/t_s"},
+          "kind": {"enum": ["ANOMALY", "PREDICTION", "WORK_ORDER", "STATUS_CHANGE", "PREDICTED_FAILURE"]},
+          "channel": {"oneOf": [{"$ref": "common.schema.json#/$defs/channel_name"}, {"type": "null"}]},
+          "severity": {"oneOf": [{"$ref": "common.schema.json#/$defs/severity"}, {"type": "null"}]},
+          "label": {"type": "string"}
+        }
+      }
+    },
+    "latest_prediction": {"oneOf": [{"$ref": "prediction.schema.json"}, {"type": "null"}]},
+    "open_work_order_id": {"oneOf": [{"$ref": "common.schema.json#/$defs/work_order_id"}, {"type": "null"}]}
+  },
+  "$defs": {
+    "number_series": {"type": "array", "items": {"type": ["number", "null"]}}
+  }
+}

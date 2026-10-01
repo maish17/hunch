@@ -1,0 +1,7 @@
+{
+  "schema_version": "1.0.0",
+  "feed_type": "alerts",
+  "t_s": 5400,
+  "sim_time": "2027-03-01T01:30:00Z",
+  "alerts": []
+}

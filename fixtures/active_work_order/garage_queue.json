@@ -1,0 +1,27 @@
+{
+  "schema_version": "1.0.0",
+  "garage_id": "P5-GARAGE-1",
+  "t_s": 11400,
+  "generated_at": "2027-03-01T03:10:00Z",
+  "capacity": 1,
+  "bays": [
+    {
+      "bay_id": "BAY-1",
+      "state": "RESERVED",
+      "robot_id": "P2-02",
+      "work_order_id": "WO-20270301-0001",
+      "since_t_s": 10560,
+      "est_release_t_s": 22260
+    }
+  ],
+  "queue": [
+    {
+      "position": 1,
+      "work_order_id": "WO-20270301-0002",
+      "robot_id": "P2-03",
+      "severity": "WARNING",
+      "predicted_ttf_s": 4440,
+      "queued_t_s": 10980
+    }
+  ]
+}

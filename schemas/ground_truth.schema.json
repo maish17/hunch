@@ -1,0 +1,46 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://hunch-llaso-p4.invalid/schemas/ground_truth.schema.json",
+  "title": "Ground truth (answer key)",
+  "description": "Written by the generator to runs/<run_id>/answer_key/ground_truth.json. ONLY p4maint/scoring may read it. Detection, prediction, diagnosis, work-order and fleet code must never open it (enforced by tests/test_answer_key_isolation.py). Without it we cannot measure warning lead time, our headline metric.",
+  "type": "object",
+  "required": ["schema_version", "scenario_id", "run_id", "seed", "start_time_utc", "duration_s", "faults", "warning"],
+  "additionalProperties": false,
+  "properties": {
+    "schema_version": {"$ref": "common.schema.json#/$defs/schema_version"},
+    "scenario_id": {"type": "string"},
+    "run_id": {"type": "string"},
+    "seed": {"type": "integer", "minimum": 0},
+    "start_time_utc": {"$ref": "common.schema.json#/$defs/timestamp"},
+    "duration_s": {"type": "integer", "minimum": 0},
+    "faults": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["fault_id", "robot_id", "fault_type", "component", "subsystem", "primary_channel", "inject_t_s", "inject_at", "failure_t_s", "failure_at", "progression", "generator_parameter", "parameter_at_failure"],
+        "additionalProperties": false,
+        "properties": {
+          "fault_id": {"type": "string"},
+          "robot_id": {"$ref": "common.schema.json#/$defs/robot_id"},
+          "fault_type": {"enum": ["bearing_wear", "wheel_drag", "cooling_fault", "battery_degradation"]},
+          "component": {"$ref": "common.schema.json#/$defs/component_id"},
+          "subsystem": {"$ref": "common.schema.json#/$defs/subsystem"},
+          "primary_channel": {"$ref": "common.schema.json#/$defs/channel_name"},
+          "inject_t_s": {"$ref": "common.schema.json#/$defs/t_s"},
+          "inject_at": {"$ref": "common.schema.json#/$defs/timestamp"},
+          "failure_t_s": {"$ref": "common.schema.json#/$defs/t_s", "description": "True failure time: fault progress p reaches 1. May be after the scenario ends."},
+          "failure_at": {"$ref": "common.schema.json#/$defs/timestamp"},
+          "progression": {
+            "type": "object",
+            "required": ["shape", "exponent"],
+            "additionalProperties": false,
+            "properties": {"shape": {"enum": ["power"]}, "exponent": {"type": "number"}}
+          },
+          "generator_parameter": {"type": "string"},
+          "parameter_at_failure": {"type": "number"}
+        }
+      }
+    },
+    "warning": {"const": "ANSWER KEY - must never be read by detection, prediction or diagnosis code."}
+  }
+}

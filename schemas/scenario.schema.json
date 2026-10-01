@@ -1,0 +1,89 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://hunch-llaso-p4.invalid/schemas/scenario.schema.json",
+  "title": "Scenario definition",
+  "description": "Everything needed to reproduce a simulated run. Same file + same seed = identical telemetry, byte for byte. See docs/DECISIONS.md section 9.",
+  "type": "object",
+  "required": ["schema_version", "scenario_id", "description", "seed", "start_time_utc", "duration_s", "missions", "robots", "faults"],
+  "additionalProperties": false,
+  "properties": {
+    "schema_version": {"$ref": "common.schema.json#/$defs/schema_version"},
+    "scenario_id": {"type": "string", "pattern": "^[a-z0-9_]+$"},
+    "description": {"type": "string"},
+    "seed": {"type": "integer", "minimum": 0},
+    "start_time_utc": {"$ref": "common.schema.json#/$defs/timestamp"},
+    "duration_s": {"type": "integer", "minimum": 60, "description": "Must be a multiple of the batch length (60 s)."},
+    "garage_capacity": {"type": "integer", "minimum": 1, "description": "Optional override of config/dispatch.json garage.capacity."},
+    "missions": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "required": ["mission_id", "label", "mode_cycle"],
+        "additionalProperties": false,
+        "properties": {
+          "mission_id": {"$ref": "common.schema.json#/$defs/mission_id"},
+          "label": {"type": "string"},
+          "mode_cycle": {
+            "type": "array",
+            "description": "Repeats from the start until the robot leaves the mission. A replacement picks up the cycle where the mission clock is, not from the beginning.",
+            "minItems": 1,
+            "items": {
+              "type": "object",
+              "required": ["mode", "duration_s"],
+              "additionalProperties": false,
+              "properties": {
+                "mode": {"$ref": "common.schema.json#/$defs/op_mode"},
+                "duration_s": {"type": "integer", "minimum": 1}
+              }
+            }
+          }
+        }
+      }
+    },
+    "robots": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "required": ["robot_id", "robot_type", "initial_status", "mission_id", "initial_soc_pct", "location"],
+        "additionalProperties": false,
+        "properties": {
+          "robot_id": {"$ref": "common.schema.json#/$defs/robot_id"},
+          "robot_type": {"$ref": "common.schema.json#/$defs/robot_type"},
+          "initial_status": {"enum": ["ACTIVE", "STANDBY"]},
+          "mission_id": {"oneOf": [{"$ref": "common.schema.json#/$defs/mission_id"}, {"type": "null"}]},
+          "initial_soc_pct": {"type": "number", "minimum": 0, "maximum": 100},
+          "location": {"$ref": "common.schema.json#/$defs/location"}
+        }
+      }
+    },
+    "faults": {
+      "type": "array",
+      "description": "Empty for a healthy run.",
+      "items": {
+        "type": "object",
+        "required": ["fault_id", "robot_id", "fault_type", "component", "inject_at_s", "time_to_failure_s"],
+        "additionalProperties": false,
+        "properties": {
+          "fault_id": {"type": "string", "pattern": "^F[0-9]+$"},
+          "robot_id": {"$ref": "common.schema.json#/$defs/robot_id"},
+          "fault_type": {"enum": ["bearing_wear", "wheel_drag", "cooling_fault", "battery_degradation"]},
+          "component": {"$ref": "common.schema.json#/$defs/component_id"},
+          "inject_at_s": {"type": "integer", "minimum": 0},
+          "time_to_failure_s": {"type": "integer", "minimum": 60},
+          "progression": {
+            "type": "object",
+            "description": "Optional override of the fault's default_progression in config/faults.json.",
+            "required": ["shape", "exponent"],
+            "additionalProperties": false,
+            "properties": {
+              "shape": {"enum": ["power"]},
+              "exponent": {"type": "number", "exclusiveMinimum": 0}
+            }
+          }
+        }
+      }
+    }
+  }
+}

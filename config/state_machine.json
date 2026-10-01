@@ -1,0 +1,64 @@
+{
+  "schema_version": "1.0.0",
+  "description": "Robot and work-order state machines. Any transition not listed here is illegal and must be rejected at runtime (p4maint/fleet/state_machine.py raises IllegalTransition). Staying in the same state is not a transition.",
+
+  "robot": {
+    "initial_states": ["ACTIVE", "STANDBY"],
+    "states": {
+      "STANDBY":              {"label": "Standby",              "in_service": false, "sim_mode": "IDLE",          "meaning": "Healthy reserve unit, parked, available to replace an active robot."},
+      "ACTIVE":               {"label": "Active",               "in_service": true,  "sim_mode": "MISSION",       "meaning": "Assigned to a mission and following its mode cycle."},
+      "MAINTENANCE_REQUIRED": {"label": "Maintenance required", "in_service": true,  "sim_mode": "MISSION_OR_IDLE", "meaning": "Work order exists, waiting for a P5 bay. WARNING severity: keeps working its mission. CRITICAL severity: stops (IDLE) and its mission is handed to a standby immediately."},
+      "EN_ROUTE_P5":          {"label": "En route to P5",       "in_service": false, "sim_mode": "TRAVERSE_EMPTY", "meaning": "Bay reserved; driving to the P5 Repair Garage."},
+      "IN_GARAGE":            {"label": "In P5 garage",         "in_service": false, "sim_mode": "IDLE",          "meaning": "In a P5 bay being repaired. Work orders are not raised for robots in this state."},
+      "RETURNED_TO_SERVICE":  {"label": "Returned to service",  "in_service": false, "sim_mode": "IDLE",          "meaning": "Repair finished, released by P5, awaiting post-repair checkout."},
+      "DISABLED":             {"label": "Disabled in field",    "in_service": false, "sim_mode": "IDLE",          "meaning": "Failed before reaching P5 and cannot drive. Needs recovery. Added beyond the HUNCH minimum so an undetected failure has somewhere to go."}
+    },
+    "transitions": [
+      {"from": "STANDBY",              "to": "ACTIVE",               "trigger": "Assigned to a mission (for example as a replacement)."},
+      {"from": "STANDBY",              "to": "MAINTENANCE_REQUIRED", "trigger": "Work order created for a standby robot."},
+      {"from": "ACTIVE",               "to": "STANDBY",              "trigger": "Mission finished or robot released."},
+      {"from": "ACTIVE",               "to": "MAINTENANCE_REQUIRED", "trigger": "Work order created."},
+      {"from": "ACTIVE",               "to": "DISABLED",             "trigger": "Failed in the field."},
+      {"from": "MAINTENANCE_REQUIRED", "to": "EN_ROUTE_P5",          "trigger": "P5 bay reserved; robot dispatched."},
+      {"from": "MAINTENANCE_REQUIRED", "to": "ACTIVE",               "trigger": "Work order cancelled (false alarm); robot keeps its mission."},
+      {"from": "MAINTENANCE_REQUIRED", "to": "STANDBY",              "trigger": "Work order cancelled (false alarm); robot had no mission."},
+      {"from": "MAINTENANCE_REQUIRED", "to": "DISABLED",             "trigger": "Failed while waiting for a bay."},
+      {"from": "EN_ROUTE_P5",          "to": "IN_GARAGE",            "trigger": "Arrived at P5 and admitted to the reserved bay."},
+      {"from": "EN_ROUTE_P5",          "to": "DISABLED",             "trigger": "Failed on the way to P5."},
+      {"from": "DISABLED",             "to": "EN_ROUTE_P5",          "trigger": "Recovered and being moved to P5."},
+      {"from": "IN_GARAGE",            "to": "RETURNED_TO_SERVICE",  "trigger": "Repair complete; P5 releases the robot."},
+      {"from": "RETURNED_TO_SERVICE",  "to": "STANDBY",              "trigger": "Post-repair checkout passed; joins the standby pool."},
+      {"from": "RETURNED_TO_SERVICE",  "to": "ACTIVE",               "trigger": "Post-repair checkout passed; assigned straight to a mission."},
+      {"from": "RETURNED_TO_SERVICE",  "to": "MAINTENANCE_REQUIRED", "trigger": "Post-repair checkout failed; new work order."}
+    ]
+  },
+
+  "work_order": {
+    "initial_states": ["OPEN"],
+    "terminal_states": ["COMPLETED", "CANCELLED"],
+    "states": {
+      "OPEN":        "Created and validated, not yet accepted into the P5 queue.",
+      "QUEUED":      "Waiting in the P5 queue for a bay.",
+      "DISPATCHED":  "Bay reserved; robot en route to P5.",
+      "IN_REPAIR":   "Robot is in the bay being repaired.",
+      "COMPLETED":   "Repair done; robot released.",
+      "CANCELLED":   "Withdrawn (for example a false alarm cleared by an operator)."
+    },
+    "transitions": [
+      {"from": "OPEN",       "to": "QUEUED"},
+      {"from": "OPEN",       "to": "CANCELLED"},
+      {"from": "QUEUED",     "to": "DISPATCHED"},
+      {"from": "QUEUED",     "to": "CANCELLED"},
+      {"from": "DISPATCHED", "to": "IN_REPAIR"},
+      {"from": "DISPATCHED", "to": "CANCELLED"},
+      {"from": "IN_REPAIR",  "to": "COMPLETED"}
+    ],
+    "robot_state_coupling": [
+      {"work_order_to": "QUEUED",     "robot_to": "MAINTENANCE_REQUIRED"},
+      {"work_order_to": "DISPATCHED", "robot_to": "EN_ROUTE_P5"},
+      {"work_order_to": "IN_REPAIR",  "robot_to": "IN_GARAGE"},
+      {"work_order_to": "COMPLETED",  "robot_to": "RETURNED_TO_SERVICE"},
+      {"work_order_to": "CANCELLED",  "robot_to": "ACTIVE or STANDBY (whichever it came from)"}
+    ]
+  }
+}

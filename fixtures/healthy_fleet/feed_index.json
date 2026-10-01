@@ -1,0 +1,23 @@
+{
+  "schema_version": "1.0.0",
+  "feed_type": "index",
+  "run_id": "fixture_healthy_fleet",
+  "scenario_id": "healthy_baseline",
+  "label": "Fixture: healthy fleet (3 active, 2 standby, no alerts)",
+  "is_fixture": true,
+  "t_s": 5400,
+  "sim_time": "2027-03-01T01:30:00Z",
+  "generated_at": "2026-10-01T12:00:00Z",
+  "files": {
+    "fleet_board": "fleet_board.json",
+    "alerts": "alerts.json",
+    "work_orders": "work_orders.json",
+    "robots": {
+      "P2-01": "robot_P2-01.json",
+      "P2-02": "robot_P2-02.json",
+      "P2-03": "robot_P2-03.json",
+      "P2-04": "robot_P2-04.json",
+      "P2-05": "robot_P2-05.json"
+    }
+  }
+}

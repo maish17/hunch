@@ -1,0 +1,29 @@
+{
+  "schema_version": "1.0.0",
+  "scenario_id": "bearing_wear_p2_02",
+  "run_id": "bearing_wear_p2_02__seed20270302",
+  "seed": 20270302,
+  "start_time_utc": "2027-03-01T00:00:00Z",
+  "duration_s": 14400,
+  "faults": [
+    {
+      "fault_id": "F1",
+      "robot_id": "P2-02",
+      "fault_type": "bearing_wear",
+      "component": "wheel_fl_drive",
+      "subsystem": "MOBILITY",
+      "primary_channel": "wheel_fl_temp_c",
+      "inject_t_s": 3600,
+      "inject_at": "2027-03-01T01:00:00Z",
+      "failure_t_s": 12600,
+      "failure_at": "2027-03-01T03:30:00Z",
+      "progression": {
+        "shape": "power",
+        "exponent": 2.0
+      },
+      "generator_parameter": "bearing_friction_extra_nm",
+      "parameter_at_failure": 2.2
+    }
+  ],
+  "warning": "ANSWER KEY - must never be read by detection, prediction or diagnosis code."
+}

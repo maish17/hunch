@@ -1,0 +1,156 @@
+{
+  "schema_version": "1.0.0",
+  "scenario_id": "bearing_wear_p2_02",
+  "description": "Same fleet as healthy_baseline, 4 hours. Hub bearing wear is injected into P2-02's front-left wheel at t = 1 h and progresses (power law, exponent 2) to true failure at t = 3.5 h. Mission 3 target: a predictive warning at least 15 min (900 s) before 12600 s. Mission 6: P2-02 must be sent to P5 and a standby put on M-HAUL-B.",
+  "seed": 20270302,
+  "start_time_utc": "2027-03-01T00:00:00Z",
+  "duration_s": 14400,
+  "missions": [
+    {
+      "mission_id": "M-HAUL-A",
+      "label": "Lander A to habitat cargo haul",
+      "mode_cycle": [
+        {
+          "mode": "CARGO_HANDLING",
+          "duration_s": 300
+        },
+        {
+          "mode": "TRAVERSE_LOADED",
+          "duration_s": 1200
+        },
+        {
+          "mode": "CARGO_HANDLING",
+          "duration_s": 300
+        },
+        {
+          "mode": "TRAVERSE_EMPTY",
+          "duration_s": 1200
+        }
+      ]
+    },
+    {
+      "mission_id": "M-HAUL-B",
+      "label": "Lander B to depot haul",
+      "mode_cycle": [
+        {
+          "mode": "CARGO_HANDLING",
+          "duration_s": 240
+        },
+        {
+          "mode": "TRAVERSE_LOADED",
+          "duration_s": 1500
+        },
+        {
+          "mode": "CARGO_HANDLING",
+          "duration_s": 240
+        },
+        {
+          "mode": "TRAVERSE_EMPTY",
+          "duration_s": 1500
+        },
+        {
+          "mode": "IDLE",
+          "duration_s": 120
+        }
+      ]
+    },
+    {
+      "mission_id": "M-SHUTTLE-C",
+      "label": "Habitat to P5 parts shuttle",
+      "mode_cycle": [
+        {
+          "mode": "TRAVERSE_EMPTY",
+          "duration_s": 900
+        },
+        {
+          "mode": "IDLE",
+          "duration_s": 300
+        },
+        {
+          "mode": "TRAVERSE_LOADED",
+          "duration_s": 900
+        },
+        {
+          "mode": "IDLE",
+          "duration_s": 300
+        }
+      ]
+    }
+  ],
+  "robots": [
+    {
+      "robot_id": "P2-01",
+      "robot_type": "P2_TRANSPORT",
+      "initial_status": "ACTIVE",
+      "mission_id": "M-HAUL-A",
+      "initial_soc_pct": 95.0,
+      "location": {
+        "zone": "HAUL_ROUTE_1",
+        "x_m": null,
+        "y_m": null
+      }
+    },
+    {
+      "robot_id": "P2-02",
+      "robot_type": "P2_TRANSPORT",
+      "initial_status": "ACTIVE",
+      "mission_id": "M-HAUL-B",
+      "initial_soc_pct": 92.0,
+      "location": {
+        "zone": "HAUL_ROUTE_2",
+        "x_m": null,
+        "y_m": null
+      }
+    },
+    {
+      "robot_id": "P2-03",
+      "robot_type": "P2_TRANSPORT",
+      "initial_status": "ACTIVE",
+      "mission_id": "M-SHUTTLE-C",
+      "initial_soc_pct": 88.0,
+      "location": {
+        "zone": "HAB_SITE",
+        "x_m": null,
+        "y_m": null
+      }
+    },
+    {
+      "robot_id": "P2-04",
+      "robot_type": "P2_TRANSPORT",
+      "initial_status": "STANDBY",
+      "mission_id": null,
+      "initial_soc_pct": 100.0,
+      "location": {
+        "zone": "STANDBY_PARK",
+        "x_m": null,
+        "y_m": null
+      }
+    },
+    {
+      "robot_id": "P2-05",
+      "robot_type": "P2_TRANSPORT",
+      "initial_status": "STANDBY",
+      "mission_id": null,
+      "initial_soc_pct": 97.0,
+      "location": {
+        "zone": "STANDBY_PARK",
+        "x_m": null,
+        "y_m": null
+      }
+    }
+  ],
+  "faults": [
+    {
+      "fault_id": "F1",
+      "robot_id": "P2-02",
+      "fault_type": "bearing_wear",
+      "component": "wheel_fl_drive",
+      "inject_at_s": 3600,
+      "time_to_failure_s": 9000,
+      "progression": {
+        "shape": "power",
+        "exponent": 2.0
+      }
+    }
+  ]
+}

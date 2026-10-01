@@ -1,0 +1,249 @@
+{
+  "schema_version": "1.0.0",
+  "robot_id": "P2-02",
+  "robot_type": "P2_TRANSPORT",
+  "t_s": 11400,
+  "timestamp": "2027-03-01T03:10:00Z",
+  "op_mode": "TRAVERSE_EMPTY",
+  "status": "WARNING",
+  "health_score": 60,
+  "subsystems": [
+    {
+      "subsystem": "MOBILITY",
+      "status": "NORMAL",
+      "components": [
+        {
+          "component": "wheel_fl_drive",
+          "status": "NORMAL",
+          "channels": [
+            {
+              "channel": "wheel_fl_current_a",
+              "units": "A",
+              "value": 4.185,
+              "baseline": 3.29,
+              "deviation": 0.895,
+              "status": "NORMAL",
+              "rule": null
+            },
+            {
+              "channel": "wheel_fl_speed_rads",
+              "units": "rad/s",
+              "value": 2.187,
+              "baseline": 2.25,
+              "deviation": -0.063,
+              "status": "NORMAL",
+              "rule": null
+            }
+          ]
+        },
+        {
+          "component": "wheel_fr_drive",
+          "status": "NORMAL",
+          "channels": [
+            {
+              "channel": "wheel_fr_current_a",
+              "units": "A",
+              "value": 3.372,
+              "baseline": 3.29,
+              "deviation": 0.082,
+              "status": "NORMAL",
+              "rule": null
+            },
+            {
+              "channel": "wheel_fr_speed_rads",
+              "units": "rad/s",
+              "value": 2.258,
+              "baseline": 2.25,
+              "deviation": 0.008,
+              "status": "NORMAL",
+              "rule": null
+            }
+          ]
+        },
+        {
+          "component": "wheel_rl_drive",
+          "status": "NORMAL",
+          "channels": [
+            {
+              "channel": "wheel_rl_current_a",
+              "units": "A",
+              "value": 3.324,
+              "baseline": 3.29,
+              "deviation": 0.034,
+              "status": "NORMAL",
+              "rule": null
+            },
+            {
+              "channel": "wheel_rl_speed_rads",
+              "units": "rad/s",
+              "value": 2.249,
+              "baseline": 2.25,
+              "deviation": -0.001,
+              "status": "NORMAL",
+              "rule": null
+            }
+          ]
+        },
+        {
+          "component": "wheel_rr_drive",
+          "status": "NORMAL",
+          "channels": [
+            {
+              "channel": "wheel_rr_current_a",
+              "units": "A",
+              "value": 3.272,
+              "baseline": 3.29,
+              "deviation": -0.018,
+              "status": "NORMAL",
+              "rule": null
+            },
+            {
+              "channel": "wheel_rr_speed_rads",
+              "units": "rad/s",
+              "value": 2.24,
+              "baseline": 2.25,
+              "deviation": -0.01,
+              "status": "NORMAL",
+              "rule": null
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "subsystem": "THERMAL",
+      "status": "WARNING",
+      "components": [
+        {
+          "component": "wheel_fl_thermal",
+          "status": "WARNING",
+          "channels": [
+            {
+              "channel": "wheel_fl_temp_c",
+              "units": "degC",
+              "value": 52.89,
+              "baseline": 33.72,
+              "deviation": 19.18,
+              "status": "WARNING",
+              "rule": "RELATIVE_WARNING_HIGH"
+            }
+          ]
+        },
+        {
+          "component": "wheel_fr_thermal",
+          "status": "NORMAL",
+          "channels": [
+            {
+              "channel": "wheel_fr_temp_c",
+              "units": "degC",
+              "value": 33.72,
+              "baseline": 33.72,
+              "deviation": 0.01,
+              "status": "NORMAL",
+              "rule": null
+            }
+          ]
+        },
+        {
+          "component": "wheel_rl_thermal",
+          "status": "NORMAL",
+          "channels": [
+            {
+              "channel": "wheel_rl_temp_c",
+              "units": "degC",
+              "value": 33.67,
+              "baseline": 33.72,
+              "deviation": -0.05,
+              "status": "NORMAL",
+              "rule": null
+            }
+          ]
+        },
+        {
+          "component": "wheel_rr_thermal",
+          "status": "NORMAL",
+          "channels": [
+            {
+              "channel": "wheel_rr_temp_c",
+              "units": "degC",
+              "value": 33.93,
+              "baseline": 33.72,
+              "deviation": 0.22,
+              "status": "NORMAL",
+              "rule": null
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "subsystem": "POWER",
+      "status": "NORMAL",
+      "components": [
+        {
+          "component": "battery_pack",
+          "status": "NORMAL",
+          "channels": [
+            {
+              "channel": "battery_voltage_v",
+              "units": "V",
+              "value": 49.855,
+              "baseline": 49.849,
+              "deviation": 0.007,
+              "status": "NORMAL",
+              "rule": null
+            },
+            {
+              "channel": "battery_current_a",
+              "units": "A",
+              "value": 2.898,
+              "baseline": 2.78,
+              "deviation": 0.118,
+              "status": "NORMAL",
+              "rule": null
+            },
+            {
+              "channel": "battery_soc_pct",
+              "units": "%",
+              "value": 73.5,
+              "baseline": null,
+              "deviation": null,
+              "status": "NORMAL",
+              "rule": null
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "subsystem": "MECHANISMS",
+      "status": "NORMAL",
+      "components": [
+        {
+          "component": "lift_actuator",
+          "status": "NORMAL",
+          "channels": [
+            {
+              "channel": "lift_joint_current_a",
+              "units": "A",
+              "value": 0.01,
+              "baseline": 0.0,
+              "deviation": 0.01,
+              "status": "NORMAL",
+              "rule": null
+            },
+            {
+              "channel": "lift_joint_pos_err_deg",
+              "units": "deg",
+              "value": 0.055,
+              "baseline": 0.05,
+              "deviation": 0.005,
+              "status": "NORMAL",
+              "rule": null
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

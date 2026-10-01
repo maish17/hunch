@@ -1,0 +1,50 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://hunch-llaso-p4.invalid/schemas/garage_queue.schema.json",
+  "title": "P5 garage queue",
+  "description": "P5 Repair Garage bays (occupants) and the ordered waiting queue. Owned by p4maint/fleet/garage.py. A bay is RESERVED from dispatch until the robot arrives, then OCCUPIED.",
+  "type": "object",
+  "required": ["schema_version", "garage_id", "t_s", "generated_at", "capacity", "bays", "queue"],
+  "additionalProperties": false,
+  "properties": {
+    "schema_version": {"$ref": "common.schema.json#/$defs/schema_version"},
+    "garage_id": {"type": "string"},
+    "t_s": {"$ref": "common.schema.json#/$defs/t_s"},
+    "generated_at": {"$ref": "common.schema.json#/$defs/timestamp"},
+    "capacity": {"type": "integer", "minimum": 1},
+    "bays": {
+      "type": "array",
+      "description": "Exactly 'capacity' entries.",
+      "items": {
+        "type": "object",
+        "required": ["bay_id", "state", "robot_id", "work_order_id", "since_t_s", "est_release_t_s"],
+        "additionalProperties": false,
+        "properties": {
+          "bay_id": {"type": "string"},
+          "state": {"enum": ["EMPTY", "RESERVED", "OCCUPIED"]},
+          "robot_id": {"oneOf": [{"$ref": "common.schema.json#/$defs/robot_id"}, {"type": "null"}]},
+          "work_order_id": {"oneOf": [{"$ref": "common.schema.json#/$defs/work_order_id"}, {"type": "null"}]},
+          "since_t_s": {"type": ["number", "null"], "minimum": 0},
+          "est_release_t_s": {"type": ["number", "null"], "minimum": 0}
+        }
+      }
+    },
+    "queue": {
+      "type": "array",
+      "description": "Waiting work orders, front of queue first. position starts at 1 and has no gaps.",
+      "items": {
+        "type": "object",
+        "required": ["position", "work_order_id", "robot_id", "severity", "predicted_ttf_s", "queued_t_s"],
+        "additionalProperties": false,
+        "properties": {
+          "position": {"type": "integer", "minimum": 1},
+          "work_order_id": {"$ref": "common.schema.json#/$defs/work_order_id"},
+          "robot_id": {"$ref": "common.schema.json#/$defs/robot_id"},
+          "severity": {"$ref": "common.schema.json#/$defs/severity"},
+          "predicted_ttf_s": {"type": ["number", "null"], "minimum": 0},
+          "queued_t_s": {"$ref": "common.schema.json#/$defs/t_s"}
+        }
+      }
+    }
+  }
+}

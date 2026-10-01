@@ -1,0 +1,63 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://hunch-llaso-p4.invalid/schemas/health_snapshot.schema.json",
+  "title": "Health status snapshot",
+  "description": "Health of one robot at one instant, following the COMPONENT -> SUBSYSTEM -> SYSTEM(robot) hierarchy from the HUNCH telemetry deck. Each level's status is the worst status below it. Produced once per batch by p4maint/health/evaluate.py (Mission 1).",
+  "type": "object",
+  "required": ["schema_version", "robot_id", "robot_type", "t_s", "timestamp", "op_mode", "status", "health_score", "subsystems"],
+  "additionalProperties": false,
+  "properties": {
+    "schema_version": {"$ref": "common.schema.json#/$defs/schema_version"},
+    "robot_id": {"$ref": "common.schema.json#/$defs/robot_id"},
+    "robot_type": {"$ref": "common.schema.json#/$defs/robot_type"},
+    "t_s": {"$ref": "common.schema.json#/$defs/t_s"},
+    "timestamp": {"$ref": "common.schema.json#/$defs/timestamp"},
+    "op_mode": {"$ref": "common.schema.json#/$defs/op_mode"},
+    "status": {"$ref": "common.schema.json#/$defs/health_status"},
+    "health_score": {"type": ["integer", "null"], "minimum": 0, "maximum": 100},
+    "subsystems": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["subsystem", "status", "components"],
+        "additionalProperties": false,
+        "properties": {
+          "subsystem": {"$ref": "common.schema.json#/$defs/subsystem"},
+          "status": {"$ref": "common.schema.json#/$defs/health_status"},
+          "components": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "required": ["component", "status", "channels"],
+              "additionalProperties": false,
+              "properties": {
+                "component": {"$ref": "common.schema.json#/$defs/component_id"},
+                "status": {"$ref": "common.schema.json#/$defs/health_status"},
+                "channels": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "required": ["channel", "units", "value", "baseline", "deviation", "status", "rule"],
+                    "additionalProperties": false,
+                    "properties": {
+                      "channel": {"$ref": "common.schema.json#/$defs/channel_name"},
+                      "units": {"type": "string"},
+                      "value": {"$ref": "common.schema.json#/$defs/nullable_number"},
+                      "baseline": {"$ref": "common.schema.json#/$defs/nullable_number"},
+                      "deviation": {"$ref": "common.schema.json#/$defs/nullable_number"},
+                      "status": {"$ref": "common.schema.json#/$defs/health_status"},
+                      "rule": {
+                        "enum": [null, "RELATIVE_WARNING_LOW", "RELATIVE_WARNING_HIGH", "RELATIVE_CRITICAL_LOW", "RELATIVE_CRITICAL_HIGH", "ABSOLUTE_WARNING_LOW", "ABSOLUTE_WARNING_HIGH", "ABSOLUTE_CRITICAL_LOW", "ABSOLUTE_CRITICAL_HIGH", "HARD_CRITICAL_LOW", "HARD_CRITICAL_HIGH", "NO_DATA"],
+                        "description": "Which limit decided the status; null when NORMAL."
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

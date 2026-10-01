@@ -1,0 +1,19 @@
+# Python
+__pycache__/
+*.pyc
+.venv/
+venv/
+.pytest_cache/
+.ipynb_checkpoints/
+
+# Run outputs - every run is reproducible from its scenario + seed
+runs/
+
+# Editors / OS
+.DS_Store
+.vscode/
+.idea/
+*.swp
+
+# Local Claude Code session config (keep .claude/launch.json if the team wants it shared)
+.claude/settings.local.json
