@@ -6,6 +6,8 @@ An AI system that reads lunar transport-robot telemetry, flags problems, predict
 
 > **Status: skeleton.** The decisions, data contracts, fixtures, dashboard and test plan are in place. Detection, prediction and diagnosis logic are **stubs for the team to write**. Running a scenario stops at the first unbuilt stage and names it. That message is our progress meter.
 
+**Website:** https://maish17.github.io/hunch/ (source in [`site/`](site/README.md)).
+
 ## Quick start
 
 Needs Python 3.11+ and `make` (macOS/Linux; on Windows, copy the commands out of the `Makefile`).

@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Respite Dashboard Demo</title>
+  <link rel="icon" href="../assets/favicon-64.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,400..800&display=swap">
+  <link rel="stylesheet" href="demo.css">
+</head>
+<body>
+  <!--
+    Showcase copy of the fleet dashboard, in the Respite brand.
+    The JavaScript and the data are NOT copied: this page loads ../../dashboard/*.js and
+    ../../fixtures/ from the repo, so dashboard improvements appear here automatically.
+    Only the look (demo.css) and this header are specific to the website.
+  -->
+  <header class="topbar">
+    <a class="brand" href="../" target="_top">
+      <img src="../assets/logo-256.png" alt="" width="32" height="32">
+      <span>Respite fleet dashboard</span>
+    </a>
+    <label class="feed-picker">Example
+      <select id="feed-select">
+        <option value="../../fixtures/active_work_order/feed_index.json">Robot in for repair</option>
+        <option value="../../fixtures/healthy_fleet/feed_index.json">Healthy fleet</option>
+      </select>
+    </label>
+    <p class="data-note">Simulated example data</p>
+    <div id="sim-clock" class="clock">-</div>
+  </header>
+
+  <nav class="tabs">
+    <a href="#fleet" data-view="fleet">Fleet board</a>
+    <a href="#robot" data-view="robot">Robot detail</a>
+    <a href="#alerts" data-view="alerts">Alert feed</a>
+    <a href="#workorders" data-view="workorders">Work orders</a>
+  </nav>
+
+  <main id="view">Loading...</main>
+
+  <script src="../../dashboard/app.js"></script>
+  <script src="../../dashboard/plot.js"></script>
+  <script src="../../dashboard/views/fleet.js"></script>
+  <script src="../../dashboard/views/robot.js"></script>
+  <script src="../../dashboard/views/alerts.js"></script>
+  <script src="../../dashboard/views/workorders.js"></script>
+  <script>P4.start();</script>
+</body>
+</html>

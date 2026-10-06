@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 400">
+  <rect width="400" height="400" fill="#354c70"/>
+  <circle cx="200" cy="160" r="64" fill="#46608a"/>
+  <path d="M84 360c8-74 56-116 116-116s108 42 116 116z" fill="#46608a"/>
+  <text x="200" y="388" text-anchor="middle" font-family="Archivo, sans-serif" font-size="18" fill="#f7f0f5" opacity="0.7">Photo coming soon</text>
+</svg>

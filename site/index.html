@@ -1,0 +1,240 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Project Respite</title>
+  <meta name="description" content="Project Respite: predictive maintenance for lunar robot fleets. A NASA HUNCH 2026-27 student project by Radically Reliable Robotics, STISD Science Academy.">
+  <link rel="icon" href="assets/favicon-64.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,400..800&display=swap">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header class="site-header">
+  <div class="wrap">
+    <a class="brand" href="#top"><img src="assets/logo-256.png" alt="Radically Reliable Robotics logo" width="40" height="40">Project Respite</a>
+    <nav class="site-nav" aria-label="Sections">
+      <a href="#problem">Problem</a>
+      <a href="#how">How it works</a>
+      <a href="#demo">Demo</a>
+      <a href="#design">Design</a>
+      <a href="#progress">Progress</a>
+      <a href="#team">Team</a>
+    </nav>
+  </div>
+</header>
+
+<main id="top">
+
+  <div class="hero">
+    <div class="wrap">
+      <h1>Project Respite</h1>
+      <p class="acronym"><b>R</b>obotic <b>E</b>mergency <b>S</b>alvage &amp; <b>P</b>ickup <b>I</b>n <b>T</b>reacherous <b>E</b>nvironments</p>
+      <p class="hero-lede">Autonomous rovers on the Moon need to keep working for years with minimal human input. Respite continually analyzes their telemetry. When it sees an abnormality, it predicts what fault is coming and when, sends the rover to the repair garage, and deploys another rover to finish the job.</p>
+      <p class="hero-meta">Radically Reliable Robotics · STISD Science Academy, Mercedes, Texas · <span class="nowrap">NASA HUNCH 2026–27</span></p>
+      <div class="actions">
+        <a class="button primary" href="#demo">Try the demo</a>
+        <a class="button secondary" href="#how">How it works</a>
+      </div>
+    </div>
+    <svg class="moonscape" viewBox="0 0 1200 200" aria-hidden="true" focusable="false">
+      <path d="M0 124 Q 150 110 300 122 T 600 122 T 900 118 T 1200 124 V200 H0 Z" fill="#2b3f5f"/>
+      <ellipse cx="170" cy="160" rx="46" ry="8" fill="#24364f"/>
+      <ellipse cx="560" cy="176" rx="70" ry="11" fill="#24364f"/>
+      <ellipse cx="860" cy="152" rx="30" ry="6" fill="#24364f"/>
+      <ellipse cx="1110" cy="172" rx="40" ry="7" fill="#24364f"/>
+      <!-- tracks toward the garage -->
+      <path d="M450 136 Q 680 128 905 132" fill="none" stroke="#f7f0f5" stroke-opacity="0.3" stroke-width="3" stroke-dasharray="10 10"/>
+      <!-- rover heading in for repair, front wheel running hot -->
+      <g>
+        <rect x="336" y="80" width="104" height="28" rx="7" fill="#f7f0f5"/>
+        <rect x="348" y="66" width="44" height="16" rx="3" fill="#ded5dc"/>
+        <line x1="424" y1="80" x2="424" y2="60" stroke="#f7f0f5" stroke-width="4"/>
+        <rect x="414" y="50" width="22" height="12" rx="3" fill="#ffeb77"/>
+        <circle cx="356" cy="110" r="13" fill="#1f2d45" stroke="#f7f0f5" stroke-width="3"/>
+        <circle cx="420" cy="110" r="13" fill="#1f2d45" stroke="#f7f0f5" stroke-width="3"/>
+        <path d="M446 104 q4 -6 0 -12 q-4 -6 0 -12 M456 108 q4 -6 0 -12 q-4 -6 0 -12" fill="none" stroke="#ffeb77" stroke-width="3" stroke-linecap="round"/>
+      </g>
+      <!-- P5 repair garage -->
+      <g>
+        <path d="M900 120 V70 L975 44 L1050 70 V120 Z" fill="#f7f0f5"/>
+        <rect x="930" y="84" width="90" height="36" rx="3" fill="#2b3f5f"/>
+        <text x="975" y="76" text-anchor="middle" font-family="Archivo, sans-serif" font-weight="800" font-size="18" fill="#354c70">P5</text>
+      </g>
+      <!-- backup rover heading out to take over -->
+      <g transform="translate(1086 0)">
+        <rect x="0" y="86" width="78" height="22" rx="6" fill="#f7f0f5"/>
+        <line x1="12" y1="86" x2="12" y2="70" stroke="#f7f0f5" stroke-width="4"/>
+        <rect x="4" y="62" width="18" height="10" rx="3" fill="#f7f0f5"/>
+        <circle cx="14" cy="111" r="11" fill="#1f2d45" stroke="#f7f0f5" stroke-width="3"/>
+        <circle cx="64" cy="111" r="11" fill="#1f2d45" stroke="#f7f0f5" stroke-width="3"/>
+      </g>
+    </svg>
+  </div>
+
+  <section id="problem">
+    <div class="wrap split">
+      <h2>The problem</h2>
+      <div class="big-text">
+        <p>Lunar robot fleets are expected to work through 30–60 day crewed missions, then run on their own for months between them. If a robot breaks down when no technician is around, it stops, and so does the job it was doing.</p>
+        <p>Messages to and from Earth are delayed, so the fleet has to handle this itself. The repair garage also has limited space, so robots have to go in for repair in the right order and not on false alarms.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="how" style="padding-top: 0;">
+    <div class="wrap">
+      <h2>How it works</h2>
+      <ol class="steps">
+        <li><span class="step-num">1</span><div><h3>Read</h3><p>Every rover reports its wheel motors, wheel speeds, battery and temperatures once a second.</p></div></li>
+        <li><span class="step-num">2</span><div><h3>Compare</h3><p>Each reading is checked against what is normal for the job the rover is doing right now.</p></div></li>
+        <li><span class="step-num">3</span><div><h3>Predict</h3><p>When readings drift, Respite names the likely fault and estimates how long until the part fails.</p></div></li>
+        <li><span class="step-num">4</span><div><h3>Repair</h3><p>It writes a work order and sends the rover to the repair garage before it breaks down.</p></div></li>
+        <li><span class="step-num">5</span><div><h3>Replace</h3><p>A standby rover takes over the job. Every decision is logged so people can check it later.</p></div></li>
+      </ol>
+
+      <figure class="example">
+        <figcaption>
+          <h3>Example: a wearing wheel bearing</h3>
+          <p>One wheel on rover P2-02 slowly runs hotter than the matching wheel on its other side. Respite catches the trend, sends the rover in for repair and puts a backup on its route, before the bearing would fail.</p>
+          <p class="small-print">Simulated example data, used to design the system. Not a test result.</p>
+        </figcaption>
+        <div class="chart-scroll">
+        <svg class="example-chart" viewBox="0 0 960 360" role="img" aria-labelledby="chart-title chart-desc">
+        <title id="chart-title">Front-left wheel temperature compared with its healthy twin</title>
+        <desc id="chart-desc">Simulated example data. The front-left wheel drive gets steadily hotter than the front-right one. Respite flags it at 2 hours 55 minutes, about 35 minutes before the simulated failure at 3 hours 30 minutes.</desc>
+        <line class="grid" x1="48" x2="944" y1="289.5" y2="289.5"/><text class="tick" x="40" y="293.5" text-anchor="end">20°C</text>
+        <line class="grid" x1="48" x2="944" y1="183.3" y2="183.3"/><text class="tick" x="40" y="187.3" text-anchor="end">40°C</text>
+        <line class="grid" x1="48" x2="944" y1="77.1" y2="77.1"/><text class="tick" x="40" y="81.1" text-anchor="end">60°C</text>
+        <text class="tick" x="48.0" y="342" text-anchor="middle">2:00</text>
+        <text class="tick" x="304.0" y="342" text-anchor="middle">2:30</text>
+        <text class="tick" x="560.0" y="342" text-anchor="middle">3:00</text>
+        <text class="tick" x="816.0" y="342" text-anchor="middle">3:30</text>
+        <text class="tick" x="944" y="358" text-anchor="end">hours into the mission</text>
+        <rect class="zone" x="816.0" y="24" width="128.0" height="292"/>
+        <line class="zone-edge" x1="816.0" x2="816.0" y1="24" y2="316"/>
+        <text class="note" x="828.0" y="46">Bearing</text><text class="note" x="828.0" y="64">would fail</text>
+        <path class="line-twin" d="M48.0 234.9 L56.5 240.0 L65.1 245.4 L73.6 248.4 L82.1 242.0 L90.7 236.4 L99.2 228.9 L107.7 222.7 L116.3 217.5 L124.8 212.7 L133.3 208.3 L141.9 205.8 L150.4 201.8 L158.9 197.7 L167.5 195.1 L176.0 191.7 L184.5 190.6 L193.1 188.4 L201.6 188.1 L210.1 185.1 L218.7 183.0 L227.2 182.2 L235.7 180.9 L244.3 178.5 L252.8 179.1 L261.3 177.1 L269.9 177.3 L278.4 174.5 L286.9 175.2 L295.5 186.0 L304.0 197.7 L312.5 205.3 L321.1 212.7 L329.6 214.0 L338.1 214.2 L346.7 215.8 L355.2 213.5 L363.7 214.6 L372.3 215.2 L380.8 214.4 L389.3 216.4 L397.9 215.2 L406.4 216.3 L414.9 214.9 L423.5 215.3 L432.0 214.4 L440.5 215.6 L449.1 215.4 L457.6 217.0 L466.1 215.6 L474.7 216.3 L483.2 215.2 L491.7 215.4 L500.3 217.6 L508.8 218.0 L517.3 214.6 L525.9 215.1 L534.4 215.9 L542.9 216.3 L551.5 217.7 L560.0 216.3 L568.5 217.5 L577.1 216.2 L585.6 215.8 L594.1 216.9 L602.7 215.8 L611.2 216.0 L619.7 216.5 L628.3 216.7 L636.8 214.8 L645.3 216.6"/>
+        <path class="line-hot" d="M48.0 222.2 L56.5 229.3 L65.1 235.7 L73.6 241.4 L82.1 231.5 L90.7 222.6 L99.2 212.6 L107.7 206.4 L116.3 200.4 L124.8 194.3 L133.3 188.5 L141.9 182.0 L150.4 178.4 L158.9 171.9 L167.5 169.3 L176.0 164.9 L184.5 161.6 L193.1 160.5 L201.6 155.0 L210.1 153.3 L218.7 149.7 L227.2 148.4 L235.7 145.0 L244.3 141.1 L252.8 139.4 L261.3 137.5 L269.9 137.6 L278.4 132.7 L286.9 132.4 L295.5 147.6 L304.0 160.0 L312.5 174.3 L321.1 182.4 L329.6 180.8 L338.1 179.8 L346.7 176.7 L355.2 172.5 L363.7 173.3 L372.3 170.5 L380.8 167.3 L389.3 165.1 L397.9 161.0 L406.4 162.2 L414.9 160.4 L423.5 156.1 L432.0 155.1 L440.5 153.4 L449.1 153.1 L457.6 149.4 L466.1 149.7 L474.7 146.7 L483.2 145.2 L491.7 145.4 L500.3 142.7 L508.8 139.9 L517.3 138.3 L525.9 137.7 L534.4 134.9 L542.9 134.7 L551.5 132.0 L560.0 132.0 L568.5 129.9 L577.1 128.1 L585.6 125.8 L594.1 123.0 L602.7 121.9 L611.2 121.2 L619.7 118.5 L628.3 117.2 L636.8 116.1 L645.3 114.8"/>
+        <path class="line-proj" d="M645.3 114.8 L816.0 84.9"/>
+        <line class="flag" x1="517.3" x2="517.3" y1="24" y2="316"/>
+        <text class="note" x="507.3" y="46" text-anchor="end">Respite flags it</text>
+        <text class="note sub" x="507.3" y="64" text-anchor="end">and sends a backup</text>
+        <text class="label-hot" x="645.3" y="140.8" text-anchor="end">Front-left wheel</text>
+        <text class="label-twin" x="346.7" y="241.8" text-anchor="middle">Front-right wheel (healthy)</text>
+        </svg>
+        </div>
+      </figure>
+    </div>
+  </section>
+
+  <section id="demo" class="blue">
+    <div class="wrap">
+      <div class="demo-intro">
+        <h2 style="margin-bottom: 0;">Try the dashboard</h2>
+        <p>This is the team's real dashboard. Click a rover to see its readings against their safe limits, or open Work orders to see the repair queue. Switch examples with the menu at the top.</p>
+      </div>
+      <div class="demo-frame">
+        <iframe src="demo/" title="Respite fleet dashboard demo" loading="lazy"></iframe>
+      </div>
+      <div class="demo-note">
+        <span>The dashboard works now. The data is simulated while the data generator and model are being built.</span>
+        <a href="demo/" target="_blank" rel="noopener">Open full screen</a>
+      </div>
+    </div>
+  </section>
+
+  <section id="design">
+    <div class="wrap">
+      <h2>Why it's built this way</h2>
+      <ol class="choices">
+        <li><h3>You can always see why</h3><p>Respite uses readable rules and measured trends instead of a black-box AI. Every alert shows the readings that caused it.</p></li>
+        <li><h3>Normal depends on the job</h3><p>A rover hauling cargo draws more power than an empty one. Readings are compared with what is normal for the current task, so hard work is not mistaken for a fault.</p></li>
+        <li><h3>Same symptoms, different causes</h3><p>A worn wheel bearing and a wheel clogged with lunar dust both slow the wheel down. Only the bearing makes the wheel hotter than its motor explains, and Respite checks for that difference.</p></li>
+        <li><h3>Few false alarms</h3><p>Garage space is limited. A reading has to stay abnormal before it raises an alert, so one noisy reading never sends a rover in for repair.</p></li>
+        <li><h3>Tested against a hidden answer</h3><p>We test on simulated rovers with faults we planted ourselves. The model never sees the answer key, so we can measure exactly how early it warned.</p></li>
+      </ol>
+    </div>
+  </section>
+
+  <section id="progress" style="padding-top: 0;">
+    <div class="wrap">
+      <h2>Where we are</h2>
+      <div class="progress">
+        <div class="stage">
+          <p class="when">Done</p>
+          <h3>Design</h3>
+          <ul>
+            <li>What each rover measures, and the four fault types we target</li>
+            <li>How rovers move between active duty, repair and standby</li>
+            <li>Data formats for every part of the system, with example data</li>
+            <li>The dashboard demo above</li>
+            <li>A test plan for each of the six HUNCH missions</li>
+          </ul>
+        </div>
+        <div class="stage now">
+          <p class="when">Now, through PDR (mid-October 2026)</p>
+          <h3>Build</h3>
+          <ul>
+            <li>Mock data generator: simulated rover telemetry with faults we control</li>
+            <li>Real-time model: health checks and trend predictions on live data</li>
+          </ul>
+        </div>
+        <div class="stage">
+          <p class="when">Planned, toward CDR (mid-February 2027)</p>
+          <h3>Connect</h3>
+          <ul>
+            <li>Fault diagnosis, work orders and backup dispatch running on generated data</li>
+            <li>Refine the design based on PDR feedback</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="team" style="padding-top: 0;">
+    <div class="wrap">
+      <h2>The team</h2>
+      <ul class="team">
+        <li>
+          <!-- Replace with a real photo: put max.jpg in site/assets/team/ and change src to assets/team/max.jpg -->
+          <img src="assets/team/placeholder.svg" alt="Max Moyle" width="400" height="400">
+          <h3>Max Moyle</h3>
+          <p>Team lead, lead programmer, quantitative analyst</p>
+        </li>
+        <li>
+          <!-- Replace with a real photo: put diego.jpg in site/assets/team/ and change src to assets/team/diego.jpg -->
+          <img src="assets/team/placeholder.svg" alt="Diego delRio" width="400" height="400">
+          <h3>Diego delRio</h3>
+          <p>Design lead, artistic coordinator, frontend developer</p>
+        </li>
+        <li>
+          <!-- Replace with a real photo: put benjamin.jpg in site/assets/team/ and change src to assets/team/benjamin.jpg -->
+          <img src="assets/team/placeholder.svg" alt="Benjamin Lu" width="400" height="400">
+          <h3>Benjamin Lu</h3>
+          <p>Database manager, data scientist, testing coordinator</p>
+        </li>
+      </ul>
+      <dl class="team-meta">
+        <div><dt>Advisor</dt><dd>Ms. Sylvia Odoms</dd></div>
+        <div><dt>School</dt><dd>STISD Science Academy, Mercedes, Texas · 12th grade</dd></div>
+        <div><dt>Program</dt><dd>NASA HUNCH 2026–27 · District TX151</dd></div>
+      </dl>
+    </div>
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="wrap">
+    <img src="assets/logo-256.png" alt="" width="48" height="48">
+    <p><strong>Project Respite</strong><br>Radically Reliable Robotics</p>
+    <p class="fine">A student project for NASA HUNCH 2026–27. This is not an official NASA website.</p>
+  </div>
+</footer>
+
+</body>
+</html>

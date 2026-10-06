@@ -1,0 +1,80 @@
+/* Respite brand skin for the fleet dashboard (same class names as dashboard/style.css). */
+:root {
+  color-scheme: light;
+  --blue: #354c70; --blue-deep: #25374f; --yellow: #ffeb77; --white: #f7f0f5; --panel: #ffffff;
+  --text: #24344f; --muted: #66728a; --line: #e2dae1;
+  --normal: #2e7b5c; --warning: #ffeb77; --warning-line: #d4a500; --critical: #c2413a; --unknown: #8d95a5; --info: #354c70;
+}
+* { box-sizing: border-box; }
+body { margin: 0; font: 400 14px/1.45 "Archivo", system-ui, sans-serif; background: var(--white); color: var(--text); }
+a { color: var(--blue); }
+
+.topbar { display: flex; gap: 16px; align-items: center; flex-wrap: wrap; padding: 10px 16px; background: var(--blue); color: #fff; }
+.brand { display: flex; align-items: center; gap: 10px; color: #fff; text-decoration: none; font-weight: 800; font-stretch: 115%; font-size: 15px; }
+.feed-picker { font-size: 13px; color: rgba(255, 255, 255, 0.8); }
+.feed-picker select { margin-left: 6px; font: inherit; color: var(--text); background: #fff; border: 0; border-radius: 6px; padding: 4px 8px; }
+.data-note { margin: 0; font-size: 12px; font-weight: 700; color: var(--blue); background: var(--yellow); border-radius: 4px; padding: 2px 8px; }
+/* The clock shows internal fixture labels; hidden on the public demo. */
+.clock { display: none; margin-left: auto; font-size: 12px; color: rgba(255, 255, 255, 0.75); font-variant-numeric: tabular-nums; }
+
+.tabs { display: flex; gap: 2px; padding: 0 12px; background: var(--blue-deep); overflow-x: auto; }
+.tabs a { padding: 10px 12px; text-decoration: none; color: rgba(255, 255, 255, 0.72); border-bottom: 3px solid transparent; white-space: nowrap; font-weight: 600; }
+.tabs a.active { color: #fff; border-bottom-color: var(--yellow); }
+
+main { padding: 16px; max-width: 1400px; margin: 0 auto; }
+h2 { margin: 6px 0 14px; font-size: 20px; font-weight: 800; font-stretch: 115%; color: var(--blue); }
+h3 { margin: 14px 0 8px; font-size: 15px; font-weight: 700; color: var(--blue); }
+
+.panel { background: var(--panel); border: 1px solid var(--line); border-radius: 10px; padding: 14px; margin-bottom: 12px; }
+.grid { display: grid; gap: 12px; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); }
+.tiles { display: grid; gap: 10px; grid-template-columns: repeat(auto-fill, minmax(140px, 1fr)); margin-bottom: 14px; }
+.tile { background: var(--panel); border: 1px solid var(--line); border-radius: 10px; padding: 10px 14px; }
+.tile .num { font-size: 26px; font-weight: 800; font-stretch: 115%; color: var(--blue); }
+.tile .lbl { color: var(--muted); font-size: 12px; }
+
+.card { background: var(--panel); border: 1px solid var(--line); border-top: 6px solid var(--unknown); border-radius: 10px; padding: 12px 14px; }
+.card.NORMAL { border-top-color: var(--normal); }
+.card.WARNING { border-top-color: var(--warning-line); }
+.card.CRITICAL { border-top-color: var(--critical); }
+a.card:hover { border-color: var(--blue); }
+.card .row { display: flex; justify-content: space-between; gap: 8px; }
+.muted { color: var(--muted); } .small { font-size: 12px; }
+
+.badge { display: inline-block; padding: 1px 8px; border-radius: 4px; font-size: 11px; font-weight: 700; color: #fff; background: var(--unknown); }
+.badge.NORMAL { background: var(--normal); }
+.badge.WARNING { background: var(--warning); color: var(--blue-deep); }
+.badge.CRITICAL { background: var(--critical); }
+.badge.INFO { background: var(--info); }
+.chips { display: flex; flex-wrap: wrap; gap: 4px; margin-top: 8px; }
+
+table { width: 100%; border-collapse: collapse; }
+th, td { text-align: left; padding: 6px 8px; border-bottom: 1px solid var(--line); vertical-align: top; }
+th { color: var(--muted); font-weight: 600; font-size: 12px; }
+td.num { text-align: right; font-variant-numeric: tabular-nums; }
+.table-wrap { overflow-x: auto; }
+
+.plots { display: grid; gap: 12px; grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); }
+.plot svg { width: 100%; height: auto; display: block; }
+.plot .title { font-size: 12px; font-weight: 700; color: var(--blue); }
+.plot .title .muted { font-weight: 400; }
+svg .value { fill: none; stroke: var(--blue); stroke-width: 1.8; }
+svg .baseline { fill: none; stroke: var(--muted); stroke-width: 1; stroke-dasharray: 4 3; }
+svg .warn { fill: none; stroke: var(--warning-line); stroke-width: 1.2; }
+svg .crit { fill: none; stroke: var(--critical); stroke-width: 1.2; }
+svg .axis { stroke: var(--line); }
+svg text { fill: var(--muted); font-size: 10px; font-family: "Archivo", system-ui, sans-serif; }
+svg .marker { stroke: var(--blue); stroke-width: 1; stroke-dasharray: 2 2; }
+svg .marker.WARNING { stroke: var(--warning-line); }
+svg .marker.CRITICAL { stroke: var(--critical); }
+
+.legend { font-size: 12px; color: var(--muted); margin-bottom: 8px; }
+.legend span { margin-right: 12px; white-space: nowrap; }
+.legend span[style*="--warning"] { color: var(--warning-line) !important; }
+details summary { cursor: pointer; }
+select { font: inherit; padding: 3px 6px; }
+.empty { color: var(--muted); padding: 24px; text-align: center; }
+.error { color: var(--critical); white-space: pre-wrap; }
+
+@media (max-width: 640px) {
+  .clock { margin-left: 0; width: 100%; }
+}
