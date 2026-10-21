@@ -1,0 +1,86 @@
+{
+  "schema_version": "1.0.0",
+  "feed_type": "alerts",
+  "t_s": 9779,
+  "sim_time": "2027-03-01T02:42:59Z",
+  "alerts": [
+    {
+      "alert_id": "EV-000012",
+      "t_s": 9539,
+      "at": "2027-03-01T02:38:59Z",
+      "kind": "PREDICTION",
+      "severity": "WARNING",
+      "robot_id": "P2-02",
+      "subsystem": "POWER",
+      "channel": "battery_voltage_v",
+      "title": "P2-02: battery degradation suspected (main battery pack), about 60 min to failure",
+      "detail": "Confidence 1.00; predicted failure T+3:38",
+      "ref_id": "PR-000008"
+    },
+    {
+      "alert_id": "EV-000011",
+      "t_s": 9239,
+      "at": "2027-03-01T02:33:59Z",
+      "kind": "PREDICTION",
+      "severity": "WARNING",
+      "robot_id": "P2-02",
+      "subsystem": "POWER",
+      "channel": "battery_voltage_v",
+      "title": "P2-02: battery degradation suspected (main battery pack), about 67 min to failure",
+      "detail": "Confidence 1.00; predicted failure T+3:41",
+      "ref_id": "PR-000007"
+    },
+    {
+      "alert_id": "EV-000010",
+      "t_s": 9239,
+      "at": "2027-03-01T02:33:59Z",
+      "kind": "ANOMALY",
+      "severity": "WARNING",
+      "robot_id": "P2-02",
+      "subsystem": "POWER",
+      "channel": "battery_voltage_v",
+      "title": "P2-02 battery pack terminal voltage is 0.51 V below its TRAVERSE_EMPTY baseline",
+      "detail": "POWER / battery_pack; began T+2:33",
+      "ref_id": "AN-000002"
+    },
+    {
+      "alert_id": "EV-000008",
+      "t_s": 7619,
+      "at": "2027-03-01T02:06:59Z",
+      "kind": "ANOMALY",
+      "severity": "WARNING",
+      "robot_id": "P2-02",
+      "subsystem": "POWER",
+      "channel": "battery_voltage_v",
+      "title": "P2-02 battery pack terminal voltage is 0.51 V below its TRAVERSE_LOADED baseline",
+      "detail": "POWER / battery_pack; began T+2:06",
+      "ref_id": "AN-000001"
+    },
+    {
+      "alert_id": "EV-000007",
+      "t_s": 7499,
+      "at": "2027-03-01T02:04:59Z",
+      "kind": "PREDICTION",
+      "severity": "WARNING",
+      "robot_id": "P2-02",
+      "subsystem": "POWER",
+      "channel": "battery_voltage_v",
+      "title": "P2-02: battery degradation suspected (main battery pack), about 113 min to failure",
+      "detail": "Confidence 0.80; predicted failure T+3:58",
+      "ref_id": "PR-000006"
+    },
+    {
+      "alert_id": "EV-000005",
+      "t_s": 6959,
+      "at": "2027-03-01T01:55:59Z",
+      "kind": "PREDICTION",
+      "severity": "WARNING",
+      "robot_id": "P2-02",
+      "subsystem": "POWER",
+      "channel": "battery_voltage_v",
+      "title": "P2-02: battery degradation suspected (main battery pack), about 133 min to failure",
+      "detail": "Confidence 1.00; predicted failure T+4:08",
+      "ref_id": "PR-000004"
+    }
+  ]
+}

@@ -1,0 +1,53 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://hunch-llaso-p4.invalid/schemas/score.schema.json",
+  "title": "Run score",
+  "description": "runs/<run_id>/score.json, written by p4maint/scoring/lead_time.py after a run: how each injected fault was handled, compared with the answer key. Headline metric: warning_lead_time_s.",
+  "type": "object",
+  "required": ["schema_version", "run_id", "scenario_id", "target_lead_time_s", "faults", "false_alarms", "summary"],
+  "additionalProperties": false,
+  "properties": {
+    "schema_version": {"$ref": "common.schema.json#/$defs/schema_version"},
+    "run_id": {"type": "string"},
+    "scenario_id": {"type": "string"},
+    "target_lead_time_s": {"type": "number"},
+    "faults": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["fault_id", "robot_id", "fault_type", "inject_t_s", "failure_t_s", "first_anomaly_t_s", "detection_delay_s",
+                     "first_warning_t_s", "first_warning_fault_mode", "diagnosis_correct", "warning_lead_time_s",
+                     "predicted_failure_t_s", "failure_time_error_s", "missed", "meets_target"],
+        "additionalProperties": false,
+        "properties": {
+          "fault_id": {"type": "string"},
+          "robot_id": {"$ref": "common.schema.json#/$defs/robot_id"},
+          "fault_type": {"type": "string"},
+          "inject_t_s": {"type": "number"},
+          "failure_t_s": {"type": "number"},
+          "first_anomaly_t_s": {"type": ["number", "null"]},
+          "detection_delay_s": {"type": ["number", "null"], "description": "first anomaly t_s - inject_t_s"},
+          "first_warning_t_s": {"type": ["number", "null"], "description": "made_at_t_s of the first predictive warning on this robot"},
+          "first_warning_fault_mode": {"type": ["string", "null"]},
+          "diagnosis_correct": {"type": ["boolean", "null"]},
+          "warning_lead_time_s": {"type": ["number", "null"], "description": "failure_t_s - made_at_t_s of the first predictive warning naming the right fault"},
+          "predicted_failure_t_s": {"type": ["number", "null"], "description": "what that warning predicted"},
+          "failure_time_error_s": {"type": ["number", "null"], "description": "predicted - true failure time (positive = predicted too late)"},
+          "missed": {"type": "boolean", "description": "no correct predictive warning before failure"},
+          "meets_target": {"type": "boolean", "description": "warning_lead_time_s >= target_lead_time_s"}
+        }
+      }
+    },
+    "false_alarms": {
+      "type": "object",
+      "required": ["anomalies", "predictive_warnings", "work_orders"],
+      "additionalProperties": false,
+      "properties": {
+        "anomalies": {"type": "integer", "minimum": 0},
+        "predictive_warnings": {"type": "integer", "minimum": 0},
+        "work_orders": {"type": "integer", "minimum": 0}
+      }
+    },
+    "summary": {"type": "string"}
+  }
+}

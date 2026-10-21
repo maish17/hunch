@@ -2,13 +2,12 @@
 
 Responsibility: read a scenario JSON file (format: docs/DECISIONS.md section 9,
 contract: schemas/scenario.schema.json) and refuse bad ones early with a clear
-message. Loading and run naming are plumbing and are implemented; the
-cross-reference check is a TODO.
+message.
 """
 
 from pathlib import Path
 
-from p4maint.configs import load_generator_params, load_json
+from p4maint.configs import get_fault, load_generator_params, load_json
 from schemas.validate import validate
 
 
@@ -28,14 +27,38 @@ def make_run_id(scenario: dict) -> str:
 
 
 def check_scenario_references(scenario: dict, channels_cfg: dict, faults_cfg: dict) -> list[str]:
-    """Return a list of problems the schema cannot catch (empty list = fine).
+    """Return a list of problems the schema cannot catch (empty list = fine)."""
+    problems = []
+    mission_ids = {mission["mission_id"] for mission in scenario["missions"]}
+    component_ids = {component["id"] for component in channels_cfg["hierarchy"]["components"]}
+    robot_ids = [robot["robot_id"] for robot in scenario["robots"]]
+    if len(robot_ids) != len(set(robot_ids)):
+        problems.append("robot_ids are not unique")
 
-    TODO(generator owner): check that
-      - every robot's mission_id (if not null) is defined in scenario["missions"]
-      - ACTIVE robots have a mission, STANDBY robots do not
-      - robot_ids are unique, and no two ACTIVE robots share a mission
-      - every fault's robot_id exists, and its component matches the fault's
-        component_pattern in config/faults.json (e.g. wheel_fl_drive for bearing_wear)
-      - inject_at_s < duration_s
-    """
-    raise NotImplementedError("check_scenario_references")
+    missions_taken = {}
+    for robot in scenario["robots"]:
+        robot_id, mission_id = robot["robot_id"], robot["mission_id"]
+        if robot["initial_status"] == "ACTIVE" and mission_id is None:
+            problems.append(f"{robot_id} is ACTIVE but has no mission")
+        if robot["initial_status"] == "STANDBY" and mission_id is not None:
+            problems.append(f"{robot_id} is STANDBY but has mission {mission_id}")
+        if mission_id is not None and mission_id not in mission_ids:
+            problems.append(f"{robot_id} has unknown mission {mission_id}")
+        if mission_id is not None and robot["initial_status"] == "ACTIVE":
+            if mission_id in missions_taken:
+                problems.append(f"{robot_id} and {missions_taken[mission_id]} are both ACTIVE on {mission_id}")
+            missions_taken[mission_id] = robot_id
+
+    for fault in scenario["faults"]:
+        label = fault["fault_id"]
+        if fault["robot_id"] not in robot_ids:
+            problems.append(f"{label}: unknown robot {fault['robot_id']}")
+        if fault["component"] not in component_ids:
+            problems.append(f"{label}: unknown component {fault['component']}")
+        pattern = get_fault(faults_cfg, fault["fault_type"])["component_pattern"]
+        allowed = {pattern.replace("{wheel}", wheel) for wheel in ("fl", "fr", "rl", "rr")}
+        if fault["component"] not in allowed:
+            problems.append(f"{label}: {fault['fault_type']} cannot be injected into {fault['component']} (expected {pattern})")
+        if fault["inject_at_s"] >= scenario["duration_s"]:
+            problems.append(f"{label}: inject_at_s is after the scenario ends")
+    return problems

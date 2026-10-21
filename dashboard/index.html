@@ -4,14 +4,17 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>P4 Fleet Health</title>
+  <link rel="icon" href="../site/assets/favicon-64.png">
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
   <!--
     P4 fleet-health dashboard. Static page: no framework, no build step.
     Serve the REPO ROOT (make dashboard), then open http://localhost:8000/dashboard/
-    Data: a feed folder (feed_index.json + the files it lists). Default is a fixture;
-    pass ?feed=../runs/<run_id>/dashboard/feed_index.json to view a real run.
+    The "Scenarios" button (source.js) generates and opens runs; it needs make dashboard's server.
+    Data: a feed folder (feed_index.json + the files it lists). Default is a fixture; the
+    menu also has generated runs (site/demo/generated/, from `make site-data`). Pass
+    ?feed=../runs/<run_id>/dashboard/feed_index.json to view any run (`make detect` prints it).
     All maths is done in Python before the files are written; this page only draws.
   -->
   <header class="topbar">
@@ -20,10 +23,22 @@
       <select id="feed-select">
         <option value="../fixtures/active_work_order/feed_index.json">Fixture: active work order</option>
         <option value="../fixtures/healthy_fleet/feed_index.json">Fixture: healthy fleet</option>
+        <option value="../site/demo/generated/bearing_wear_p2_02/feed_index.json">Generated: bearing wear</option>
+        <option value="../site/demo/generated/wheel_drag_p2_01/feed_index.json">Generated: wheel drag</option>
+        <option value="../site/demo/generated/cooling_fault_p2_03/feed_index.json">Generated: cooling fault</option>
+        <option value="../site/demo/generated/battery_degradation_p2_02/feed_index.json">Generated: battery degradation</option>
+        <option value="../site/demo/generated/healthy_baseline/feed_index.json">Generated: healthy fleet</option>
       </select>
     </label>
+    <button id="source-toggle" type="button" class="source-toggle" hidden>Scenarios</button>
     <div id="sim-clock" class="clock">-</div>
   </header>
+
+  <!-- Scenarios panel (dashboard/source.js). Only appears when served by `make dashboard`. -->
+  <section id="source-panel" class="source-panel" hidden>
+    <div class="source-head"><strong>Scenarios</strong> <span id="source-status" class="small muted"></span></div>
+    <ul id="source-list" class="source-list"></ul>
+  </section>
 
   <nav class="tabs">
     <a href="#fleet" data-view="fleet">Fleet board</a>
@@ -40,6 +55,7 @@
   <script src="views/robot.js"></script>
   <script src="views/alerts.js"></script>
   <script src="views/workorders.js"></script>
-  <script>P4.start();</script>
+  <script src="source.js"></script>
+  <script>P4.start(); P4.source.init();</script>
 </body>
 </html>

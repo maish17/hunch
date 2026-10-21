@@ -41,9 +41,11 @@ SCHEMA_FOR_FILE = [
     ("work_order*.json", "work_order"),
     ("telemetry_batch*.json", "telemetry_batch"),
     ("health_snapshot*.json", "health_snapshot"),
+    ("health_*.json", "health_snapshot"),
     ("anomaly_event*.json", "anomaly_event"),
     ("prediction*.json", "prediction"),
     ("scenario*.json", "scenario"),
+    ("score*.json", "score"),
 ]
 
 
@@ -130,6 +132,7 @@ def default_targets() -> list[Path]:
     targets += sorted((REPO_ROOT / "scenarios").glob("*.json"))
     targets += sorted((REPO_ROOT / "fixtures").rglob("*.json"))
     targets += sorted((REPO_ROOT / "fixtures").rglob("*.jsonl"))
+    targets += sorted((REPO_ROOT / "site" / "demo" / "generated").rglob("*.json"))
     return targets
 
 

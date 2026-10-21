@@ -19,16 +19,14 @@ from pathlib import Path
 from p4maint import paths
 from p4maint.configs import (load_channels, load_detector_params, load_dispatch, load_faults,
                              load_generator_params, load_modes, load_state_machine)
-from p4maint.dashboard_export import feeds  # used by publish() once implemented
-from p4maint.detect.anomaly import AnomalyDetector
+from p4maint.analysis import GroundAnalysis
+from p4maint.dashboard_export import feeds
 from p4maint.eventlog.log import EventLog
 from p4maint.fleet import fleet as fleet_ops
 from p4maint.fleet import garage as garage_ops
 from p4maint.generator.ground_truth import build_ground_truth, write_ground_truth
 from p4maint.generator.scenario import load_scenario, make_run_id
 from p4maint.generator.simulate import FleetSimulator
-from p4maint.health.evaluate import build_snapshot, evaluate_samples, new_baseline_state
-from p4maint.ingest.history import RollingWindow
 from p4maint.ingest.store import append_batch, check_batch, close_store, open_store
 from p4maint.scoring.lead_time import score_run
 
@@ -65,21 +63,20 @@ def run(scenario_path: Path) -> Path:
     # 3. The simulated world (generator only sees generator.json) ...
     sim = FleetSimulator(scenario, load_generator_params(), cfg["modes"], cfg["faults"],
                          cfg["channels"], cfg["state_machine"])
-    # ... and the ground system's state.
-    look_back_s = max(cfg["detector"]["trend"]["fit_window_s"],
-                      cfg["dispatch"]["work_order_evidence"]["window_s"])
+    # ... and the ground system's state. GroundAnalysis does Missions 1-4 (the same code
+    # p4maint/openloop.py runs today).
     state = {
         "writer": open_store(paths.telemetry_path(folder), cfg["channels"]),
-        "telemetry": RollingWindow(look_back_s),
-        "evaluated": RollingWindow(look_back_s),
-        "baselines": new_baseline_state(),
-        "detector": AnomalyDetector(cfg["detector"], cfg["channels"], start),
+        "analysis": GroundAnalysis(cfg, start),
         "events": EventLog(paths.events_path(folder), start),
         "fleet": fleet_ops.initial_fleet_state(scenario),
         "garage": garage_ops.new_garage(cfg["dispatch"], scenario.get("garage_capacity"), 0, start),
         "work_orders": {},     # work_order_id -> work order dict
         "predictions": {},     # robot_id -> latest prediction dict
         "snapshots": {},       # robot_id -> latest health snapshot
+        "minutes": {},         # robot_id -> dashboard minute points (feeds.minute_point)
+        "anomalies": [],       # every anomaly raised
+        "published": [],       # every prediction announced, in order
     }
     state["events"].append("RUN_STARTED", 0, None, f"Run {run_id} started", {"scenario_id": scenario["scenario_id"]})
 
@@ -91,27 +88,26 @@ def run(scenario_path: Path) -> Path:
         if problems:
             raise ValueError("Bad telemetry batch: " + "; ".join(problems))
         append_batch(state["writer"], batch, cfg["channels"])
-        state["telemetry"].add(batch)
         now_t_s = int(batch["t_s"].max())
 
-        for robot_id in sorted(batch["robot_id"].unique()):
-            rows = batch[batch["robot_id"] == robot_id]
-            evaluated = evaluate_samples(rows, robot_id, cfg["channels"], cfg["modes"], cfg["detector"],
-                                         state["baselines"])
-            evaluated["robot_id"] = robot_id
-            state["evaluated"].add(evaluated)
-            snapshot = build_snapshot(evaluated, robot_id, cfg["channels"], cfg["detector"], start)
-            state["snapshots"][robot_id] = snapshot
-            fleet_ops.update_health(state["fleet"], snapshot, cfg["dispatch"])
-            analyse_robot(robot_id, now_t_s, state, cfg, start)
+        for robot_id, result in state["analysis"].analyse_batch(batch).items():
+            state["snapshots"][robot_id] = result["snapshot"]
+            state["minutes"].setdefault(robot_id, []).append(feeds.minute_point(result["evaluated"]))
+            state["anomalies"].extend(result["raised"])
+            if result["published"]:
+                state["published"].append(result["prediction"])
+            fleet_ops.update_health(state["fleet"], result["snapshot"], cfg["dispatch"])
+            act_on_findings(robot_id, result, now_t_s, state, cfg, start)
 
         advance_fleet_and_garage(now_t_s, sim, state, cfg, start, run_id)
-        publish(folder, run_id, scenario, now_t_s, state, cfg)
+        if (now_t_s + 1) % cfg["dispatch"]["dashboard_export"]["refresh_every_s"] == 0:
+            publish(folder, run_id, scenario, now_t_s, state, cfg)
 
-    # 5. Finish and score.
+    # 5. Finish, score, and write the final dashboard feeds.
     close_store(state["writer"])
     state["events"].append("RUN_FINISHED", now_t_s, None, f"Run {run_id} finished", {})
     score_run(folder, cfg["detector"])
+    publish(folder, run_id, scenario, now_t_s, state, cfg)
     return folder
 
 
@@ -121,20 +117,18 @@ def open_work_order_severities(state: dict) -> dict[str, str]:
     raise NotImplementedError("pipeline.open_work_order_severities")
 
 
-def analyse_robot(robot_id: str, now_t_s: int, state: dict, cfg: dict, start: str) -> None:
-    """Missions 2-5 for one robot after its batch has been evaluated.
+def act_on_findings(robot_id: str, result: dict, now_t_s: int, state: dict, cfg: dict, start: str) -> None:
+    """Log what GroundAnalysis found for one robot, then act on it (Mission 5).
 
     TODO(pipeline owner), in this order:
-      1. state["detector"].update(...) -> log ANOMALY_RAISED / ANOMALY_CLEARED
-      2. diagnose.diagnosis.diagnose(...) on the look-back windows
-      3. predict.trend.trend_for_channel(...) on the diagnosis target channel
-      4. predict.prediction.build_prediction(...) -> log PREDICTION_ISSUED (only when it
-         changes materially, not every batch)
-      5. workorders.workorder.should_create(...) -> create_work_order(...), set_status to
+      1. log ANOMALY_RAISED / ANOMALY_CLEARED for result["raised"] / result["cleared"], and
+         PREDICTION_ISSUED when result["published"] (copy p4maint/openloop.py, which does
+         exactly this today); keep result["prediction"] in state["predictions"]
+      2. workorders.workorder.should_create(...) -> create_work_order(...), set_status to
          QUEUED, garage.enqueue(...), fleet set_robot_status MAINTENANCE_REQUIRED,
          log everything; if severity is CRITICAL, fleet.swap_in_standby(...) now
     """
-    raise NotImplementedError("pipeline.analyse_robot")
+    raise NotImplementedError("pipeline.act_on_findings")
 
 
 def advance_fleet_and_garage(now_t_s: int, sim: FleetSimulator, state: dict, cfg: dict, start: str,
@@ -153,7 +147,9 @@ def advance_fleet_and_garage(now_t_s: int, sim: FleetSimulator, state: dict, cfg
 
 
 def publish(folder: Path, run_id: str, scenario: dict, now_t_s: int, state: dict, cfg: dict) -> None:
-    """Build every dashboard feed with p4maint.dashboard_export.feeds and write them to
-    runs/<run_id>/dashboard/ (feeds.write_all)."""
-    raise NotImplementedError("pipeline.publish")
+    """Write every dashboard feed to runs/<run_id>/dashboard/ (same export as make detect)."""
+    feeds.export_run(paths.dashboard_dir(folder), run_id, scenario, now_t_s, state["fleet"], state["garage"],
+                     list(state["work_orders"].values()), state["snapshots"], state["minutes"], state["anomalies"],
+                     state["published"], state["events"].read_all(), cfg,
+                     f"Run {run_id} (closed loop) at {now_t_s} s")
 

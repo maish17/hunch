@@ -1,0 +1,23 @@
+{
+  "schema_version": "1.0.0",
+  "feed_type": "index",
+  "run_id": "healthy_baseline__seed20270301",
+  "scenario_id": "healthy_baseline",
+  "label": "Generated run: healthy_baseline (seed 20270301, open loop)",
+  "is_fixture": false,
+  "t_s": 7199,
+  "sim_time": "2027-03-01T01:59:59Z",
+  "generated_at": "2026-10-21T02:48:17Z",
+  "files": {
+    "fleet_board": "fleet_board.json",
+    "alerts": "alerts.json",
+    "work_orders": "work_orders.json",
+    "robots": {
+      "P2-01": "robot_P2-01.json",
+      "P2-02": "robot_P2-02.json",
+      "P2-03": "robot_P2-03.json",
+      "P2-04": "robot_P2-04.json",
+      "P2-05": "robot_P2-05.json"
+    }
+  }
+}

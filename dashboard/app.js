@@ -129,8 +129,12 @@ P4.start = function () {
   window.addEventListener("hashchange", P4.route);
   P4.load(select.value).then(P4.route).catch(P4.showError);
 
-  // A live run rewrites its feed files every batch; re-read them every 10 s.
+  // A run in progress rewrites its feed files; check every 10 s and redraw only if the
+  // index's generated_at changed (finished runs and fixtures never change, so no redraw).
   P4.refreshTimer = setInterval(function () {
-    if (P4.index && !P4.index.is_fixture) P4.load(P4.feedUrl).then(P4.route).catch(P4.showError);
+    if (!P4.index || P4.index.is_fixture) return;
+    P4.getJson(P4.feedUrl).then(function (index) {
+      if (index.generated_at !== P4.index.generated_at) return P4.load(P4.feedUrl).then(P4.route);
+    }).catch(P4.showError);
   }, 10000);
 };

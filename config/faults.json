@@ -2,12 +2,13 @@
   "schema_version": "1.0.0",
   "description": "The four PDR fault types, exactly. Each fault perturbs ONE physical parameter in the generator; the multi-channel signature follows from the physics in DECISIONS.md section 4. Fault progress p goes from 0 at injection to 1 at true failure.",
   "progress_rule": "p(t) = 0 before inject_at_s; p(t) = ((t - inject_at_s) / time_to_failure_s) ** exponent while running; the component is FAILED when p reaches 1. parameter_value(p) = healthy_value + p * (at_failure - healthy_value).",
-  "calibration_rule": "at_failure is chosen so that, at p = 1, the fault's primary channel sits at its CRITICAL limit in TRAVERSE_EMPTY at thermal steady state. Values below were hand-computed from the section 4 equations; the generator tests must confirm them.",
+  "calibration_rule": "at_failure is chosen so that, at p = 1, the fault's primary channel sits at its CRITICAL limit in TRAVERSE_EMPTY at thermal steady state. Values below were hand-computed from the section 4 equations and are confirmed by tests/test_generator.py (within 10%).",
   "signature_vocabulary": {
     "UP": "rises versus mode baseline",
     "DOWN": "falls versus mode baseline",
     "NORMAL": "stays within the NORMAL band",
-    "EXPLAINED_BY_CURRENT": "raw value rises, but only by the amount the measured current predicts (residual stays near zero)"
+    "EXPLAINED_BY_CURRENT": "raw value rises, but only by the amount the measured current predicts (residual stays near zero)",
+    "UNCLEAR": "observed only (never in a signature): between clearly NORMAL and a clear shift, so it matches no fault"
   },
   "derived_signals": {
     "thermal_residual": "measured drive temperature minus temperature predicted from measured current and speed by the detector's thermal model (positive = unexplained heat)",

@@ -9,7 +9,8 @@ Static check over the source of every "ground-system" package. They may not:
   - contain a string mentioning answer_key, ground_truth or generator.json
 Docstrings and comments are ignored, so explaining the rule in prose is fine.
 Only p4maint/generator (writes it) and p4maint/scoring (reads it) are exempt;
-p4maint/pipeline.py wires both sides together and is reviewed by hand.
+p4maint/pipeline.py and p4maint/openloop.py wire both sides together and are
+reviewed by hand. p4maint/analysis.py (Missions 1-4) is checked like a package.
 """
 
 import ast
@@ -19,6 +20,7 @@ from p4maint.paths import REPO_ROOT
 
 GROUND_SIDE = ["health", "detect", "predict", "diagnose", "workorders", "fleet",
                "dashboard_export", "eventlog", "ingest"]
+GROUND_SIDE_FILES = ["analysis.py"]
 FORBIDDEN_MODULES = ("p4maint.generator", "p4maint.scoring")
 FORBIDDEN_NAMES = {"load_generator_params"}
 FORBIDDEN_TEXT = ("answer_key", "ground_truth", "generator.json")
@@ -64,13 +66,13 @@ def problems_in(path) -> list[str]:
 
 class TestAnswerKeyIsolation(unittest.TestCase):
     def test_ground_side_packages_cannot_reach_the_answer_key(self):
-        checked = 0
+        files = [REPO_ROOT / "p4maint" / name for name in GROUND_SIDE_FILES]
         for package in GROUND_SIDE:
-            for path in sorted((REPO_ROOT / "p4maint" / package).rglob("*.py")):
-                checked += 1
-                with self.subTest(file=str(path.relative_to(REPO_ROOT))):
-                    self.assertEqual(problems_in(path), [])
-        self.assertGreater(checked, 10, "expected to find the ground-side modules")
+            files += sorted((REPO_ROOT / "p4maint" / package).rglob("*.py"))
+        for path in files:
+            with self.subTest(file=str(path.relative_to(REPO_ROOT))):
+                self.assertEqual(problems_in(path), [])
+        self.assertGreater(len(files), 10, "expected to find the ground-side modules")
 
     def test_the_checker_catches_a_violation(self):
         """Guard against the checker silently passing everything."""

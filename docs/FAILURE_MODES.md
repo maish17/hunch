@@ -39,7 +39,7 @@ Machine-readable source: [`config/faults.json`](../config/faults.json). If this 
 
 ## Injected magnitudes (team estimates)
 
-Each fault changes one generator parameter, from its healthy value at injection to `at_failure` when progress `p` reaches 1. `at_failure` is chosen so the primary channel reaches its CRITICAL limit in `TRAVERSE_EMPTY` at thermal steady state (hand-computed from the equations in [DECISIONS.md §4](DECISIONS.md#4-physical-relationships-the-generator-must-obey); the generator tests must confirm it).
+Each fault changes one generator parameter, from its healthy value at injection to `at_failure` when progress `p` reaches 1. `at_failure` is chosen so the primary channel reaches its CRITICAL limit in `TRAVERSE_EMPTY` at thermal steady state (hand-computed from the equations in [DECISIONS.md §4](DECISIONS.md#4-physical-relationships-the-generator-must-obey); confirmed by `tests/test_generator.py`).
 
 | Fault | Parameter changed | Healthy → at failure | Primary channel (CRITICAL limit) | Default progression |
 |---|---|---|---|---|

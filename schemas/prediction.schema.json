@@ -61,7 +61,7 @@
     "signature_observed": {
       "type": "object",
       "description": "What the diagnosis saw for each signature element (vocabulary from config/faults.json).",
-      "additionalProperties": {"enum": ["UP", "DOWN", "NORMAL", "EXPLAINED_BY_CURRENT"]}
+      "additionalProperties": {"enum": ["UP", "DOWN", "NORMAL", "EXPLAINED_BY_CURRENT", "UNCLEAR"]}
     },
     "residuals": {
       "type": "object",

@@ -125,7 +125,7 @@ rolling torque per wheel = 0.15 × 400 kg × 1.62 m/s² × 0.25 m / 4 = 6.08 N·
 | Dashboard resolution | 1-minute means, last 2 h (121 points per channel) | Keeps feed files about 50 KB per robot. |
 | Scenario length | healthy 2 h; bearing wear 4 h (inject at 1 h, failure at 3.5 h) | Long enough to show a 15-min+ lead time, the work order, the dispatch and the standby swap. |
 
-**File sizes (estimate):** a row is 17 float32 + keys ≈ 90 bytes. A 4 h, 5-robot run = 72,000 rows ≈ 6.5 MB in memory and a few MB of Parquet. Fine. Mission 12 (30 days, later) would be about 13 M rows (≈ 1.2 GB in memory), so it will need per-minute decimation. Not a PDR problem.
+**File sizes (estimate):** a row is 17 float32 + keys ≈ 90 bytes. A 4 h, 5-robot run = 72,000 rows ≈ 6.5 MB in memory and about 7 MB of Parquet (measured: 7.1 MB; float noise does not compress much). Fine. Mission 12 (30 days, later) would be about 13 M rows (≈ 1.2 GB in memory), so it will need per-minute decimation. Not a PDR problem.
 
 Vibration-based bearing diagnosis (what the Case Western data is for) needs kHz sampling. That is deliberately out of scope.
 
@@ -170,7 +170,7 @@ Each wheel motor is a DC motor lumped at the wheel shaft (gear ratio folded into
 | E12 | y = x_true + N(0, σ_sensor), then quantise | Independent sensor noise added after the physics |
 | E13 | p = ((t − t_inject)/T_fail)^n, clipped to [0, 1];  param = healthy + p · (at_failure − healthy) | Fault progress. True failure is when p reaches 1. |
 
-**What these give us** (checked by hand, to be confirmed by `tests/test_generator.py`):
+**What these give us** (confirmed by `tests/test_generator.py`):
 - Bearing wear at failure (Δτ = 2.2 N·m, TRAVERSE_EMPTY): current +1.1 A, speed −0.08 rad/s, temperature +30 °C, most of it unexplained by current.
 - Wheel drag at failure (Δτ = 4.0 N·m): current +2.0 A, speed −0.15 rad/s, temperature only +12.5 °C, **all** of it explained by I²R.
 - Cooling fault at failure (R_th × 3.2): temperature +30 °C with current and speed unchanged.
@@ -342,7 +342,7 @@ The full transition table with triggers is in `config/state_machine.json` (16 ro
 ```
 
 **Reproducibility rules**
-- All randomness comes from `seed`. One numpy random generator per robot, spawned from `SeedSequence(seed)` in sorted `robot_id` order. Adding a robot never changes another robot's data. The global numpy and Python random states are never used.
+- All randomness comes from `seed`. One numpy random generator per robot, built from `SeedSequence(seed, spawn_key=(crc32(robot_id),))`, so each robot's stream depends only on the seed and its own id. Adding, removing or renaming another robot never changes its data (tested). The global numpy and Python random states are never used.
 - Missions are a repeating mode cycle on a **mission clock** (scenario time). A replacement robot picks up the cycle where the mission is, not from the start.
 - The generator is **closed loop**. Each batch it reads the current fleet state, so a robot sent to P5 drives there and a standby put into service starts the mission. The faults and their timing are fixed by the file, so the answer key is known before the run starts.
 - The run id is `<scenario_id>__seed<seed>`. Re-running overwrites the same folder.
@@ -369,3 +369,52 @@ These could not be decided without you. Each lists what we assumed so work is no
 | Q10 | Health score formula (0-100) | Placeholder: minimum of subsystem points (100 / 60 / 20) | Fleet board |
 | Q11 | Tests use Python's built-in `unittest` so no dependency is added. Do we want `pytest` as a dev-only dependency? | No, needs team approval | Test style |
 | Q12 | Who owns which part for the next two weeks? | Suggested split in README.md | Parallel work |
+| Q13 | In the bearing scenario, the front-left temperature alert clears during each short cargo stop (the drive cools below the warning line) and is raised again on the next drive: 5 alerts for one fault. Should alerts stay open longer (raise `clear_after_samples` in `detector.json` from 30 to a few hundred), or is re-alerting useful? | Left at 30 samples; zero false alarms either way | Alert feed noise |
+| Q14 | The straight-line trend predicts bearing failure 23 min too late, because bearing wear accelerates. Try a curved (quadratic) fit or a shorter fit window for temperature? | Kept linear (team decision); the 34 min lead time still beats the 15 min target | Mission 3 accuracy |
+| Q15 | In the cooling scenario the predicted time-to-failure swings with the mission cycle (loaded driving heats more), so the predictive warning flips on and off around the 60 min line and is re-announced each time. Add hysteresis (e.g. warn below 60 min, clear above 75)? | No hysteresis yet; scoring uses the first warning | Alert feed noise |
+| Q16 | The full test suite takes about 2 minutes because it runs all five scenarios. `make test-fast` skips them (10 s). Is that split OK for day-to-day work? | Yes | Developer time |
+| Q17 | A fleet-board card is coloured by the robot's CURRENT readings. A robot with a predictive warning but momentarily normal readings (e.g. parked, so the hot wheel cools) shows a green card with a warning headline. Colour cards by the worse of readings and prediction? | Cards follow readings; the website snapshots were picked at moments the readings are WARNING too | Dashboard clarity |
+
+---
+
+## 11. Missions 1-4 as built: what was tuned and why
+
+Everything below lives in `config/detector.json`; each value is a **team estimate tuned on our own simulator** (one seed per scenario).
+
+| Setting | Value | Why |
+|---|---|---|
+| Smoothing | 15 s rolling median | Removes single-sample noise and dropouts without hiding a real change |
+| Mode-change grace | 30 s | The median lags a mode step by ~8 s; those samples are skipped by the status checks, the trend fit and the diagnosis |
+| Temperature baseline | Lagged (tau 600 s), starting from the first measured value | Cooling down after work is not overheating |
+| Persistence / clear / re-alert | 5 samples / 30 samples / 600 s | Debounce noise; one alert per episode |
+| Diagnosis thresholds | current +0.3 A, speed -0.02 rad/s, excess heat +5 degC, extra sag -0.3 V | About 5-6 standard deviations of the healthy 300-sample median, so healthy robots never trip them |
+| Dead band (`normal_band_fraction`) | 0.5 | Evidence between half the threshold and the threshold is UNCLEAR and matches no fault. Without it, early bearing wear (heat visible, current rise not yet) was confidently called a cooling fault |
+| Distinctive-evidence rule | a fault is only named if all its non-NORMAL signature elements are seen | Without it, a nearly flat (but healthy) battery was blamed on battery degradation by elimination |
+| Trend fit | linear, last 30 min, driving samples only, R^2 >= 0.3, slope >= 3 standard errors | R^2 was 0.6; wheel current is noisy (terrain), so a real drag trend explains only ~35-40% of the variance and was never trusted. Trends are fitted only for robots the diagnosis has flagged, so this cannot create false alarms |
+| Battery trend | voltage deviation scaled to the reference-mode load (x I_ref / I) | Sag from a degraded pack is I x delta_R, so it is bigger when loaded; scaling removes the mission cycle from the trend |
+| Predictive warning | predicted time-to-failure < 60 min, named fault, confidence >= 0.6 | This is the moment the lead time is measured from |
+| Re-announcement | new fault/severity/warning state, or failure time moves > 25% of time left (min 5 min) | Keeps the event log readable |
+
+### Results (simulated, open loop, `make detect`)
+
+| Scenario | First predictive warning before true failure | First fault named | Predicted vs true failure | False alarms (other robots) |
+|---|---|---|---|---|
+| healthy_baseline | - | - | - | 0 alerts, 0 predictions |
+| bearing_wear_p2_02 | 34 min | bearing_wear | 23 min late | 0 |
+| wheel_drag_p2_01 | 49 min | wheel_drag | 10 min late | 0 |
+| cooling_fault_p2_03 | 56 min | cooling_fault | 3 min late | 0 |
+| battery_degradation_p2_02 | 51 min | battery_degradation | 9 min late | 0 |
+
+In no run was a wrong fault ever announced; before the evidence was complete the answer was "unknown". The central case holds in the data: at the first named diagnosis the bearing run's thermal residual is UP and the drag run's is NORMAL. These numbers come from one seed per scenario on the simulator we wrote, so they show the method works, not how accurate it would be on real hardware.
+
+---
+
+## 12. Dashboard export as built
+
+- **Same files as the fixtures.** `p4maint/dashboard_export/feeds.py` writes `feed_index.json`, `fleet_board.json`, `robot_<ID>.json`, `alerts.json` and `work_orders.json`, each validated before it is written (temporary file, then rename). The dashboard needed no changes to read real runs.
+- **Series:** one point per channel per 60 s batch: the mean of the smoothed values outside the mode-change grace period, with the mean baseline. The detail view shows the last 2 hours. Limit bands come from `health.evaluate.absolute_limits`, the same function the status checks use.
+- **Alert feed:** anomalies, plus predictions once they name a fault (unknown-cause predictions stay in the event log only).
+- **When feeds are written:** `make detect` writes them at the end of the run, or at `--dashboard-at`. The closed-loop pipeline writes them every `dispatch.json dashboard_export.refresh_every_s` (5 simulated minutes) and at the end. The dashboard redraws a run only when its `generated_at` changes, so finished runs do not flicker.
+- **Website demo data:** `make site-data` writes all five scenarios to `site/demo/generated/`. Each fault run is shown a few minutes after its first predictive warning, at a moment its readings are visibly WARNING (times in the `Makefile`). Those moments were **chosen by hand** for a clear demo; the website says the data is simulated and that the snapshot is taken shortly after the first early warning.
+- **Open loop:** until Missions 5-6 exist, generated runs show no work orders, an empty garage and starting statuses. The repair-garage view is demonstrated with the hand-made fixture, labelled as such.
+- **Generating from the dashboard:** `make dashboard` runs `p4maint/server.py`: Python's built-in file server plus three JSON endpoints (`/api/scenarios`, `/api/generate`, `/api/job`). The dashboard's Scenarios panel (`dashboard/source.js`) lists every file in `scenarios/` with a one-line overview and its last score, runs one scenario at a time in the background, and opens the result. It listens on 127.0.0.1 only, accepts only scenario ids that exist, and refuses requests from other websites. The public website has no server, so the panel only appears locally.

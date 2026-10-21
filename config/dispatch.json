@@ -34,6 +34,11 @@
     "notes": "Pick the eligible standby with the highest SOC; tie -> lowest robot_id. If none is eligible the mission is left uncovered and a STANDBY_UNAVAILABLE event is logged."
   },
 
+  "dashboard_export": {
+    "refresh_every_s": 300,
+    "notes": "During a closed-loop run (run_scenario.py) the dashboard feeds are rewritten every 5 simulated minutes and at the end. Rewriting every 60 s batch would slow the run for no benefit."
+  },
+
   "work_order_evidence": {
     "window_s": 3600,
     "downsample_s": 60,

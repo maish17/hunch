@@ -6,7 +6,8 @@ The public showcase site, published with GitHub Pages at **https://maish17.githu
 |---|---|
 | `index.html` | The page. All text lives here. |
 | `style.css` | All styling. Palette: blue `#354c70`, white `#f7f0f5`, yellow `#ffeb77` (accent only). One typeface: Archivo. |
-| `demo/` | The embedded dashboard demo. It loads the real `dashboard/*.js` and `fixtures/` from the repo, so dashboard changes show up here automatically. Only `demo/index.html` (header) and `demo/demo.css` (brand colours) are website-specific. |
+| `demo/` | The embedded dashboard demo. It loads the real `dashboard/*.js` from the repo, so dashboard changes show up here automatically. Only `demo/index.html` (header and run menu) and `demo/demo.css` (brand colours) are website-specific. |
+| `demo/generated/` | Real output: each fault scenario run through the model, written by `make site-data`. Regenerate and commit after changing the model. The hand-made garage example comes from `fixtures/`. |
 | `assets/` | Logo (`logo-256.png`), favicon, team photos. |
 
 ## Preview locally
@@ -17,6 +18,7 @@ From the repo root run `make dashboard`, then open http://localhost:8000/site/
 
 - **Team photos:** put a square photo in `assets/team/` (e.g. `max.jpg`), then in `index.html` change that person's `src="assets/team/placeholder.svg"` to `src="assets/team/max.jpg"`. Each spot has a comment saying exactly this.
 - **Progress section:** edit the three lists under `id="progress"` as work gets done.
+- **Demo data:** run `make site-data` from the repo root (about 2 minutes), check the demo locally, then commit `site/demo/generated/`. Each fault run is shown a few minutes after its first predictive warning, at a moment its readings are visibly WARNING; the times are in the `Makefile` and should be re-checked if the model changes.
 - **Example chart:** the "wearing wheel bearing" chart is a static drawing made from `fixtures/active_work_order/robot_P2-02.json`. It's simulated example data and is labelled that way on the page. Keep that label.
 
 ## Publishing

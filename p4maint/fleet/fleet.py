@@ -6,29 +6,69 @@ and writes ROBOT_STATUS_CHANGED to the event log), keep the mission roster cover
 and pick a replacement from the standby pool using config/dispatch.json
 standby_selection. Every decision is written to the event log with the reason.
 
-STATUS: stubs. This is Mission 6 logic for the team to write.
+STATUS: building and updating the fleet state is done (the dashboard needs it). The
+decisions - set_robot_status, select_standby, swap_in_standby - are Mission 6 stubs.
 """
 
+import json
+from datetime import datetime, timedelta
 from pathlib import Path
 
 from p4maint.eventlog.log import EventLog
+from schemas.validate import validate
+
+
+def _iso(start_time_utc: str, t_s: float) -> str:
+    start = datetime.strptime(start_time_utc, "%Y-%m-%dT%H:%M:%SZ")
+    return (start + timedelta(seconds=t_s)).strftime("%Y-%m-%dT%H:%M:%SZ")
 
 
 def initial_fleet_state(scenario: dict) -> dict:
     """fleet_state at t = 0 from the scenario's robots and missions.
     Health starts UNKNOWN with score null until the first snapshot arrives."""
-    raise NotImplementedError("initial_fleet_state")
+    robots = []
+    for robot in scenario["robots"]:
+        robots.append({
+            "robot_id": robot["robot_id"], "robot_type": robot["robot_type"],
+            "status": robot["initial_status"], "status_since_t_s": 0, "mission_id": robot["mission_id"],
+            "health_status": "UNKNOWN", "health_score": None, "soc_pct": robot["initial_soc_pct"],
+            "location": dict(robot["location"]), "standby": False, "open_work_order_id": None,
+        })
+    missions = []
+    for mission in scenario["missions"]:
+        assigned = [r["robot_id"] for r in robots if r["mission_id"] == mission["mission_id"] and r["status"] == "ACTIVE"]
+        missions.append({"mission_id": mission["mission_id"], "label": mission["label"],
+                         "assigned_robot_id": assigned[0] if assigned else None, "covered": bool(assigned)})
+    start = scenario["start_time_utc"]
+    return {"schema_version": "1.0.0", "t_s": 0, "generated_at": _iso(start, 0), "robots": robots, "missions": missions}
 
 
 def get_robot(fleet_state: dict, robot_id: str) -> dict:
     """This robot's entry in fleet_state["robots"]. Raises KeyError if absent."""
-    raise NotImplementedError("get_robot")
+    for robot in fleet_state["robots"]:
+        if robot["robot_id"] == robot_id:
+            return robot
+    raise KeyError(f"No robot {robot_id} in the fleet")
 
 
 def update_health(fleet_state: dict, snapshot: dict, dispatch_cfg: dict) -> None:
     """Copy status, score and SOC from a health snapshot into the robot's entry and
-    recompute its standby flag (STANDBY + NORMAL health + SOC >= min_soc_pct)."""
-    raise NotImplementedError("update_health")
+    recompute its standby flag (STANDBY + NORMAL health + SOC >= min_soc_pct). Also moves
+    the fleet state's clock to the snapshot's time."""
+    robot = get_robot(fleet_state, snapshot["robot_id"])
+    robot["health_status"] = snapshot["status"]
+    robot["health_score"] = snapshot["health_score"]
+    for subsystem in snapshot["subsystems"]:
+        for component in subsystem["components"]:
+            for channel in component["channels"]:
+                if channel["channel"] == "battery_soc_pct" and channel["value"] is not None:
+                    robot["soc_pct"] = round(channel["value"], 1)
+    rule = dispatch_cfg["standby_selection"]
+    robot["standby"] = (robot["status"] in rule["eligible_statuses"]
+                        and robot["health_status"] == rule["require_health_status"]
+                        and robot["soc_pct"] is not None and robot["soc_pct"] >= rule["min_soc_pct"])
+    fleet_state["t_s"] = snapshot["t_s"]
+    fleet_state["generated_at"] = snapshot["timestamp"]
 
 
 def set_robot_status(fleet_state: dict, robot_id: str, new_status: str, now_t_s: int, reason: str,
@@ -57,4 +97,8 @@ def swap_in_standby(fleet_state: dict, failing_robot_id: str, now_t_s: int, disp
 
 def save_fleet_state(fleet_state: dict, folder: Path) -> Path:
     """Validate, then write <folder>/fleet_state.json. Returns the path."""
-    raise NotImplementedError("save_fleet_state")
+    validate(fleet_state, "fleet_state")
+    path = Path(folder) / "fleet_state.json"
+    path.parent.mkdir(parents=True, exist_ok=True)
+    path.write_text(json.dumps(fleet_state, indent=2) + "\n")
+    return path

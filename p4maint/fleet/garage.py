@@ -6,15 +6,28 @@ first, then soonest predicted failure, then oldest), reserve a bay when one is f
 admit robots that arrive, and release them when repair is done. Garage capacity is
 limited (dispatch.json garage.capacity, scenario may override).
 
-STATUS: stubs.
+STATUS: new_garage and save_garage are done (the dashboard needs them); queueing,
+reserving, admitting and releasing are Mission 6 stubs.
 """
 
+import json
+from datetime import datetime, timedelta
 from pathlib import Path
+
+from schemas.validate import validate
 
 
 def new_garage(dispatch_cfg: dict, capacity: int | None, now_t_s: int, start_time_utc: str) -> dict:
-    """Empty garage_queue with `capacity` EMPTY bays named BAY-1, BAY-2, ..."""
-    raise NotImplementedError("new_garage")
+    """Empty garage_queue with `capacity` EMPTY bays named BAY-1, BAY-2, ...
+    capacity None -> config/dispatch.json garage.capacity."""
+    settings = dispatch_cfg["garage"]
+    capacity = capacity or settings["capacity"]
+    start = datetime.strptime(start_time_utc, "%Y-%m-%dT%H:%M:%SZ")
+    bays = [{"bay_id": f"BAY-{n}", "state": "EMPTY", "robot_id": None, "work_order_id": None,
+             "since_t_s": None, "est_release_t_s": None} for n in range(1, capacity + 1)]
+    return {"schema_version": "1.0.0", "garage_id": settings["garage_id"], "t_s": now_t_s,
+            "generated_at": (start + timedelta(seconds=now_t_s)).strftime("%Y-%m-%dT%H:%M:%SZ"),
+            "capacity": capacity, "bays": bays, "queue": []}
 
 
 def enqueue(garage: dict, work_order: dict, now_t_s: int, dispatch_cfg: dict) -> None:
@@ -47,4 +60,8 @@ def release(garage: dict, robot_id: str) -> str:
 
 def save_garage(garage: dict, folder: Path) -> Path:
     """Validate, then write <folder>/garage_queue.json. Returns the path."""
-    raise NotImplementedError("save_garage")
+    validate(garage, "garage_queue")
+    path = Path(folder) / "garage_queue.json"
+    path.parent.mkdir(parents=True, exist_ok=True)
+    path.write_text(json.dumps(garage, indent=2) + "\n")
+    return path

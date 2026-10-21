@@ -1,0 +1,23 @@
+{
+  "schema_version": "1.0.0",
+  "feed_type": "index",
+  "run_id": "bearing_wear_p2_02__seed20270302",
+  "scenario_id": "bearing_wear_p2_02",
+  "label": "Generated run: bearing_wear_p2_02 (seed 20270302, open loop)",
+  "is_fixture": false,
+  "t_s": 10679,
+  "sim_time": "2027-03-01T02:57:59Z",
+  "generated_at": "2026-10-21T02:48:33Z",
+  "files": {
+    "fleet_board": "fleet_board.json",
+    "alerts": "alerts.json",
+    "work_orders": "work_orders.json",
+    "robots": {
+      "P2-01": "robot_P2-01.json",
+      "P2-02": "robot_P2-02.json",
+      "P2-03": "robot_P2-03.json",
+      "P2-04": "robot_P2-04.json",
+      "P2-05": "robot_P2-05.json"
+    }
+  }
+}

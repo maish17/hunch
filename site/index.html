@@ -9,7 +9,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,400..800&display=swap">
-  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="style.css?v=2026-10-21">
 </head>
 <body>
 
@@ -99,13 +99,13 @@
       <figure class="example">
         <figcaption>
           <h3>Example: a wearing wheel bearing</h3>
-          <p>One wheel on rover P2-02 slowly runs hotter than the matching wheel on its other side. Respite catches the trend, sends the rover in for repair and puts a backup on its route, before the bearing would fail.</p>
-          <p class="small-print">Simulated example data, used to design the system. Not a test result.</p>
+          <p>One wheel on rover P2-02 slowly runs hotter than the matching wheel on its other side. Respite noticed the trend, named the cause as a worn bearing, and warned 34 minutes before the bearing failed.</p>
+          <p class="small-print">Real output from Respite on simulated rover data (one simulated run). Not yet tested on real hardware.</p>
         </figcaption>
         <div class="chart-scroll">
         <svg class="example-chart" viewBox="0 0 960 360" role="img" aria-labelledby="chart-title chart-desc">
         <title id="chart-title">Front-left wheel temperature compared with its healthy twin</title>
-        <desc id="chart-desc">Simulated example data. The front-left wheel drive gets steadily hotter than the front-right one. Respite flags it at 2 hours 55 minutes, about 35 minutes before the simulated failure at 3 hours 30 minutes.</desc>
+        <desc id="chart-desc">Simulated data from our generator, analysed by Respite. The front-left wheel drive gets steadily hotter than the front-right one. Respite issued its first early warning at 2 hours 56 minutes, 34 minutes before the simulated failure at 3 hours 30 minutes.</desc>
         <line class="grid" x1="48" x2="944" y1="289.5" y2="289.5"/><text class="tick" x="40" y="293.5" text-anchor="end">20°C</text>
         <line class="grid" x1="48" x2="944" y1="183.3" y2="183.3"/><text class="tick" x="40" y="187.3" text-anchor="end">40°C</text>
         <line class="grid" x1="48" x2="944" y1="77.1" y2="77.1"/><text class="tick" x="40" y="81.1" text-anchor="end">60°C</text>
@@ -116,15 +116,14 @@
         <text class="tick" x="944" y="358" text-anchor="end">hours into the mission</text>
         <rect class="zone" x="816.0" y="24" width="128.0" height="292"/>
         <line class="zone-edge" x1="816.0" x2="816.0" y1="24" y2="316"/>
-        <text class="note" x="828.0" y="46">Bearing</text><text class="note" x="828.0" y="64">would fail</text>
-        <path class="line-twin" d="M48.0 234.9 L56.5 240.0 L65.1 245.4 L73.6 248.4 L82.1 242.0 L90.7 236.4 L99.2 228.9 L107.7 222.7 L116.3 217.5 L124.8 212.7 L133.3 208.3 L141.9 205.8 L150.4 201.8 L158.9 197.7 L167.5 195.1 L176.0 191.7 L184.5 190.6 L193.1 188.4 L201.6 188.1 L210.1 185.1 L218.7 183.0 L227.2 182.2 L235.7 180.9 L244.3 178.5 L252.8 179.1 L261.3 177.1 L269.9 177.3 L278.4 174.5 L286.9 175.2 L295.5 186.0 L304.0 197.7 L312.5 205.3 L321.1 212.7 L329.6 214.0 L338.1 214.2 L346.7 215.8 L355.2 213.5 L363.7 214.6 L372.3 215.2 L380.8 214.4 L389.3 216.4 L397.9 215.2 L406.4 216.3 L414.9 214.9 L423.5 215.3 L432.0 214.4 L440.5 215.6 L449.1 215.4 L457.6 217.0 L466.1 215.6 L474.7 216.3 L483.2 215.2 L491.7 215.4 L500.3 217.6 L508.8 218.0 L517.3 214.6 L525.9 215.1 L534.4 215.9 L542.9 216.3 L551.5 217.7 L560.0 216.3 L568.5 217.5 L577.1 216.2 L585.6 215.8 L594.1 216.9 L602.7 215.8 L611.2 216.0 L619.7 216.5 L628.3 216.7 L636.8 214.8 L645.3 216.6"/>
-        <path class="line-hot" d="M48.0 222.2 L56.5 229.3 L65.1 235.7 L73.6 241.4 L82.1 231.5 L90.7 222.6 L99.2 212.6 L107.7 206.4 L116.3 200.4 L124.8 194.3 L133.3 188.5 L141.9 182.0 L150.4 178.4 L158.9 171.9 L167.5 169.3 L176.0 164.9 L184.5 161.6 L193.1 160.5 L201.6 155.0 L210.1 153.3 L218.7 149.7 L227.2 148.4 L235.7 145.0 L244.3 141.1 L252.8 139.4 L261.3 137.5 L269.9 137.6 L278.4 132.7 L286.9 132.4 L295.5 147.6 L304.0 160.0 L312.5 174.3 L321.1 182.4 L329.6 180.8 L338.1 179.8 L346.7 176.7 L355.2 172.5 L363.7 173.3 L372.3 170.5 L380.8 167.3 L389.3 165.1 L397.9 161.0 L406.4 162.2 L414.9 160.4 L423.5 156.1 L432.0 155.1 L440.5 153.4 L449.1 153.1 L457.6 149.4 L466.1 149.7 L474.7 146.7 L483.2 145.2 L491.7 145.4 L500.3 142.7 L508.8 139.9 L517.3 138.3 L525.9 137.7 L534.4 134.9 L542.9 134.7 L551.5 132.0 L560.0 132.0 L568.5 129.9 L577.1 128.1 L585.6 125.8 L594.1 123.0 L602.7 121.9 L611.2 121.2 L619.7 118.5 L628.3 117.2 L636.8 116.1 L645.3 114.8"/>
-        <path class="line-proj" d="M645.3 114.8 L816.0 84.9"/>
-        <line class="flag" x1="517.3" x2="517.3" y1="24" y2="316"/>
-        <text class="note" x="507.3" y="46" text-anchor="end">Respite flags it</text>
-        <text class="note sub" x="507.3" y="64" text-anchor="end">and sends a backup</text>
-        <text class="label-hot" x="645.3" y="140.8" text-anchor="end">Front-left wheel</text>
-        <text class="label-twin" x="346.7" y="241.8" text-anchor="middle">Front-right wheel (healthy)</text>
+        <text class="note" x="828.0" y="46">Bearing</text><text class="note" x="828.0" y="64">fails</text>
+        <path class="line-twin" d="M48.0 232.5 L56.5 236.7 L65.1 241.9 L73.6 246.1 L82.1 244.3 L90.7 238.9 L99.2 232.4 L107.7 226.4 L116.3 221.0 L124.8 215.7 L133.3 211.3 L141.9 207.2 L150.4 203.7 L158.9 200.0 L167.5 196.7 L176.0 194.5 L184.5 192.5 L193.1 190.0 L201.6 188.3 L210.1 186.4 L218.7 185.1 L227.2 183.4 L235.7 181.8 L244.3 180.4 L252.8 179.5 L261.3 178.4 L269.9 177.7 L278.4 177.3 L286.9 176.5 L295.5 183.3 L304.0 190.8 L312.5 200.2 L321.1 208.6 L329.6 213.7 L338.1 213.5 L346.7 213.6 L355.2 214.4 L363.7 214.4 L372.3 214.5 L380.8 214.8 L389.3 215.1 L397.9 215.3 L406.4 215.8 L414.9 215.7 L423.5 215.9 L432.0 215.7 L440.5 216.2 L449.1 216.6 L457.6 217.0 L466.1 217.4 L474.7 217.6 L483.2 217.7 L491.7 217.8 L500.3 217.4 L508.8 217.7 L517.3 217.5 L525.9 217.8 L534.4 217.6 L542.9 222.2 L551.5 227.0 L560.0 234.5 L568.5 238.6 L577.1 243.3 L585.6 247.6 L594.1 245.3 L602.7 239.4 L611.2 232.1 L619.7 225.7 L628.3 221.2 L636.8 216.3 L645.3 211.3 L653.9 207.8 L662.4 204.2 L670.9 200.6 L679.5 197.4 L688.0 194.7 L696.5 191.8 L705.1 190.0 L713.6 188.1 L722.1 186.1 L730.7 184.0 L739.2 182.3 L747.7 180.9 L756.3 179.2 L764.8 177.9 L773.3 176.8 L781.9 175.9 L790.4 174.9 L798.9 174.6 L807.5 181.4 L816.0 189.0"/>
+        <path class="line-hot" d="M48.0 220.5 L56.5 225.5 L65.1 231.9 L73.6 237.2 L82.1 234.2 L90.7 227.1 L99.2 218.3 L107.7 211.1 L116.3 203.5 L124.8 197.7 L133.3 192.1 L141.9 186.0 L150.4 180.6 L158.9 176.1 L167.5 172.0 L176.0 167.9 L184.5 164.0 L193.1 160.0 L201.6 157.2 L210.1 153.8 L218.7 151.0 L227.2 148.8 L235.7 145.6 L244.3 143.1 L252.8 141.0 L261.3 138.7 L269.9 135.8 L278.4 133.4 L286.9 131.8 L295.5 140.3 L304.0 150.8 L312.5 164.2 L321.1 176.0 L329.6 181.2 L338.1 179.3 L346.7 176.5 L355.2 174.3 L363.7 172.1 L372.3 169.9 L380.8 167.8 L389.3 166.0 L397.9 164.0 L406.4 162.3 L414.9 160.5 L423.5 158.8 L432.0 156.4 L440.5 154.2 L449.1 152.7 L457.6 150.9 L466.1 148.9 L474.7 147.5 L483.2 145.9 L491.7 144.0 L500.3 142.2 L508.8 140.7 L517.3 138.6 L525.9 136.4 L534.4 134.4 L542.9 142.6 L551.5 153.2 L560.0 169.0 L568.5 178.1 L577.1 188.5 L585.6 197.9 L594.1 195.2 L602.7 184.4 L611.2 171.8 L619.7 159.6 L628.3 148.7 L636.8 139.0 L645.3 130.3 L653.9 121.8 L662.4 113.7 L670.9 105.9 L679.5 99.0 L688.0 92.4 L696.5 87.1 L705.1 82.1 L713.6 77.4 L722.1 73.3 L730.7 68.6 L739.2 64.5 L747.7 60.3 L756.3 56.8 L764.8 53.0 L773.3 50.1 L781.9 46.4 L790.4 42.8 L798.9 39.5 L807.5 53.3 L816.0 69.8"/>
+        <line class="flag" x1="525.7" x2="525.7" y1="24" y2="316"/>
+        <text class="note" x="515.7" y="46" text-anchor="end">Respite warns</text>
+        <text class="note sub" x="515.7" y="64" text-anchor="end">34 min early</text>
+        <text class="label-hot" x="218.7" y="123.0" text-anchor="middle">Front-left wheel</text>
+        <text class="label-twin" x="218.7" y="211.1" text-anchor="middle">Front-right wheel (healthy)</text>
         </svg>
         </div>
       </figure>
@@ -135,13 +134,13 @@
     <div class="wrap">
       <div class="demo-intro">
         <h2 style="margin-bottom: 0;">Try the dashboard</h2>
-        <p>This is the team's real dashboard. Click a rover to see its readings against their safe limits, or open Work orders to see the repair queue. Switch examples with the menu at the top.</p>
+        <p>This is the team's real dashboard showing real output from Respite. Each run in the menu is simulated rover data that Respite analysed, shown a few minutes after its first early warning. Click a rover to see its readings against their safe limits.</p>
       </div>
       <div class="demo-frame">
         <iframe src="demo/" title="Respite fleet dashboard demo" loading="lazy"></iframe>
       </div>
       <div class="demo-note">
-        <span>The dashboard works now. The data is simulated while the data generator and model are being built.</span>
+        <span>All data is simulated. Work orders and backup dispatch are still being built, so the repair queue is shown with a hand-made example ("Robot in for repair").</span>
         <a href="demo/" target="_blank" rel="noopener">Open full screen</a>
       </div>
     </div>
@@ -166,28 +165,31 @@
       <div class="progress">
         <div class="stage">
           <p class="when">Done</p>
-          <h3>Design</h3>
+          <h3>Design and data</h3>
           <ul>
             <li>What each rover measures, and the four fault types we target</li>
             <li>How rovers move between active duty, repair and standby</li>
             <li>Data formats for every part of the system, with example data</li>
             <li>The dashboard demo above</li>
             <li>A test plan for each of the six HUNCH missions</li>
+            <li>Mock data generator: physics-based rover telemetry with faults we plant, repeatable from a seed</li>
+            <li>Health checks and automatic alerts on the generated data, with no false alarms on a healthy two-hour run</li>
+            <li>Trend predictions and fault diagnosis. In our simulated tests, each of the four fault types was predicted 34 to 56 minutes before it would fail, and named correctly</li>
+            <li>The dashboard running on real output from the model</li>
           </ul>
         </div>
         <div class="stage now">
           <p class="when">Now, through PDR (mid-October 2026)</p>
           <h3>Build</h3>
           <ul>
-            <li>Mock data generator: simulated rover telemetry with faults we control</li>
-            <li>Real-time model: health checks and trend predictions on live data</li>
+            <li>Work orders for the repair garage</li>
+            <li>Backup dispatch: a standby rover takes over the job</li>
           </ul>
         </div>
         <div class="stage">
           <p class="when">Planned, toward CDR (mid-February 2027)</p>
           <h3>Connect</h3>
           <ul>
-            <li>Fault diagnosis, work orders and backup dispatch running on generated data</li>
             <li>Refine the design based on PDR feedback</li>
           </ul>
         </div>
@@ -200,20 +202,17 @@
       <h2>The team</h2>
       <ul class="team">
         <li>
-          <!-- Replace with a real photo: put max.jpg in site/assets/team/ and change src to assets/team/max.jpg -->
-          <img src="assets/team/placeholder.svg" alt="Max Moyle" width="400" height="400">
+          <img src="assets/team/max.jpg" alt="Portrait of Max Moyle" width="800" height="800" loading="lazy">
           <h3>Max Moyle</h3>
           <p>Team lead, lead programmer, quantitative analyst</p>
         </li>
         <li>
-          <!-- Replace with a real photo: put diego.jpg in site/assets/team/ and change src to assets/team/diego.jpg -->
-          <img src="assets/team/placeholder.svg" alt="Diego delRio" width="400" height="400">
+          <img src="assets/team/diego.jpg" alt="Portrait of Diego delRio" width="800" height="800" loading="lazy">
           <h3>Diego delRio</h3>
           <p>Design lead, artistic coordinator, frontend developer</p>
         </li>
         <li>
-          <!-- Replace with a real photo: put benjamin.jpg in site/assets/team/ and change src to assets/team/benjamin.jpg -->
-          <img src="assets/team/placeholder.svg" alt="Benjamin Lu" width="400" height="400">
+          <img src="assets/team/benjamin.jpg" alt="Portrait of Benjamin Lu" width="800" height="800" loading="lazy">
           <h3>Benjamin Lu</h3>
           <p>Database manager, data scientist, testing coordinator</p>
         </li>
